@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "dye_depot",
-	"version": "${version}",
+	"version": "1.0.0",
 	"name": "Dye Depot",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
@@ -9,10 +9,11 @@
 		"Ninni"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/N1nn1/dye-depot"
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/dye_depot",
+		"sources": "https://github.com/N1nn1/dye_depot"
 	},
 	"license": "CC0-1.0",
+	"accessWidener" : "dye_depot.accesswidener",
 	"icon": "assets/dye_depot/icon.png",
 	"environment": "*",
 	"entrypoints": {

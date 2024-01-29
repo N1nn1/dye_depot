@@ -4,11 +4,30 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
+//TODO MapColors
 public enum DDDyes implements StringRepresentable {
-    INDIGO(16, "indigo", 0x331E57, MapColor.TERRACOTTA_PURPLE, 0x331E57, 0x331E57),
-    MAROON(17, "maroon", 0x7B2713, MapColor.TERRACOTTA_RED, 0x7B2713, 0x7B2713),
-    NAVY(18, "navy", 0x153D64, MapColor.TERRACOTTA_BLUE, 0x153D64, 0x153D64),
-    TEAL(19, "teal", 0x2F7B67, MapColor.TERRACOTTA_CYAN, 0x2F7B67, 0x2F7B67);
+    MAROON(16, "maroon", 0x7B2713, MapColor.NONE, 0x7B2713, 0x7B2713),
+    ROSE(17, "rose", 0xE05894, MapColor.NONE, 0xE05894, 0xE05894),
+    CORAL(18, "coral", 0xDF7758, MapColor.NONE, 0xDF7758, 0xDF7758),
+
+    INDIGO(19, "indigo", 0x331E57, MapColor.NONE, 0x331E57, 0x331E57),
+
+    NAVY(20, "navy", 0x153D64, MapColor.NONE, 0x153D64, 0x153D64),
+    SLATE(21, "slate", 0x4C5E86, MapColor.NONE, 0x4C5E86, 0x4C5E86),
+
+    OLIVE(22, "olive", 0x969421, MapColor.NONE, 0x969421, 0x969421),
+    AMBER(23, "amber", 0xD7AF00, MapColor.NONE, 0xD7AF00, 0xD7AF00),
+    BEIGE(24, "beige", 0xFFE3AE, MapColor.NONE, 0xFFE3AE, 0xFFE3AE),
+
+    TEAL(25, "teal", 0x2F7B67, MapColor.NONE, 0x2F7B67, 0x2F7B67),
+    TURQUOISE(26, "turquoise", 0x38CE7D, MapColor.NONE, 0x38CE7D, 0x38CE7D),
+    AQUA(27, "aqua", 0x79E8EB, MapColor.NONE, 0x79E8EB, 0x79E8EB),
+
+    VERDANT(28, "verdant", 0x234d15, MapColor.NONE, 0x234d15, 0x234d15),
+    FOREST(29, "forest", 0x339A34, MapColor.NONE, 0x339A34, 0x339A34),
+
+    GINGER(30, "ginger", 0xE15D00, MapColor.NONE, 0xE15D00, 0xE15D00),
+    TAN(31, "tan", 0xDDA562, MapColor.NONE, 0xDDA562, 0xDDA562);
 
     private final int id;
     private final String name;

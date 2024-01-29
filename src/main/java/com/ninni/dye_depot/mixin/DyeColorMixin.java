@@ -29,7 +29,7 @@ public class DyeColorMixin {
     }
 
     @Inject(method = "<clinit>", at = @At(value = "FIELD", target = "Lnet/minecraft/world/item/DyeColor;$VALUES:[Lnet/minecraft/world/item/DyeColor;", shift = At.Shift.AFTER))
-    private static void US$addCustomColor(CallbackInfo ci) {
+    private static void DD$addCustomColor(CallbackInfo ci) {
         List<DyeColor> dyeColors = new ArrayList<>(Arrays.asList($VALUES));
         DyeColor last = dyeColors.get(dyeColors.size() - 1);
         int i = 1;

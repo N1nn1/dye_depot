@@ -17,7 +17,6 @@ public class DDVanillaIntegration {
 
     //server methods
     public static void addResourcePacks() {
-
         ModContainer modContainer = FabricLoader.getInstance().getModContainer(DyeDepot.MOD_ID).orElseThrow(() -> new IllegalStateException("Dye Depot's ModContainer couldn't be found!"));
         ResourceManagerHelper.registerBuiltinResourcePack(new ResourceLocation(DyeDepot.MOD_ID, "dye_override"), modContainer, "Dye Override", ResourcePackActivationType.DEFAULT_ENABLED);
     }

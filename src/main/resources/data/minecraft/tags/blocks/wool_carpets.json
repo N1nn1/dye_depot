@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_carpet",
+    "dye_depot:rose_carpet",
+    "dye_depot:coral_carpet",
+    "dye_depot:indigo_carpet",
+    "dye_depot:navy_carpet",
+    "dye_depot:slate_carpet",
+    "dye_depot:olive_carpet",
+    "dye_depot:amber_carpet",
+    "dye_depot:beige_carpet",
+    "dye_depot:teal_carpet",
+    "dye_depot:turquoise_carpet",
+    "dye_depot:aqua_carpet",
+    "dye_depot:verdant_carpet",
+    "dye_depot:forest_carpet",
+    "dye_depot:ginger_carpet",
+    "dye_depot:tan_carpet"
+  ]
+}

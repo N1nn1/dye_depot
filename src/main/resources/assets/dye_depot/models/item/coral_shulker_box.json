@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_shulker_box",
+  "textures": {
+    "particle": "dye_depot:block/coral_shulker_box"
+  }
+}
