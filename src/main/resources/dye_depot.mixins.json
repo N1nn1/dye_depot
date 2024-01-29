@@ -1,12 +1,13 @@
 {
-	"required": true,
-	"package": "com.ninni.dye_depot.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-	],
-	"client": [
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.ninni.dye_depot.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "DyeColorMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
