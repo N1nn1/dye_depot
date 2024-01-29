@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dye_depot:block/indigo_concrete_powder"
+      },
+      {
+        "model": "dye_depot:block/indigo_concrete_powder",
+        "y": 90
+      },
+      {
+        "model": "dye_depot:block/indigo_concrete_powder",
+        "y": 180
+      },
+      {
+        "model": "dye_depot:block/indigo_concrete_powder",
+        "y": 270
+      }
+    ]
+  }
+}
