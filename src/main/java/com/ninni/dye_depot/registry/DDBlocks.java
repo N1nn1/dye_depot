@@ -21,8 +21,6 @@ import net.minecraft.world.level.material.PushReaction;
 @SuppressWarnings("unused")
 public class DDBlocks {
 
-    //TODO MapColors
-
     public static final Block MAROON_WOOL = register("maroon_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.MAROON.getMapColor())));
     public static final Block ROSE_WOOL = register("rose_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.ROSE.getMapColor())));
     public static final Block CORAL_WOOL = register("coral_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.CORAL.getMapColor())));
@@ -74,39 +72,39 @@ public class DDBlocks {
     public static final Block GINGER_TERRACOTTA = register("ginger_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.GINGER.getMapColor())));
     public static final Block TAN_TERRACOTTA = register("tan_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.TAN.getMapColor())));
 
-    public static final Block MAROON_CONCRETE = register("maroon_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_CONCRETE = register("rose_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_CONCRETE = register("coral_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.CORAL.getMapColor())));
-    public static final Block INDIGO_CONCRETE = register("indigo_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.INDIGO.getMapColor())));
-    public static final Block NAVY_CONCRETE = register("navy_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.NAVY.getMapColor())));
-    public static final Block SLATE_CONCRETE = register("slate_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.SLATE.getMapColor())));
-    public static final Block OLIVE_CONCRETE = register("olive_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.OLIVE.getMapColor())));
-    public static final Block AMBER_CONCRETE = register("amber_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AMBER.getMapColor())));
-    public static final Block BEIGE_CONCRETE = register("beige_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.BEIGE.getMapColor())));
-    public static final Block TEAL_CONCRETE = register("teal_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block MINT_CONCRETE = register("mint_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.MINT.getMapColor())));
-    public static final Block AQUA_CONCRETE = register("aqua_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AQUA.getMapColor())));
-    public static final Block VERDANT_CONCRETE = register("verdant_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.VERDANT.getMapColor())));
-    public static final Block FOREST_CONCRETE = register("forest_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.FOREST.getMapColor())));
-    public static final Block GINGER_CONCRETE = register("ginger_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.GINGER.getMapColor())));
-    public static final Block TAN_CONCRETE = register("tan_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TAN.getMapColor())));
+    public static final Block MAROON_CONCRETE = register("maroon_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.CRIMSON_HYPHAE)));
+    public static final Block ROSE_CONCRETE = register("rose_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.COLOR_RED)));
+    public static final Block CORAL_CONCRETE = register("coral_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.PODZOL)));
+    public static final Block INDIGO_CONCRETE = register("indigo_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.WARPED_HYPHAE)));
+    public static final Block NAVY_CONCRETE = register("navy_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.TERRACOTTA_BLACK)));
+    public static final Block SLATE_CONCRETE = register("slate_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.COLOR_GRAY)));
+    public static final Block OLIVE_CONCRETE = register("olive_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.COLOR_BROWN)));
+    public static final Block AMBER_CONCRETE = register("amber_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.WOOD)));
+    public static final Block BEIGE_CONCRETE = register("beige_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final Block TEAL_CONCRETE = register("teal_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.COLOR_GRAY)));
+    public static final Block MINT_CONCRETE = register("mint_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.DEEPSLATE)));
+    public static final Block AQUA_CONCRETE = register("aqua_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.WARPED_WART_BLOCK)));
+    public static final Block VERDANT_CONCRETE = register("verdant_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.TERRACOTTA_BLACK)));
+    public static final Block FOREST_CONCRETE = register("forest_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.COLOR_GREEN)));
+    public static final Block GINGER_CONCRETE = register("ginger_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.NETHER)));
+    public static final Block TAN_CONCRETE = register("tan_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.DIRT)));
 
     public static final Block MAROON_CONCRETE_POWDER = register("maroon_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_CONCRETE_POWDER = register("rose_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_CONCRETE_POWDER = register("coral_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.CORAL.getMapColor())));
-    public static final Block INDIGO_CONCRETE_POWDER = register("indigo_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.INDIGO.getMapColor())));
-    public static final Block NAVY_CONCRETE_POWDER = register("navy_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.NAVY.getMapColor())));
-    public static final Block SLATE_CONCRETE_POWDER = register("slate_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.SLATE.getMapColor())));
-    public static final Block OLIVE_CONCRETE_POWDER = register("olive_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.OLIVE.getMapColor())));
-    public static final Block AMBER_CONCRETE_POWDER = register("amber_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.AMBER.getMapColor())));
-    public static final Block BEIGE_CONCRETE_POWDER = register("beige_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.BEIGE.getMapColor())));
-    public static final Block TEAL_CONCRETE_POWDER = register("teal_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block MINT_CONCRETE_POWDER = register("mint_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.MINT.getMapColor())));
-    public static final Block AQUA_CONCRETE_POWDER = register("aqua_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.AQUA.getMapColor())));
-    public static final Block VERDANT_CONCRETE_POWDER = register("verdant_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.VERDANT.getMapColor())));
-    public static final Block FOREST_CONCRETE_POWDER = register("forest_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.FOREST.getMapColor())));
-    public static final Block GINGER_CONCRETE_POWDER = register("ginger_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.GINGER.getMapColor())));
-    public static final Block TAN_CONCRETE_POWDER = register("tan_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.TAN.getMapColor())));
+    public static final Block ROSE_CONCRETE_POWDER = register("rose_concrete_powder", new ConcretePowderBlock(ROSE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.ROSE.getMapColor())));
+    public static final Block CORAL_CONCRETE_POWDER = register("coral_concrete_powder", new ConcretePowderBlock(CORAL_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block INDIGO_CONCRETE_POWDER = register("indigo_concrete_powder", new ConcretePowderBlock(INDIGO_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.INDIGO.getMapColor())));
+    public static final Block NAVY_CONCRETE_POWDER = register("navy_concrete_powder", new ConcretePowderBlock(NAVY_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.NAVY.getMapColor())));
+    public static final Block SLATE_CONCRETE_POWDER = register("slate_concrete_powder", new ConcretePowderBlock(SLATE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.SLATE.getMapColor())));
+    public static final Block OLIVE_CONCRETE_POWDER = register("olive_concrete_powder", new ConcretePowderBlock(OLIVE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.OLIVE.getMapColor())));
+    public static final Block AMBER_CONCRETE_POWDER = register("amber_concrete_powder", new ConcretePowderBlock(AMBER_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.AMBER.getMapColor())));
+    public static final Block BEIGE_CONCRETE_POWDER = register("beige_concrete_powder", new ConcretePowderBlock(BEIGE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.BEIGE.getMapColor())));
+    public static final Block TEAL_CONCRETE_POWDER = register("teal_concrete_powder", new ConcretePowderBlock(TEAL_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.TEAL.getMapColor())));
+    public static final Block MINT_CONCRETE_POWDER = register("mint_concrete_powder", new ConcretePowderBlock(MINT_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.MINT.getMapColor())));
+    public static final Block AQUA_CONCRETE_POWDER = register("aqua_concrete_powder", new ConcretePowderBlock(AQUA_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.AQUA.getMapColor())));
+    public static final Block VERDANT_CONCRETE_POWDER = register("verdant_concrete_powder", new ConcretePowderBlock(VERDANT_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.VERDANT.getMapColor())));
+    public static final Block FOREST_CONCRETE_POWDER = register("forest_concrete_powder", new ConcretePowderBlock(FOREST_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.FOREST.getMapColor())));
+    public static final Block GINGER_CONCRETE_POWDER = register("ginger_concrete_powder", new ConcretePowderBlock(GINGER_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.GINGER.getMapColor())));
+    public static final Block TAN_CONCRETE_POWDER = register("tan_concrete_powder", new ConcretePowderBlock(TAN_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.TAN.getMapColor())));
 
     public static final Block MAROON_GLAZED_TERRACOTTA = register("maroon_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.MAROON.getMapColor())));
     public static final Block ROSE_GLAZED_TERRACOTTA = register("rose_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.ROSE.getMapColor())));

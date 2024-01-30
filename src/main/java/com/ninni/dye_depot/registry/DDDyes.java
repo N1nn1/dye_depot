@@ -4,30 +4,29 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
-//TODO MapColors
 public enum DDDyes implements StringRepresentable {
-    MAROON(16, "maroon", 0x7B2713, MapColor.NONE, 0x7B2713, 0x7B2713),
-    ROSE(17, "rose", 0xD93D43, MapColor.NONE, 0xD93D43, 0xD93D43),
-    CORAL(18, "coral", 0xDF7758, MapColor.NONE, 0xDF7758, 0xDF7758),
+    MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
+    ROSE(17, "rose", 0xD93D43, MapColor.TERRACOTTA_MAGENTA, 0xD93D43, 0xD93D43),
+    CORAL(18, "coral", 0xDF7758, MapColor.RAW_IRON, 0xDF7758, 0xDF7758),
 
-    INDIGO(19, "indigo", 0x331E57, MapColor.NONE, 0x331E57, 0x331E57),
+    INDIGO(19, "indigo", 0x331E57, MapColor.TERRACOTTA_BLUE, 0x331E57, 0x331E57),
 
-    NAVY(20, "navy", 0x153D64, MapColor.NONE, 0x153D64, 0x153D64),
-    SLATE(21, "slate", 0x4C5E86, MapColor.NONE, 0x4C5E86, 0x4C5E86),
+    NAVY(20, "navy", 0x153D64, MapColor.COLOR_CYAN, 0x153D64, 0x153D64),
+    SLATE(21, "slate", 0x4C5E86, MapColor.WARPED_NYLIUM, 0x4C5E86, 0x4C5E86),
 
-    OLIVE(22, "olive", 0x8C8F2A, MapColor.NONE, 0x8C8F2A, 0x8C8F2A),
-    AMBER(23, "amber", 0xD7AF00, MapColor.NONE, 0xD7AF00, 0xD7AF00),
-    BEIGE(24, "beige", 0xE1D5A3, MapColor.NONE, 0xE1D5A3, 0xE1D5A3),
+    OLIVE(22, "olive", 0x8C8F2A, MapColor.TERRACOTTA_LIGHT_GREEN, 0x8C8F2A, 0x8C8F2A),
+    AMBER(23, "amber", 0xD7AF00, MapColor.WOOD, 0xD7AF00, 0xD7AF00),
+    BEIGE(24, "beige", 0xE1D5A3, MapColor.SAND, 0xE1D5A3, 0xE1D5A3),
 
-    TEAL(25, "teal", 0x2F7B67, MapColor.NONE, 0x2F7B67, 0x2F7B67),
-    MINT(26, "mint", 0x38CE7D, MapColor.NONE, 0x38CE7D, 0x38CE7D),
-    AQUA(27, "aqua", 0x5EF0CC, MapColor.NONE, 0x5EF0CC, 0x5EF0CC),
+    TEAL(25, "teal", 0x2F7B67, MapColor.TERRACOTTA_CYAN, 0x2F7B67, 0x2F7B67),
+    MINT(26, "mint", 0x38CE7D, MapColor.WARPED_WART_BLOCK, 0x38CE7D, 0x38CE7D),
+    AQUA(27, "aqua", 0x5EF0CC, MapColor.DIAMOND, 0x5EF0CC, 0x5EF0CC),
 
-    VERDANT(28, "verdant", 0x255714, MapColor.NONE, 0x255714, 0x255714),
-    FOREST(29, "forest", 0x32A326, MapColor.NONE, 0x32A326, 0x32A326),
+    VERDANT(28, "verdant", 0x255714, MapColor.TERRACOTTA_GREEN, 0x255714, 0x255714),
+    FOREST(29, "forest", 0x32A326, MapColor.EMERALD, 0x32A326, 0x32A326),
 
-    GINGER(30, "ginger", 0xCF6121, MapColor.NONE, 0xCF6121, 0xCF6121),
-    TAN(31, "tan", 0xF49C5D, MapColor.NONE, 0xF49C5D, 0xF49C5D);
+    GINGER(30, "ginger", 0xCF6121, MapColor.TERRACOTTA_ORANGE, 0xCF6121, 0xCF6121),
+    TAN(31, "tan", 0xF49C5D, MapColor.DIRT, 0xF49C5D, 0xF49C5D);
 
     private final int id;
     private final String name;
