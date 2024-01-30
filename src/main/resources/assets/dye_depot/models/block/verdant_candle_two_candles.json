@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_two_candles",
+  "textures": {
+    "all": "dye_depot:block/verdant_candle",
+    "particle": "dye_depot:block/verdant_candle"
+  }
+}

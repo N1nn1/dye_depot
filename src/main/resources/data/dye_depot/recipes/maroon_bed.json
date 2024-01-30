@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bed",
+  "key": {
+    "#": {
+      "item": "dye_depot:maroon_wool"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "XXX"
+  ],
+  "result": {
+    "item": "dye_depot:maroon_bed"
+  },
+  "show_notification": true
+}

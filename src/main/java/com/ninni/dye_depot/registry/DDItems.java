@@ -4,10 +4,7 @@ import com.ninni.dye_depot.DyeDepot;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BannerItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 
 public class DDItems {
 
@@ -215,6 +212,22 @@ public class DDItems {
     public static final Item GINGER_BANNER = register("ginger_banner", new BannerItem(DDBlocks.GINGER_BANNER,DDBlocks.GINGER_WALL_BANNER, new Item.Properties()));
     public static final Item TAN_BANNER = register("tan_banner", new BannerItem(DDBlocks.TAN_BANNER,DDBlocks.TAN_WALL_BANNER, new Item.Properties()));
 
+    public static final Item MAROON_BED = register("maroon_bed", new BedItem(DDBlocks.MAROON_BED, new Item.Properties().stacksTo(1)));
+    public static final Item ROSE_BED = register("rose_bed", new BedItem(DDBlocks.ROSE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item CORAL_BED = register("coral_bed", new BedItem(DDBlocks.CORAL_BED, new Item.Properties().stacksTo(1)));
+    public static final Item INDIGO_BED = register("indigo_bed", new BedItem(DDBlocks.INDIGO_BED, new Item.Properties().stacksTo(1)));
+    public static final Item NAVY_BED = register("navy_bed", new BedItem(DDBlocks.NAVY_BED, new Item.Properties().stacksTo(1)));
+    public static final Item SLATE_BED = register("slate_bed", new BedItem(DDBlocks.SLATE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item OLIVE_BED = register("olive_bed", new BedItem(DDBlocks.OLIVE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item AMBER_BED = register("amber_bed", new BedItem(DDBlocks.AMBER_BED, new Item.Properties().stacksTo(1)));
+    public static final Item BEIGE_BED = register("beige_bed", new BedItem(DDBlocks.BEIGE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item TEAL_BED = register("teal_bed", new BedItem(DDBlocks.TEAL_BED, new Item.Properties().stacksTo(1)));
+    public static final Item TURQUOISE_BED = register("turquoise_bed", new BedItem(DDBlocks.TURQUOISE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item AQUA_BED = register("aqua_bed", new BedItem(DDBlocks.AQUA_BED, new Item.Properties().stacksTo(1)));
+    public static final Item VERDANT_BED = register("verdant_bed", new BedItem(DDBlocks.VERDANT_BED, new Item.Properties().stacksTo(1)));
+    public static final Item FOREST_BED = register("forest_bed", new BedItem(DDBlocks.FOREST_BED, new Item.Properties().stacksTo(1)));
+    public static final Item GINGER_BED = register("ginger_bed", new BedItem(DDBlocks.GINGER_BED, new Item.Properties().stacksTo(1)));
+    public static final Item TAN_BED = register("tan_bed", new BedItem(DDBlocks.TAN_BED, new Item.Properties().stacksTo(1)));
 
     private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);

@@ -33,4 +33,23 @@ public class DDSheets {
             "tan"
     ).map((string) -> new Material(Sheets.SHULKER_SHEET, new ResourceLocation(DyeDepot.MOD_ID,"entity/shulker/shulker_" + string))).collect(ImmutableList.toImmutableList());
 
+    public static final List<Material> BED_TEXTURE_LOCATION = Stream.of(
+            "maroon",
+            "rose",
+            "coral",
+            "indigo",
+            "navy",
+            "slate",
+            "olive",
+            "amber",
+            "beige",
+            "teal",
+            "turquoise",
+            "aqua",
+            "verdant",
+            "forest",
+            "ginger",
+            "tan"
+    ).map((string) -> new Material(Sheets.BED_SHEET, new ResourceLocation(DyeDepot.MOD_ID,"entity/bed/" + string))).collect(ImmutableList.toImmutableList());
+
 }

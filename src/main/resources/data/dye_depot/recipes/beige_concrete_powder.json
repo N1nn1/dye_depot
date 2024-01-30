@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "concrete_powder",
+  "ingredients": [
+    {
+      "item": "dye_depot:beige_dye"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "dye_depot:beige_concrete_powder"
+  }
+}

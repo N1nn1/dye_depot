@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_three_candles",
+  "textures": {
+    "all": "dye_depot:block/olive_candle",
+    "particle": "dye_depot:block/olive_candle"
+  }
+}

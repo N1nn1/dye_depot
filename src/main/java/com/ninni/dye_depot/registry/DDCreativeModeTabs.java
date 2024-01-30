@@ -162,7 +162,84 @@ public class DDCreativeModeTabs {
             entries.addAfter(BLUE_SHULKER_BOX, SLATE_SHULKER_BOX, NAVY_SHULKER_BOX);
             entries.addBefore(PURPLE_SHULKER_BOX, INDIGO_SHULKER_BOX);
 
-            //TODO beds
+            entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
+            entries.addAfter(RED_BED, CORAL_BED);
+            entries.addBefore(ORANGE_BED, GINGER_BED);
+            entries.addAfter(ORANGE_BED, TAN_BED);
+            entries.addBefore(YELLOW_BED, BEIGE_BED);
+            entries.addAfter(YELLOW_BED, AMBER_BED, OLIVE_BED);
+            entries.addBefore(GREEN_BED, FOREST_BED);
+            entries.addAfter(GREEN_BED, VERDANT_BED);
+            entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
+            entries.addAfter(RED_BED, CORAL_BED);
+            entries.addBefore(CYAN_BED, TEAL_BED);
+            entries.addAfter(CYAN_BED, TURQUOISE_BED, AQUA_BED);
+            entries.addAfter(BLUE_BED, SLATE_BED, NAVY_BED);
+            entries.addBefore(PURPLE_BED, INDIGO_BED);
+
+            entries.addBefore(RED_CANDLE, MAROON_CANDLE, ROSE_CANDLE);
+            entries.addAfter(RED_CANDLE, CORAL_CANDLE);
+            entries.addBefore(ORANGE_CANDLE, GINGER_CANDLE);
+            entries.addAfter(ORANGE_CANDLE, TAN_CANDLE);
+            entries.addBefore(YELLOW_CANDLE, BEIGE_CANDLE);
+            entries.addAfter(YELLOW_CANDLE, AMBER_CANDLE, OLIVE_CANDLE);
+            entries.addBefore(GREEN_CANDLE, FOREST_CANDLE);
+            entries.addAfter(GREEN_CANDLE, VERDANT_CANDLE);
+            entries.addBefore(RED_CANDLE, MAROON_CANDLE, ROSE_CANDLE);
+            entries.addAfter(RED_CANDLE, CORAL_CANDLE);
+            entries.addBefore(CYAN_CANDLE, TEAL_CANDLE);
+            entries.addAfter(CYAN_CANDLE, TURQUOISE_CANDLE, AQUA_CANDLE);
+            entries.addAfter(BLUE_CANDLE, SLATE_CANDLE, NAVY_CANDLE);
+            entries.addBefore(PURPLE_CANDLE, INDIGO_CANDLE);
+
+            entries.addBefore(RED_BANNER, MAROON_BANNER, ROSE_BANNER);
+            entries.addAfter(RED_BANNER, CORAL_BANNER);
+            entries.addBefore(ORANGE_BANNER, GINGER_BANNER);
+            entries.addAfter(ORANGE_BANNER, TAN_BANNER);
+            entries.addBefore(YELLOW_BANNER, BEIGE_BANNER);
+            entries.addAfter(YELLOW_BANNER, AMBER_BANNER, OLIVE_BANNER);
+            entries.addBefore(GREEN_BANNER, FOREST_BANNER);
+            entries.addAfter(GREEN_BANNER, VERDANT_BANNER);
+            entries.addBefore(RED_BANNER, MAROON_BANNER, ROSE_BANNER);
+            entries.addAfter(RED_BANNER, CORAL_BANNER);
+            entries.addBefore(CYAN_BANNER, TEAL_BANNER);
+            entries.addAfter(CYAN_BANNER, TURQUOISE_BANNER, AQUA_BANNER);
+            entries.addAfter(BLUE_BANNER, SLATE_BANNER, NAVY_BANNER);
+            entries.addBefore(PURPLE_BANNER, INDIGO_BANNER);
+        });
+
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+
+            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
+            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
+            entries.addBefore(ORANGE_SHULKER_BOX, GINGER_SHULKER_BOX);
+            entries.addAfter(ORANGE_SHULKER_BOX, TAN_SHULKER_BOX);
+            entries.addBefore(YELLOW_SHULKER_BOX, BEIGE_SHULKER_BOX);
+            entries.addAfter(YELLOW_SHULKER_BOX, AMBER_SHULKER_BOX, OLIVE_SHULKER_BOX);
+            entries.addBefore(GREEN_SHULKER_BOX, FOREST_SHULKER_BOX);
+            entries.addAfter(GREEN_SHULKER_BOX, VERDANT_SHULKER_BOX);
+            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
+            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
+            entries.addBefore(CYAN_SHULKER_BOX, TEAL_SHULKER_BOX);
+            entries.addAfter(CYAN_SHULKER_BOX, TURQUOISE_SHULKER_BOX, AQUA_SHULKER_BOX);
+            entries.addAfter(BLUE_SHULKER_BOX, SLATE_SHULKER_BOX, NAVY_SHULKER_BOX);
+            entries.addBefore(PURPLE_SHULKER_BOX, INDIGO_SHULKER_BOX);
+
+            entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
+            entries.addAfter(RED_BED, CORAL_BED);
+            entries.addBefore(ORANGE_BED, GINGER_BED);
+            entries.addAfter(ORANGE_BED, TAN_BED);
+            entries.addBefore(YELLOW_BED, BEIGE_BED);
+            entries.addAfter(YELLOW_BED, AMBER_BED, OLIVE_BED);
+            entries.addBefore(GREEN_BED, FOREST_BED);
+            entries.addAfter(GREEN_BED, VERDANT_BED);
+            entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
+            entries.addAfter(RED_BED, CORAL_BED);
+            entries.addBefore(CYAN_BED, TEAL_BED);
+            entries.addAfter(CYAN_BED, TURQUOISE_BED, AQUA_BED);
+            entries.addAfter(BLUE_BED, SLATE_BED, NAVY_BED);
+            entries.addBefore(PURPLE_BED, INDIGO_BED);
 
             entries.addBefore(RED_CANDLE, MAROON_CANDLE, ROSE_CANDLE);
             entries.addAfter(RED_CANDLE, CORAL_CANDLE);

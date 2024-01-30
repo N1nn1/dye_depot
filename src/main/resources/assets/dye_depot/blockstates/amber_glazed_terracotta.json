@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dye_depot:block/teal_glazed_terracotta",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "dye_depot:block/teal_glazed_terracotta",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "dye_depot:block/teal_glazed_terracotta"
+    },
+    "facing=west": {
+      "model": "dye_depot:block/teal_glazed_terracotta",
+      "y": 90
+    }
+  }
+}

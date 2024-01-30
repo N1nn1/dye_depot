@@ -2,6 +2,7 @@ package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
+import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -33,7 +34,30 @@ public class DDBlockEntityType {
                     DDBlocks.TAN_SHULKER_BOX
             ).build(null)
     );
-    
+
+    public static final BlockEntityType<DDBedBlockEntity> BED = Registry.register(
+            BuiltInRegistries.BLOCK_ENTITY_TYPE,
+            new ResourceLocation(DyeDepot.MOD_ID, "bed"),
+            BlockEntityType.Builder.of(DDBedBlockEntity::new,
+                    DDBlocks.MAROON_BED,
+                    DDBlocks.ROSE_BED,
+                    DDBlocks.CORAL_BED,
+                    DDBlocks.INDIGO_BED,
+                    DDBlocks.NAVY_BED,
+                    DDBlocks.SLATE_BED,
+                    DDBlocks.OLIVE_BED,
+                    DDBlocks.AMBER_BED,
+                    DDBlocks.BEIGE_BED,
+                    DDBlocks.TEAL_BED,
+                    DDBlocks.TURQUOISE_BED,
+                    DDBlocks.AQUA_BED,
+                    DDBlocks.VERDANT_BED,
+                    DDBlocks.FOREST_BED,
+                    DDBlocks.GINGER_BED,
+                    DDBlocks.TAN_BED
+            ).build(null)
+    );
+
     public static final BlockEntityType<DDBannerBlockEntity> BANNER = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
             new ResourceLocation(DyeDepot.MOD_ID, "banner"),

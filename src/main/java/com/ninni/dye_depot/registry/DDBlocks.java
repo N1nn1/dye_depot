@@ -2,6 +2,7 @@ package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.DDBannerBlock;
+import com.ninni.dye_depot.block.DDBedBlock;
 import com.ninni.dye_depot.block.DDShulkerBoxBlock;
 import com.ninni.dye_depot.block.DDWallBannerBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -13,6 +14,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 @SuppressWarnings("unused")
@@ -240,8 +243,28 @@ public class DDBlocks {
     public static final Block GINGER_WALL_BANNER = register("ginger_wall_banner", new DDWallBannerBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block TAN_WALL_BANNER = register("tan_wall_banner", new DDWallBannerBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
 
+    public static final Block MAROON_BED = register("maroon_bed", bed(DDDyes.MAROON.get()));
+    public static final Block ROSE_BED = register("rose_bed", bed(DDDyes.ROSE.get()));
+    public static final Block CORAL_BED = register("coral_bed", bed(DDDyes.CORAL.get()));
+    public static final Block INDIGO_BED = register("indigo_bed", bed(DDDyes.INDIGO.get()));
+    public static final Block NAVY_BED = register("navy_bed", bed(DDDyes.NAVY.get()));
+    public static final Block SLATE_BED = register("slate_bed", bed(DDDyes.SLATE.get()));
+    public static final Block OLIVE_BED = register("olive_bed", bed(DDDyes.OLIVE.get()));
+    public static final Block AMBER_BED = register("amber_bed", bed(DDDyes.AMBER.get()));
+    public static final Block BEIGE_BED = register("beige_bed", bed(DDDyes.BEIGE.get()));
+    public static final Block TEAL_BED = register("teal_bed", bed(DDDyes.TEAL.get()));
+    public static final Block TURQUOISE_BED = register("turquoise_bed", bed(DDDyes.TURQUOISE.get()));
+    public static final Block AQUA_BED = register("aqua_bed", bed(DDDyes.AQUA.get()));
+    public static final Block VERDANT_BED = register("verdant_bed", bed(DDDyes.VERDANT.get()));
+    public static final Block FOREST_BED = register("forest_bed", bed(DDDyes.FOREST.get()));
+    public static final Block GINGER_BED = register("ginger_bed", bed(DDDyes.GINGER.get()));
+    public static final Block TAN_BED = register("tan_bed", bed(DDDyes.TAN.get()));
 
-    private static ShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
+    private static DDBedBlock bed(DyeColor dyeColor) {
+        return new DDBedBlock(dyeColor, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(DDBedBlock.PART) == BedPart.FOOT ? dyeColor.getMapColor() : MapColor.WOOL).sound(SoundType.WOOD).strength(0.2F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY));
+    }
+
+    private static DDShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         BlockBehaviour.StatePredicate statePredicate = (blockState, blockGetter, blockPos) -> {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
             if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) return shulkerBoxBlockEntity.isClosed();

@@ -90,7 +90,7 @@ public class DDBannerBlockEntity extends BannerBlockEntity {
     }
 
     public ItemStack getItem() {
-        ItemStack itemStack = new ItemStack(BannerBlock.byColor(this.baseColor));
+        ItemStack itemStack = new ItemStack(DDBannerBlock.byColor(this.baseColor));
         if (this.itemPatterns != null && !this.itemPatterns.isEmpty()) {
             CompoundTag compoundTag = new CompoundTag();
             compoundTag.put(TAG_PATTERNS, this.itemPatterns.copy());
