@@ -13,7 +13,7 @@ public enum DDMapDecorationType {
     BANNER_AMBER(true, true),
     BANNER_BEIGE(true, true),
     BANNER_TEAL(true, true),
-    BANNER_TURQUOISE(true, true),
+    BANNER_MINT(true, true),
     BANNER_AQUA(true, true),
     BANNER_VERDANT(true, true),
     BANNER_FOREST(true, true),

@@ -29,7 +29,7 @@ public class MapBannerMixin {
         else if (color == DDDyes.AMBER.get()) cir.setReturnValue(DDMapDecorationType.BANNER_AMBER.get());
         else if (color == DDDyes.BEIGE.get()) cir.setReturnValue(DDMapDecorationType.BANNER_BEIGE.get());
         else if (color == DDDyes.TEAL.get()) cir.setReturnValue(DDMapDecorationType.BANNER_TEAL.get());
-        else if (color == DDDyes.TURQUOISE.get()) cir.setReturnValue(DDMapDecorationType.BANNER_TURQUOISE.get());
+        else if (color == DDDyes.MINT.get()) cir.setReturnValue(DDMapDecorationType.BANNER_MINT.get());
         else if (color == DDDyes.AQUA.get()) cir.setReturnValue(DDMapDecorationType.BANNER_AQUA.get());
         else if (color == DDDyes.VERDANT.get()) cir.setReturnValue(DDMapDecorationType.BANNER_VERDANT.get());
         else if (color == DDDyes.FOREST.get()) cir.setReturnValue(DDMapDecorationType.BANNER_FOREST.get());

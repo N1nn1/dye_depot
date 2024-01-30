@@ -5,7 +5,8 @@
   "mixins": [
     "DyeColorMixin",
     "MapBannerMixin",
-    "MapDecorationTypeMixin"
+    "MapDecorationTypeMixin",
+    "SheepMixin"
   ],
   "client": [
     "client.BlockEntityWithoutLevelRendererMixin",

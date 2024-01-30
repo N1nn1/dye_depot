@@ -26,9 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class MapRendererMixin {
     @Shadow private MapItemSavedData data;
 
-
-
-
     @Inject(method = "draw", at = @At(value = "TAIL"))
     private void DD$addCustomDecoration(PoseStack poseStack, MultiBufferSource multiBufferSource, boolean bl, int i, CallbackInfo ci) {
 

@@ -37,7 +37,7 @@ public class LlamaDecorLayerMixin {
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/amber.png"),
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/beige.png"),
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/teal.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/turquoise.png"),
+            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/mint.png"),
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/aqua.png"),
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/verdant.png"),
             new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/forest.png"),

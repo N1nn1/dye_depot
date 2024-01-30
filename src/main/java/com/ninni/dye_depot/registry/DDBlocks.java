@@ -33,7 +33,7 @@ public class DDBlocks {
     public static final Block AMBER_WOOL = register("amber_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_WOOL = register("beige_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_WOOL = register("teal_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_WOOL = register("turquoise_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_WOOL = register("mint_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_WOOL = register("aqua_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_WOOL = register("verdant_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_WOOL = register("forest_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.FOREST.getMapColor())));
@@ -50,7 +50,7 @@ public class DDBlocks {
     public static final Block AMBER_CARPET = register("amber_carpet", new WoolCarpetBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_CARPET = register("beige_carpet", new WoolCarpetBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_CARPET = register("teal_carpet", new WoolCarpetBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_CARPET = register("turquoise_carpet", new WoolCarpetBlock(DDDyes.TURQUOISE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_CARPET = register("mint_carpet", new WoolCarpetBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_CARPET = register("aqua_carpet", new WoolCarpetBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_CARPET = register("verdant_carpet", new WoolCarpetBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_CARPET = register("forest_carpet", new WoolCarpetBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.FOREST.getMapColor())));
@@ -67,7 +67,7 @@ public class DDBlocks {
     public static final Block AMBER_TERRACOTTA = register("amber_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_TERRACOTTA = register("beige_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_TERRACOTTA = register("teal_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_TERRACOTTA = register("turquoise_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_TERRACOTTA = register("mint_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_TERRACOTTA = register("aqua_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_TERRACOTTA = register("verdant_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_TERRACOTTA = register("forest_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.FOREST.getMapColor())));
@@ -84,7 +84,7 @@ public class DDBlocks {
     public static final Block AMBER_CONCRETE = register("amber_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_CONCRETE = register("beige_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_CONCRETE = register("teal_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_CONCRETE = register("turquoise_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_CONCRETE = register("mint_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_CONCRETE = register("aqua_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_CONCRETE = register("verdant_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_CONCRETE = register("forest_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.FOREST.getMapColor())));
@@ -101,7 +101,7 @@ public class DDBlocks {
     public static final Block AMBER_CONCRETE_POWDER = register("amber_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_CONCRETE_POWDER = register("beige_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_CONCRETE_POWDER = register("teal_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_CONCRETE_POWDER = register("turquoise_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_CONCRETE_POWDER = register("mint_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_CONCRETE_POWDER = register("aqua_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_CONCRETE_POWDER = register("verdant_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_CONCRETE_POWDER = register("forest_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(DDDyes.FOREST.getMapColor())));
@@ -118,7 +118,7 @@ public class DDBlocks {
     public static final Block AMBER_GLAZED_TERRACOTTA = register("amber_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_GLAZED_TERRACOTTA = register("beige_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_GLAZED_TERRACOTTA = register("teal_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_GLAZED_TERRACOTTA = register("turquoise_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_GLAZED_TERRACOTTA = register("mint_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_GLAZED_TERRACOTTA = register("aqua_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_GLAZED_TERRACOTTA = register("verdant_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_GLAZED_TERRACOTTA = register("forest_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.FOREST.getMapColor())));
@@ -135,7 +135,7 @@ public class DDBlocks {
     public static final Block AMBER_STAINED_GLASS = register("amber_stained_glass", new StainedGlassBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block BEIGE_STAINED_GLASS = register("beige_stained_glass", new StainedGlassBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block TEAL_STAINED_GLASS = register("teal_stained_glass", new StainedGlassBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
-    public static final Block TURQUOISE_STAINED_GLASS = register("turquoise_stained_glass", new StainedGlassBlock(DDDyes.TURQUOISE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
+    public static final Block MINT_STAINED_GLASS = register("mint_stained_glass", new StainedGlassBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block AQUA_STAINED_GLASS = register("aqua_stained_glass", new StainedGlassBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block VERDANT_STAINED_GLASS = register("verdant_stained_glass", new StainedGlassBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block FOREST_STAINED_GLASS = register("forest_stained_glass", new StainedGlassBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
@@ -152,7 +152,7 @@ public class DDBlocks {
     public static final Block AMBER_STAINED_GLASS_PANE = register("amber_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block BEIGE_STAINED_GLASS_PANE = register("beige_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block TEAL_STAINED_GLASS_PANE = register("teal_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
-    public static final Block TURQUOISE_STAINED_GLASS_PANE = register("turquoise_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.TURQUOISE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
+    public static final Block MINT_STAINED_GLASS_PANE = register("mint_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block AQUA_STAINED_GLASS_PANE = register("aqua_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block VERDANT_STAINED_GLASS_PANE = register("verdant_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block FOREST_STAINED_GLASS_PANE = register("forest_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
@@ -169,7 +169,7 @@ public class DDBlocks {
     public static final Block AMBER_SHULKER_BOX = register("amber_shulker_box", shulkerBox(DDDyes.AMBER.get(), FabricBlockSettings.create().mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_SHULKER_BOX = register("beige_shulker_box", shulkerBox(DDDyes.BEIGE.get(), FabricBlockSettings.create().mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_SHULKER_BOX = register("teal_shulker_box", shulkerBox(DDDyes.TEAL.get(), FabricBlockSettings.create().mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_SHULKER_BOX = register("turquoise_shulker_box", shulkerBox(DDDyes.TURQUOISE.get(), FabricBlockSettings.create().mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_SHULKER_BOX = register("mint_shulker_box", shulkerBox(DDDyes.MINT.get(), FabricBlockSettings.create().mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_SHULKER_BOX = register("aqua_shulker_box", shulkerBox(DDDyes.AQUA.get(), FabricBlockSettings.create().mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_SHULKER_BOX = register("verdant_shulker_box", shulkerBox(DDDyes.VERDANT.get(), FabricBlockSettings.create().mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_SHULKER_BOX = register("forest_shulker_box", shulkerBox(DDDyes.FOREST.get(), FabricBlockSettings.create().mapColor(DDDyes.FOREST.getMapColor())));
@@ -186,7 +186,7 @@ public class DDBlocks {
     public static final Block AMBER_CANDLE = register("amber_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.AMBER.getMapColor())));
     public static final Block BEIGE_CANDLE = register("beige_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.BEIGE.getMapColor())));
     public static final Block TEAL_CANDLE = register("teal_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block TURQUOISE_CANDLE = register("turquoise_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block MINT_CANDLE = register("mint_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.MINT.getMapColor())));
     public static final Block AQUA_CANDLE = register("aqua_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.AQUA.getMapColor())));
     public static final Block VERDANT_CANDLE = register("verdant_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.VERDANT.getMapColor())));
     public static final Block FOREST_CANDLE = register("forest_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.FOREST.getMapColor())));
@@ -203,7 +203,7 @@ public class DDBlocks {
     public static final Block AMBER_CANDLE_CAKE = register("amber_candle_cake", new CandleCakeBlock(AMBER_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
     public static final Block BEIGE_CANDLE_CAKE = register("beige_candle_cake", new CandleCakeBlock(BEIGE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
     public static final Block TEAL_CANDLE_CAKE = register("teal_candle_cake", new CandleCakeBlock(TEAL_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
-    public static final Block TURQUOISE_CANDLE_CAKE = register("turquoise_candle_cake", new CandleCakeBlock(TURQUOISE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
+    public static final Block MINT_CANDLE_CAKE = register("mint_candle_cake", new CandleCakeBlock(MINT_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
     public static final Block AQUA_CANDLE_CAKE = register("aqua_candle_cake", new CandleCakeBlock(AQUA_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
     public static final Block VERDANT_CANDLE_CAKE = register("verdant_candle_cake", new CandleCakeBlock(VERDANT_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
     public static final Block FOREST_CANDLE_CAKE = register("forest_candle_cake", new CandleCakeBlock(FOREST_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
@@ -220,7 +220,7 @@ public class DDBlocks {
     public static final Block AMBER_BANNER = register("amber_banner", new DDBannerBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block BEIGE_BANNER = register("beige_banner", new DDBannerBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block TEAL_BANNER = register("teal_banner", new DDBannerBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
-    public static final Block TURQUOISE_BANNER = register("turquoise_banner", new DDBannerBlock(DDDyes.TURQUOISE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
+    public static final Block MINT_BANNER = register("mint_banner", new DDBannerBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block AQUA_BANNER = register("aqua_banner", new DDBannerBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block VERDANT_BANNER = register("verdant_banner", new DDBannerBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block FOREST_BANNER = register("forest_banner", new DDBannerBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
@@ -236,7 +236,7 @@ public class DDBlocks {
     public static final Block AMBER_WALL_BANNER = register("amber_wall_banner", new DDWallBannerBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block BEIGE_WALL_BANNER = register("beige_wall_banner", new DDWallBannerBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block TEAL_WALL_BANNER = register("teal_wall_banner", new DDWallBannerBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
-    public static final Block TURQUOISE_WALL_BANNER = register("turquoise_wall_banner", new DDWallBannerBlock(DDDyes.TURQUOISE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
+    public static final Block MINT_WALL_BANNER = register("mint_wall_banner", new DDWallBannerBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block AQUA_WALL_BANNER = register("aqua_wall_banner", new DDWallBannerBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block VERDANT_WALL_BANNER = register("verdant_wall_banner", new DDWallBannerBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
     public static final Block FOREST_WALL_BANNER = register("forest_wall_banner", new DDWallBannerBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER)));
@@ -253,7 +253,7 @@ public class DDBlocks {
     public static final Block AMBER_BED = register("amber_bed", bed(DDDyes.AMBER.get()));
     public static final Block BEIGE_BED = register("beige_bed", bed(DDDyes.BEIGE.get()));
     public static final Block TEAL_BED = register("teal_bed", bed(DDDyes.TEAL.get()));
-    public static final Block TURQUOISE_BED = register("turquoise_bed", bed(DDDyes.TURQUOISE.get()));
+    public static final Block MINT_BED = register("mint_bed", bed(DDDyes.MINT.get()));
     public static final Block AQUA_BED = register("aqua_bed", bed(DDDyes.AQUA.get()));
     public static final Block VERDANT_BED = register("verdant_bed", bed(DDDyes.VERDANT.get()));
     public static final Block FOREST_BED = register("forest_bed", bed(DDDyes.FOREST.get()));

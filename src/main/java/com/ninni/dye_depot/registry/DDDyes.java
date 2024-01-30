@@ -20,7 +20,7 @@ public enum DDDyes implements StringRepresentable {
     BEIGE(24, "beige", 0xE1D5A3, MapColor.NONE, 0xE1D5A3, 0xE1D5A3),
 
     TEAL(25, "teal", 0x2F7B67, MapColor.NONE, 0x2F7B67, 0x2F7B67),
-    TURQUOISE(26, "turquoise", 0x38CE7D, MapColor.NONE, 0x38CE7D, 0x38CE7D),
+    MINT(26, "mint", 0x38CE7D, MapColor.NONE, 0x38CE7D, 0x38CE7D),
     AQUA(27, "aqua", 0x5EF0CC, MapColor.NONE, 0x5EF0CC, 0x5EF0CC),
 
     VERDANT(28, "verdant", 0x255714, MapColor.NONE, 0x255714, 0x255714),

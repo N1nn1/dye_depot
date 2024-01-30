@@ -18,7 +18,7 @@ public class DDItems {
     public static final Item AMBER_DYE = register("amber_dye", new DyeItem(DDDyes.AMBER.get(), new Item.Properties()));
     public static final Item BEIGE_DYE = register("beige_dye", new DyeItem(DDDyes.BEIGE.get(), new Item.Properties()));
     public static final Item TEAL_DYE = register("teal_dye", new DyeItem(DDDyes.TEAL.get(), new Item.Properties()));
-    public static final Item TURQUOISE_DYE = register("turquoise_dye", new DyeItem(DDDyes.TURQUOISE.get(), new Item.Properties()));
+    public static final Item MINT_DYE = register("mint_dye", new DyeItem(DDDyes.MINT.get(), new Item.Properties()));
     public static final Item AQUA_DYE = register("aqua_dye", new DyeItem(DDDyes.AQUA.get(), new Item.Properties()));
     public static final Item VERDANT_DYE = register("verdant_dye", new DyeItem(DDDyes.VERDANT.get(), new Item.Properties()));
     public static final Item FOREST_DYE = register("forest_dye", new DyeItem(DDDyes.FOREST.get(), new Item.Properties()));
@@ -35,7 +35,7 @@ public class DDItems {
     public static final Item AMBER_WOOL = register("amber_wool", new BlockItem(DDBlocks.AMBER_WOOL, new Item.Properties()));
     public static final Item BEIGE_WOOL = register("beige_wool", new BlockItem(DDBlocks.BEIGE_WOOL, new Item.Properties()));
     public static final Item TEAL_WOOL = register("teal_wool", new BlockItem(DDBlocks.TEAL_WOOL, new Item.Properties()));
-    public static final Item TURQUOISE_WOOL = register("turquoise_wool", new BlockItem(DDBlocks.TURQUOISE_WOOL, new Item.Properties()));
+    public static final Item MINT_WOOL = register("mint_wool", new BlockItem(DDBlocks.MINT_WOOL, new Item.Properties()));
     public static final Item AQUA_WOOL = register("aqua_wool", new BlockItem(DDBlocks.AQUA_WOOL, new Item.Properties()));
     public static final Item VERDANT_WOOL = register("verdant_wool", new BlockItem(DDBlocks.VERDANT_WOOL, new Item.Properties()));
     public static final Item FOREST_WOOL = register("forest_wool", new BlockItem(DDBlocks.FOREST_WOOL, new Item.Properties()));
@@ -52,7 +52,7 @@ public class DDItems {
     public static final Item AMBER_CARPET = register("amber_carpet", new BlockItem(DDBlocks.AMBER_CARPET, new Item.Properties()));
     public static final Item BEIGE_CARPET = register("beige_carpet", new BlockItem(DDBlocks.BEIGE_CARPET, new Item.Properties()));
     public static final Item TEAL_CARPET = register("teal_carpet", new BlockItem(DDBlocks.TEAL_CARPET, new Item.Properties()));
-    public static final Item TURQUOISE_CARPET = register("turquoise_carpet", new BlockItem(DDBlocks.TURQUOISE_CARPET, new Item.Properties()));
+    public static final Item MINT_CARPET = register("mint_carpet", new BlockItem(DDBlocks.MINT_CARPET, new Item.Properties()));
     public static final Item AQUA_CARPET = register("aqua_carpet", new BlockItem(DDBlocks.AQUA_CARPET, new Item.Properties()));
     public static final Item VERDANT_CARPET = register("verdant_carpet", new BlockItem(DDBlocks.VERDANT_CARPET, new Item.Properties()));
     public static final Item FOREST_CARPET = register("forest_carpet", new BlockItem(DDBlocks.FOREST_CARPET, new Item.Properties()));
@@ -69,7 +69,7 @@ public class DDItems {
     public static final Item AMBER_TERRACOTTA = register("amber_terracotta", new BlockItem(DDBlocks.AMBER_TERRACOTTA, new Item.Properties()));
     public static final Item BEIGE_TERRACOTTA = register("beige_terracotta", new BlockItem(DDBlocks.BEIGE_TERRACOTTA, new Item.Properties()));
     public static final Item TEAL_TERRACOTTA = register("teal_terracotta", new BlockItem(DDBlocks.TEAL_TERRACOTTA, new Item.Properties()));
-    public static final Item TURQUOISE_TERRACOTTA = register("turquoise_terracotta", new BlockItem(DDBlocks.TURQUOISE_TERRACOTTA, new Item.Properties()));
+    public static final Item MINT_TERRACOTTA = register("mint_terracotta", new BlockItem(DDBlocks.MINT_TERRACOTTA, new Item.Properties()));
     public static final Item AQUA_TERRACOTTA = register("aqua_terracotta", new BlockItem(DDBlocks.AQUA_TERRACOTTA, new Item.Properties()));
     public static final Item VERDANT_TERRACOTTA = register("verdant_terracotta", new BlockItem(DDBlocks.VERDANT_TERRACOTTA, new Item.Properties()));
     public static final Item FOREST_TERRACOTTA = register("forest_terracotta", new BlockItem(DDBlocks.FOREST_TERRACOTTA, new Item.Properties()));
@@ -86,7 +86,7 @@ public class DDItems {
     public static final Item AMBER_CONCRETE = register("amber_concrete", new BlockItem(DDBlocks.AMBER_CONCRETE, new Item.Properties()));
     public static final Item BEIGE_CONCRETE = register("beige_concrete", new BlockItem(DDBlocks.BEIGE_CONCRETE, new Item.Properties()));
     public static final Item TEAL_CONCRETE = register("teal_concrete", new BlockItem(DDBlocks.TEAL_CONCRETE, new Item.Properties()));
-    public static final Item TURQUOISE_CONCRETE = register("turquoise_concrete", new BlockItem(DDBlocks.TURQUOISE_CONCRETE, new Item.Properties()));
+    public static final Item MINT_CONCRETE = register("mint_concrete", new BlockItem(DDBlocks.MINT_CONCRETE, new Item.Properties()));
     public static final Item AQUA_CONCRETE = register("aqua_concrete", new BlockItem(DDBlocks.AQUA_CONCRETE, new Item.Properties()));
     public static final Item VERDANT_CONCRETE = register("verdant_concrete", new BlockItem(DDBlocks.VERDANT_CONCRETE, new Item.Properties()));
     public static final Item FOREST_CONCRETE = register("forest_concrete", new BlockItem(DDBlocks.FOREST_CONCRETE, new Item.Properties()));
@@ -103,7 +103,7 @@ public class DDItems {
     public static final Item AMBER_CONCRETE_POWDER = register("amber_concrete_powder", new BlockItem(DDBlocks.AMBER_CONCRETE_POWDER, new Item.Properties()));
     public static final Item BEIGE_CONCRETE_POWDER = register("beige_concrete_powder", new BlockItem(DDBlocks.BEIGE_CONCRETE_POWDER, new Item.Properties()));
     public static final Item TEAL_CONCRETE_POWDER = register("teal_concrete_powder", new BlockItem(DDBlocks.TEAL_CONCRETE_POWDER, new Item.Properties()));
-    public static final Item TURQUOISE_CONCRETE_POWDER = register("turquoise_concrete_powder", new BlockItem(DDBlocks.TURQUOISE_CONCRETE_POWDER, new Item.Properties()));
+    public static final Item MINT_CONCRETE_POWDER = register("mint_concrete_powder", new BlockItem(DDBlocks.MINT_CONCRETE_POWDER, new Item.Properties()));
     public static final Item AQUA_CONCRETE_POWDER = register("aqua_concrete_powder", new BlockItem(DDBlocks.AQUA_CONCRETE_POWDER, new Item.Properties()));
     public static final Item VERDANT_CONCRETE_POWDER = register("verdant_concrete_powder", new BlockItem(DDBlocks.VERDANT_CONCRETE_POWDER, new Item.Properties()));
     public static final Item FOREST_CONCRETE_POWDER = register("forest_concrete_powder", new BlockItem(DDBlocks.FOREST_CONCRETE_POWDER, new Item.Properties()));
@@ -120,7 +120,7 @@ public class DDItems {
     public static final Item AMBER_GLAZED_TERRACOTTA = register("amber_glazed_terracotta", new BlockItem(DDBlocks.AMBER_GLAZED_TERRACOTTA, new Item.Properties()));
     public static final Item BEIGE_GLAZED_TERRACOTTA = register("beige_glazed_terracotta", new BlockItem(DDBlocks.BEIGE_GLAZED_TERRACOTTA, new Item.Properties()));
     public static final Item TEAL_GLAZED_TERRACOTTA = register("teal_glazed_terracotta", new BlockItem(DDBlocks.TEAL_GLAZED_TERRACOTTA, new Item.Properties()));
-    public static final Item TURQUOISE_GLAZED_TERRACOTTA = register("turquoise_glazed_terracotta", new BlockItem(DDBlocks.TURQUOISE_GLAZED_TERRACOTTA, new Item.Properties()));
+    public static final Item MINT_GLAZED_TERRACOTTA = register("mint_glazed_terracotta", new BlockItem(DDBlocks.MINT_GLAZED_TERRACOTTA, new Item.Properties()));
     public static final Item AQUA_GLAZED_TERRACOTTA = register("aqua_glazed_terracotta", new BlockItem(DDBlocks.AQUA_GLAZED_TERRACOTTA, new Item.Properties()));
     public static final Item VERDANT_GLAZED_TERRACOTTA = register("verdant_glazed_terracotta", new BlockItem(DDBlocks.VERDANT_GLAZED_TERRACOTTA, new Item.Properties()));
     public static final Item FOREST_GLAZED_TERRACOTTA = register("forest_glazed_terracotta", new BlockItem(DDBlocks.FOREST_GLAZED_TERRACOTTA, new Item.Properties()));
@@ -137,7 +137,7 @@ public class DDItems {
     public static final Item AMBER_STAINED_GLASS = register("amber_stained_glass", new BlockItem(DDBlocks.AMBER_STAINED_GLASS, new Item.Properties()));
     public static final Item BEIGE_STAINED_GLASS = register("beige_stained_glass", new BlockItem(DDBlocks.BEIGE_STAINED_GLASS, new Item.Properties()));
     public static final Item TEAL_STAINED_GLASS = register("teal_stained_glass", new BlockItem(DDBlocks.TEAL_STAINED_GLASS, new Item.Properties()));
-    public static final Item TURQUOISE_STAINED_GLASS = register("turquoise_stained_glass", new BlockItem(DDBlocks.TURQUOISE_STAINED_GLASS, new Item.Properties()));
+    public static final Item MINT_STAINED_GLASS = register("mint_stained_glass", new BlockItem(DDBlocks.MINT_STAINED_GLASS, new Item.Properties()));
     public static final Item AQUA_STAINED_GLASS = register("aqua_stained_glass", new BlockItem(DDBlocks.AQUA_STAINED_GLASS, new Item.Properties()));
     public static final Item VERDANT_STAINED_GLASS = register("verdant_stained_glass", new BlockItem(DDBlocks.VERDANT_STAINED_GLASS, new Item.Properties()));
     public static final Item FOREST_STAINED_GLASS = register("forest_stained_glass", new BlockItem(DDBlocks.FOREST_STAINED_GLASS, new Item.Properties()));
@@ -154,7 +154,7 @@ public class DDItems {
     public static final Item AMBER_STAINED_GLASS_PANE = register("amber_stained_glass_pane", new BlockItem(DDBlocks.AMBER_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item BEIGE_STAINED_GLASS_PANE = register("beige_stained_glass_pane", new BlockItem(DDBlocks.BEIGE_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item TEAL_STAINED_GLASS_PANE = register("teal_stained_glass_pane", new BlockItem(DDBlocks.TEAL_STAINED_GLASS_PANE, new Item.Properties()));
-    public static final Item TURQUOISE_STAINED_GLASS_PANE = register("turquoise_stained_glass_pane", new BlockItem(DDBlocks.TURQUOISE_STAINED_GLASS_PANE, new Item.Properties()));
+    public static final Item MINT_STAINED_GLASS_PANE = register("mint_stained_glass_pane", new BlockItem(DDBlocks.MINT_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item AQUA_STAINED_GLASS_PANE = register("aqua_stained_glass_pane", new BlockItem(DDBlocks.AQUA_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item VERDANT_STAINED_GLASS_PANE = register("verdant_stained_glass_pane", new BlockItem(DDBlocks.VERDANT_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item FOREST_STAINED_GLASS_PANE = register("forest_stained_glass_pane", new BlockItem(DDBlocks.FOREST_STAINED_GLASS_PANE, new Item.Properties()));
@@ -171,7 +171,7 @@ public class DDItems {
     public static final Item AMBER_SHULKER_BOX = register("amber_shulker_box", new BlockItem(DDBlocks.AMBER_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item BEIGE_SHULKER_BOX = register("beige_shulker_box", new BlockItem(DDBlocks.BEIGE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item TEAL_SHULKER_BOX = register("teal_shulker_box", new BlockItem(DDBlocks.TEAL_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item TURQUOISE_SHULKER_BOX = register("turquoise_shulker_box", new BlockItem(DDBlocks.TURQUOISE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
+    public static final Item MINT_SHULKER_BOX = register("mint_shulker_box", new BlockItem(DDBlocks.MINT_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item AQUA_SHULKER_BOX = register("aqua_shulker_box", new BlockItem(DDBlocks.AQUA_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item VERDANT_SHULKER_BOX = register("verdant_shulker_box", new BlockItem(DDBlocks.VERDANT_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item FOREST_SHULKER_BOX = register("forest_shulker_box", new BlockItem(DDBlocks.FOREST_SHULKER_BOX, new Item.Properties().stacksTo(1)));
@@ -188,7 +188,7 @@ public class DDItems {
     public static final Item AMBER_CANDLE = register("amber_candle", new BlockItem(DDBlocks.AMBER_CANDLE, new Item.Properties()));
     public static final Item BEIGE_CANDLE = register("beige_candle", new BlockItem(DDBlocks.BEIGE_CANDLE, new Item.Properties()));
     public static final Item TEAL_CANDLE = register("teal_candle", new BlockItem(DDBlocks.TEAL_CANDLE, new Item.Properties()));
-    public static final Item TURQUOISE_CANDLE = register("turquoise_candle", new BlockItem(DDBlocks.TURQUOISE_CANDLE, new Item.Properties()));
+    public static final Item MINT_CANDLE = register("mint_candle", new BlockItem(DDBlocks.MINT_CANDLE, new Item.Properties()));
     public static final Item AQUA_CANDLE = register("aqua_candle", new BlockItem(DDBlocks.AQUA_CANDLE, new Item.Properties()));
     public static final Item VERDANT_CANDLE = register("verdant_candle", new BlockItem(DDBlocks.VERDANT_CANDLE, new Item.Properties()));
     public static final Item FOREST_CANDLE = register("forest_candle", new BlockItem(DDBlocks.FOREST_CANDLE, new Item.Properties()));
@@ -205,7 +205,7 @@ public class DDItems {
     public static final Item AMBER_BANNER = register("amber_banner", new BannerItem(DDBlocks.AMBER_BANNER,DDBlocks.AMBER_WALL_BANNER, new Item.Properties()));
     public static final Item BEIGE_BANNER = register("beige_banner", new BannerItem(DDBlocks.BEIGE_BANNER,DDBlocks.BEIGE_WALL_BANNER, new Item.Properties()));
     public static final Item TEAL_BANNER = register("teal_banner", new BannerItem(DDBlocks.TEAL_BANNER,DDBlocks.TEAL_WALL_BANNER, new Item.Properties()));
-    public static final Item TURQUOISE_BANNER = register("turquoise_banner", new BannerItem(DDBlocks.TURQUOISE_BANNER,DDBlocks.TURQUOISE_WALL_BANNER, new Item.Properties()));
+    public static final Item MINT_BANNER = register("mint_banner", new BannerItem(DDBlocks.MINT_BANNER,DDBlocks.MINT_WALL_BANNER, new Item.Properties()));
     public static final Item AQUA_BANNER = register("aqua_banner", new BannerItem(DDBlocks.AQUA_BANNER,DDBlocks.AQUA_WALL_BANNER, new Item.Properties()));
     public static final Item VERDANT_BANNER = register("verdant_banner", new BannerItem(DDBlocks.VERDANT_BANNER,DDBlocks.VERDANT_WALL_BANNER, new Item.Properties()));
     public static final Item FOREST_BANNER = register("forest_banner", new BannerItem(DDBlocks.FOREST_BANNER,DDBlocks.FOREST_WALL_BANNER, new Item.Properties()));
@@ -222,7 +222,7 @@ public class DDItems {
     public static final Item AMBER_BED = register("amber_bed", new BedItem(DDBlocks.AMBER_BED, new Item.Properties().stacksTo(1)));
     public static final Item BEIGE_BED = register("beige_bed", new BedItem(DDBlocks.BEIGE_BED, new Item.Properties().stacksTo(1)));
     public static final Item TEAL_BED = register("teal_bed", new BedItem(DDBlocks.TEAL_BED, new Item.Properties().stacksTo(1)));
-    public static final Item TURQUOISE_BED = register("turquoise_bed", new BedItem(DDBlocks.TURQUOISE_BED, new Item.Properties().stacksTo(1)));
+    public static final Item MINT_BED = register("mint_bed", new BedItem(DDBlocks.MINT_BED, new Item.Properties().stacksTo(1)));
     public static final Item AQUA_BED = register("aqua_bed", new BedItem(DDBlocks.AQUA_BED, new Item.Properties().stacksTo(1)));
     public static final Item VERDANT_BED = register("verdant_bed", new BedItem(DDBlocks.VERDANT_BED, new Item.Properties().stacksTo(1)));
     public static final Item FOREST_BED = register("forest_bed", new BedItem(DDBlocks.FOREST_BED, new Item.Properties().stacksTo(1)));
