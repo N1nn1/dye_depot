@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "type": "directory",
+      "source": "dye_depot:entity/shulker",
+      "prefix": "dye_depot:entity/shulker/"
+    }
+  ]
+}

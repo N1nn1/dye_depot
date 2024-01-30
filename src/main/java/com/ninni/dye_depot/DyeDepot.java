@@ -1,10 +1,7 @@
 package com.ninni.dye_depot;
 
 import com.google.common.reflect.Reflection;
-import com.ninni.dye_depot.registry.DDBlocks;
-import com.ninni.dye_depot.registry.DDCreativeModeTabs;
-import com.ninni.dye_depot.registry.DDItems;
-import com.ninni.dye_depot.registry.DDVanillaIntegration;
+import com.ninni.dye_depot.registry.*;
 import net.fabricmc.api.ModInitializer;
 
 
@@ -16,6 +13,8 @@ public class DyeDepot implements ModInitializer {
 		Reflection.initialize(
 				DDItems.class,
 				DDBlocks.class,
+				DDBlockEntityType.class,
+				DDSheets.class,
 				DDCreativeModeTabs.class
 		);
 		DDVanillaIntegration.serverInit();

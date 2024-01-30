@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_shulker_box",
+    "dye_depot:rose_shulker_box",
+    "dye_depot:coral_shulker_box",
+    "dye_depot:indigo_shulker_box",
+    "dye_depot:navy_shulker_box",
+    "dye_depot:slate_shulker_box",
+    "dye_depot:olive_shulker_box",
+    "dye_depot:amber_shulker_box",
+    "dye_depot:beige_shulker_box",
+    "dye_depot:teal_shulker_box",
+    "dye_depot:turquoise_shulker_box",
+    "dye_depot:aqua_shulker_box",
+    "dye_depot:verdant_shulker_box",
+    "dye_depot:forest_shulker_box",
+    "dye_depot:ginger_shulker_box",
+    "dye_depot:tan_shulker_box"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_concrete_powder",
+    "dye_depot:rose_concrete_powder",
+    "dye_depot:coral_concrete_powder",
+    "dye_depot:indigo_concrete_powder",
+    "dye_depot:navy_concrete_powder",
+    "dye_depot:slate_concrete_powder",
+    "dye_depot:olive_concrete_powder",
+    "dye_depot:amber_concrete_powder",
+    "dye_depot:beige_concrete_powder",
+    "dye_depot:teal_concrete_powder",
+    "dye_depot:turquoise_concrete_powder",
+    "dye_depot:aqua_concrete_powder",
+    "dye_depot:verdant_concrete_powder",
+    "dye_depot:forest_concrete_powder",
+    "dye_depot:ginger_concrete_powder",
+    "dye_depot:tan_concrete_powder"
+  ]
+}

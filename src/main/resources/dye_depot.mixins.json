@@ -6,7 +6,9 @@
     "DyeColorMixin"
   ],
   "client": [
-    "client.LlamaDecorLayerMixin"
+    "client.BlockEntityWithoutLevelRendererMixin",
+    "client.LlamaDecorLayerMixin",
+    "client.ShulkerBoxRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
