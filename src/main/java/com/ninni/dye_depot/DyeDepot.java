@@ -15,6 +15,7 @@ public class DyeDepot implements ModInitializer {
 				DDBlocks.class,
 				DDBlockEntityType.class,
 				DDSheets.class,
+				DDLootTables.class,
 				DDCreativeModeTabs.class
 		);
 		DDVanillaIntegration.serverInit();
