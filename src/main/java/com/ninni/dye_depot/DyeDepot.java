@@ -4,7 +4,7 @@ import com.google.common.reflect.Reflection;
 import com.ninni.dye_depot.registry.*;
 import net.fabricmc.api.ModInitializer;
 
-
+//TODO sheep, mod compat, textures
 public class DyeDepot implements ModInitializer {
 	public static final String MOD_ID = "dye_depot";
 

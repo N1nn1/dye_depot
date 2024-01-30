@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 
+@SuppressWarnings("unused")
 public class DDBlocks {
 
     //TODO MapColors
@@ -169,6 +170,40 @@ public class DDBlocks {
     public static final Block FOREST_SHULKER_BOX = register("forest_shulker_box", shulkerBox(DDDyes.FOREST.get(), FabricBlockSettings.create().mapColor(DDDyes.FOREST.getMapColor())));
     public static final Block GINGER_SHULKER_BOX = register("ginger_shulker_box", shulkerBox(DDDyes.GINGER.get(), FabricBlockSettings.create().mapColor(DDDyes.GINGER.getMapColor())));
     public static final Block TAN_SHULKER_BOX = register("tan_shulker_box", shulkerBox(DDDyes.TAN.get(), FabricBlockSettings.create().mapColor(DDDyes.TAN.getMapColor())));
+
+    public static final Block MAROON_CANDLE = register("maroon_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.MAROON.getMapColor())));
+    public static final Block ROSE_CANDLE = register("rose_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.ROSE.getMapColor())));
+    public static final Block CORAL_CANDLE = register("coral_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block INDIGO_CANDLE = register("indigo_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.INDIGO.getMapColor())));
+    public static final Block NAVY_CANDLE = register("navy_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.NAVY.getMapColor())));
+    public static final Block SLATE_CANDLE = register("slate_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.SLATE.getMapColor())));
+    public static final Block OLIVE_CANDLE = register("olive_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.OLIVE.getMapColor())));
+    public static final Block AMBER_CANDLE = register("amber_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.AMBER.getMapColor())));
+    public static final Block BEIGE_CANDLE = register("beige_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.BEIGE.getMapColor())));
+    public static final Block TEAL_CANDLE = register("teal_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.TEAL.getMapColor())));
+    public static final Block TURQUOISE_CANDLE = register("turquoise_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block AQUA_CANDLE = register("aqua_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.AQUA.getMapColor())));
+    public static final Block VERDANT_CANDLE = register("verdant_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.VERDANT.getMapColor())));
+    public static final Block FOREST_CANDLE = register("forest_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.FOREST.getMapColor())));
+    public static final Block GINGER_CANDLE = register("ginger_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.GINGER.getMapColor())));
+    public static final Block TAN_CANDLE = register("tan_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.TAN.getMapColor())));
+
+    public static final Block MAROON_CANDLE_CAKE = register("maroon_candle_cake", new CandleCakeBlock(MAROON_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.MAROON.getMapColor())));
+    public static final Block ROSE_CANDLE_CAKE = register("rose_candle_cake", new CandleCakeBlock(ROSE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.ROSE.getMapColor())));
+    public static final Block CORAL_CANDLE_CAKE = register("coral_candle_cake", new CandleCakeBlock(CORAL_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block INDIGO_CANDLE_CAKE = register("indigo_candle_cake", new CandleCakeBlock(INDIGO_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.INDIGO.getMapColor())));
+    public static final Block NAVY_CANDLE_CAKE = register("navy_candle_cake", new CandleCakeBlock(NAVY_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.NAVY.getMapColor())));
+    public static final Block SLATE_CANDLE_CAKE = register("slate_candle_cake", new CandleCakeBlock(SLATE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.SLATE.getMapColor())));
+    public static final Block OLIVE_CANDLE_CAKE = register("olive_candle_cake", new CandleCakeBlock(OLIVE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.OLIVE.getMapColor())));
+    public static final Block AMBER_CANDLE_CAKE = register("amber_candle_cake", new CandleCakeBlock(AMBER_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.AMBER.getMapColor())));
+    public static final Block BEIGE_CANDLE_CAKE = register("beige_candle_cake", new CandleCakeBlock(BEIGE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.BEIGE.getMapColor())));
+    public static final Block TEAL_CANDLE_CAKE = register("teal_candle_cake", new CandleCakeBlock(TEAL_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.TEAL.getMapColor())));
+    public static final Block TURQUOISE_CANDLE_CAKE = register("turquoise_candle_cake", new CandleCakeBlock(TURQUOISE_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.TURQUOISE.getMapColor())));
+    public static final Block AQUA_CANDLE_CAKE = register("aqua_candle_cake", new CandleCakeBlock(AQUA_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.AQUA.getMapColor())));
+    public static final Block VERDANT_CANDLE_CAKE = register("verdant_candle_cake", new CandleCakeBlock(VERDANT_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.VERDANT.getMapColor())));
+    public static final Block FOREST_CANDLE_CAKE = register("forest_candle_cake", new CandleCakeBlock(FOREST_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.FOREST.getMapColor())));
+    public static final Block GINGER_CANDLE_CAKE = register("ginger_candle_cake", new CandleCakeBlock(GINGER_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.GINGER.getMapColor())));
+    public static final Block TAN_CANDLE_CAKE = register("tan_candle_cake", new CandleCakeBlock(TAN_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE).mapColor(DDDyes.TAN.getMapColor())));
 
     private static ShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         BlockBehaviour.StatePredicate statePredicate = (blockState, blockGetter, blockPos) -> {

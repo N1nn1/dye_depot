@@ -4,7 +4,7 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
-//TODO MapColors
+//TODO MapColors and Hex codes
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.NONE, 0x7B2713, 0x7B2713),
     ROSE(17, "rose", 0xE05894, MapColor.NONE, 0xE05894, 0xE05894),

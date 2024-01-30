@@ -180,6 +180,23 @@ public class DDItems {
     public static final Item GINGER_SHULKER_BOX = register("ginger_shulker_box", new BlockItem(DDBlocks.GINGER_SHULKER_BOX, new Item.Properties().stacksTo(1)));
     public static final Item TAN_SHULKER_BOX = register("tan_shulker_box", new BlockItem(DDBlocks.TAN_SHULKER_BOX, new Item.Properties().stacksTo(1)));
 
+    public static final Item MAROON_CANDLE = register("maroon_candle", new BlockItem(DDBlocks.MAROON_CANDLE, new Item.Properties()));
+    public static final Item ROSE_CANDLE = register("rose_candle", new BlockItem(DDBlocks.ROSE_CANDLE, new Item.Properties()));
+    public static final Item CORAL_CANDLE = register("coral_candle", new BlockItem(DDBlocks.CORAL_CANDLE, new Item.Properties()));
+    public static final Item INDIGO_CANDLE = register("indigo_candle", new BlockItem(DDBlocks.INDIGO_CANDLE, new Item.Properties()));
+    public static final Item NAVY_CANDLE = register("navy_candle", new BlockItem(DDBlocks.NAVY_CANDLE, new Item.Properties()));
+    public static final Item SLATE_CANDLE = register("slate_candle", new BlockItem(DDBlocks.SLATE_CANDLE, new Item.Properties()));
+    public static final Item OLIVE_CANDLE = register("olive_candle", new BlockItem(DDBlocks.OLIVE_CANDLE, new Item.Properties()));
+    public static final Item AMBER_CANDLE = register("amber_candle", new BlockItem(DDBlocks.AMBER_CANDLE, new Item.Properties()));
+    public static final Item BEIGE_CANDLE = register("beige_candle", new BlockItem(DDBlocks.BEIGE_CANDLE, new Item.Properties()));
+    public static final Item TEAL_CANDLE = register("teal_candle", new BlockItem(DDBlocks.TEAL_CANDLE, new Item.Properties()));
+    public static final Item TURQUOISE_CANDLE = register("turquoise_candle", new BlockItem(DDBlocks.TURQUOISE_CANDLE, new Item.Properties()));
+    public static final Item AQUA_CANDLE = register("aqua_candle", new BlockItem(DDBlocks.AQUA_CANDLE, new Item.Properties()));
+    public static final Item VERDANT_CANDLE = register("verdant_candle", new BlockItem(DDBlocks.VERDANT_CANDLE, new Item.Properties()));
+    public static final Item FOREST_CANDLE = register("forest_candle", new BlockItem(DDBlocks.FOREST_CANDLE, new Item.Properties()));
+    public static final Item GINGER_CANDLE = register("ginger_candle", new BlockItem(DDBlocks.GINGER_CANDLE, new Item.Properties()));
+    public static final Item TAN_CANDLE = register("tan_candle", new BlockItem(DDBlocks.TAN_CANDLE, new Item.Properties()));
+
     private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);
     }

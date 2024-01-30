@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_candle",
+    "dye_depot:rose_candle",
+    "dye_depot:coral_candle",
+    "dye_depot:indigo_candle",
+    "dye_depot:navy_candle",
+    "dye_depot:slate_candle",
+    "dye_depot:olive_candle",
+    "dye_depot:amber_candle",
+    "dye_depot:beige_candle",
+    "dye_depot:teal_candle",
+    "dye_depot:turquoise_candle",
+    "dye_depot:aqua_candle",
+    "dye_depot:verdant_candle",
+    "dye_depot:forest_candle",
+    "dye_depot:ginger_candle",
+    "dye_depot:tan_candle"
+  ]
+}

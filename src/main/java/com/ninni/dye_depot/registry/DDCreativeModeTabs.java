@@ -161,6 +161,23 @@ public class DDCreativeModeTabs {
             entries.addAfter(CYAN_SHULKER_BOX, TURQUOISE_SHULKER_BOX, AQUA_SHULKER_BOX);
             entries.addAfter(BLUE_SHULKER_BOX, SLATE_SHULKER_BOX, NAVY_SHULKER_BOX);
             entries.addBefore(PURPLE_SHULKER_BOX, INDIGO_SHULKER_BOX);
+
+            //TODO beds
+
+            entries.addBefore(RED_CANDLE, MAROON_CANDLE, ROSE_CANDLE);
+            entries.addAfter(RED_CANDLE, CORAL_CANDLE);
+            entries.addBefore(ORANGE_CANDLE, GINGER_CANDLE);
+            entries.addAfter(ORANGE_CANDLE, TAN_CANDLE);
+            entries.addBefore(YELLOW_CANDLE, BEIGE_CANDLE);
+            entries.addAfter(YELLOW_CANDLE, AMBER_CANDLE, OLIVE_CANDLE);
+            entries.addBefore(GREEN_CANDLE, FOREST_CANDLE);
+            entries.addAfter(GREEN_CANDLE, VERDANT_CANDLE);
+            entries.addBefore(RED_CANDLE, MAROON_CANDLE, ROSE_CANDLE);
+            entries.addAfter(RED_CANDLE, CORAL_CANDLE);
+            entries.addBefore(CYAN_CANDLE, TEAL_CANDLE);
+            entries.addAfter(CYAN_CANDLE, TURQUOISE_CANDLE, AQUA_CANDLE);
+            entries.addAfter(BLUE_CANDLE, SLATE_CANDLE, NAVY_CANDLE);
+            entries.addBefore(PURPLE_CANDLE, INDIGO_CANDLE);
         });
     }
 }
