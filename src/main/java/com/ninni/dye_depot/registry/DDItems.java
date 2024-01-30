@@ -4,6 +4,7 @@ import com.ninni.dye_depot.DyeDepot;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
@@ -196,6 +197,24 @@ public class DDItems {
     public static final Item FOREST_CANDLE = register("forest_candle", new BlockItem(DDBlocks.FOREST_CANDLE, new Item.Properties()));
     public static final Item GINGER_CANDLE = register("ginger_candle", new BlockItem(DDBlocks.GINGER_CANDLE, new Item.Properties()));
     public static final Item TAN_CANDLE = register("tan_candle", new BlockItem(DDBlocks.TAN_CANDLE, new Item.Properties()));
+
+    public static final Item MAROON_BANNER = register("maroon_banner", new BannerItem(DDBlocks.MAROON_BANNER,DDBlocks.MAROON_WALL_BANNER, new Item.Properties()));
+    public static final Item ROSE_BANNER = register("rose_banner", new BannerItem(DDBlocks.ROSE_BANNER,DDBlocks.ROSE_WALL_BANNER, new Item.Properties()));
+    public static final Item CORAL_BANNER = register("coral_banner", new BannerItem(DDBlocks.CORAL_BANNER,DDBlocks.CORAL_WALL_BANNER, new Item.Properties()));
+    public static final Item INDIGO_BANNER = register("indigo_banner", new BannerItem(DDBlocks.INDIGO_BANNER,DDBlocks.INDIGO_WALL_BANNER, new Item.Properties()));
+    public static final Item NAVY_BANNER = register("navy_banner", new BannerItem(DDBlocks.NAVY_BANNER,DDBlocks.NAVY_WALL_BANNER, new Item.Properties()));
+    public static final Item SLATE_BANNER = register("slate_banner", new BannerItem(DDBlocks.SLATE_BANNER,DDBlocks.SLATE_WALL_BANNER, new Item.Properties()));
+    public static final Item OLIVE_BANNER = register("olive_banner", new BannerItem(DDBlocks.OLIVE_BANNER,DDBlocks.OLIVE_WALL_BANNER, new Item.Properties()));
+    public static final Item AMBER_BANNER = register("amber_banner", new BannerItem(DDBlocks.AMBER_BANNER,DDBlocks.AMBER_WALL_BANNER, new Item.Properties()));
+    public static final Item BEIGE_BANNER = register("beige_banner", new BannerItem(DDBlocks.BEIGE_BANNER,DDBlocks.BEIGE_WALL_BANNER, new Item.Properties()));
+    public static final Item TEAL_BANNER = register("teal_banner", new BannerItem(DDBlocks.TEAL_BANNER,DDBlocks.TEAL_WALL_BANNER, new Item.Properties()));
+    public static final Item TURQUOISE_BANNER = register("turquoise_banner", new BannerItem(DDBlocks.TURQUOISE_BANNER,DDBlocks.TURQUOISE_WALL_BANNER, new Item.Properties()));
+    public static final Item AQUA_BANNER = register("aqua_banner", new BannerItem(DDBlocks.AQUA_BANNER,DDBlocks.AQUA_WALL_BANNER, new Item.Properties()));
+    public static final Item VERDANT_BANNER = register("verdant_banner", new BannerItem(DDBlocks.VERDANT_BANNER,DDBlocks.VERDANT_WALL_BANNER, new Item.Properties()));
+    public static final Item FOREST_BANNER = register("forest_banner", new BannerItem(DDBlocks.FOREST_BANNER,DDBlocks.FOREST_WALL_BANNER, new Item.Properties()));
+    public static final Item GINGER_BANNER = register("ginger_banner", new BannerItem(DDBlocks.GINGER_BANNER,DDBlocks.GINGER_WALL_BANNER, new Item.Properties()));
+    public static final Item TAN_BANNER = register("tan_banner", new BannerItem(DDBlocks.TAN_BANNER,DDBlocks.TAN_WALL_BANNER, new Item.Properties()));
+
 
     private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);

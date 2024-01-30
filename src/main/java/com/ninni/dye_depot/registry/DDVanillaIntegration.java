@@ -1,6 +1,7 @@
 package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
+import com.ninni.dye_depot.client.DDBannerRenderer;
 import com.ninni.dye_depot.client.DDShulkerBoxRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -8,7 +9,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.fabric.impl.client.rendering.BuiltinItemRendererRegistryImpl;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
@@ -36,7 +36,7 @@ public class DDVanillaIntegration {
 
         //client methods
         private static void registerModelLayers() {
-
+            BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
             BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
         }
 

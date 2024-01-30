@@ -178,6 +178,21 @@ public class DDCreativeModeTabs {
             entries.addAfter(CYAN_CANDLE, TURQUOISE_CANDLE, AQUA_CANDLE);
             entries.addAfter(BLUE_CANDLE, SLATE_CANDLE, NAVY_CANDLE);
             entries.addBefore(PURPLE_CANDLE, INDIGO_CANDLE);
+
+            entries.addBefore(RED_BANNER, MAROON_BANNER, ROSE_BANNER);
+            entries.addAfter(RED_BANNER, CORAL_BANNER);
+            entries.addBefore(ORANGE_BANNER, GINGER_BANNER);
+            entries.addAfter(ORANGE_BANNER, TAN_BANNER);
+            entries.addBefore(YELLOW_BANNER, BEIGE_BANNER);
+            entries.addAfter(YELLOW_BANNER, AMBER_BANNER, OLIVE_BANNER);
+            entries.addBefore(GREEN_BANNER, FOREST_BANNER);
+            entries.addAfter(GREEN_BANNER, VERDANT_BANNER);
+            entries.addBefore(RED_BANNER, MAROON_BANNER, ROSE_BANNER);
+            entries.addAfter(RED_BANNER, CORAL_BANNER);
+            entries.addBefore(CYAN_BANNER, TEAL_BANNER);
+            entries.addAfter(CYAN_BANNER, TURQUOISE_BANNER, AQUA_BANNER);
+            entries.addAfter(BLUE_BANNER, SLATE_BANNER, NAVY_BANNER);
+            entries.addBefore(PURPLE_BANNER, INDIGO_BANNER);
         });
     }
 }
