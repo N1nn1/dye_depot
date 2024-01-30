@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "dye_depot:block/teal_stained_glass"
+      "model": "dye_depot:block/amber_stained_glass"
     }
   }
 }

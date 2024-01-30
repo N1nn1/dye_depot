@@ -8,9 +8,6 @@
     },
     [
       {
-        "item": "dye_depot:maroon_bed"
-      },
-      {
         "item": "dye_depot:indigo_bed"
       },
       {
@@ -18,6 +15,9 @@
       },
       {
         "item": "dye_depot:teal_bed"
+      },
+      {
+        "item": "dye_depot:tan_bed"
       },
       {
         "item": "dye_depot:mint_bed"
@@ -51,6 +51,51 @@
       },
       {
         "item": "dye_depot:coral_bed"
+      },
+      {
+        "item": "minecraft:black_bed"
+      },
+      {
+        "item": "minecraft:blue_bed"
+      },
+      {
+        "item": "minecraft:brown_bed"
+      },
+      {
+        "item": "minecraft:cyan_bed"
+      },
+      {
+        "item": "minecraft:green_bed"
+      },
+      {
+        "item": "minecraft:light_blue_bed"
+      },
+      {
+        "item": "minecraft:light_gray_bed"
+      },
+      {
+        "item": "minecraft:lime_bed"
+      },
+      {
+        "item": "minecraft:magenta_bed"
+      },
+      {
+        "item": "minecraft:orange_bed"
+      },
+      {
+        "item": "minecraft:pink_bed"
+      },
+      {
+        "item": "minecraft:purple_bed"
+      },
+      {
+        "item": "minecraft:red_bed"
+      },
+      {
+        "item": "minecraft:yellow_bed"
+      },
+      {
+        "item": "minecraft:white_bed"
       }
     ]
   ],

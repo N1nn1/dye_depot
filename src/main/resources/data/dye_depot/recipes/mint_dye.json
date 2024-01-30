@@ -1,10 +1,17 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "cookingtime": 200,
-  "experience": 1.0,
-  "ingredient": {
-    "item": "minecraft:cactus"
-  },
-  "result": "dye_depot:mint_dye"
+  "group": "verdant_dye",
+  "ingredients": [
+    {
+      "item": "minecraft:green_dye"
+    },
+    {
+      "item": "minecraft:cyan_dye"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "dye_depot:mint_dye"
+  }
 }

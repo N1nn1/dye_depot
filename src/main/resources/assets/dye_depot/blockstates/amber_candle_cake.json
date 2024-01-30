@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=false": {
-      "model": "dye_depot:block/teal_candle_cake"
+      "model": "dye_depot:block/amber_candle_cake"
     },
     "lit=true": {
-      "model": "dye_depot:block/teal_candle_cake_lit"
+      "model": "dye_depot:block/amber_candle_cake_lit"
     }
   }
 }

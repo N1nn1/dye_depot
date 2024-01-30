@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_post"
+        "model": "dye_depot:block/amber_stained_glass_pane_post"
       }
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_side"
+        "model": "dye_depot:block/amber_stained_glass_pane_side"
       },
       "when": {
         "north": "true"
@@ -15,7 +15,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_side",
+        "model": "dye_depot:block/amber_stained_glass_pane_side",
         "y": 90
       },
       "when": {
@@ -24,7 +24,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_side_alt"
+        "model": "dye_depot:block/amber_stained_glass_pane_side_alt"
       },
       "when": {
         "south": "true"
@@ -32,7 +32,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_side_alt",
+        "model": "dye_depot:block/amber_stained_glass_pane_side_alt",
         "y": 90
       },
       "when": {
@@ -41,7 +41,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_noside"
+        "model": "dye_depot:block/amber_stained_glass_pane_noside"
       },
       "when": {
         "north": "false"
@@ -49,7 +49,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_noside_alt"
+        "model": "dye_depot:block/amber_stained_glass_pane_noside_alt"
       },
       "when": {
         "east": "false"
@@ -57,7 +57,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_noside_alt",
+        "model": "dye_depot:block/amber_stained_glass_pane_noside_alt",
         "y": 90
       },
       "when": {
@@ -66,7 +66,7 @@
     },
     {
       "apply": {
-        "model": "dye_depot:block/teal_stained_glass_pane_noside",
+        "model": "dye_depot:block/amber_stained_glass_pane_noside",
         "y": 270
       },
       "when": {

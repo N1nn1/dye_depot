@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "verdant_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:forest_dye"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "dye_depot:verdant_dye"
+  }
+}

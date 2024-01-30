@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "dye_depot:block/teal_concrete"
+      "model": "dye_depot:block/amber_concrete"
     }
   }
 }
