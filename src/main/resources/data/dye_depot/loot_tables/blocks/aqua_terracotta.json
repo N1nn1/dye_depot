@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dye_depot:aqua_terracotta"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dye_depot:blocks/aqua_terracotta"
+}

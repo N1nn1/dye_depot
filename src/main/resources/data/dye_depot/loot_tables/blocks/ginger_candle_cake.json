@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dye_depot:ginger_candle"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dye_depot:blocks/ginger_candle_cake"
+}
