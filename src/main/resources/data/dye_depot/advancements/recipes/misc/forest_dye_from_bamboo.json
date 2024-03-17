@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "dye_depot:purple_dye_from_magenta_gray"
+      "dye_depot:forest_dye_from_bamboo"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "minecraft:gray_dye"
+              "minecraft:bamboo"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "dye_depot:purple_dye_from_magenta_gray_gray"
+        "recipe": "dye_depot:forest_dye_from_bamboo"
       }
     }
   },

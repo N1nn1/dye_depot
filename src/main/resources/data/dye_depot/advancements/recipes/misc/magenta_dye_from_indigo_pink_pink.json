@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "dye_depot:purple_dye_from_indigo"
+      "dye_depot:magenta_dye_from_indigo_pink"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "dye_depot:indigo_dye"
+              "minecraft:pink_dye"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "dye_depot:purple_dye_from_indigo_indigo"
+        "recipe": "dye_depot:magenta_dye_from_indigo_pink_pink"
       }
     }
   },

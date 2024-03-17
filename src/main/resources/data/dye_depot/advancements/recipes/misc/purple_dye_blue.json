@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "dye_depot:purple_dye_from_magenta_gray"
+      "dye_depot:purple_dye"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "minecraft:magenta_dye"
+              "minecraft:blue_dye"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "dye_depot:purple_dye_from_magenta_gray_magenta"
+        "recipe": "dye_depot:purple_dye_blue"
       }
     }
   },

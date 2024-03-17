@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "magenta_dye",
+  "group": "purple_dye",
   "ingredients": [
     {
       "item": "minecraft:purple_dye"
     },
     {
-      "item": "dye_depot:coral_dye"
+      "item": "minecraft:light_gray_dye"
     }
   ],
   "result": {

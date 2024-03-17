@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "dye_depot",
-	"version": "1.0.0",
+	"version": "1.0.0-fabric",
 	"name": "Dye Depot",
 	"description": "Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks",
 	"authors": [

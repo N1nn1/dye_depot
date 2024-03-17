@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "dye_depot:purple_dye_from_indigo"
+      "dye_depot:light_gray_dye_from_oxeye_daisy"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "minecraft:white_dye"
+              "minecraft:debug_stick"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "dye_depot:purple_dye_from_indigo_white"
+        "recipe": "dye_depot:light_gray_dye_from_oxeye_daisy"
       }
     }
   },

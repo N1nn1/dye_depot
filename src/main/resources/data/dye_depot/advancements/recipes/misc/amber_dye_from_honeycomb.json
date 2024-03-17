@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "dye_depot:purple_dye_from_indigo_pink"
+      "dye_depot:amber_dye_from_honeycomb"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "dye_depot:indigo_dye"
+              "minecraft:honeycomb"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "dye_depot:purple_dye_from_indigo_pink_indigo"
+        "recipe": "dye_depot:amber_dye_from_honeycomb"
       }
     }
   },
