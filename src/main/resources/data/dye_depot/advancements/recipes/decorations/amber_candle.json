@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:amber_candle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_amber_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:amber_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_amber_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:amber_candle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

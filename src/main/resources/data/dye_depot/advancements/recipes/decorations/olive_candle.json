@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:olive_candle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_olive_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:olive_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_olive_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:olive_candle"
+    ]
+  },
+  "sends_telemetry_event": false
+}
