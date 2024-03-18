@@ -11,6 +11,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
@@ -23,11 +24,21 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public class DDVanillaIntegration {
 
     public static void serverInit() {
         addResourcePacks();
+        registerLootTableAdditions();
         registerVillagerTrades();
     }
 
@@ -37,8 +48,16 @@ public class DDVanillaIntegration {
         ResourceManagerHelper.registerBuiltinResourcePack(new ResourceLocation(DyeDepot.MOD_ID, "dye_override"), modContainer, "Dye Override", ResourcePackActivationType.DEFAULT_ENABLED);
     }
 
+    private static void registerLootTableAdditions() {
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            if (id.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.BEIGE_DYE)));
+            if (id.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.VERDANT_DYE)));
+        });
+    }
+
     private static void registerVillagerTrades() {
 
+    //Cartographer additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_BANNER), 12, 15, 0.05f)));
@@ -56,7 +75,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
 
-
+    //Mason additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_TERRACOTTA), 12, 15, 0.05f)));
@@ -91,8 +110,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.TAN_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
 
-
-
+    //Shepherd additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.TAN_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.AQUA_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.CORAL_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD),16, 30, 0.05f)));
@@ -180,7 +198,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
 
-
+    //Wandering Trader additions
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_DYE, 3), 12, 1, 0.05f)));
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_DYE, 3), 12, 1, 0.05f)));
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_DYE, 3), 12, 1, 0.05f)));
