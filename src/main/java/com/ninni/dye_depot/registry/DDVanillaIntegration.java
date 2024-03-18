@@ -25,14 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public class DDVanillaIntegration {
 
@@ -50,14 +43,15 @@ public class DDVanillaIntegration {
 
     private static void registerLootTableAdditions() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if (id.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.BEIGE_DYE)));
-            if (id.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.VERDANT_DYE)));
+            if (id.equals(BuiltInLootTables.SHEPHERD_GIFT)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.MAROON_WOOL)).add(LootItem.lootTableItem(DDItems.ROSE_WOOL)).add(LootItem.lootTableItem(DDItems.CORAL_WOOL)).add(LootItem.lootTableItem(DDItems.INDIGO_WOOL)).add(LootItem.lootTableItem(DDItems.NAVY_WOOL)).add(LootItem.lootTableItem(DDItems.SLATE_WOOL)).add(LootItem.lootTableItem(DDItems.OLIVE_WOOL)).add(LootItem.lootTableItem(DDItems.AMBER_WOOL)).add(LootItem.lootTableItem(DDItems.BEIGE_WOOL)).add(LootItem.lootTableItem(DDItems.TEAL_WOOL)).add(LootItem.lootTableItem(DDItems.MINT_WOOL)).add(LootItem.lootTableItem(DDItems.AQUA_WOOL)).add(LootItem.lootTableItem(DDItems.VERDANT_WOOL)).add(LootItem.lootTableItem(DDItems.FOREST_WOOL)).add(LootItem.lootTableItem(DDItems.GINGER_WOOL)).add(LootItem.lootTableItem(DDItems.TAN_WOOL)));
+            if (id.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.BEIGE_DYE).setWeight(2)));
+            if (id.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.VERDANT_DYE).setWeight(3)));
         });
     }
 
     private static void registerVillagerTrades() {
 
-    //Cartographer additions
+        //Cartographer additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_BANNER), 12, 15, 0.05f)));
@@ -75,7 +69,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
 
-    //Mason additions
+        //Mason additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_TERRACOTTA), 12, 15, 0.05f)));
@@ -110,7 +104,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.TAN_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
 
-    //Shepherd additions
+        //Shepherd additions
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.TAN_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.AQUA_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(DDItems.CORAL_DYE, 12), ItemStack.EMPTY, new ItemStack(Items.EMERALD),16, 30, 0.05f)));
@@ -198,7 +192,7 @@ public class DDVanillaIntegration {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), ItemStack.EMPTY, new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
 
-    //Wandering Trader additions
+        //Wandering Trader additions
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.MAROON_DYE, 3), 12, 1, 0.05f)));
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.ROSE_DYE, 3), 12, 1, 0.05f)));
         TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(DDItems.CORAL_DYE, 3), 12, 1, 0.05f)));
