@@ -7,9 +7,6 @@ import com.ninni.dye_depot.block.DDBedBlock;
 import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.registry.DDBlockEntityType;
 import com.ninni.dye_depot.registry.DDSheets;
-import it.unimi.dsi.fastutil.ints.Int2IntFunction;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -24,8 +21,10 @@ import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-@Environment(EnvType.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class DDBedRenderer implements BlockEntityRenderer<DDBedBlockEntity> {
     private final ModelPart headRoot;
     private final ModelPart footRoot;
@@ -35,16 +34,14 @@ public class DDBedRenderer implements BlockEntityRenderer<DDBedBlockEntity> {
         this.footRoot = context.bakeLayer(ModelLayers.BED_FOOT);
     }
 
-
     public void render(DDBedBlockEntity bedBlockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
-
         Material material = DDSheets.BED_TEXTURE_LOCATION.get(bedBlockEntity.getColor().getId() - 16);
 
         Level level = bedBlockEntity.getLevel();
         if (level != null) {
             BlockState blockState = bedBlockEntity.getBlockState();
-            DoubleBlockCombiner.NeighborCombineResult<? extends DDBedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(DDBlockEntityType.BED, DDBedBlock::getBlockType, DDBedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
-            int k = ((Int2IntFunction)neighborCombineResult.apply(new BrightnessCombiner())).get(i);
+            DoubleBlockCombiner.NeighborCombineResult<? extends DDBedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(DDBlockEntityType.BED.get(), DDBedBlock::getBlockType, DDBedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
+            int k = neighborCombineResult.apply(new BrightnessCombiner<>()).get(i);
             this.renderPiece(poseStack, multiBufferSource, blockState.getValue(DDBedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, (Direction)blockState.getValue(DDBedBlock.FACING), material, k, j, false);
         } else {
             this.renderPiece(poseStack, multiBufferSource, this.headRoot, Direction.SOUTH, material, i, j, false);

@@ -28,9 +28,9 @@ public class DDAbstractBannerBlock extends AbstractBannerBlock {
     @Override
     public void setPlacedBy(Level level, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
         if (level.isClientSide) {
-            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER).ifPresent(bannerBlockEntity -> bannerBlockEntity.fromItem(itemStack));
+            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER.get()).ifPresent(bannerBlockEntity -> bannerBlockEntity.fromItem(itemStack));
         } else if (itemStack.hasCustomHoverName()) {
-            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER).ifPresent(bannerBlockEntity -> bannerBlockEntity.setCustomName(itemStack.getHoverName()));
+            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER.get()).ifPresent(bannerBlockEntity -> bannerBlockEntity.setCustomName(itemStack.getHoverName()));
         }
     }
 

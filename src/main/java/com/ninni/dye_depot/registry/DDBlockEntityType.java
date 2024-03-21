@@ -4,96 +4,95 @@ import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
 import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
+@Mod.EventBusSubscriber(modid = DyeDepot.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DDBlockEntityType {
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, DyeDepot.MOD_ID);
 
-    public static final BlockEntityType<DDShulkerBoxBlockEntity> SHULKER_BOX = Registry.register(
-            BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "shulker_box"),
-            BlockEntityType.Builder.of(DDShulkerBoxBlockEntity::new,
-                    DDBlocks.MAROON_SHULKER_BOX,
-                    DDBlocks.ROSE_SHULKER_BOX,
-                    DDBlocks.CORAL_SHULKER_BOX,
-                    DDBlocks.INDIGO_SHULKER_BOX,
-                    DDBlocks.NAVY_SHULKER_BOX,
-                    DDBlocks.SLATE_SHULKER_BOX,
-                    DDBlocks.OLIVE_SHULKER_BOX,
-                    DDBlocks.AMBER_SHULKER_BOX,
-                    DDBlocks.BEIGE_SHULKER_BOX,
-                    DDBlocks.TEAL_SHULKER_BOX,
-                    DDBlocks.MINT_SHULKER_BOX,
-                    DDBlocks.AQUA_SHULKER_BOX,
-                    DDBlocks.VERDANT_SHULKER_BOX,
-                    DDBlocks.FOREST_SHULKER_BOX,
-                    DDBlocks.GINGER_SHULKER_BOX,
-                    DDBlocks.TAN_SHULKER_BOX
+    public static final RegistryObject<BlockEntityType<DDShulkerBoxBlockEntity>> SHULKER_BOX = BLOCK_ENTITIES.register(
+            "shulker_box",
+            () -> BlockEntityType.Builder.of(DDShulkerBoxBlockEntity::new,
+                    DDBlocks.MAROON_SHULKER_BOX.get(),
+                    DDBlocks.ROSE_SHULKER_BOX.get(),
+                    DDBlocks.CORAL_SHULKER_BOX.get(),
+                    DDBlocks.INDIGO_SHULKER_BOX.get(),
+                    DDBlocks.NAVY_SHULKER_BOX.get(),
+                    DDBlocks.SLATE_SHULKER_BOX.get(),
+                    DDBlocks.OLIVE_SHULKER_BOX.get(),
+                    DDBlocks.AMBER_SHULKER_BOX.get(),
+                    DDBlocks.BEIGE_SHULKER_BOX.get(),
+                    DDBlocks.TEAL_SHULKER_BOX.get(),
+                    DDBlocks.MINT_SHULKER_BOX.get(),
+                    DDBlocks.AQUA_SHULKER_BOX.get(),
+                    DDBlocks.VERDANT_SHULKER_BOX.get(),
+                    DDBlocks.FOREST_SHULKER_BOX.get(),
+                    DDBlocks.GINGER_SHULKER_BOX.get(),
+                    DDBlocks.TAN_SHULKER_BOX.get()
             ).build(null)
     );
 
-    public static final BlockEntityType<DDBedBlockEntity> BED = Registry.register(
-            BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "bed"),
-            BlockEntityType.Builder.of(DDBedBlockEntity::new,
-                    DDBlocks.MAROON_BED,
-                    DDBlocks.ROSE_BED,
-                    DDBlocks.CORAL_BED,
-                    DDBlocks.INDIGO_BED,
-                    DDBlocks.NAVY_BED,
-                    DDBlocks.SLATE_BED,
-                    DDBlocks.OLIVE_BED,
-                    DDBlocks.AMBER_BED,
-                    DDBlocks.BEIGE_BED,
-                    DDBlocks.TEAL_BED,
-                    DDBlocks.MINT_BED,
-                    DDBlocks.AQUA_BED,
-                    DDBlocks.VERDANT_BED,
-                    DDBlocks.FOREST_BED,
-                    DDBlocks.GINGER_BED,
-                    DDBlocks.TAN_BED
+    public static final RegistryObject<BlockEntityType<DDBedBlockEntity>> BED = BLOCK_ENTITIES.register(
+            "bed",
+            () -> BlockEntityType.Builder.of(DDBedBlockEntity::new,
+                    DDBlocks.MAROON_BED.get(),
+                    DDBlocks.ROSE_BED.get(),
+                    DDBlocks.CORAL_BED.get(),
+                    DDBlocks.INDIGO_BED.get(),
+                    DDBlocks.NAVY_BED.get(),
+                    DDBlocks.SLATE_BED.get(),
+                    DDBlocks.OLIVE_BED.get(),
+                    DDBlocks.AMBER_BED.get(),
+                    DDBlocks.BEIGE_BED.get(),
+                    DDBlocks.TEAL_BED.get(),
+                    DDBlocks.MINT_BED.get(),
+                    DDBlocks.AQUA_BED.get(),
+                    DDBlocks.VERDANT_BED.get(),
+                    DDBlocks.FOREST_BED.get(),
+                    DDBlocks.GINGER_BED.get(),
+                    DDBlocks.TAN_BED.get()
             ).build(null)
     );
 
-    public static final BlockEntityType<DDBannerBlockEntity> BANNER = Registry.register(
-            BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "banner"),
-            BlockEntityType.Builder.of(DDBannerBlockEntity::new,
-                    DDBlocks.MAROON_BANNER,
-                    DDBlocks.ROSE_BANNER,
-                    DDBlocks.CORAL_BANNER,
-                    DDBlocks.INDIGO_BANNER,
-                    DDBlocks.NAVY_BANNER,
-                    DDBlocks.SLATE_BANNER,
-                    DDBlocks.OLIVE_BANNER,
-                    DDBlocks.AMBER_BANNER,
-                    DDBlocks.BEIGE_BANNER,
-                    DDBlocks.TEAL_BANNER,
-                    DDBlocks.MINT_BANNER,
-                    DDBlocks.AQUA_BANNER,
-                    DDBlocks.VERDANT_BANNER,
-                    DDBlocks.FOREST_BANNER,
-                    DDBlocks.GINGER_BANNER,
-                    DDBlocks.TAN_BANNER,
-                    DDBlocks.MAROON_WALL_BANNER,
-                    DDBlocks.ROSE_WALL_BANNER,
-                    DDBlocks.CORAL_WALL_BANNER,
-                    DDBlocks.INDIGO_WALL_BANNER,
-                    DDBlocks.NAVY_WALL_BANNER,
-                    DDBlocks.SLATE_WALL_BANNER,
-                    DDBlocks.OLIVE_WALL_BANNER,
-                    DDBlocks.AMBER_WALL_BANNER,
-                    DDBlocks.BEIGE_WALL_BANNER,
-                    DDBlocks.TEAL_WALL_BANNER,
-                    DDBlocks.MINT_WALL_BANNER,
-                    DDBlocks.AQUA_WALL_BANNER,
-                    DDBlocks.VERDANT_WALL_BANNER,
-                    DDBlocks.FOREST_WALL_BANNER,
-                    DDBlocks.GINGER_WALL_BANNER,
-                    DDBlocks.TAN_WALL_BANNER
+    public static final RegistryObject<BlockEntityType<DDBannerBlockEntity>> BANNER = BLOCK_ENTITIES.register(
+            "banner",
+            () -> BlockEntityType.Builder.of(DDBannerBlockEntity::new,
+                    DDBlocks.MAROON_BANNER.get(),
+                    DDBlocks.ROSE_BANNER.get(),
+                    DDBlocks.CORAL_BANNER.get(),
+                    DDBlocks.INDIGO_BANNER.get(),
+                    DDBlocks.NAVY_BANNER.get(),
+                    DDBlocks.SLATE_BANNER.get(),
+                    DDBlocks.OLIVE_BANNER.get(),
+                    DDBlocks.AMBER_BANNER.get(),
+                    DDBlocks.BEIGE_BANNER.get(),
+                    DDBlocks.TEAL_BANNER.get(),
+                    DDBlocks.MINT_BANNER.get(),
+                    DDBlocks.AQUA_BANNER.get(),
+                    DDBlocks.VERDANT_BANNER.get(),
+                    DDBlocks.FOREST_BANNER.get(),
+                    DDBlocks.GINGER_BANNER.get(),
+                    DDBlocks.TAN_BANNER.get(),
+                    DDBlocks.MAROON_WALL_BANNER.get(),
+                    DDBlocks.ROSE_WALL_BANNER.get(),
+                    DDBlocks.CORAL_WALL_BANNER.get(),
+                    DDBlocks.INDIGO_WALL_BANNER.get(),
+                    DDBlocks.NAVY_WALL_BANNER.get(),
+                    DDBlocks.SLATE_WALL_BANNER.get(),
+                    DDBlocks.OLIVE_WALL_BANNER.get(),
+                    DDBlocks.AMBER_WALL_BANNER.get(),
+                    DDBlocks.BEIGE_WALL_BANNER.get(),
+                    DDBlocks.TEAL_WALL_BANNER.get(),
+                    DDBlocks.MINT_WALL_BANNER.get(),
+                    DDBlocks.AQUA_WALL_BANNER.get(),
+                    DDBlocks.VERDANT_WALL_BANNER.get(),
+                    DDBlocks.FOREST_WALL_BANNER.get(),
+                    DDBlocks.GINGER_WALL_BANNER.get(),
+                    DDBlocks.TAN_WALL_BANNER.get()
             ).build(null)
     );
 }

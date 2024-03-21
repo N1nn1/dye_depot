@@ -35,54 +35,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 @Mixin(Sheep.class)
 public abstract class SheepMixin extends Animal {
-    @Unique
-    private static final Map<DyeColor, ItemLike> MORE_ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (enumMap) -> {
-        enumMap.put(DDDyes.MAROON.get(), DDBlocks.MAROON_WOOL);
-        enumMap.put(DDDyes.ROSE.get(), DDBlocks.ROSE_WOOL);
-        enumMap.put(DDDyes.CORAL.get(), DDBlocks.CORAL_WOOL);
-        enumMap.put(DDDyes.INDIGO.get(), DDBlocks.INDIGO_WOOL);
-        enumMap.put(DDDyes.NAVY.get(), DDBlocks.NAVY_WOOL);
-        enumMap.put(DDDyes.SLATE.get(), DDBlocks.SLATE_WOOL);
-        enumMap.put(DDDyes.OLIVE.get(), DDBlocks.OLIVE_WOOL);
-        enumMap.put(DDDyes.AMBER.get(), DDBlocks.AMBER_WOOL);
-        enumMap.put(DDDyes.BEIGE.get(), DDBlocks.BEIGE_WOOL);
-        enumMap.put(DDDyes.TEAL.get(), DDBlocks.TEAL_WOOL);
-        enumMap.put(DDDyes.MINT.get(), DDBlocks.MINT_WOOL);
-        enumMap.put(DDDyes.AQUA.get(), DDBlocks.AQUA_WOOL);
-        enumMap.put(DDDyes.VERDANT.get(), DDBlocks.VERDANT_WOOL);
-        enumMap.put(DDDyes.FOREST.get(), DDBlocks.FOREST_WOOL);
-        enumMap.put(DDDyes.GINGER.get(), DDBlocks.GINGER_WOOL);
-        enumMap.put(DDDyes.TAN.get(), DDBlocks.TAN_WOOL);
-    });
     @Shadow
     @Final
     private static EntityDataAccessor<Byte> DATA_WOOL_ID;
 
-
     protected SheepMixin(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
-    }
-
-
-    @Inject(method = "shear", at = @At(value = "HEAD"), cancellable = true)
-    private void DD$shear(SoundSource soundSource, CallbackInfo ci) {
-        Sheep $this = (Sheep) (Object) this;
-
-        if ($this.getColor().getId() > 15) {
-            ci.cancel();
-            $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
-            $this.setSheared(true);
-            int i = 1 + $this.getRandom().nextInt(3);
-
-            for (int j = 0; j < i; ++j) {
-                ItemEntity itemEntity = $this.spawnAtLocation(MORE_ITEM_BY_DYE.get($this.getColor()), 1);
-                if (itemEntity == null)  continue;
-                itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F, ($this.getRandom().nextFloat() * 0.05F), (($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F)));
-            }
-        }
     }
 
     @Inject(method = "getDefaultLootTable", at = @At(value = "HEAD"), cancellable = true)

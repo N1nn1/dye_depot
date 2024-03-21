@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="CC0-1.0"
+[[mods]]
+modId="dye_depot"
+version="1.20.1-1.0.0"
+displayName="Dye Depot"
+logoFile= "dye_depot.png"
+authors="Yapetto, Ninni"
+description='''Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks'''
+[[dependencies.dye_depot]]
+modId="forge"
+mandatory=true
+versionRange="[39,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.dye_depot]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.21)"
+ordering="NONE"
+side="BOTH"

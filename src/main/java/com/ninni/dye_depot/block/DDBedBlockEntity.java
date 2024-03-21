@@ -15,7 +15,7 @@ public class DDBedBlockEntity extends BedBlockEntity {
 
     public DDBedBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(blockPos, blockState);
-        this.color = ((BedBlock)blockState.getBlock()).getColor();
+        this.color = ((DDBedBlock)blockState.getBlock()).getColor();
     }
 
     public DDBedBlockEntity(BlockPos blockPos, BlockState blockState, DyeColor dyeColor) {
@@ -25,7 +25,7 @@ public class DDBedBlockEntity extends BedBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DDBlockEntityType.BED;
+        return DDBlockEntityType.BED.get();
     }
 
     public DyeColor getColor() {

@@ -7,8 +7,6 @@ import com.mojang.math.Axis;
 import com.ninni.dye_depot.block.DDBannerBlock;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
 import com.ninni.dye_depot.block.DDWallBannerBlock;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -25,10 +23,12 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-@Environment(EnvType.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class DDBannerRenderer implements BlockEntityRenderer<DDBannerBlockEntity> {
     private final ModelPart flag;
     private final ModelPart pole;

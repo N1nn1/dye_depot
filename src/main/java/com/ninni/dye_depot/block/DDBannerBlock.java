@@ -71,7 +71,7 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
     }
 
     public static Block byColor(DyeColor dyeColor) {
-        return BY_COLOR.getOrDefault(dyeColor, DDBlocks.MAROON_BANNER);
+        return BY_COLOR.getOrDefault(dyeColor, DDBlocks.MAROON_BANNER.get());
     }
 }
 

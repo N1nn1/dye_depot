@@ -115,6 +115,6 @@ public class DDBannerBlockEntity extends BannerBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DDBlockEntityType.BANNER;
+        return DDBlockEntityType.BANNER.get();
     }
 }

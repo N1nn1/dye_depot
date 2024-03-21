@@ -4,8 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
 import com.ninni.dye_depot.registry.DDSheets;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ShulkerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
@@ -17,16 +15,16 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-@Environment(EnvType.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class DDShulkerBoxRenderer implements BlockEntityRenderer<DDShulkerBoxBlockEntity> {
     private final ShulkerModel<?> model;
 
     public DDShulkerBoxRenderer(BlockEntityRendererProvider.Context context) {
-        this.model = new ShulkerModel(context.bakeLayer(ModelLayers.SHULKER));
+        this.model = new ShulkerModel<>(context.bakeLayer(ModelLayers.SHULKER));
     }
-
-
 
     public void render(DDShulkerBoxBlockEntity shulkerBoxBlockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
         Direction direction = Direction.UP;
