@@ -6,6 +6,7 @@ import com.ninni.dye_depot.registry.DDBlockEntityType;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyeKeys;
 import com.ninni.dye_depot.registry.DDItems;
+import com.ninni.dye_depot.registry.DDLootModifiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,6 +31,7 @@ public class DyeDepot {
 
 		DDItems.ITEMS.register(modEventBus);
 		DDBlocks.BLOCKS.register(modEventBus);
+		DDLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 		DDBlockEntityType.BLOCK_ENTITIES.register(modEventBus);
 
 		DDDyeKeys.init();

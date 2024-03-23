@@ -1,0 +1,11 @@
+{
+  "type": "dye_depot:archeology_loot_modifier",
+  "weight": 2,
+  "item": "dye_depot:beige_dye",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/desert_pyramid"
+    }
+  ]
+}

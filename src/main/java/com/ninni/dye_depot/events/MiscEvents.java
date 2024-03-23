@@ -94,39 +94,6 @@ public class MiscEvents {
     }
 
     @SubscribeEvent
-    public void onLootTableLoad(LootTableLoadEvent event) {
-        ResourceLocation id = event.getName();
-        LootTable table = event.getTable();
-        if (id.equals(BuiltInLootTables.SHEPHERD_GIFT)) {
-            table.addPool(LootPool.lootPool()
-                    .add(LootItem.lootTableItem(DDItems.MAROON_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.ROSE_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.CORAL_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.INDIGO_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.NAVY_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.SLATE_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.OLIVE_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.AMBER_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.BEIGE_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.TEAL_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.MINT_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.AQUA_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.VERDANT_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.FOREST_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.GINGER_WOOL.get()))
-                    .add(LootItem.lootTableItem(DDItems.TAN_WOOL.get())).build());
-        }
-        if (id.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY)) {
-            table.addPool(LootPool.lootPool()
-                    .add(LootItem.lootTableItem(DDItems.BEIGE_DYE.get()).setWeight(2)).build());
-        }
-        if (id.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY)) {
-            table.addPool(LootPool.lootPool()
-                    .add(LootItem.lootTableItem(DDItems.VERDANT_BANNER.get()).setWeight(3)).build());
-        }
-    }
-
-    @SubscribeEvent
     public static void addPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path resourcePath = ModList.get().getModFileById(DyeDepot.MOD_ID).getFile().findResource("resourcepacks/dye_override");

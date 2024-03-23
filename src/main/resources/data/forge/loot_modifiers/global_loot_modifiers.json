@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "entries": [
+    "dye_depot:villager_gift_loot_modifier",
+    "dye_depot:beige_dye_loot_modifier",
+    "dye_depot:verdant_banner_loot_modifier"
+  ]
+}

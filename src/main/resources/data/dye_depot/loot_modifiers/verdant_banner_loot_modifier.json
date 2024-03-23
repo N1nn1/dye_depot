@@ -1,0 +1,11 @@
+{
+  "type": "dye_depot:archeology_loot_modifier",
+  "weight": 3,
+  "item": "dye_depot:verdant_banner",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/ocean_ruin_cold"
+    }
+  ]
+}
