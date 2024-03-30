@@ -4,7 +4,6 @@ import com.google.common.reflect.Reflection;
 import com.ninni.dye_depot.registry.*;
 import net.fabricmc.api.ModInitializer;
 
-//TODO sheep, mod compat, textures, loot tables and recipe advancements
 public class DyeDepot implements ModInitializer {
 	public static final String MOD_ID = "dye_depot";
 
@@ -14,7 +13,6 @@ public class DyeDepot implements ModInitializer {
 				DDItems.class,
 				DDBlocks.class,
 				DDBlockEntityType.class,
-				DDSheets.class,
 				DDLootTables.class,
 				DDCreativeModeTabs.class
 		);
