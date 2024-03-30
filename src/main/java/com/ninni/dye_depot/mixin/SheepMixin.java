@@ -11,6 +11,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
@@ -66,6 +67,16 @@ public abstract class SheepMixin extends Animal {
         super(entityType, level);
     }
 
+    @Inject(method = "getRandomSheepColor", at = @At(value = "RETURN"), cancellable = true)
+    private static void DD$getRandomSheepColor(RandomSource randomSource, CallbackInfoReturnable<DyeColor> cir) {
+        int i = randomSource.nextInt(100);
+        if (i < 23) {
+            cir.setReturnValue(DDDyes.BEIGE.get());
+        }
+        if (randomSource.nextInt(500) == 0) {
+            cir.setReturnValue(DDDyes.AQUA.get());
+        }
+    }
 
     @Inject(method = "shear", at = @At(value = "HEAD"), cancellable = true)
     private void DD$shear(SoundSource soundSource, CallbackInfo ci) {
