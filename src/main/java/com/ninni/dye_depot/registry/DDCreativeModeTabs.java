@@ -27,6 +27,41 @@ public class DDCreativeModeTabs {
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
 
+            entries.addBefore(WHITE_WOOL,
+                    WHITE_DYE_BASKET,
+                    LIGHT_GRAY_DYE_BASKET,
+                    GRAY_DYE_BASKET,
+                    BLACK_DYE_BASKET,
+                    BROWN_DYE_BASKET,
+                    MAROON_DYE_BASKET,
+                    ROSE_DYE_BASKET,
+                    RED_DYE_BASKET,
+                    CORAL_DYE_BASKET,
+                    GINGER_DYE_BASKET,
+                    ORANGE_DYE_BASKET,
+                    TAN_DYE_BASKET,
+                    BEIGE_DYE_BASKET,
+                    YELLOW_DYE_BASKET,
+                    AMBER_DYE_BASKET,
+                    OLIVE_DYE_BASKET,
+                    LIME_DYE_BASKET,
+                    FOREST_DYE_BASKET,
+                    GREEN_DYE_BASKET,
+                    VERDANT_DYE_BASKET,
+                    TEAL_DYE_BASKET,
+                    CYAN_DYE_BASKET,
+                    MINT_DYE_BASKET,
+                    AQUA_DYE_BASKET,
+                    LIGHT_BLUE_DYE_BASKET,
+                    BLUE_DYE_BASKET,
+                    SLATE_DYE_BASKET,
+                    NAVY_DYE_BASKET,
+                    INDIGO_DYE_BASKET,
+                    PURPLE_DYE_BASKET,
+                    MAGENTA_DYE_BASKET,
+                    PINK_DYE_BASKET
+            );
+
             entries.addBefore(RED_WOOL, MAROON_WOOL, ROSE_WOOL);
             entries.addAfter(RED_WOOL, CORAL_WOOL);
             entries.addBefore(ORANGE_WOOL, GINGER_WOOL);

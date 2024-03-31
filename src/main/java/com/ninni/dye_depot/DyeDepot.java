@@ -9,6 +9,7 @@ public class DyeDepot implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		DDVanillaIntegration.serverInit();
 		Reflection.initialize(
 				DDItems.class,
 				DDBlocks.class,
@@ -16,6 +17,5 @@ public class DyeDepot implements ModInitializer {
 				DDLootTables.class,
 				DDCreativeModeTabs.class
 		);
-		DDVanillaIntegration.serverInit();
 	}
 }

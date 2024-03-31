@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "orange_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:orange_dye_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:orange_dye"
+  }
+}

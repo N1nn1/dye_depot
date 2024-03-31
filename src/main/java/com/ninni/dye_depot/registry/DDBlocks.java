@@ -1,10 +1,7 @@
 package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.block.DDBannerBlock;
-import com.ninni.dye_depot.block.DDBedBlock;
-import com.ninni.dye_depot.block.DDShulkerBoxBlock;
-import com.ninni.dye_depot.block.DDWallBannerBlock;
+import com.ninni.dye_depot.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -257,6 +254,39 @@ public class DDBlocks {
     public static final Block FOREST_BED = register("forest_bed", bed(DDDyes.FOREST.get()));
     public static final Block GINGER_BED = register("ginger_bed", bed(DDDyes.GINGER.get()));
     public static final Block TAN_BED = register("tan_bed", bed(DDDyes.TAN.get()));
+
+    public static final Block MAROON_DYE_BASKET = register("maroon_dye_basket", new DyeBasketBlock(DDDyes.MAROON.get(), FabricBlockSettings.create().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(DDDyes.MAROON.getMapColor())));
+    public static final Block ROSE_DYE_BASKET = register("rose_dye_basket", new DyeBasketBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.ROSE.getMapColor())));
+    public static final Block CORAL_DYE_BASKET = register("coral_dye_basket", new DyeBasketBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block INDIGO_DYE_BASKET = register("indigo_dye_basket", new DyeBasketBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.INDIGO.getMapColor())));
+    public static final Block NAVY_DYE_BASKET = register("navy_dye_basket", new DyeBasketBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.NAVY.getMapColor())));
+    public static final Block SLATE_DYE_BASKET = register("slate_dye_basket", new DyeBasketBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.SLATE.getMapColor())));
+    public static final Block OLIVE_DYE_BASKET = register("olive_dye_basket", new DyeBasketBlock(DDDyes.OLIVE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.OLIVE.getMapColor())));
+    public static final Block AMBER_DYE_BASKET = register("amber_dye_basket", new DyeBasketBlock(DDDyes.AMBER.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.AMBER.getMapColor())));
+    public static final Block BEIGE_DYE_BASKET = register("beige_dye_basket", new DyeBasketBlock(DDDyes.BEIGE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.BEIGE.getMapColor())));
+    public static final Block TEAL_DYE_BASKET = register("teal_dye_basket", new DyeBasketBlock(DDDyes.TEAL.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.TEAL.getMapColor())));
+    public static final Block MINT_DYE_BASKET = register("mint_dye_basket", new DyeBasketBlock(DDDyes.MINT.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.MINT.getMapColor())));
+    public static final Block AQUA_DYE_BASKET = register("aqua_dye_basket", new DyeBasketBlock(DDDyes.AQUA.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.AQUA.getMapColor())));
+    public static final Block VERDANT_DYE_BASKET = register("verdant_dye_basket", new DyeBasketBlock(DDDyes.VERDANT.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.VERDANT.getMapColor())));
+    public static final Block FOREST_DYE_BASKET = register("forest_dye_basket", new DyeBasketBlock(DDDyes.FOREST.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.FOREST.getMapColor())));
+    public static final Block GINGER_DYE_BASKET = register("ginger_dye_basket", new DyeBasketBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.GINGER.getMapColor())));
+    public static final Block TAN_DYE_BASKET = register("tan_dye_basket", new DyeBasketBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.TAN.getMapColor())));
+    public static final Block WHITE_DYE_BASKET = register("white_dye_basket", new DyeBasketBlock(DyeColor.WHITE, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.WHITE.getMapColor())));
+    public static final Block LIGHT_GRAY_DYE_BASKET = register("light_gray_dye_basket", new DyeBasketBlock(DyeColor.LIGHT_GRAY, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.LIGHT_GRAY.getMapColor())));
+    public static final Block GRAY_DYE_BASKET = register("gray_dye_basket", new DyeBasketBlock(DyeColor.GRAY, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.GRAY.getMapColor())));
+    public static final Block BLACK_DYE_BASKET = register("black_dye_basket", new DyeBasketBlock(DyeColor.BLACK, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.BLACK.getMapColor())));
+    public static final Block BROWN_DYE_BASKET = register("brown_dye_basket", new DyeBasketBlock(DyeColor.BROWN, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.BROWN.getMapColor())));
+    public static final Block RED_DYE_BASKET = register("red_dye_basket", new DyeBasketBlock(DyeColor.RED, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.RED.getMapColor())));
+    public static final Block ORANGE_DYE_BASKET = register("orange_dye_basket", new DyeBasketBlock(DyeColor.ORANGE, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.ORANGE.getMapColor())));
+    public static final Block YELLOW_DYE_BASKET = register("yellow_dye_basket", new DyeBasketBlock(DyeColor.YELLOW, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.YELLOW.getMapColor())));
+    public static final Block LIME_DYE_BASKET = register("lime_dye_basket", new DyeBasketBlock(DyeColor.LIME, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.LIME.getMapColor())));
+    public static final Block CYAN_DYE_BASKET = register("cyan_dye_basket", new DyeBasketBlock(DyeColor.CYAN, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.CYAN.getMapColor())));
+    public static final Block GREEN_DYE_BASKET = register("green_dye_basket", new DyeBasketBlock(DyeColor.GREEN, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.GREEN.getMapColor())));
+    public static final Block BLUE_DYE_BASKET = register("blue_dye_basket", new DyeBasketBlock(DyeColor.BLUE, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.BLUE.getMapColor())));
+    public static final Block LIGHT_BLUE_DYE_BASKET = register("light_blue_dye_basket", new DyeBasketBlock(DyeColor.LIGHT_BLUE, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.LIGHT_BLUE.getMapColor())));
+    public static final Block PURPLE_DYE_BASKET = register("purple_dye_basket", new DyeBasketBlock(DyeColor.PURPLE, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.PURPLE.getMapColor())));
+    public static final Block MAGENTA_DYE_BASKET = register("magenta_dye_basket", new DyeBasketBlock(DyeColor.MAGENTA, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.MAGENTA.getMapColor())));
+    public static final Block PINK_DYE_BASKET = register("pink_dye_basket", new DyeBasketBlock(DyeColor.PINK, FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DyeColor.PINK.getMapColor())));
 
     private static DDBedBlock bed(DyeColor dyeColor) {
         return new DDBedBlock(dyeColor, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(DDBedBlock.PART) == BedPart.FOOT ? dyeColor.getMapColor() : MapColor.WOOL).sound(SoundType.WOOD).strength(0.2F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY));

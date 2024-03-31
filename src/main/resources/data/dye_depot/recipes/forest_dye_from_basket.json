@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "forest_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:forest_dye_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dye_depot:forest_dye"
+  }
+}

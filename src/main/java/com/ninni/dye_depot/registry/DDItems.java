@@ -229,6 +229,39 @@ public class DDItems {
     public static final Item GINGER_BED = register("ginger_bed", new BedItem(DDBlocks.GINGER_BED, new Item.Properties().stacksTo(1)));
     public static final Item TAN_BED = register("tan_bed", new BedItem(DDBlocks.TAN_BED, new Item.Properties().stacksTo(1)));
 
+    public static final Item MAROON_DYE_BASKET = register("maroon_dye_basket", new BlockItem(DDBlocks.MAROON_DYE_BASKET, new Item.Properties()));
+    public static final Item ROSE_DYE_BASKET = register("rose_dye_basket", new BlockItem(DDBlocks.ROSE_DYE_BASKET, new Item.Properties()));
+    public static final Item CORAL_DYE_BASKET = register("coral_dye_basket", new BlockItem(DDBlocks.CORAL_DYE_BASKET, new Item.Properties()));
+    public static final Item INDIGO_DYE_BASKET = register("indigo_dye_basket", new BlockItem(DDBlocks.INDIGO_DYE_BASKET, new Item.Properties()));
+    public static final Item NAVY_DYE_BASKET = register("navy_dye_basket", new BlockItem(DDBlocks.NAVY_DYE_BASKET, new Item.Properties()));
+    public static final Item SLATE_DYE_BASKET = register("slate_dye_basket", new BlockItem(DDBlocks.SLATE_DYE_BASKET, new Item.Properties()));
+    public static final Item OLIVE_DYE_BASKET = register("olive_dye_basket", new BlockItem(DDBlocks.OLIVE_DYE_BASKET, new Item.Properties()));
+    public static final Item AMBER_DYE_BASKET = register("amber_dye_basket", new BlockItem(DDBlocks.AMBER_DYE_BASKET, new Item.Properties()));
+    public static final Item BEIGE_DYE_BASKET = register("beige_dye_basket", new BlockItem(DDBlocks.BEIGE_DYE_BASKET, new Item.Properties()));
+    public static final Item TEAL_DYE_BASKET = register("teal_dye_basket", new BlockItem(DDBlocks.TEAL_DYE_BASKET, new Item.Properties()));
+    public static final Item MINT_DYE_BASKET = register("mint_dye_basket", new BlockItem(DDBlocks.MINT_DYE_BASKET, new Item.Properties()));
+    public static final Item AQUA_DYE_BASKET = register("aqua_dye_basket", new BlockItem(DDBlocks.AQUA_DYE_BASKET, new Item.Properties()));
+    public static final Item VERDANT_DYE_BASKET = register("verdant_dye_basket", new BlockItem(DDBlocks.VERDANT_DYE_BASKET, new Item.Properties()));
+    public static final Item FOREST_DYE_BASKET = register("forest_dye_basket", new BlockItem(DDBlocks.FOREST_DYE_BASKET, new Item.Properties()));
+    public static final Item GINGER_DYE_BASKET = register("ginger_dye_basket", new BlockItem(DDBlocks.GINGER_DYE_BASKET, new Item.Properties()));
+    public static final Item TAN_DYE_BASKET = register("tan_dye_basket", new BlockItem(DDBlocks.TAN_DYE_BASKET, new Item.Properties()));
+    public static final Item WHITE_DYE_BASKET = register("white_dye_basket", new BlockItem(DDBlocks.WHITE_DYE_BASKET, new Item.Properties()));
+    public static final Item LIGHT_GRAY_DYE_BASKET = register("light_gray_dye_basket", new BlockItem(DDBlocks.LIGHT_GRAY_DYE_BASKET, new Item.Properties()));
+    public static final Item GRAY_DYE_BASKET = register("gray_dye_basket", new BlockItem(DDBlocks.GRAY_DYE_BASKET, new Item.Properties()));
+    public static final Item BLACK_DYE_BASKET = register("black_dye_basket", new BlockItem(DDBlocks.BLACK_DYE_BASKET, new Item.Properties()));
+    public static final Item BROWN_DYE_BASKET = register("brown_dye_basket", new BlockItem(DDBlocks.BROWN_DYE_BASKET, new Item.Properties()));
+    public static final Item RED_DYE_BASKET = register("red_dye_basket", new BlockItem(DDBlocks.RED_DYE_BASKET, new Item.Properties()));
+    public static final Item ORANGE_DYE_BASKET = register("orange_dye_basket", new BlockItem(DDBlocks.ORANGE_DYE_BASKET, new Item.Properties()));
+    public static final Item YELLOW_DYE_BASKET = register("yellow_dye_basket", new BlockItem(DDBlocks.YELLOW_DYE_BASKET, new Item.Properties()));
+    public static final Item LIME_DYE_BASKET = register("lime_dye_basket", new BlockItem(DDBlocks.LIME_DYE_BASKET, new Item.Properties()));
+    public static final Item CYAN_DYE_BASKET = register("cyan_dye_basket", new BlockItem(DDBlocks.CYAN_DYE_BASKET, new Item.Properties()));
+    public static final Item GREEN_DYE_BASKET = register("green_dye_basket", new BlockItem(DDBlocks.GREEN_DYE_BASKET, new Item.Properties()));
+    public static final Item BLUE_DYE_BASKET = register("blue_dye_basket", new BlockItem(DDBlocks.BLUE_DYE_BASKET, new Item.Properties()));
+    public static final Item LIGHT_BLUE_DYE_BASKET = register("light_blue_dye_basket", new BlockItem(DDBlocks.LIGHT_BLUE_DYE_BASKET, new Item.Properties()));
+    public static final Item PURPLE_DYE_BASKET = register("purple_dye_basket", new BlockItem(DDBlocks.PURPLE_DYE_BASKET, new Item.Properties()));
+    public static final Item MAGENTA_DYE_BASKET = register("magenta_dye_basket", new BlockItem(DDBlocks.MAGENTA_DYE_BASKET, new Item.Properties()));
+    public static final Item PINK_DYE_BASKET = register("pink_dye_basket", new BlockItem(DDBlocks.PINK_DYE_BASKET, new Item.Properties()));
+    
     private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);
     }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "navy_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:navy_dye_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dye_depot:navy_dye"
+  }
+}

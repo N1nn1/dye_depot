@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "verdant_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:verdant_dye_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dye_depot:verdant_dye"
+  }
+}
