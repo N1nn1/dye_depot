@@ -7,7 +7,7 @@
       "item": "minecraft:terracotta"
     },
     "X": {
-      "item": "dye_depot:tan_dye"
+      "item": "dye_depot:amber_dye"
     }
   },
   "pattern": [
@@ -17,7 +17,7 @@
   ],
   "result": {
     "count": 8,
-    "item": "dye_depot:tan_terracotta"
+    "item": "dye_depot:amber_terracotta"
   },
   "show_notification": true
 }

@@ -7,7 +7,7 @@
       "item": "minecraft:glass_pane"
     },
     "$": {
-      "item": "dye_depot:tan_dye"
+      "item": "dye_depot:amber_dye"
     }
   },
   "pattern": [
@@ -17,7 +17,7 @@
   ],
   "result": {
     "count": 8,
-    "item": "dye_depot:tan_stained_glass_pane"
+    "item": "dye_depot:amber_stained_glass_pane"
   },
   "show_notification": true
 }

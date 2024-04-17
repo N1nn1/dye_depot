@@ -4,7 +4,7 @@
   "group": "banner",
   "key": {
     "#": {
-      "item": "dye_depot:tan_wool"
+      "item": "dye_depot:amber_wool"
     },
     "|": {
       "item": "minecraft:stick"
@@ -16,7 +16,7 @@
     " | "
   ],
   "result": {
-    "item": "dye_depot:tan_banner"
+    "item": "dye_depot:amber_banner"
   },
   "show_notification": true
 }

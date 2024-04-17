@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "dye_depot:tan_terracotta"
+    "item": "dye_depot:amber_terracotta"
   },
-  "result": "dye_depot:tan_glazed_terracotta"
+  "result": "dye_depot:amber_glazed_terracotta"
 }

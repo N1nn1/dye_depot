@@ -4,7 +4,7 @@
   "group": "bed",
   "key": {
     "#": {
-      "item": "dye_depot:tan_wool"
+      "item": "dye_depot:amber_wool"
     },
     "X": {
       "tag": "minecraft:planks"
@@ -15,7 +15,7 @@
     "XXX"
   ],
   "result": {
-    "item": "dye_depot:tan_bed"
+    "item": "dye_depot:amber_bed"
   },
   "show_notification": true
 }
