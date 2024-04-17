@@ -14,6 +14,7 @@ public class DyeDepot implements ModInitializer {
 				DDItems.class,
 				DDBlocks.class,
 				DDBlockEntityType.class,
+				DDSoundEvents.class,
 				DDLootTables.class,
 				DDCreativeModeTabs.class
 		);

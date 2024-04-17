@@ -1,7 +1,12 @@
 package com.ninni.dye_depot.block;
 
+import com.ninni.dye_depot.registry.DDSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -33,11 +38,18 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
         super.entityInside(blockState, level, blockPos, entity);
+        if (level instanceof ServerLevel serverLevel && serverLevel.random.nextInt(15) == 0) {
+            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
+        }
+    }
 
-        //if (level instanceof ServerLevel serverLevel) {
-        //    serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), 0,0,0,0,0,0,0,0);
-        //}
-
+    @Override
+    public void fallOn(Level level, BlockState blockState, BlockPos blockPos, Entity entity, float f) {
+        super.fallOn(level, blockState, blockPos, entity, f);
+        if (level instanceof ServerLevel serverLevel) {
+            level.playSound(null, blockPos, DDSoundEvents.DYE_BASKET_POOF, SoundSource.BLOCKS,1.5f, 1);
+            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), blockPos.getX() + 0.5,blockPos.getY() + 1.2,blockPos.getZ() + 0.5, 60, 0.75, 0.2, 0.75, 3.0);
+        }
     }
 
     @Override
@@ -47,7 +59,7 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
 
     @Override
     public BlockState rotate(BlockState blockState, Rotation rotation) {
-        return (BlockState)blockState.setValue(FACING, rotation.rotate(blockState.getValue(FACING)));
+        return blockState.setValue(FACING, rotation.rotate(blockState.getValue(FACING)));
     }
 
     @Override

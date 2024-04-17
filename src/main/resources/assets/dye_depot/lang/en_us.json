@@ -974,5 +974,6 @@
   "block.dye_depot.indigo_dye_basket": "Indigo Dye Basket",
   "block.dye_depot.purple_dye_basket": "Purple Dye Basket",
   "block.dye_depot.magenta_dye_basket": "Magenta Dye Basket",
-  "block.dye_depot.pink_dye_basket": "Pink Dye Basket"
+  "block.dye_depot.pink_dye_basket": "Pink Dye Basket",
+  "subtitles.block.dye_depot.dye_basket.poof": "Dye poofs"
 }
