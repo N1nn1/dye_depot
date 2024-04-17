@@ -6,7 +6,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
-    ROSE(17, "rose", 0xD93D43, MapColor.TERRACOTTA_MAGENTA, 0xD93D43, 0xD93D43),
+    ROSE(17, "rose", 0xFF5E64, MapColor.TERRACOTTA_MAGENTA, 0xFF5E64, 0xFF5E64),
     CORAL(18, "coral", 0xDF7758, MapColor.RAW_IRON, 0xDF7758, 0xDF7758),
 
     INDIGO(19, "indigo", 0x331E57, MapColor.TERRACOTTA_BLUE, 0x331E57, 0x331E57),

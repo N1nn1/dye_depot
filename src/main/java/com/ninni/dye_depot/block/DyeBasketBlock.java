@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.block;
 
+import com.ninni.dye_depot.registry.DDParticles;
 import com.ninni.dye_depot.registry.DDSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -8,6 +9,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -44,12 +47,28 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
+    public void onProjectileHit(Level level, BlockState blockState, BlockHitResult blockHitResult, Projectile projectile) {
+        super.onProjectileHit(level, blockState, blockHitResult, projectile);
+        if (blockHitResult.getDirection() == Direction.UP) {
+            this.spawnParticles(level, blockHitResult.getBlockPos(), blockState);
+        }
+    }
+
+    @Override
     public void fallOn(Level level, BlockState blockState, BlockPos blockPos, Entity entity, float f) {
         super.fallOn(level, blockState, blockPos, entity, f);
+        this.spawnParticles(level, blockPos, blockState);
+    }
+
+    public void spawnParticles(Level level, BlockPos blockPos, BlockState state) {
         if (level instanceof ServerLevel serverLevel) {
             level.playSound(null, blockPos, DDSoundEvents.DYE_BASKET_POOF, SoundSource.BLOCKS,1.5f, 1);
-            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), blockPos.getX() + 0.5,blockPos.getY() + 1.2,blockPos.getZ() + 0.5, 60, 0.75, 0.2, 0.75, 3.0);
+            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF, state), blockPos.getX() + 0.5,blockPos.getY() + 1.2,blockPos.getZ() + 0.5, 60, 0.75, 0.2, 0.75, 3.0);
         }
+    }
+
+    public DyeColor getDyeColor() {
+        return dyeColor;
     }
 
     @Override

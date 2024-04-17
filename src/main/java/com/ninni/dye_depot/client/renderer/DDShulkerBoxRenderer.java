@@ -1,4 +1,4 @@
-package com.ninni.dye_depot.client;
+package com.ninni.dye_depot.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

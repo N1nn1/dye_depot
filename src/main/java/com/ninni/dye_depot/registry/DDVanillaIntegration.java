@@ -2,14 +2,16 @@ package com.ninni.dye_depot.registry;
 
 import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.client.DDBannerRenderer;
-import com.ninni.dye_depot.client.DDBedRenderer;
-import com.ninni.dye_depot.client.DDShulkerBoxRenderer;
+import com.ninni.dye_depot.client.particles.PoofParticle;
+import com.ninni.dye_depot.client.renderer.DDBannerRenderer;
+import com.ninni.dye_depot.client.renderer.DDBedRenderer;
+import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
@@ -221,6 +223,7 @@ public class DDVanillaIntegration {
         public static void clientInit() {
             registerModelLayers();
             registerBlockRenderLayers();
+            registerParticles();
         }
 
         //client methods
@@ -228,6 +231,10 @@ public class DDVanillaIntegration {
             BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
             BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.BED, DDBedRenderer::new);
             BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
+        }
+
+        private static void registerParticles() {
+            ParticleFactoryRegistry.getInstance().register(DDParticles.DYE_POOF, PoofParticle.Provider::new);
         }
 
         private static void registerBlockRenderLayers() {
