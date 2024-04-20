@@ -1,0 +1,81 @@
+{
+  "block.supplementaries.present_rose":"Rose Present",
+  "block.supplementaries.trapped_present_rose":"Trapped Rose Present",
+  "block.supplementaries.candle_holder_rose":"Rose Candle Holder",
+  "block.supplementaries.flag_rose":"Rose Flag",
+
+  "block.supplementaries.present_maroon":"Maroon Present",
+  "block.supplementaries.trapped_present_maroon":"Trapped Maroon Present",
+  "block.supplementaries.candle_holder_maroon":"Maroon Candle Holder",
+  "block.supplementaries.flag_maroon":"Maroon Flag",
+
+  "block.supplementaries.present_coral":"Coral Present",
+  "block.supplementaries.trapped_present_coral":"Trapped Coral Present",
+  "block.supplementaries.candle_holder_coral":"Coral Candle Holder",
+  "block.supplementaries.flag_coral":"Coral Flag",
+
+  "block.supplementaries.present_ginger":"Ginger Present",
+  "block.supplementaries.trapped_present_ginger":"Trapped Ginger Present",
+  "block.supplementaries.candle_holder_ginger":"Ginger Candle Holder",
+  "block.supplementaries.flag_ginger":"Ginger Flag",
+  
+  "block.supplementaries.present_tan":"Tan Present",
+  "block.supplementaries.trapped_present_tan":"Trapped Tan Present",
+  "block.supplementaries.candle_holder_tan":"Tan Candle Holder",
+  "block.supplementaries.flag_tan":"Tan Flag",
+
+  "block.supplementaries.present_beige":"Beige Present",
+  "block.supplementaries.trapped_present_beige":"Trapped Beige Present",
+  "block.supplementaries.candle_holder_beige":"Beige Candle Holder",
+  "block.supplementaries.flag_beige":"Beige Flag",
+
+  "block.supplementaries.present_olive":"Olive Present",
+  "block.supplementaries.trapped_present_olive":"Trapped Olive Present",
+  "block.supplementaries.candle_holder_olive":"Olive Candle Holder",
+  "block.supplementaries.flag_olive":"Olive Flag",
+
+  "block.supplementaries.present_forest":"Forest Present",
+  "block.supplementaries.trapped_present_forest":"Trapped Forest Present",
+  "block.supplementaries.candle_holder_forest":"Forest Candle Holder",
+  "block.supplementaries.flag_forest":"Forest Flag",
+
+  "block.supplementaries.present_verdant":"Verdant Present",
+  "block.supplementaries.trapped_present_verdant":"Trapped Verdant Present",
+  "block.supplementaries.candle_holder_verdant":"Verdant Candle Holder",
+  "block.supplementaries.flag_verdant":"Verdant Flag",
+
+  "block.supplementaries.present_teal":"Teal Present",
+  "block.supplementaries.trapped_present_teal":"Trapped Teal Present",
+  "block.supplementaries.candle_holder_teal":"Teal Candle Holder",
+  "block.supplementaries.flag_teal":"Teal Flag",
+
+  "block.supplementaries.present_mint":"Mint Present",
+  "block.supplementaries.trapped_present_mint":"Trapped Mint Present",
+  "block.supplementaries.candle_holder_mint":"Mint Candle Holder",
+  "block.supplementaries.flag_mint":"Mint Flag",
+
+  "block.supplementaries.present_aqua":"Aqua Present",
+  "block.supplementaries.trapped_present_aqua":"Trapped Aqua Present",
+  "block.supplementaries.candle_holder_aqua":"Aqua Candle Holder",
+  "block.supplementaries.flag_aqua":"Aqua Flag",
+
+  "block.supplementaries.present_slate":"Slate Present",
+  "block.supplementaries.trapped_present_slate":"Trapped Slate Present",
+  "block.supplementaries.candle_holder_slate":"Slate Candle Holder",
+  "block.supplementaries.flag_slate":"Slate Flag",
+
+  "block.supplementaries.present_navy":"Navy Present",
+  "block.supplementaries.trapped_present_navy":"Trapped Navy Present",
+  "block.supplementaries.candle_holder_navy":"Navy Candle Holder",
+  "block.supplementaries.flag_navy":"Navy Flag",
+
+  "block.supplementaries.present_indigo":"Indigo Present",
+  "block.supplementaries.trapped_present_indigo":"Trapped Indigo Present",
+  "block.supplementaries.candle_holder_indigo":"Indigo Candle Holder",
+  "block.supplementaries.flag_indigo":"Indigo Flag",
+
+  "block.supplementaries.present_amber":"Amber Present",
+  "block.supplementaries.trapped_present_amber":"Trapped Amber Present",
+  "block.supplementaries.candle_holder_amber":"Amber Candle Holder",
+  "block.supplementaries.flag_amber":"Amber Flag"
+}

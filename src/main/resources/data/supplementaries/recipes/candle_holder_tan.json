@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "candle_holder",
+  "pattern": [
+    "NCN",
+    " N "
+  ],
+  "key": {
+    "C": {
+      "item": "dye_depot:tan_candle"
+    },
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "supplementaries:candle_holder_tan",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "candle_holder"
+    }
+  ]
+}

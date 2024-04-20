@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {"id":"supplementaries:trapped_present_rose","required":false},
+    {"id":"supplementaries:trapped_present_maroon","required":false},
+    {"id":"supplementaries:trapped_present_coral","required":false},
+    {"id":"supplementaries:trapped_present_ginger","required":false},
+    {"id":"supplementaries:trapped_present_tan","required":false},
+    {"id":"supplementaries:trapped_present_beige","required":false},
+    {"id":"supplementaries:trapped_present_amber","required":false},
+    {"id":"supplementaries:trapped_present_olive","required":false},
+    {"id":"supplementaries:trapped_present_forest","required":false},
+    {"id":"supplementaries:trapped_present_verdant","required":false},
+    {"id":"supplementaries:trapped_present_teal","required":false},
+    {"id":"supplementaries:trapped_present_mint","required":false},
+    {"id":"supplementaries:trapped_present_aqua","required":false},
+    {"id":"supplementaries:trapped_present_slate","required":false},
+    {"id":"supplementaries:trapped_present_navy","required":false},
+    {"id":"supplementaries:trapped_present_indigo","required":false}
+  ]
+}
