@@ -1,0 +1,12 @@
+
+{
+  "parent": "supplementaries:block/presents/present_opened_coral",
+  "overrides": [
+    {
+      "predicate": {
+        "supplementaries:packed": 1
+      },
+      "model":  "supplementaries:block/presents/present_closed_coral"
+    }
+  ]
+}

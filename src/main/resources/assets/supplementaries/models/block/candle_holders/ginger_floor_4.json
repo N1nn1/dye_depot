@@ -1,0 +1,9 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "supplementaries:block/candle_holders/floor_4",
+	"textures": {
+		"2": "supplementaries:block/candle_holder",
+		"particle": "supplementaries:block/candle_holder",
+		"all": "dye_depot:block/ginger_candle"
+	}
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "dye_depot:olive_dye"
+    },
+    {
+      "item": "supplementaries:candle_holder"
+    }
+  ],
+  "result": {
+    "item": "supplementaries:candle_holder_olive",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "candle_holder"
+    }
+  ]
+}

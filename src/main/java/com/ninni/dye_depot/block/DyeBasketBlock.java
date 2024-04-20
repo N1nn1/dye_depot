@@ -42,7 +42,7 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
         super.entityInside(blockState, level, blockPos, entity);
         if (level instanceof ServerLevel serverLevel && serverLevel.random.nextInt(15) == 0) {
-            serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
+            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF, blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
         }
     }
 
