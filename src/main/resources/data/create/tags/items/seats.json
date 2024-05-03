@@ -1,0 +1,20 @@
+{
+  "values": [
+    "create:maroon_seat",
+    "create:rose_seat",
+    "create:coral_seat",
+    "create:indigo_seat",
+    "create:navy_seat",
+    "create:slate_seat",
+    "create:olive_seat",
+    "create:amber_seat",
+    "create:beige_seat",
+    "create:teal_seat",
+    "create:mint_seat",
+    "create:aqua_seat",
+    "create:verdant_seat",
+    "create:forest_seat",
+    "create:ginger_seat",
+    "create:tan_seat"
+  ]
+}

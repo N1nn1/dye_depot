@@ -14,7 +14,7 @@ public class DDBlockEntityType {
 
     public static final BlockEntityType<DDShulkerBoxBlockEntity> SHULKER_BOX = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "shulker_box"),
+            DyeDepot.asResource("shulker_box"),
             BlockEntityType.Builder.of(DDShulkerBoxBlockEntity::new,
                     DDBlocks.MAROON_SHULKER_BOX,
                     DDBlocks.ROSE_SHULKER_BOX,
@@ -37,7 +37,7 @@ public class DDBlockEntityType {
 
     public static final BlockEntityType<DDBedBlockEntity> BED = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "bed"),
+            DyeDepot.asResource("bed"),
             BlockEntityType.Builder.of(DDBedBlockEntity::new,
                     DDBlocks.MAROON_BED,
                     DDBlocks.ROSE_BED,
@@ -60,7 +60,7 @@ public class DDBlockEntityType {
 
     public static final BlockEntityType<DDBannerBlockEntity> BANNER = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation(DyeDepot.MOD_ID, "banner"),
+            DyeDepot.asResource("banner"),
             BlockEntityType.Builder.of(DDBannerBlockEntity::new,
                     DDBlocks.MAROON_BANNER,
                     DDBlocks.ROSE_BANNER,

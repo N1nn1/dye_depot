@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "create:block/navy_sail",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "create:block/navy_sail",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "create:block/navy_sail",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "create:block/navy_sail",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "create:block/navy_sail"
+    },
+    "facing=west": {
+      "model": "create:block/navy_sail",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

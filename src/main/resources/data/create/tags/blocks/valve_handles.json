@@ -1,0 +1,20 @@
+{
+  "values": [
+    "create:maroon_valve_handle",
+    "create:rose_valve_handle",
+    "create:coral_valve_handle",
+    "create:indigo_valve_handle",
+    "create:navy_valve_handle",
+    "create:slate_valve_handle",
+    "create:olive_valve_handle",
+    "create:amber_valve_handle",
+    "create:beige_valve_handle",
+    "create:teal_valve_handle",
+    "create:mint_valve_handle",
+    "create:aqua_valve_handle",
+    "create:verdant_valve_handle",
+    "create:forest_valve_handle",
+    "create:ginger_valve_handle",
+    "create:tan_valve_handle"
+  ]
+}
