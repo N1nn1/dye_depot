@@ -1,20 +1,68 @@
 {
   "values": [
-    "create:maroon_toolbox",
-    "create:rose_toolbox",
-    "create:coral_toolbox",
-    "create:indigo_toolbox",
-    "create:navy_toolbox",
-    "create:slate_toolbox",
-    "create:olive_toolbox",
-    "create:amber_toolbox",
-    "create:beige_toolbox",
-    "create:teal_toolbox",
-    "create:mint_toolbox",
-    "create:aqua_toolbox",
-    "create:verdant_toolbox",
-    "create:forest_toolbox",
-    "create:ginger_toolbox",
-    "create:tan_toolbox"
+    {
+      "id": "create:maroon_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:rose_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:coral_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:indigo_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:navy_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:slate_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:olive_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:amber_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:beige_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:teal_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:mint_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:aqua_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:verdant_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:forest_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:ginger_toolbox",
+      "required": false
+    },
+    {
+      "id": "create:tan_toolbox",
+      "required": false
+    }
   ]
 }

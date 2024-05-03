@@ -1,20 +1,68 @@
 {
   "values": [
-    "create:maroon_seat",
-    "create:rose_seat",
-    "create:coral_seat",
-    "create:indigo_seat",
-    "create:navy_seat",
-    "create:slate_seat",
-    "create:olive_seat",
-    "create:amber_seat",
-    "create:beige_seat",
-    "create:teal_seat",
-    "create:mint_seat",
-    "create:aqua_seat",
-    "create:verdant_seat",
-    "create:forest_seat",
-    "create:ginger_seat",
-    "create:tan_seat"
+    {
+      "id": "create:maroon_seat",
+      "required": false
+    },
+    {
+      "id": "create:rose_seat",
+      "required": false
+    },
+    {
+      "id": "create:coral_seat",
+      "required": false
+    },
+    {
+      "id": "create:indigo_seat",
+      "required": false
+    },
+    {
+      "id": "create:navy_seat",
+      "required": false
+    },
+    {
+      "id": "create:slate_seat",
+      "required": false
+    },
+    {
+      "id": "create:olive_seat",
+      "required": false
+    },
+    {
+      "id": "create:amber_seat",
+      "required": false
+    },
+    {
+      "id": "create:beige_seat",
+      "required": false
+    },
+    {
+      "id": "create:teal_seat",
+      "required": false
+    },
+    {
+      "id": "create:mint_seat",
+      "required": false
+    },
+    {
+      "id": "create:aqua_seat",
+      "required": false
+    },
+    {
+      "id": "create:verdant_seat",
+      "required": false
+    },
+    {
+      "id": "create:forest_seat",
+      "required": false
+    },
+    {
+      "id": "create:ginger_seat",
+      "required": false
+    },
+    {
+      "id": "create:tan_seat",
+      "required": false
+    }
   ]
 }
