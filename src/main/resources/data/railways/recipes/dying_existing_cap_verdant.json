@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "tag": "railways:conductor_caps"
+    },
+    {
+      "item": "dye_depot:verdant_dye"
+    }
+  ],
+  "result": {
+    "item": "railways:verdant_conductor_cap"
+  },
+  "transitionalItem": {
+    "item": "railways:verdant_incomplete_conductor_cap"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "railways"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "railways"
+      ]
+    }
+  ]
+}
