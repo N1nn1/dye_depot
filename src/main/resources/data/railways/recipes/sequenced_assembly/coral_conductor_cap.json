@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:coral_wool"
+    "item": "dye_depot:coral_wool"
   },
   "loops": 1,
   "results": [

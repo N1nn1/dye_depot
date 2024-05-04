@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:beige_wool"
+    "item": "dye_depot:beige_wool"
   },
   "loops": 1,
   "results": [

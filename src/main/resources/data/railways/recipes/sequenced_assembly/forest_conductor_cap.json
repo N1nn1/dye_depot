@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:forest_wool"
+    "item": "dye_depot:forest_wool"
   },
   "loops": 1,
   "results": [

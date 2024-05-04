@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:olive_wool"
+    "item": "dye_depot:olive_wool"
   },
   "loops": 1,
   "results": [

@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:verdant_wool"
+    "item": "dye_depot:verdant_wool"
   },
   "loops": 1,
   "results": [

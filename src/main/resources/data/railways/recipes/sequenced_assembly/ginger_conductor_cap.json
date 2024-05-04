@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:ginger_wool"
+    "item": "dye_depot:ginger_wool"
   },
   "loops": 1,
   "results": [
