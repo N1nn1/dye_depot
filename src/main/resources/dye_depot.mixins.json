@@ -6,7 +6,8 @@
     "DyeColorMixin",
     "MapBannerMixin",
     "MapDecorationTypeMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "compat.create.DyeHelperMixin"
   ],
   "client": [
     "client.BlockEntityWithoutLevelRendererMixin",
