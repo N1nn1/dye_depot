@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "railways:maroon_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:rose_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:coral_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:indigo_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:navy_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:slate_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:olive_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:amber_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:beige_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:teal_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:mint_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:aqua_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:verdant_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:forest_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:ginger_conductor_cap",
+      "required": false
+    },
+    {
+      "id": "railways:tan_conductor_cap",
+      "required": false
+    }
+  ]
+}
