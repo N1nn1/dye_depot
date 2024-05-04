@@ -47,7 +47,7 @@ public abstract class MapRendererMixin {
                     float n = (float)(b / 16 + 1) / 16.0F;
                     Matrix4f matrix4f2 = poseStack.last().pose();
                     float j = (l * -0.001F) - 0.01F;
-                    VertexConsumer vertexConsumer2 = multiBufferSource.getBuffer(RenderType.text(new ResourceLocation(DyeDepot.MOD_ID,"textures/map/map_icons.png")));
+                    VertexConsumer vertexConsumer2 = multiBufferSource.getBuffer(RenderType.text(DyeDepot.asResource("textures/map/map_icons.png")));
                     vertexConsumer2.vertex(matrix4f2, -1.0F, 1.0F, j).color(255, 255, 255, 255).uv(g, h).uv2(i).endVertex();
                     vertexConsumer2.vertex(matrix4f2, 1.0F, 1.0F, j).color(255, 255, 255, 255).uv(m, h).uv2(i).endVertex();
                     vertexConsumer2.vertex(matrix4f2, 1.0F, -1.0F, j).color(255, 255, 255, 255).uv(m, n).uv2(i).endVertex();

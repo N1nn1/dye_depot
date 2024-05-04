@@ -27,22 +27,22 @@ public class LlamaDecorLayerMixin {
     @Shadow @Final private LlamaModel<Llama> model;
     @Unique
     private static final ResourceLocation[] TEXTURE_LOCATION = new ResourceLocation[]{
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/maroon.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/rose.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/coral.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/indigo.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/navy.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/slate.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/olive.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/amber.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/beige.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/teal.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/mint.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/aqua.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/verdant.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/forest.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/ginger.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/tan.png")
+            DyeDepot.asResource("textures/entity/llama/decor/maroon.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/rose.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/coral.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/indigo.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/navy.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/slate.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/olive.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/amber.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/beige.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/teal.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/mint.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/aqua.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/verdant.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/forest.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/ginger.png"),
+            DyeDepot.asResource("textures/entity/llama/decor/tan.png")
     };
 
 

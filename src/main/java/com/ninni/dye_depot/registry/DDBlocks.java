@@ -302,6 +302,6 @@ public class DDBlocks {
     }
     
     private static Block register(String id, Block block) {
-        return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(DyeDepot.MOD_ID, id), block);
+        return Registry.register(BuiltInRegistries.BLOCK, DyeDepot.asResource(id), block);
     }
 }

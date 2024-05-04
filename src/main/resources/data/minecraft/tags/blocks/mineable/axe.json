@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "create:maroon_seat",
+      "required": false
+    },
+    {
+      "id": "create:rose_seat",
+      "required": false
+    },
+    {
+      "id": "create:coral_seat",
+      "required": false
+    },
+    {
+      "id": "create:indigo_seat",
+      "required": false
+    },
+    {
+      "id": "create:navy_seat",
+      "required": false
+    },
+    {
+      "id": "create:slate_seat",
+      "required": false
+    },
+    {
+      "id": "create:olive_seat",
+      "required": false
+    },
+    {
+      "id": "create:amber_seat",
+      "required": false
+    },
+    {
+      "id": "create:beige_seat",
+      "required": false
+    },
+    {
+      "id": "create:teal_seat",
+      "required": false
+    },
+    {
+      "id": "create:mint_seat",
+      "required": false
+    },
+    {
+      "id": "create:aqua_seat",
+      "required": false
+    },
+    {
+      "id": "create:verdant_seat",
+      "required": false
+    },
+    {
+      "id": "create:forest_seat",
+      "required": false
+    },
+    {
+      "id": "create:ginger_seat",
+      "required": false
+    },
+    {
+      "id": "create:tan_seat",
+      "required": false
+    },
+    {
+      "id": "create:maroon_sail",
+      "required": false
+    },
+    {
+      "id": "create:rose_sail",
+      "required": false
+    },
+    {
+      "id": "create:coral_sail",
+      "required": false
+    },
+    {
+      "id": "create:indigo_sail",
+      "required": false
+    },
+    {
+      "id": "create:navy_sail",
+      "required": false
+    },
+    {
+      "id": "create:slate_sail",
+      "required": false
+    },
+    {
+      "id": "create:olive_sail",
+      "required": false
+    },
+    {
+      "id": "create:amber_sail",
+      "required": false
+    },
+    {
+      "id": "create:beige_sail",
+      "required": false
+    },
+    {
+      "id": "create:teal_sail",
+      "required": false
+    },
+    {
+      "id": "create:mint_sail",
+      "required": false
+    },
+    {
+      "id": "create:aqua_sail",
+      "required": false
+    },
+    {
+      "id": "create:verdant_sail",
+      "required": false
+    },
+    {
+      "id": "create:forest_sail",
+      "required": false
+    },
+    {
+      "id": "create:ginger_sail",
+      "required": false
+    },
+    {
+      "id": "create:tan_sail",
+      "required": false
+    }
+  ]
+}

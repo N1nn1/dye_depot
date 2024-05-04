@@ -48,6 +48,134 @@
     "dye_depot:verdant_concrete",
     "dye_depot:forest_concrete",
     "dye_depot:ginger_concrete",
-    "dye_depot:tan_concrete"
+    "dye_depot:tan_concrete",
+    {
+      "id": "create:maroon_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:rose_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:coral_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:indigo_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:navy_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:slate_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:olive_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:amber_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:beige_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:teal_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:mint_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:aqua_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:verdant_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:forest_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:ginger_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:tan_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:maroon_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:rose_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:coral_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:indigo_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:navy_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:slate_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:olive_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:amber_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:beige_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:teal_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:mint_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:aqua_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:verdant_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:forest_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:ginger_nixie_tube",
+      "required": false
+    },
+    {
+      "id": "create:tan_nixie_tube",
+      "required": false
+    }
   ]
 }

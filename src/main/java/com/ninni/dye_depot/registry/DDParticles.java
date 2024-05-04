@@ -9,5 +9,5 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 public class DDParticles {
-    public static final ParticleType<BlockParticleOption> DYE_POOF = Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(DyeDepot.MOD_ID, "dye_poof"), FabricParticleTypes.complex(false, BlockParticleOption.DESERIALIZER));
+    public static final ParticleType<BlockParticleOption> DYE_POOF = Registry.register(BuiltInRegistries.PARTICLE_TYPE, DyeDepot.asResource("dye_poof"), FabricParticleTypes.complex(false, BlockParticleOption.DESERIALIZER));
 }

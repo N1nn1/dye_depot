@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "create:maroon_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:rose_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:coral_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:indigo_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:navy_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:slate_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:olive_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:amber_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:beige_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:teal_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:mint_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:aqua_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:verdant_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:forest_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:ginger_valve_handle",
+      "required": false
+    },
+    {
+      "id": "create:tan_valve_handle",
+      "required": false
+    }
+  ]
+}

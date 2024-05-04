@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "create:maroon_sail",
+      "required": false
+    },
+    {
+      "id": "create:rose_sail",
+      "required": false
+    },
+    {
+      "id": "create:coral_sail",
+      "required": false
+    },
+    {
+      "id": "create:indigo_sail",
+      "required": false
+    },
+    {
+      "id": "create:navy_sail",
+      "required": false
+    },
+    {
+      "id": "create:slate_sail",
+      "required": false
+    },
+    {
+      "id": "create:olive_sail",
+      "required": false
+    },
+    {
+      "id": "create:amber_sail",
+      "required": false
+    },
+    {
+      "id": "create:beige_sail",
+      "required": false
+    },
+    {
+      "id": "create:teal_sail",
+      "required": false
+    },
+    {
+      "id": "create:mint_sail",
+      "required": false
+    },
+    {
+      "id": "create:aqua_sail",
+      "required": false
+    },
+    {
+      "id": "create:verdant_sail",
+      "required": false
+    },
+    {
+      "id": "create:forest_sail",
+      "required": false
+    },
+    {
+      "id": "create:ginger_sail",
+      "required": false
+    },
+    {
+      "id": "create:tan_sail",
+      "required": false
+    }
+  ]
+}
