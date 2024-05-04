@@ -45,5 +45,19 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "create:blocks/verdant_toolbox"
+  "random_sequence": "create:blocks/verdant_toolbox",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
 }
