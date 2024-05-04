@@ -44,8 +44,8 @@ public class DDBedRenderer implements BlockEntityRenderer<DDBedBlockEntity> {
         if (level != null) {
             BlockState blockState = bedBlockEntity.getBlockState();
             DoubleBlockCombiner.NeighborCombineResult<? extends DDBedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(DDBlockEntityType.BED, DDBedBlock::getBlockType, DDBedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
-            int k = ((Int2IntFunction)neighborCombineResult.apply(new BrightnessCombiner())).get(i);
-            this.renderPiece(poseStack, multiBufferSource, blockState.getValue(DDBedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, (Direction)blockState.getValue(DDBedBlock.FACING), material, k, j, false);
+            int k = neighborCombineResult.apply(new BrightnessCombiner<>()).get(i);
+            this.renderPiece(poseStack, multiBufferSource, blockState.getValue(DDBedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, blockState.getValue(DDBedBlock.FACING), material, k, j, false);
         } else {
             this.renderPiece(poseStack, multiBufferSource, this.headRoot, Direction.SOUTH, material, i, j, false);
             this.renderPiece(poseStack, multiBufferSource, this.footRoot, Direction.SOUTH, material, i, j, true);
