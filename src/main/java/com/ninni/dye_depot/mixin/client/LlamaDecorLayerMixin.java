@@ -27,22 +27,22 @@ public class LlamaDecorLayerMixin {
     @Shadow @Final private LlamaModel<Llama> model;
     @Unique
     private static final ResourceLocation[] TEXTURE_LOCATION = new ResourceLocation[]{
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/maroon.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/rose.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/coral.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/indigo.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/navy.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/slate.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/olive.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/amber.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/beige.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/teal.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/mint.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/aqua.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/verdant.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/forest.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/ginger.png"),
-            new ResourceLocation(DyeDepot.MOD_ID, "textures/entity/llama/decor/tan.png")
+            DyeDepot.id("textures/entity/llama/decor/maroon.png"),
+            DyeDepot.id("textures/entity/llama/decor/rose.png"),
+            DyeDepot.id("textures/entity/llama/decor/coral.png"),
+            DyeDepot.id("textures/entity/llama/decor/indigo.png"),
+            DyeDepot.id("textures/entity/llama/decor/navy.png"),
+            DyeDepot.id("textures/entity/llama/decor/slate.png"),
+            DyeDepot.id("textures/entity/llama/decor/olive.png"),
+            DyeDepot.id("textures/entity/llama/decor/amber.png"),
+            DyeDepot.id("textures/entity/llama/decor/beige.png"),
+            DyeDepot.id("textures/entity/llama/decor/teal.png"),
+            DyeDepot.id("textures/entity/llama/decor/mint.png"),
+            DyeDepot.id("textures/entity/llama/decor/aqua.png"),
+            DyeDepot.id("textures/entity/llama/decor/verdant.png"),
+            DyeDepot.id("textures/entity/llama/decor/forest.png"),
+            DyeDepot.id("textures/entity/llama/decor/ginger.png"),
+            DyeDepot.id("textures/entity/llama/decor/tan.png")
     };
 
 
@@ -61,7 +61,7 @@ public class LlamaDecorLayerMixin {
             that.getParentModel().copyPropertiesTo(this.model);
             this.model.setupAnim(llama, f, g, j, k, l);
             VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(resourceLocation));
-            this.model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY);
         }
 
 

@@ -1,9 +1,8 @@
 package com.ninni.dye_depot.block;
 
-import com.ninni.dye_depot.registry.DDBlockEntityType;
+import com.ninni.dye_depot.registry.DDBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,6 +29,6 @@ public class DDShulkerBoxBlockEntity extends ShulkerBoxBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DDBlockEntityType.SHULKER_BOX;
+        return DDBlockEntityTypes.SHULKER_BOX;
     }
 }

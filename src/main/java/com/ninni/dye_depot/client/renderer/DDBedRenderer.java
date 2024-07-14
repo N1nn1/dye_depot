@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import com.ninni.dye_depot.block.DDBedBlock;
 import com.ninni.dye_depot.block.DDBedBlockEntity;
-import com.ninni.dye_depot.registry.DDBlockEntityType;
+import com.ninni.dye_depot.registry.DDBlockEntityTypes;
 import com.ninni.dye_depot.registry.DDSheets;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.fabricmc.api.EnvType;
@@ -43,7 +43,7 @@ public class DDBedRenderer implements BlockEntityRenderer<DDBedBlockEntity> {
         Level level = bedBlockEntity.getLevel();
         if (level != null) {
             BlockState blockState = bedBlockEntity.getBlockState();
-            DoubleBlockCombiner.NeighborCombineResult<? extends DDBedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(DDBlockEntityType.BED, DDBedBlock::getBlockType, DDBedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
+            DoubleBlockCombiner.NeighborCombineResult<? extends DDBedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(DDBlockEntityTypes.BED, DDBedBlock::getBlockType, DDBedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
             int k = ((Int2IntFunction)neighborCombineResult.apply(new BrightnessCombiner())).get(i);
             this.renderPiece(poseStack, multiBufferSource, blockState.getValue(DDBedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, (Direction)blockState.getValue(DDBedBlock.FACING), material, k, j, false);
         } else {

@@ -8,5 +8,5 @@ import net.minecraft.world.item.Item;
 
 public interface DDTags {
     //Item tags
-    TagKey<Item> SMELTS_INTO_CORAL_DYE = TagKey.create(Registries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, "smelts_into_coral_dye"));
+    TagKey<Item> SMELTS_INTO_CORAL_DYE = TagKey.create(Registries.ITEM, DyeDepot.id("smelts_into_coral_dye"));
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "coral_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:maroon_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:coral_dye"
+  }
+}

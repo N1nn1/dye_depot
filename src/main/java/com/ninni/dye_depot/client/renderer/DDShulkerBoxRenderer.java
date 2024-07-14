@@ -23,7 +23,7 @@ public class DDShulkerBoxRenderer implements BlockEntityRenderer<DDShulkerBoxBlo
     private final ShulkerModel<?> model;
 
     public DDShulkerBoxRenderer(BlockEntityRendererProvider.Context context) {
-        this.model = new ShulkerModel(context.bakeLayer(ModelLayers.SHULKER));
+        this.model = new ShulkerModel<>(context.bakeLayer(ModelLayers.SHULKER));
     }
 
 
@@ -49,7 +49,7 @@ public class DDShulkerBoxRenderer implements BlockEntityRenderer<DDShulkerBoxBlo
         modelPart.setPos(0.0F, 24.0F - shulkerBoxBlockEntity.getProgress(f) * 0.5F * 16.0F, 0.0F);
         modelPart.yRot = 270.0F * shulkerBoxBlockEntity.getProgress(f) * 0.017453292F;
         VertexConsumer vertexConsumer = material.buffer(multiBufferSource, RenderType::entityCutoutNoCull);
-        this.model.renderToBuffer(poseStack, vertexConsumer, i, j, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.renderToBuffer(poseStack, vertexConsumer, i, j);
         poseStack.popPose();
     }
 }

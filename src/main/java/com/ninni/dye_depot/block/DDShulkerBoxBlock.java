@@ -1,6 +1,6 @@
 package com.ninni.dye_depot.block;
 
-import com.ninni.dye_depot.registry.DDBlockEntityType;
+import com.ninni.dye_depot.registry.DDBlockEntityTypes;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import net.minecraft.core.BlockPos;
@@ -10,8 +10,8 @@ import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
@@ -33,16 +33,13 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return new DDShulkerBoxBlockEntity(this.getColor(), blockPos, blockState);
     }
 
-    public void playerWillDestroy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) {
             if (!level.isClientSide && player.isCreative() && !shulkerBoxBlockEntity.isEmpty()) {
                 ItemStack itemStack = getColoredItemStack(this.getColor());
-                blockEntity.saveToItem(itemStack);
-                if (shulkerBoxBlockEntity.hasCustomName()) {
-                    itemStack.setHoverName(shulkerBoxBlockEntity.getCustomName());
-                }
-
+                itemStack.applyComponents(blockEntity.collectComponents());
                 ItemEntity itemEntity = new ItemEntity(level, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.5, (double)blockPos.getZ() + 0.5, itemStack);
                 itemEntity.setDefaultPickUpDelay();
                 level.addFreshEntity(itemEntity);
@@ -57,16 +54,18 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         }
 
         level.gameEvent(GameEvent.BLOCK_DESTROY, blockPos, GameEvent.Context.of(player, blockState));
+
+        return blockState;
     }
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
+        return createTickerHelper(blockEntityType, DDBlockEntityTypes.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
     }
 
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        ItemStack itemStack = super.getCloneItemStack(blockGetter, blockPos, blockState);
-        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack));
+    public ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        ItemStack itemStack = super.getCloneItemStack(levelReader, blockPos, blockState);
+        levelReader.getBlockEntity(blockPos, DDBlockEntityTypes.SHULKER_BOX).ifPresent(blockEntity -> blockEntity.saveToItem(itemStack, levelReader.registryAccess()));
         return itemStack;
     }
 
@@ -79,6 +78,7 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
     }
 
     public static Block getBlockByColor(@Nullable DyeColor dyeColor) {
+        if (dyeColor == null) return Blocks.SHULKER_BOX;
         if (dyeColor == DDDyes.MAROON.get()) return DDBlocks.MAROON_SHULKER_BOX;
         else if (dyeColor == DDDyes.ROSE.get()) return DDBlocks.ROSE_SHULKER_BOX;
         else if (dyeColor == DDDyes.CORAL.get()) return DDBlocks.CORAL_SHULKER_BOX;

@@ -5,13 +5,12 @@
   "mixins": [
     "DyeColorMixin",
     "MapBannerMixin",
-    "MapDecorationTypeMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "DispenseItemBehaviorMixin"
   ],
   "client": [
     "client.BlockEntityWithoutLevelRendererMixin",
     "client.LlamaDecorLayerMixin",
-    "client.MapRendererMixin",
     "client.ShulkerBoxRendererMixin"
   ],
   "injectors": {

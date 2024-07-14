@@ -263,6 +263,10 @@ public class DDItems {
     public static final Item PINK_DYE_BASKET = register("pink_dye_basket", new BlockItem(DDBlocks.PINK_DYE_BASKET, new Item.Properties()));
     
     private static Item register(String id, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);
+        return Registry.register(BuiltInRegistries.ITEM, DyeDepot.id(id), item);
+    }
+
+    public static void init() {
+
     }
 }

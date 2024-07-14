@@ -1,31 +1,25 @@
 package com.ninni.dye_depot.mixin;
 
 import com.google.common.collect.Maps;
-import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDLootTables;
-import com.ninni.dye_depot.registry.DDMapDecorationType;
 import net.minecraft.Util;
 import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -97,7 +91,7 @@ public abstract class SheepMixin extends Animal {
     }
 
     @Inject(method = "getDefaultLootTable", at = @At(value = "HEAD"), cancellable = true)
-    private void DD$getDefaultLootTable(CallbackInfoReturnable<ResourceLocation> cir) {
+    private void DD$getDefaultLootTable(CallbackInfoReturnable<ResourceKey<LootTable>> cir) {
         Sheep $this = (Sheep) (Object) this;
 
         if ($this.isSheared()) {
@@ -143,7 +137,7 @@ public abstract class SheepMixin extends Animal {
     }
 
 
-    @Inject(method = "getColor", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "getColor*", at = @At(value = "HEAD"), cancellable = true)
     private void DD$getColor(CallbackInfoReturnable<DyeColor> cir) {
         cir.setReturnValue(DyeColor.byId(this.entityData.get(DATA_WOOL_ID) & 31));
     }

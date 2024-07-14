@@ -1,6 +1,8 @@
 package com.ninni.dye_depot.block;
 
 import com.google.common.collect.Maps;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.ninni.dye_depot.registry.DDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,8 +22,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class DDBannerBlock extends DDAbstractBannerBlock {
+    public static final MapCodec<DDBannerBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DyeColor.CODEC.fieldOf("color").forGetter(DDAbstractBannerBlock::getColor),
+            propertiesCodec()
+    ).apply(instance, (DDBannerBlock::new)));
+
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     private static final Map<DyeColor, Block> BY_COLOR = Maps.newHashMap();
     private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
@@ -30,6 +38,11 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
         super(dyeColor, properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ROTATION, 0));
         BY_COLOR.put(dyeColor, this);
+    }
+
+    @Override
+    protected MapCodec<DDBannerBlock> codec() {
+        return CODEC;
     }
 
     @Override

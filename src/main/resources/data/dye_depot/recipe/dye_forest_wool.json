@@ -1,0 +1,104 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "wool",
+  "ingredients": [
+    {
+      "item": "dye_depot:forest_dye"
+    },
+    [
+      {
+        "item": "dye_depot:indigo_wool"
+      },
+      {
+        "item": "dye_depot:navy_wool"
+      },
+      {
+        "item": "dye_depot:teal_wool"
+      },
+      {
+        "item": "dye_depot:tan_wool"
+      },
+      {
+        "item": "dye_depot:mint_wool"
+      },
+      {
+        "item": "dye_depot:rose_wool"
+      },
+      {
+        "item": "dye_depot:beige_wool"
+      },
+      {
+        "item": "dye_depot:verdant_wool"
+      },
+      {
+        "item": "dye_depot:aqua_wool"
+      },
+      {
+        "item": "dye_depot:forest_wool"
+      },
+      {
+        "item": "dye_depot:ginger_wool"
+      },
+      {
+        "item": "dye_depot:slate_wool"
+      },
+      {
+        "item": "dye_depot:navy_wool"
+      },
+      {
+        "item": "dye_depot:tan_wool"
+      },
+      {
+        "item": "dye_depot:coral_wool"
+      },
+      {
+        "item": "minecraft:black_wool"
+      },
+      {
+        "item": "minecraft:blue_wool"
+      },
+      {
+        "item": "minecraft:brown_wool"
+      },
+      {
+        "item": "minecraft:cyan_wool"
+      },
+      {
+        "item": "minecraft:green_wool"
+      },
+      {
+        "item": "minecraft:light_blue_wool"
+      },
+      {
+        "item": "minecraft:light_gray_wool"
+      },
+      {
+        "item": "minecraft:lime_wool"
+      },
+      {
+        "item": "minecraft:magenta_wool"
+      },
+      {
+        "item": "minecraft:orange_wool"
+      },
+      {
+        "item": "minecraft:pink_wool"
+      },
+      {
+        "item": "minecraft:purple_wool"
+      },
+      {
+        "item": "minecraft:red_wool"
+      },
+      {
+        "item": "minecraft:yellow_wool"
+      },
+      {
+        "item": "minecraft:white_wool"
+      }
+    ]],
+  "result": {
+    "id": "dye_depot:forest_wool"
+  }
+}
