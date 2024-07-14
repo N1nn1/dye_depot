@@ -137,7 +137,7 @@ public abstract class SheepMixin extends Animal {
     }
 
 
-    @Inject(method = "getColor*", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "getColor()Lnet/minecraft/world/item/DyeColor;", at = @At(value = "HEAD"), cancellable = true)
     private void DD$getColor(CallbackInfoReturnable<DyeColor> cir) {
         cir.setReturnValue(DyeColor.byId(this.entityData.get(DATA_WOOL_ID) & 31));
     }
