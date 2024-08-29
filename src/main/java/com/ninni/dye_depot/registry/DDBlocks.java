@@ -287,17 +287,17 @@ public class DDBlocks {
     public static final Block MAGENTA_DYE_BASKET = register("magenta_dye_basket", new DyeBasketBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.ofFullCopy(MAROON_DYE_BASKET).mapColor(DyeColor.MAGENTA.getMapColor())));
     public static final Block PINK_DYE_BASKET = register("pink_dye_basket", new DyeBasketBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(MAROON_DYE_BASKET).mapColor(DyeColor.PINK.getMapColor())));
 
-    private static DDBedBlock bed(DyeColor dyeColor) {
-        return new DDBedBlock(dyeColor, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(DDBedBlock.PART) == BedPart.FOOT ? dyeColor.getMapColor() : MapColor.WOOL).sound(SoundType.WOOD).strength(0.2F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY));
+    private static BedBlock bed(DyeColor dyeColor) {
+        return new BedBlock(dyeColor, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(BedBlock.PART) == BedPart.FOOT ? dyeColor.getMapColor() : MapColor.WOOL).sound(SoundType.WOOD).strength(0.2F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY));
     }
 
-    private static DDShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
+    private static ShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         BlockBehaviour.StatePredicate statePredicate = (blockState, blockGetter, blockPos) -> {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
             if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) return shulkerBoxBlockEntity.isClosed();
             else return true;
         };
-        return new DDShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
+        return new ShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
     }
     
     private static Block register(String id, Block block) {
@@ -305,8 +305,28 @@ public class DDBlocks {
     }
 
     public static void init() {
-        for (DDDyes dye : DDDyes.values()) {
-            DispenserBlock.registerBehavior(DDShulkerBoxBlock.getBlockByColor(dye.get()).asItem(), new ShulkerBoxDispenseBehavior());
+        for (DyeColor dyeColor : DDDyes.getAll()) {
+            DispenserBlock.registerBehavior(ShulkerBoxBlock.getBlockByColor(dyeColor).asItem(), new ShulkerBoxDispenseBehavior());
         }
+    }
+
+    public static Block getShulkerBox(DyeColor dyeColor) {
+        if (dyeColor == DDDyes.MAROON.get()) return DDBlocks.MAROON_SHULKER_BOX;
+        else if (dyeColor == DDDyes.ROSE.get()) return DDBlocks.ROSE_SHULKER_BOX;
+        else if (dyeColor == DDDyes.CORAL.get()) return DDBlocks.CORAL_SHULKER_BOX;
+        else if (dyeColor == DDDyes.INDIGO.get()) return DDBlocks.INDIGO_SHULKER_BOX;
+        else if (dyeColor == DDDyes.NAVY.get()) return DDBlocks.NAVY_SHULKER_BOX;
+        else if (dyeColor == DDDyes.SLATE.get()) return DDBlocks.SLATE_SHULKER_BOX;
+        else if (dyeColor == DDDyes.OLIVE.get()) return DDBlocks.OLIVE_SHULKER_BOX;
+        else if (dyeColor == DDDyes.AMBER.get()) return DDBlocks.AMBER_SHULKER_BOX;
+        else if (dyeColor == DDDyes.BEIGE.get()) return DDBlocks.BEIGE_SHULKER_BOX;
+        else if (dyeColor == DDDyes.TEAL.get()) return DDBlocks.TEAL_SHULKER_BOX;
+        else if (dyeColor == DDDyes.MINT.get()) return DDBlocks.MINT_SHULKER_BOX;
+        else if (dyeColor == DDDyes.AQUA.get()) return DDBlocks.AQUA_SHULKER_BOX;
+        else if (dyeColor == DDDyes.VERDANT.get()) return DDBlocks.VERDANT_SHULKER_BOX;
+        else if (dyeColor == DDDyes.FOREST.get()) return DDBlocks.FOREST_SHULKER_BOX;
+        else if (dyeColor == DDDyes.GINGER.get()) return DDBlocks.GINGER_SHULKER_BOX;
+        else if (dyeColor == DDDyes.TAN.get()) return DDBlocks.TAN_SHULKER_BOX;
+        else return null;
     }
 }

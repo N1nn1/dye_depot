@@ -2,59 +2,12 @@ package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
-import com.ninni.dye_depot.block.DDBedBlockEntity;
-import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class DDBlockEntityTypes {
-
-    public static final BlockEntityType<DDShulkerBoxBlockEntity> SHULKER_BOX = Registry.register(
-            BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            DyeDepot.id("shulker_box"),
-            BlockEntityType.Builder.of(DDShulkerBoxBlockEntity::new,
-                    DDBlocks.MAROON_SHULKER_BOX,
-                    DDBlocks.ROSE_SHULKER_BOX,
-                    DDBlocks.CORAL_SHULKER_BOX,
-                    DDBlocks.INDIGO_SHULKER_BOX,
-                    DDBlocks.NAVY_SHULKER_BOX,
-                    DDBlocks.SLATE_SHULKER_BOX,
-                    DDBlocks.OLIVE_SHULKER_BOX,
-                    DDBlocks.AMBER_SHULKER_BOX,
-                    DDBlocks.BEIGE_SHULKER_BOX,
-                    DDBlocks.TEAL_SHULKER_BOX,
-                    DDBlocks.MINT_SHULKER_BOX,
-                    DDBlocks.AQUA_SHULKER_BOX,
-                    DDBlocks.VERDANT_SHULKER_BOX,
-                    DDBlocks.FOREST_SHULKER_BOX,
-                    DDBlocks.GINGER_SHULKER_BOX,
-                    DDBlocks.TAN_SHULKER_BOX
-            ).build(null)
-    );
-
-    public static final BlockEntityType<DDBedBlockEntity> BED = Registry.register(
-            BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            DyeDepot.id("bed"),
-            BlockEntityType.Builder.of(DDBedBlockEntity::new,
-                    DDBlocks.MAROON_BED,
-                    DDBlocks.ROSE_BED,
-                    DDBlocks.CORAL_BED,
-                    DDBlocks.INDIGO_BED,
-                    DDBlocks.NAVY_BED,
-                    DDBlocks.SLATE_BED,
-                    DDBlocks.OLIVE_BED,
-                    DDBlocks.AMBER_BED,
-                    DDBlocks.BEIGE_BED,
-                    DDBlocks.TEAL_BED,
-                    DDBlocks.MINT_BED,
-                    DDBlocks.AQUA_BED,
-                    DDBlocks.VERDANT_BED,
-                    DDBlocks.FOREST_BED,
-                    DDBlocks.GINGER_BED,
-                    DDBlocks.TAN_BED
-            ).build(null)
-    );
 
     public static final BlockEntityType<DDBannerBlockEntity> BANNER = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
@@ -96,6 +49,46 @@ public class DDBlockEntityTypes {
     );
 
     public static void init() {
+        registerShulkerBox(DDBlocks.MAROON_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.ROSE_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.CORAL_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.INDIGO_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.NAVY_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.SLATE_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.OLIVE_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.AMBER_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.BEIGE_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.TEAL_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.MINT_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.AQUA_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.VERDANT_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.FOREST_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.GINGER_SHULKER_BOX);
+        registerShulkerBox(DDBlocks.TAN_SHULKER_BOX);
 
+        registerBed(DDBlocks.MAROON_BED);
+        registerBed(DDBlocks.ROSE_BED);
+        registerBed(DDBlocks.CORAL_BED);
+        registerBed(DDBlocks.INDIGO_BED);
+        registerBed(DDBlocks.NAVY_BED);
+        registerBed(DDBlocks.SLATE_BED);
+        registerBed(DDBlocks.OLIVE_BED);
+        registerBed(DDBlocks.AMBER_BED);
+        registerBed(DDBlocks.BEIGE_BED);
+        registerBed(DDBlocks.TEAL_BED);
+        registerBed(DDBlocks.MINT_BED);
+        registerBed(DDBlocks.AQUA_BED);
+        registerBed(DDBlocks.VERDANT_BED);
+        registerBed(DDBlocks.FOREST_BED);
+        registerBed(DDBlocks.GINGER_BED);
+        registerBed(DDBlocks.TAN_BED);
+    }
+
+    private static void registerShulkerBox(Block block) {
+        BlockEntityType.SHULKER_BOX.addSupportedBlock(block);
+    }
+
+    private static void registerBed(Block block) {
+        BlockEntityType.BED.addSupportedBlock(block);
     }
 }

@@ -7,6 +7,16 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public interface DDTags {
-    //Item tags
-    TagKey<Item> SMELTS_INTO_CORAL_DYE = TagKey.create(Registries.ITEM, DyeDepot.id("smelts_into_coral_dye"));
+    TagKey<Item> DYES = item("dyes");
+    TagKey<Item> TRADE_BANNERS = item("trade/banners");
+    TagKey<Item> TRADE_TERRACOTTAS = item("trade/terracottas");
+    TagKey<Item> TRADE_DYES_2 = item("trade/dyes_2");
+    TagKey<Item> TRADE_DYES_3 = item("trade/dyes_3");
+    TagKey<Item> TRADE_DYES_4 = item("trade/dyes_4");
+    TagKey<Item> TRADE_WOOL_AND_CARPETS = item("trade/wool_and_carpets");
+    TagKey<Item> TRADE_BEDS = item("trade/beds");
+
+    static TagKey<Item> item(String name) {
+        return TagKey.create(Registries.ITEM, DyeDepot.id(name));
+    }
 }

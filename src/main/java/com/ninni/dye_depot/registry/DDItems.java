@@ -6,6 +6,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DDItems {
 
     public static final Item MAROON_DYE = register("maroon_dye", new DyeItem(DDDyes.MAROON.get(), new Item.Properties()));

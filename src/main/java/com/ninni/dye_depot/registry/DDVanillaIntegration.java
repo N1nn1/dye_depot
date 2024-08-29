@@ -1,29 +1,21 @@
 package com.ninni.dye_depot.registry;
 
-import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.client.particles.PoofParticle;
-import com.ninni.dye_depot.client.renderer.DDBannerRenderer;
-import com.ninni.dye_depot.client.renderer.DDBedRenderer;
-import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
@@ -56,226 +48,96 @@ public class DDVanillaIntegration {
     }
 
     private static void registerVillagerTrades() {
+        // Cartographer additions
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> {
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.TRADE_BANNERS, DDItems.MAROON_BANNER, 1, 3, 12, 15)), 16);
+        });
 
-        //Cartographer additions
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MAROON_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.ROSE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.CORAL_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.INDIGO_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.NAVY_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.SLATE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.OLIVE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AMBER_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.BEIGE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TEAL_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MINT_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AQUA_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.VERDANT_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.FOREST_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
+        // Mason additions
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> {
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.TRADE_TERRACOTTAS, DDItems.MAROON_TERRACOTTA, 1, 1, 12, 15)), 32);
+        });
 
-        //Mason additions
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MAROON_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.ROSE_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.CORAL_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.INDIGO_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.NAVY_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.SLATE_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.OLIVE_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AMBER_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.BEIGE_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TEAL_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MINT_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AQUA_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.VERDANT_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.FOREST_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.GINGER_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TAN_TERRACOTTA), 12, 15, 0.05f)));
+        // Shepherd additions
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> {
+            registerMultiple(() -> factories.add(new ItemTagForEmeralds(DDTags.TRADE_DYES_2, DDItems.CORAL_DYE, 1, 12, 16, 30)), 5);
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.TRADE_WOOL_AND_CARPETS, DDItems.MAROON_WOOL, 1, 1, 16, 5)), 32);
+        });
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MAROON_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.ROSE_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.CORAL_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.INDIGO_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.NAVY_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.SLATE_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.OLIVE_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AMBER_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.BEIGE_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TEAL_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MINT_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AQUA_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.VERDANT_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.FOREST_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.GINGER_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TAN_GLAZED_TERRACOTTA), 12, 15, 0.05f)));
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> {
+            registerMultiple(() -> factories.add(new ItemTagForEmeralds(DDTags.TRADE_DYES_3, DDItems.CORAL_DYE, 1, 12, 16, 30)), 5);
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.TRADE_BEDS, DDItems.MAROON_BED, 1, 3, 12, 10)), 16);
+        });
 
-        //Shepherd additions
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.TAN_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.AQUA_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.CORAL_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD),16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.BEIGE_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.AMBER_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> {
+            registerMultiple(() -> factories.add(new ItemTagForEmeralds(DDTags.TRADE_DYES_4, DDItems.CORAL_DYE, 1, 12, 16, 30)), 6);
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.TRADE_BANNERS, DDItems.MAROON_BANNER, 1, 3, 12, 15)), 16);
+        });
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MAROON_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.ROSE_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.CORAL_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.INDIGO_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.NAVY_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.SLATE_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.OLIVE_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AMBER_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.BEIGE_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TEAL_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MINT_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AQUA_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.VERDANT_WOOL),16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.FOREST_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.GINGER_WOOL), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TAN_WOOL), 16, 5, 0.05f)));
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MAROON_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.ROSE_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.CORAL_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.INDIGO_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.NAVY_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.SLATE_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.OLIVE_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AMBER_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.BEIGE_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TEAL_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MINT_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AQUA_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.VERDANT_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.FOREST_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.GINGER_CARPET, 4), 16, 5, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TAN_CARPET, 4), 16, 5, 0.05f)));
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.ROSE_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.SLATE_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.MINT_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD),16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.FOREST_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.GINGER_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MAROON_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.ROSE_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.CORAL_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.INDIGO_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.NAVY_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.SLATE_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.OLIVE_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AMBER_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.BEIGE_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TEAL_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MINT_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AQUA_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.VERDANT_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.FOREST_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.GINGER_BED), 12, 10, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TAN_BED), 12, 10, 0.05f)));
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.MAROON_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.INDIGO_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.TEAL_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD),16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.VERDANT_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.NAVY_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(DDItems.OLIVE_DYE, 12), Optional.empty(), new ItemStack(Items.EMERALD), 16, 30, 0.05f)));
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MAROON_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.ROSE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.CORAL_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.INDIGO_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.NAVY_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.SLATE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.OLIVE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AMBER_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.BEIGE_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TEAL_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.MINT_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.AQUA_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.VERDANT_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.FOREST_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.GINGER_BANNER), 12, 15, 0.05f)));
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 3), Optional.empty(), new ItemStack(DDItems.TAN_BANNER), 12, 15, 0.05f)));
-
-        //Wandering Trader additions
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MAROON_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.ROSE_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.CORAL_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.INDIGO_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.NAVY_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.SLATE_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.OLIVE_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AMBER_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.BEIGE_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TEAL_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.MINT_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.AQUA_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.VERDANT_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.FOREST_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.GINGER_DYE, 3), 12, 1, 0.05f)));
-        TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> factories.add((entity, randomSource) -> new MerchantOffer(new ItemCost(Items.EMERALD, 1), Optional.empty(), new ItemStack(DDItems.TAN_DYE, 3), 12, 1, 0.05f)));
+        // Wandering Trader additions
+        TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
+            registerMultiple(() -> factories.add(new EmeraldsForItemTag(DDTags.DYES, DDItems.MAROON_DYE, 3, 1, 12, 1)), 16);
+        });
     }
 
-    private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> immutableMap) {
-        return new Int2ObjectOpenHashMap<>(immutableMap);
+    private static void registerMultiple(Runnable register, int count) {
+        for (int i = 0; i < count; i++) {
+            register.run();
+        }
     }
 
-    @Environment(EnvType.CLIENT)
-    public static class Client {
+    public static class EmeraldsForItemTag implements VillagerTrades.ItemListing {
+        private final TagKey<Item> itemTag;
+        private final Item fallback;
+        private final int count;
+        private final int cost;
+        private final int maxUses;
+        private final int xp;
 
-        public static void clientInit() {
-            registerModelLayers();
-            registerBlockRenderLayers();
-            registerParticles();
+        public EmeraldsForItemTag(TagKey<Item> itemTag, Item fallback, int count, int cost, int maxUses, int xp) {
+            this.itemTag = itemTag;
+            this.fallback = fallback;
+            this.count = count;
+            this.cost = cost;
+            this.maxUses = maxUses;
+            this.xp = xp;
         }
 
-        //client methods
-        private static void registerModelLayers() {
-            BlockEntityRenderers.register(DDBlockEntityTypes.SHULKER_BOX, DDShulkerBoxRenderer::new);
-            BlockEntityRenderers.register(DDBlockEntityTypes.BED, DDBedRenderer::new);
-            BlockEntityRenderers.register(DDBlockEntityTypes.BANNER, DDBannerRenderer::new);
+        @Override
+        public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
+            Optional<Holder<Item>> item = entity.level().registryAccess().registryOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
+
+            ItemStack itemStack = item.map(itemHolder -> new ItemStack(itemHolder.value())).orElseGet(() -> new ItemStack(this.fallback));
+            itemStack.setCount(this.count);
+
+            return new MerchantOffer(new ItemCost(Items.EMERALD, this.cost), itemStack, this.maxUses, this.xp, 0.05f);
+        }
+    }
+
+    public static class ItemTagForEmeralds implements VillagerTrades.ItemListing {
+        private final TagKey<Item> itemTag;
+        private final Item fallback;
+        private final int count;
+        private final int cost;
+        private final int maxUses;
+        private final int xp;
+
+        public ItemTagForEmeralds(TagKey<Item> itemTag, Item fallback, int count, int cost, int maxUses, int xp) {
+            this.itemTag = itemTag;
+            this.fallback = fallback;
+            this.count = count;
+            this.cost = cost;
+            this.maxUses = maxUses;
+            this.xp = xp;
         }
 
-        private static void registerParticles() {
-            ParticleFactoryRegistry.getInstance().register(DDParticles.DYE_POOF, PoofParticle.Provider::new);
-        }
+        @Override
+        public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
+            Optional<Holder<Item>> holder = entity.level().registryAccess().registryOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
 
-        private static void registerBlockRenderLayers() {
-            BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
-                    DDBlocks.MAROON_STAINED_GLASS,
-                    DDBlocks.ROSE_STAINED_GLASS,
-                    DDBlocks.CORAL_STAINED_GLASS,
-                    DDBlocks.INDIGO_STAINED_GLASS,
-                    DDBlocks.NAVY_STAINED_GLASS,
-                    DDBlocks.SLATE_STAINED_GLASS,
-                    DDBlocks.OLIVE_STAINED_GLASS,
-                    DDBlocks.AMBER_STAINED_GLASS,
-                    DDBlocks.BEIGE_STAINED_GLASS,
-                    DDBlocks.TEAL_STAINED_GLASS,
-                    DDBlocks.MINT_STAINED_GLASS,
-                    DDBlocks.AQUA_STAINED_GLASS,
-                    DDBlocks.VERDANT_STAINED_GLASS,
-                    DDBlocks.FOREST_STAINED_GLASS,
-                    DDBlocks.GINGER_STAINED_GLASS,
-                    DDBlocks.TAN_STAINED_GLASS,
-                    DDBlocks.MAROON_STAINED_GLASS_PANE,
-                    DDBlocks.ROSE_STAINED_GLASS_PANE,
-                    DDBlocks.CORAL_STAINED_GLASS_PANE,
-                    DDBlocks.INDIGO_STAINED_GLASS_PANE,
-                    DDBlocks.NAVY_STAINED_GLASS_PANE,
-                    DDBlocks.SLATE_STAINED_GLASS_PANE,
-                    DDBlocks.OLIVE_STAINED_GLASS_PANE,
-                    DDBlocks.AMBER_STAINED_GLASS_PANE,
-                    DDBlocks.BEIGE_STAINED_GLASS_PANE,
-                    DDBlocks.TEAL_STAINED_GLASS_PANE,
-                    DDBlocks.MINT_STAINED_GLASS_PANE,
-                    DDBlocks.AQUA_STAINED_GLASS_PANE,
-                    DDBlocks.VERDANT_STAINED_GLASS_PANE,
-                    DDBlocks.FOREST_STAINED_GLASS_PANE,
-                    DDBlocks.GINGER_STAINED_GLASS_PANE,
-                    DDBlocks.TAN_STAINED_GLASS_PANE
-            );
+            Item item = holder.map(Holder::value).orElse(this.fallback);
+
+            return new MerchantOffer(new ItemCost(item, this.cost), new ItemStack(Items.EMERALD, this.count), this.maxUses, this.xp, 0.05f);
         }
     }
 }

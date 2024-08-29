@@ -3,13 +3,14 @@
   "package": "com.ninni.dye_depot.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "DispenseItemBehaviorMixin",
     "DyeColorMixin",
     "MapBannerMixin",
     "SheepMixin",
-    "DispenseItemBehaviorMixin"
+    "ShulkerBoxBlockMixin"
   ],
   "client": [
-    "client.BlockEntityWithoutLevelRendererMixin",
+    "client.BedRendererMixin",
     "client.LlamaDecorLayerMixin",
     "client.ShulkerBoxRendererMixin"
   ],
