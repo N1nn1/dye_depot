@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "dye_depot:smelts_into_coral_dye"
+            "items": "#dye_depot:smelts_into_coral_dye"
           }
         ]
       }
