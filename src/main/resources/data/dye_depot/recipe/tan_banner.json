@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "banner",
   "key": {
-    "#": {
-      "item": "dye_depot:tan_wool"
-    },
-    "|": {
-      "item": "minecraft:stick"
-    }
+    "#": "dye_depot:tan_wool",
+    "|": "minecraft:stick"
   },
   "pattern": [
     "###",

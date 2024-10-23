@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "decorations",
   "key": {
-    "#": {
-      "item": "dye_depot:beige_dye"
-    }
+    "#": "dye_depot:beige_dye"
   },
   "pattern": [
     "###",

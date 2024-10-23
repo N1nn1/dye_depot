@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "rose_dye",
   "ingredients": [
-    {
-      "item": "minecraft:magenta_dye"
-    },
-    {
-      "item": "minecraft:red_dye"
-    }
+    "minecraft:magenta_dye",
+    "minecraft:red_dye"
   ],
   "result": {
     "count": 2,

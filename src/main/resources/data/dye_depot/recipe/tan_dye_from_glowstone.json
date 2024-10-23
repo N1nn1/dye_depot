@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "tan_dye",
   "ingredients": [
-    {
-      "item": "minecraft:glowstone_dust"
-    }
+    "minecraft:glowstone_dust"
   ],
   "result": {
     "id": "dye_depot:tan_dye"

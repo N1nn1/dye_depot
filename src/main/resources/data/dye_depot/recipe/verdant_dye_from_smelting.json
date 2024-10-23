@@ -4,9 +4,7 @@
   "group": "verdant_dye",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:vine"
-  },
+  "ingredient": "minecraft:vine",
   "result": {
     "id": "dye_depot:verdant_dye"
   }

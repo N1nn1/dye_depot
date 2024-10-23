@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "gray_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:gray_dye_basket"
-    }
+    "dye_depot:gray_dye_basket"
   ],
   "result": {
     "count": 9,

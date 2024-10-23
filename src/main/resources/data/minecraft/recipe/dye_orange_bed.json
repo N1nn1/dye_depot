@@ -3,100 +3,38 @@
   "category": "building",
   "group": "bed",
   "ingredients": [
-    {
-      "item": "minecraft:orange_dye"
-    },
+    "minecraft:orange_dye",
     [
-      {
-        "item": "dye_depot:indigo_bed"
-      },
-      {
-        "item": "dye_depot:navy_bed"
-      },
-      {
-        "item": "dye_depot:teal_bed"
-      },
-      {
-        "item": "dye_depot:tan_bed"
-      },
-      {
-        "item": "dye_depot:mint_bed"
-      },
-      {
-        "item": "dye_depot:rose_bed"
-      },
-      {
-        "item": "dye_depot:beige_bed"
-      },
-      {
-        "item": "dye_depot:verdant_bed"
-      },
-      {
-        "item": "dye_depot:aqua_bed"
-      },
-      {
-        "item": "dye_depot:forest_bed"
-      },
-      {
-        "item": "dye_depot:ginger_bed"
-      },
-      {
-        "item": "dye_depot:slate_bed"
-      },
-      {
-        "item": "dye_depot:navy_bed"
-      },
-      {
-        "item": "dye_depot:tan_bed"
-      },
-      {
-        "item": "dye_depot:coral_bed"
-      },
-      {
-        "item": "minecraft:black_bed"
-      },
-      {
-        "item": "minecraft:blue_bed"
-      },
-      {
-        "item": "minecraft:brown_bed"
-      },
-      {
-        "item": "minecraft:cyan_bed"
-      },
-      {
-        "item": "minecraft:green_bed"
-      },
-      {
-        "item": "minecraft:light_blue_bed"
-      },
-      {
-        "item": "minecraft:light_gray_bed"
-      },
-      {
-        "item": "minecraft:lime_bed"
-      },
-      {
-        "item": "minecraft:magenta_bed"
-      },
-      {
-        "item": "minecraft:orange_bed"
-      },
-      {
-        "item": "minecraft:pink_bed"
-      },
-      {
-        "item": "minecraft:purple_bed"
-      },
-      {
-        "item": "minecraft:red_bed"
-      },
-      {
-        "item": "minecraft:yellow_bed"
-      },
-      {
-        "item": "minecraft:white_bed"
-      }
+      "dye_depot:indigo_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:teal_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:mint_bed",
+      "dye_depot:rose_bed",
+      "dye_depot:beige_bed",
+      "dye_depot:verdant_bed",
+      "dye_depot:aqua_bed",
+      "dye_depot:forest_bed",
+      "dye_depot:ginger_bed",
+      "dye_depot:slate_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:coral_bed",
+      "minecraft:black_bed",
+      "minecraft:blue_bed",
+      "minecraft:brown_bed",
+      "minecraft:cyan_bed",
+      "minecraft:green_bed",
+      "minecraft:light_blue_bed",
+      "minecraft:light_gray_bed",
+      "minecraft:lime_bed",
+      "minecraft:magenta_bed",
+      "minecraft:orange_bed",
+      "minecraft:pink_bed",
+      "minecraft:purple_bed",
+      "minecraft:red_bed",
+      "minecraft:yellow_bed",
+      "minecraft:white_bed"
     ]
   ],
   "result": {

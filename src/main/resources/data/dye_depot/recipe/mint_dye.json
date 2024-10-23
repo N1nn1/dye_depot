@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "verdant_dye",
   "ingredients": [
-    {
-      "item": "minecraft:green_dye"
-    },
-    {
-      "item": "minecraft:cyan_dye"
-    }
+    "minecraft:green_dye",
+    "minecraft:cyan_dye"
   ],
   "result": {
     "count": 2,

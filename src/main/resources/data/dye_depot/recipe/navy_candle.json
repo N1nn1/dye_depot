@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "dyed_candle",
   "ingredients": [
-    {
-      "item": "minecraft:candle"
-    },
-    {
-      "item": "dye_depot:navy_dye"
-    }
+    "minecraft:candle",
+    "dye_depot:navy_dye"
   ],
   "result": {
     "id": "dye_depot:navy_candle"

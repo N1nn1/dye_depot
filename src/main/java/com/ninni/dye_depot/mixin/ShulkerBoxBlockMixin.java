@@ -1,6 +1,5 @@
 package com.ninni.dye_depot.mixin;
 
-import com.google.common.reflect.Reflection;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;

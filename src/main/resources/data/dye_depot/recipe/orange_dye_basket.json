@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "decorations",
   "key": {
-    "#": {
-      "item": "minecraft:orange_dye"
-    }
+    "#": "minecraft:orange_dye"
   },
   "pattern": [
     "###",

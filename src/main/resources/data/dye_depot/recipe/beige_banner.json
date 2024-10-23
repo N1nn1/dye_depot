@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "banner",
   "key": {
-    "#": {
-      "item": "dye_depot:beige_wool"
-    },
-    "|": {
-      "item": "minecraft:stick"
-    }
+    "#": "dye_depot:beige_wool",
+    "|": "minecraft:stick"
   },
   "pattern": [
     "###",

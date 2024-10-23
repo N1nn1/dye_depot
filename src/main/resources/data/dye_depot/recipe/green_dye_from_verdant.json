@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "green_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:verdant_dye"
-    },
-    {
-      "item": "minecraft:white_dye"
-    }
+    "dye_depot:verdant_dye",
+    "minecraft:white_dye"
   ],
   "result": {
     "count": 2,

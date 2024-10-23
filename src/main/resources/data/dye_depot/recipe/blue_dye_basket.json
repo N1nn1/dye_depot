@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "decorations",
   "key": {
-    "#": {
-      "item": "minecraft:blue_dye"
-    }
+    "#": "minecraft:blue_dye"
   },
   "pattern": [
     "###",

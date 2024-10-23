@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "decorations",
   "key": {
-    "#": {
-      "item": "dye_depot:indigo_dye"
-    }
+    "#": "dye_depot:indigo_dye"
   },
   "pattern": [
     "###",

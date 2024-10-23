@@ -3,55 +3,23 @@
   "category": "building",
   "group": "wool",
   "ingredients": [
-    {
-      "item": "dye_depot:indigo_dye"
-    },
+    "dye_depot:indigo_dye",
     [
-      {
-        "item": "dye_depot:maroon_wool"
-      },
-      {
-        "item": "dye_depot:navy_wool"
-      },
-      {
-        "item": "dye_depot:teal_wool"
-      },
-      {
-        "item": "dye_depot:tan_wool"
-      },
-      {
-        "item": "dye_depot:mint_wool"
-      },
-      {
-        "item": "dye_depot:rose_wool"
-      },
-      {
-        "item": "dye_depot:beige_wool"
-      },
-      {
-        "item": "dye_depot:verdant_wool"
-      },
-      {
-        "item": "dye_depot:aqua_wool"
-      },
-      {
-        "item": "dye_depot:forest_wool"
-      },
-      {
-        "item": "dye_depot:ginger_wool"
-      },
-      {
-        "item": "dye_depot:slate_wool"
-      },
-      {
-        "item": "dye_depot:navy_wool"
-      },
-      {
-        "item": "dye_depot:tan_wool"
-      },
-      {
-        "item": "dye_depot:coral_wool"
-      }
+      "dye_depot:maroon_wool",
+      "dye_depot:navy_wool",
+      "dye_depot:teal_wool",
+      "dye_depot:tan_wool",
+      "dye_depot:mint_wool",
+      "dye_depot:rose_wool",
+      "dye_depot:beige_wool",
+      "dye_depot:verdant_wool",
+      "dye_depot:aqua_wool",
+      "dye_depot:forest_wool",
+      "dye_depot:ginger_wool",
+      "dye_depot:slate_wool",
+      "dye_depot:navy_wool",
+      "dye_depot:tan_wool",
+      "dye_depot:coral_wool"
     ]
   ],
   "result": {

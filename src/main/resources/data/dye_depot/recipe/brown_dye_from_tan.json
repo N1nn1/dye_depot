@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "brown_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:tan_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "dye_depot:tan_dye",
+    "minecraft:black_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 3,

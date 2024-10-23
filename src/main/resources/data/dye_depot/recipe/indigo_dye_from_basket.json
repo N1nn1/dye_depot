@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "indigo_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:indigo_dye_basket"
-    }
+    "dye_depot:indigo_dye_basket"
   ],
   "result": {
     "count": 9,

@@ -3,8 +3,6 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "dye_depot:teal_terracotta"
-  },
+  "ingredient": "dye_depot:teal_terracotta",
   "result": {"id": "dye_depot:teal_glazed_terracotta"}
 }

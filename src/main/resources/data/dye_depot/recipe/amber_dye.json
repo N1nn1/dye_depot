@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "amber_dye",
   "ingredients": [
-    {
-      "item": "minecraft:orange_dye"
-    },
-    {
-      "item": "minecraft:yellow_dye"
-    }
+    "minecraft:orange_dye",
+    "minecraft:yellow_dye"
   ],
   "result": {
     "count": 2,

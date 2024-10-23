@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "red_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:red_dye_basket"
-    }
+    "dye_depot:red_dye_basket"
   ],
   "result": {
     "count": 9,

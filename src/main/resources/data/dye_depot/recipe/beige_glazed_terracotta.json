@@ -3,8 +3,6 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "dye_depot:beige_terracotta"
-  },
+  "ingredient": "dye_depot:beige_terracotta",
   "result": {"id": "dye_depot:beige_glazed_terracotta"}
 }

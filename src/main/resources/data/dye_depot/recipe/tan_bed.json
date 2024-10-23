@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "bed",
   "key": {
-    "#": {
-      "item": "dye_depot:tan_wool"
-    },
-    "X": {
-      "tag": "minecraft:planks"
-    }
+    "#": "dye_depot:tan_wool",
+    "X": "#minecraft:planks"
   },
   "pattern": [
     "###",

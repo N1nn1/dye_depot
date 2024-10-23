@@ -1,10 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:debug_stick"
-    }
-  ],
+    "minecraft:debug_stick"
+      ],
   "result": {
     "id": "minecraft:debug_stick"
   }

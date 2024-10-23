@@ -3,8 +3,6 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "dye_depot:rose_terracotta"
-  },
+  "ingredient": "dye_depot:rose_terracotta",
   "result": {"id": "dye_depot:rose_glazed_terracotta"}
 }

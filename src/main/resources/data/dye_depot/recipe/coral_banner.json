@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "banner",
   "key": {
-    "#": {
-      "item": "dye_depot:coral_wool"
-    },
-    "|": {
-      "item": "minecraft:stick"
-    }
+    "#": "dye_depot:coral_wool",
+    "|": "minecraft:stick"
   },
   "pattern": [
     "###",

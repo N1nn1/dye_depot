@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "maroon_dye",
   "ingredients": [
-    {
-      "item": "minecraft:spider_eye"
-    }
+    "minecraft:spider_eye"
   ],
   "result": {
     "id": "dye_depot:maroon_dye"

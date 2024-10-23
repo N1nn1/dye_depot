@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "aqua_dye",
   "ingredients": [
-    {
-      "item": "minecraft:glow_ink_sac"
-    }
+    "minecraft:glow_ink_sac"
   ],
   "result": {
     "id": "dye_depot:aqua_dye"

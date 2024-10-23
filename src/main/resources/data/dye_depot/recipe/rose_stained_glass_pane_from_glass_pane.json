@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "stained_glass_pane",
   "key": {
-    "#": {
-      "item": "minecraft:glass_pane"
-    },
-    "$": {
-      "item": "dye_depot:rose_dye"
-    }
+    "#": "minecraft:glass_pane",
+    "$": "dye_depot:rose_dye"
   },
   "pattern": [
     "###",

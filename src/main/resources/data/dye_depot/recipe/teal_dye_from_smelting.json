@@ -4,8 +4,6 @@
   "group": "teal_dye",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:prismarine_shard"
-  },
+  "ingredient": "minecraft:prismarine_shard",
   "result": {"id": "dye_depot:teal_dye"}
 }

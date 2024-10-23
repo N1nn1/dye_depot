@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "bed",
   "key": {
-    "#": {
-      "item": "dye_depot:beige_wool"
-    },
-    "X": {
-      "tag": "minecraft:planks"
-    }
+    "#": "dye_depot:beige_wool",
+    "X": "#minecraft:planks"
   },
   "pattern": [
     "###",

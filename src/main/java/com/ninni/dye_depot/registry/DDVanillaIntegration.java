@@ -8,8 +8,11 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -21,7 +24,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 
 import java.util.Optional;
 
@@ -41,6 +46,9 @@ public class DDVanillaIntegration {
 
     private static void registerLootTableAdditions() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            if (key.equals(BuiltInLootTables.SHEAR_SHEEP)) tableBuilder.withPool(LootPool.lootPool().add(NestedLootTable.lootTableReference(DDLootTables.SHEEP_SHEARING)));
+            if (key.equals(ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/sheep")))) tableBuilder.withPool(LootPool.lootPool().add(NestedLootTable.lootTableReference(DDLootTables.SHEEP_ENTITY)));
+
             if (key.equals(BuiltInLootTables.SHEPHERD_GIFT)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.MAROON_WOOL)).add(LootItem.lootTableItem(DDItems.ROSE_WOOL)).add(LootItem.lootTableItem(DDItems.CORAL_WOOL)).add(LootItem.lootTableItem(DDItems.INDIGO_WOOL)).add(LootItem.lootTableItem(DDItems.NAVY_WOOL)).add(LootItem.lootTableItem(DDItems.SLATE_WOOL)).add(LootItem.lootTableItem(DDItems.OLIVE_WOOL)).add(LootItem.lootTableItem(DDItems.AMBER_WOOL)).add(LootItem.lootTableItem(DDItems.BEIGE_WOOL)).add(LootItem.lootTableItem(DDItems.TEAL_WOOL)).add(LootItem.lootTableItem(DDItems.MINT_WOOL)).add(LootItem.lootTableItem(DDItems.AQUA_WOOL)).add(LootItem.lootTableItem(DDItems.VERDANT_WOOL)).add(LootItem.lootTableItem(DDItems.FOREST_WOOL)).add(LootItem.lootTableItem(DDItems.GINGER_WOOL)).add(LootItem.lootTableItem(DDItems.TAN_WOOL)));
             if (key.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.BEIGE_DYE).setWeight(2)));
             if (key.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY)) tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.VERDANT_DYE).setWeight(3)));
@@ -105,7 +113,7 @@ public class DDVanillaIntegration {
 
         @Override
         public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
-            Optional<Holder<Item>> item = entity.level().registryAccess().registryOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
+            Optional<Holder<Item>> item = entity.level().registryAccess().lookupOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
 
             ItemStack itemStack = item.map(itemHolder -> new ItemStack(itemHolder.value())).orElseGet(() -> new ItemStack(this.fallback));
             itemStack.setCount(this.count);
@@ -133,7 +141,7 @@ public class DDVanillaIntegration {
 
         @Override
         public MerchantOffer getOffer(Entity entity, RandomSource randomSource) {
-            Optional<Holder<Item>> holder = entity.level().registryAccess().registryOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
+            Optional<Holder<Item>> holder = entity.level().registryAccess().lookupOrThrow(Registries.ITEM).getRandomElementOf(this.itemTag, randomSource);
 
             Item item = holder.map(Holder::value).orElse(this.fallback);
 

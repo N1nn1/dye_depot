@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "dyed_candle",
   "ingredients": [
-    {
-      "item": "minecraft:candle"
-    },
-    {
-      "item": "dye_depot:coral_dye"
-    }
+    "minecraft:candle",
+    "dye_depot:coral_dye"
   ],
   "result": {
     "id": "dye_depot:coral_candle"

@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "ginger_dye",
   "ingredients": [
-    {
-      "item": "minecraft:red_dye"
-    },
-    {
-      "item": "minecraft:orange_dye"
-    }
+    "minecraft:red_dye",
+    "minecraft:orange_dye"
   ],
   "result": {
     "count": 2,

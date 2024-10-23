@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "cyan_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:mint_dye"
-    },
-    {
-      "item": "minecraft:light_gray_dye"
-    }
+    "dye_depot:mint_dye",
+    "minecraft:light_gray_dye"
   ],
   "result": {
     "count": 2,

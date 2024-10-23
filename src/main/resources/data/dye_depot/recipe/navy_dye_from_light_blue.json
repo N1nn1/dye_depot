@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "navy_dye",
   "ingredients": [
-    {
-      "item": "minecraft:light_blue_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "minecraft:light_blue_dye",
+    "minecraft:black_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 3,

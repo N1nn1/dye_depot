@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "orange_dye",
   "ingredients": [
-    {
-      "item": "minecraft:brown_dye"
-    },
-    {
-      "item": "minecraft:white_dye"
-    }
+    "minecraft:brown_dye",
+    "minecraft:white_dye"
   ],
   "result": {
     "count": 2,

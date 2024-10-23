@@ -7,13 +7,9 @@
   },
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "dye_depot:tan_dye"
-    },
-    {
-      "item": "supplementaries:candle_holder"
-    }
-  ],
+    "dye_depot:tan_dye",
+      "supplementaries:candle_holder"
+      ],
   "result": {
     "id": "supplementaries:candle_holder_tan",
     "count": 1

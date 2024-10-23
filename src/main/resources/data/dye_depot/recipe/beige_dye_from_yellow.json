@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "beige_dye",
   "ingredients": [
-    {
-      "item": "minecraft:yellow_dye"
-    },
-    {
-      "item": "minecraft:white_dye"
-    }
+    "minecraft:yellow_dye",
+    "minecraft:white_dye"
   ],
   "result": {
     "count": 2,

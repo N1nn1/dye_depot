@@ -7,6 +7,7 @@ import com.ninni.dye_depot.registry.DDSheets;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.model.ShulkerModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -40,14 +41,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class BedRendererMixin {
     @Shadow
     @Final
-    private ModelPart headRoot;
+    private Model headModel;
 
     @Shadow
     @Final
-    private ModelPart footRoot;
+    private Model footModel;
 
     @Shadow
-    protected abstract void renderPiece(PoseStack poseStack, MultiBufferSource multiBufferSource, ModelPart modelPart, Direction direction, Material material, int i, int j, boolean bl);
+    protected abstract void renderPiece(PoseStack poseStack, MultiBufferSource multiBufferSource, Model model, Direction direction, Material material, int i, int j, boolean bl);
 
     @Inject(
         method = "render(Lnet/minecraft/world/level/block/entity/BedBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V",
@@ -62,11 +63,11 @@ public abstract class BedRendererMixin {
             if (level != null) {
                 BlockState blockState = bedBlockEntity.getBlockState();
                 DoubleBlockCombiner.NeighborCombineResult<BedBlockEntity> neighborCombineResult = DoubleBlockCombiner.combineWithNeigbour(BlockEntityType.BED, BedBlock::getBlockType, BedBlock::getConnectedDirection, ChestBlock.FACING, blockState, level, bedBlockEntity.getBlockPos(), (levelAccessor, blockPos) -> false);
-                int k = ((Int2IntFunction)neighborCombineResult.apply(new BrightnessCombiner())).get(i);
-                this.renderPiece(poseStack, multiBufferSource, blockState.getValue(BedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, blockState.getValue(BedBlock.FACING), material, k, j, false);
+                int k = neighborCombineResult.apply(new BrightnessCombiner<>()).get(i);
+                this.renderPiece(poseStack, multiBufferSource, blockState.getValue(BedBlock.PART) == BedPart.HEAD ? this.headModel : this.footModel, blockState.getValue(BedBlock.FACING), material, k, j, false);
             } else {
-                this.renderPiece(poseStack, multiBufferSource, this.headRoot, Direction.SOUTH, material, i, j, false);
-                this.renderPiece(poseStack, multiBufferSource, this.footRoot, Direction.SOUTH, material, i, j, true);
+                this.renderPiece(poseStack, multiBufferSource, this.headModel, Direction.SOUTH, material, i, j, false);
+                this.renderPiece(poseStack, multiBufferSource, this.footModel, Direction.SOUTH, material, i, j, true);
             }
 
             ci.cancel();

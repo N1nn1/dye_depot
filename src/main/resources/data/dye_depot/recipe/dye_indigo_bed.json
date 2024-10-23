@@ -3,55 +3,23 @@
   "category": "building",
   "group": "bed",
   "ingredients": [
-    {
-      "item": "dye_depot:indigo_dye"
-    },
+    "dye_depot:indigo_dye",
     [
-      {
-        "item": "dye_depot:maroon_bed"
-      },
-      {
-        "item": "dye_depot:navy_bed"
-      },
-      {
-        "item": "dye_depot:teal_bed"
-      },
-      {
-        "item": "dye_depot:tan_bed"
-      },
-      {
-        "item": "dye_depot:mint_bed"
-      },
-      {
-        "item": "dye_depot:rose_bed"
-      },
-      {
-        "item": "dye_depot:beige_bed"
-      },
-      {
-        "item": "dye_depot:verdant_bed"
-      },
-      {
-        "item": "dye_depot:aqua_bed"
-      },
-      {
-        "item": "dye_depot:forest_bed"
-      },
-      {
-        "item": "dye_depot:ginger_bed"
-      },
-      {
-        "item": "dye_depot:slate_bed"
-      },
-      {
-        "item": "dye_depot:navy_bed"
-      },
-      {
-        "item": "dye_depot:tan_bed"
-      },
-      {
-        "item": "dye_depot:coral_bed"
-      }
+      "dye_depot:maroon_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:teal_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:mint_bed",
+      "dye_depot:rose_bed",
+      "dye_depot:beige_bed",
+      "dye_depot:verdant_bed",
+      "dye_depot:aqua_bed",
+      "dye_depot:forest_bed",
+      "dye_depot:ginger_bed",
+      "dye_depot:slate_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:coral_bed"
     ]
   ],
   "result": {

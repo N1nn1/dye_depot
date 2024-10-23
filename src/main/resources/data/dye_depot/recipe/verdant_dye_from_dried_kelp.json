@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "verdant_dye",
   "ingredients": [
-    {
-      "item": "minecraft:dried_kelp"
-    }
+    "minecraft:dried_kelp"
   ],
   "result": {
     "id": "dye_depot:verdant_dye"
