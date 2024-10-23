@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_terracotta",
+  "key": {
+    "#": "minecraft:terracotta",
+    "X": "dye_depot:amber_dye"
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dye_depot:amber_terracotta"
+  },
+  "show_notification": true
+}

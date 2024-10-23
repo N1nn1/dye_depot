@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bed",
+  "key": {
+    "#": "dye_depot:ginger_wool",
+    "X": "#minecraft:planks"
+  },
+  "pattern": [
+    "###",
+    "XXX"
+  ],
+  "result": {
+    "id": "dye_depot:ginger_bed"
+  },
+  "show_notification": true
+}

@@ -1,14 +1,18 @@
 package com.ninni.dye_depot.block;
 
 import com.google.common.collect.Maps;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.ninni.dye_depot.registry.DDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,8 +24,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class DDBannerBlock extends DDAbstractBannerBlock {
+    public static final MapCodec<DDBannerBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DyeColor.CODEC.fieldOf("color").forGetter(DDAbstractBannerBlock::getColor),
+            propertiesCodec()
+    ).apply(instance, (DDBannerBlock::new)));
+
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
     private static final Map<DyeColor, Block> BY_COLOR = Maps.newHashMap();
     private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
@@ -30,6 +40,11 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
         super(dyeColor, properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ROTATION, 0));
         BY_COLOR.put(dyeColor, this);
+    }
+
+    @Override
+    protected MapCodec<DDBannerBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -48,11 +63,8 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
-        if (direction == Direction.DOWN && !blockState.canSurvive(levelAccessor, blockPos)) {
-            return Blocks.AIR.defaultBlockState();
-        }
-        return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2);
+    public BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource) {
+        return direction == Direction.DOWN && !blockState.canSurvive(levelReader, blockPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos2, blockState2, randomSource);
     }
 
     @Override

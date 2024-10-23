@@ -2,7 +2,6 @@ package com.ninni.dye_depot.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.datafixers.util.Pair;
 import com.mojang.math.Axis;
 import com.ninni.dye_depot.block.DDBannerBlock;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
@@ -16,17 +15,11 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
-
-import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class DDBannerRenderer implements BlockEntityRenderer<DDBannerBlockEntity> {
@@ -42,7 +35,6 @@ public class DDBannerRenderer implements BlockEntityRenderer<DDBannerBlockEntity
     }
 
     public void render(DDBannerBlockEntity bannerBlockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
-        List<Pair<Holder<BannerPattern>, DyeColor>> list = bannerBlockEntity.getPatterns();
         boolean bl = bannerBlockEntity.getLevel() == null;
         poseStack.pushPose();
         long l;
@@ -56,7 +48,7 @@ public class DDBannerRenderer implements BlockEntityRenderer<DDBannerBlockEntity
             float h;
             if (blockState.getBlock() instanceof DDBannerBlock) {
                 poseStack.translate(0.5F, 0.5F, 0.5F);
-                h = -RotationSegment.convertToDegrees((Integer)blockState.getValue(DDBannerBlock.ROTATION));
+                h = -RotationSegment.convertToDegrees(blockState.getValue(DDBannerBlock.ROTATION));
                 poseStack.mulPose(Axis.YP.rotationDegrees(h));
                 this.pole.visible = true;
             } else {
@@ -74,16 +66,11 @@ public class DDBannerRenderer implements BlockEntityRenderer<DDBannerBlockEntity
         this.pole.render(poseStack, vertexConsumer, i, j);
         this.bar.render(poseStack, vertexConsumer, i, j);
         BlockPos blockPos = bannerBlockEntity.getBlockPos();
-        float k = ((float)Math.floorMod((long)(blockPos.getX() * 7 + blockPos.getY() * 9 + blockPos.getZ() * 13) + l, 100L) + f) / 100.0F;
+        float k = (Math.floorMod((blockPos.getX() * 7L + blockPos.getY() * 9L + blockPos.getZ() * 13L) + l, 100L) + f) / 100.0F;
         this.flag.xRot = (-0.0125F + 0.01F * Mth.cos(6.2831855F * k)) * 3.1415927F;
         this.flag.y = -32.0F;
-        renderPatterns(poseStack, multiBufferSource, i, j, this.flag, ModelBakery.BANNER_BASE, true, list);
+        BannerRenderer.renderPatterns(poseStack, multiBufferSource, i, j, this.flag, ModelBakery.BANNER_BASE, true, bannerBlockEntity.getBaseColor(), bannerBlockEntity.getPatterns());
         poseStack.popPose();
         poseStack.popPose();
     }
-
-    public static void renderPatterns(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, ModelPart modelPart, Material material, boolean bl, List<Pair<Holder<BannerPattern>, DyeColor>> list) {
-        BannerRenderer.renderPatterns(poseStack, multiBufferSource, i, j, modelPart, material, bl, list);
-    }
-
 }

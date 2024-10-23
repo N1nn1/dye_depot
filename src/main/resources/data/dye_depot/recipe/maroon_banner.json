@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "banner",
+  "key": {
+    "#": "dye_depot:maroon_wool",
+    "|": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    "###",
+    " | "
+  ],
+  "result": {
+    "id": "dye_depot:maroon_banner"
+  },
+  "show_notification": true
+}

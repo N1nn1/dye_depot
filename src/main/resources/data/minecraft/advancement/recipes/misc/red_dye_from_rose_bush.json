@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "dye_depot:red_dye_from_rose_bush"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dye_depot:red_dye_from_rose_bush"
+      }
+    }
+  }
+}

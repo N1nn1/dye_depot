@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "amber_dye",
+  "ingredients": [
+    "dye_depot:amber_dye_basket"
+  ],
+  "result": {
+    "count": 9,
+    "id": "dye_depot:amber_dye"
+  }
+}

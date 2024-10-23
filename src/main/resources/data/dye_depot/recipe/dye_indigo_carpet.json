@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "carpet",
+  "ingredients": [
+    "dye_depot:indigo_dye",
+    [
+      "dye_depot:maroon_carpet",
+      "dye_depot:navy_carpet",
+      "dye_depot:teal_carpet",
+      "dye_depot:tan_carpet",
+      "dye_depot:mint_carpet",
+      "dye_depot:rose_carpet",
+      "dye_depot:beige_carpet",
+      "dye_depot:verdant_carpet",
+      "dye_depot:aqua_carpet",
+      "dye_depot:forest_carpet",
+      "dye_depot:ginger_carpet",
+      "dye_depot:slate_carpet",
+      "dye_depot:navy_carpet",
+      "dye_depot:tan_carpet",
+      "dye_depot:coral_carpet"
+    ]
+  ],
+  "result": {
+    "id": "dye_depot:indigo_carpet"
+  }
+}

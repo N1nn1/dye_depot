@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "coral_dye",
+  "ingredients": [
+    "minecraft:nautilus_shell"
+  ],
+  "result": {
+    "count": 2,
+    "id": "dye_depot:coral_dye"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bed",
+  "key": {
+    "#": "dye_depot:navy_wool",
+    "X": "#minecraft:planks"
+  },
+  "pattern": [
+    "###",
+    "XXX"
+  ],
+  "result": {
+    "id": "dye_depot:navy_bed"
+  },
+  "show_notification": true
+}

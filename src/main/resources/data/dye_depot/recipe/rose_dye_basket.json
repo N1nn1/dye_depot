@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "decorations",
+  "key": {
+    "#": "dye_depot:rose_dye"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "dye_depot:rose_dye_basket"
+  },
+  "show_notification": true
+}

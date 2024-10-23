@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "banner",
+  "key": {
+    "#": "dye_depot:aqua_wool",
+    "|": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    "###",
+    " | "
+  ],
+  "result": {
+    "id": "dye_depot:aqua_banner"
+  },
+  "show_notification": true
+}

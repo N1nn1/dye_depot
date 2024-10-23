@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "verdant_dye",
+  "ingredients": [
+    "minecraft:dried_kelp"
+  ],
+  "result": {
+    "id": "dye_depot:verdant_dye"
+  }
+}

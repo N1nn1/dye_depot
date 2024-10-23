@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_glass_pane",
+  "key": {
+    "#": "minecraft:glass_pane",
+    "$": "dye_depot:beige_dye"
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dye_depot:beige_stained_glass_pane"
+  },
+  "show_notification": true
+}

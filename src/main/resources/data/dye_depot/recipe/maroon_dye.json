@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "maroon_dye",
+  "ingredients": [
+    "minecraft:spider_eye"
+  ],
+  "result": {
+    "id": "dye_depot:maroon_dye"
+  }
+}

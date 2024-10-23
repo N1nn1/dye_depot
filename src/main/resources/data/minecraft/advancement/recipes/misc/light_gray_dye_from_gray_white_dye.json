@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "dye_depot:light_gray_dye_from_gray_white_dye"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dye_depot:light_gray_dye_from_gray_white_dye"
+      }
+    }
+  }
+}

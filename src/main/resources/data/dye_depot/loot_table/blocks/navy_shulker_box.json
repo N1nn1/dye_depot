@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "minecraft:custom_name",
+                "minecraft:container",
+                "minecraft:lock",
+                "minecraft:container_loot"
+              ]
+            }
+          ],
+          "name": "dye_depot:navy_shulker_box"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dye_depot:blocks/navy_shulker_box"
+}

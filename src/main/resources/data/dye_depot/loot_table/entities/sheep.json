@@ -1,0 +1,289 @@
+{
+  "type": "minecraft:shearing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "amber",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/amber"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "aqua",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/aqua"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "beige",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/beige"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "coral",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/coral"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "forest",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/forest"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "ginger",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/ginger"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "indigo",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/indigo"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "maroon",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/maroon"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "mint",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/mint"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "navy",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/navy"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "olive",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/olive"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "rose",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/rose"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "slate",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/slate"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "tan",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/tan"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "teal",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/teal"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "color": "verdant",
+                      "sheared": false
+                    }
+                  }
+                }
+              ],
+              "value": "dye_depot:entities/sheep/verdant"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dye_depot:entities/sheep"
+}

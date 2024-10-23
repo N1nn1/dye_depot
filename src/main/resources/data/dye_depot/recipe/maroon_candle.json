@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_candle",
+  "ingredients": [
+    "minecraft:candle",
+    "dye_depot:maroon_dye"
+  ],
+  "result": {
+    "id": "dye_depot:maroon_candle"
+  }
+}

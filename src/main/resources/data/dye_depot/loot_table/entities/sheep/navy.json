@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dye_depot:navy_wool"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dye_depot:entities/sheep/navy"
+}

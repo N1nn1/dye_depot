@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "tan_dye",
+  "ingredients": [
+    "minecraft:brown_dye",
+    "minecraft:white_dye",
+    "minecraft:white_dye"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:tan_dye"
+  }
+}

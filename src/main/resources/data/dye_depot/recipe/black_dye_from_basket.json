@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "black_dye",
+  "ingredients": [
+    "dye_depot:black_dye_basket"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:black_dye"
+  }
+}

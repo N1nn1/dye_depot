@@ -24,7 +24,6 @@ public class PoofParticle extends TextureSheetParticle {
         this.rCol = g;
         this.gCol = h;
         this.bCol = i;
-        float j = 0.9f;
         this.quadSize *= 0.67499995f;
         int k = (int)(32.0 / (Math.random() * 0.8 + 0.2));
         this.lifetime = (int)Math.max((float)k * 0.9f, 1.0f);
@@ -60,8 +59,8 @@ public class PoofParticle extends TextureSheetParticle {
             this.oRoll = 0.0f;
         }
         this.move(this.xd, this.yd, this.zd);
-        this.yd -= (double)0.003f;
-        this.yd = Math.max(this.yd, (double)-0.14f);
+        this.yd -= 0.003f;
+        this.yd = Math.max(this.yd, -0.14f);
     }
 
     @Environment(value= EnvType.CLIENT)
@@ -80,7 +79,7 @@ public class PoofParticle extends TextureSheetParticle {
             BlockPos blockPos = BlockPos.containing(d, e, f);
             int j = Minecraft.getInstance().getBlockColors().getColor(blockState, clientLevel, blockPos);
             if (blockState.getBlock() instanceof DyeBasketBlock) {
-                DyeColor dyeColor = ((DyeBasketBlock)blockState.getBlock()).getDyeColor();
+                DyeColor dyeColor = ((DyeBasketBlock)blockState.getBlock()).getColor();
 
                 if (dyeColor == DyeColor.BLUE) j = 0x345eb6;
                 else if (dyeColor == DyeColor.GREEN) j = 0x5b8221;

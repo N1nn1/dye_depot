@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "banner",
+  "key": {
+    "#": "dye_depot:mint_wool",
+    "|": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    "###",
+    " | "
+  ],
+  "result": {
+    "id": "dye_depot:mint_banner"
+  },
+  "show_notification": true
+}

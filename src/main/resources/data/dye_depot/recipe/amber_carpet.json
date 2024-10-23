@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carpet",
+  "key": {
+    "#": "dye_depot:amber_wool"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:amber_carpet"
+  },
+  "show_notification": true
+}

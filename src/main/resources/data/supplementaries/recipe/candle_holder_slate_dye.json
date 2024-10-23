@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": {
+    "condition": "fabric:all_mods_loaded",
+    "values": [
+      "supplementaries"
+    ]
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "dye_depot:slate_dye",
+      "supplementaries:candle_holder"
+      ],
+  "result": {
+    "id": "supplementaries:candle_holder_slate",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "candle_holder"
+    }
+  ]
+}

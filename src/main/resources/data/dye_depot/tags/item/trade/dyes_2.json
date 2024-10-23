@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:coral_dye",
+    "dye_depot:amber_dye",
+    "dye_depot:beige_dye",
+    "dye_depot:aqua_dye",
+    "dye_depot:tan_dye"
+  ]
+}

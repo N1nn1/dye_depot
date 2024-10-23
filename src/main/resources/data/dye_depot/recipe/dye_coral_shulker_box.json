@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "group": "shulker_box_dye",
+  "input": "#minecraft:shulker_boxes",
+  "material": "dye_depot:coral_dye",
+  "result": "dye_depot:coral_shulker_box"
+}

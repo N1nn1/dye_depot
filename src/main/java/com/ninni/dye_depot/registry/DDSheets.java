@@ -31,7 +31,7 @@ public class DDSheets {
             "forest",
             "ginger",
             "tan"
-    ).map((string) -> new Material(Sheets.SHULKER_SHEET, new ResourceLocation(DyeDepot.MOD_ID,"entity/shulker/shulker_" + string))).collect(ImmutableList.toImmutableList());
+    ).map((string) -> new Material(Sheets.SHULKER_SHEET,  DyeDepot.id("entity/shulker/shulker_" + string))).collect(ImmutableList.toImmutableList());
 
     public static final List<Material> BED_TEXTURE_LOCATION = Stream.of(
             "maroon",
@@ -50,6 +50,6 @@ public class DDSheets {
             "forest",
             "ginger",
             "tan"
-    ).map((string) -> new Material(Sheets.BED_SHEET, new ResourceLocation(DyeDepot.MOD_ID,"entity/bed/" + string))).collect(ImmutableList.toImmutableList());
+    ).map((string) -> new Material(Sheets.BED_SHEET, DyeDepot.id("entity/bed/" + string))).collect(ImmutableList.toImmutableList());
 
 }

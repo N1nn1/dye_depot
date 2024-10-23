@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carpet",
+  "key": {
+    "#": "dye_depot:olive_wool"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:olive_carpet"
+  },
+  "show_notification": true
+}
