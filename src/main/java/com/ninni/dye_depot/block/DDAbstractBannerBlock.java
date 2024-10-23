@@ -1,18 +1,15 @@
 package com.ninni.dye_depot.block;
 
-import com.ninni.dye_depot.registry.DDBlockEntityType;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractBannerBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
-public class DDAbstractBannerBlock extends AbstractBannerBlock {
+public abstract class DDAbstractBannerBlock extends AbstractBannerBlock {
     private final DyeColor color;
 
     protected DDAbstractBannerBlock(DyeColor dyeColor, Properties properties) {
@@ -20,27 +17,21 @@ public class DDAbstractBannerBlock extends AbstractBannerBlock {
         this.color = dyeColor;
     }
 
+    protected abstract MapCodec<? extends AbstractBannerBlock> codec();
+
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new DDBannerBlockEntity(blockPos, blockState, this.getColor());
     }
 
     @Override
-    public void setPlacedBy(Level level, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
-        if (level.isClientSide) {
-            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER).ifPresent(bannerBlockEntity -> bannerBlockEntity.fromItem(itemStack));
-        } else if (itemStack.hasCustomHoverName()) {
-            level.getBlockEntity(blockPos, DDBlockEntityType.BANNER).ifPresent(bannerBlockEntity -> bannerBlockEntity.setCustomName(itemStack.getHoverName()));
+    public ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        BlockEntity var5 = levelReader.getBlockEntity(blockPos);
+        if (var5 instanceof DDBannerBlockEntity blockEntity) {
+            return blockEntity.getItem();
+        } else {
+            return super.getCloneItemStack(levelReader, blockPos, blockState);
         }
-    }
-
-    @Override
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
-        if (blockEntity instanceof DDBannerBlockEntity) {
-            return ((DDBannerBlockEntity)blockEntity).getItem();
-        }
-        return super.getCloneItemStack(blockGetter, blockPos, blockState);
     }
 
     public DyeColor getColor() {

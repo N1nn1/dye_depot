@@ -1,0 +1,33 @@
+{
+  "fabric:load_conditions": {
+    "condition": "fabric:all_mods_loaded",
+    "values": [
+      "supplementaries"
+    ]
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "flag"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "flag",
+  "pattern": [
+    "111",
+    "111",
+    "2  "
+  ],
+  "key": {
+    "1": {
+      "item": "dye_depot:navy_wool"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "supplementaries:flag_navy",
+    "count": 1
+  }
+}

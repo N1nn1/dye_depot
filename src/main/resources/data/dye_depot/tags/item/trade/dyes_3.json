@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:rose_dye",
+    "dye_depot:slate_dye",
+    "dye_depot:mint_dye",
+    "dye_depot:forest_dye",
+    "dye_depot:ginger_dye"
+  ]
+}

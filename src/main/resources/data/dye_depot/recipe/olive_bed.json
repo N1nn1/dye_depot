@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bed",
+  "key": {
+    "#": {
+      "item": "dye_depot:olive_wool"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "XXX"
+  ],
+  "result": {
+    "id": "dye_depot:olive_bed"
+  },
+  "show_notification": true
+}

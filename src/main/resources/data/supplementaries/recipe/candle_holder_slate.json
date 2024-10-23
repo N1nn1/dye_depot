@@ -1,0 +1,33 @@
+{
+  "fabric:load_conditions": {
+    "condition": "fabric:all_mods_loaded",
+    "values": [
+      "supplementaries"
+    ]
+  },
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "candle_holder",
+  "pattern": [
+    "NCN",
+    " N "
+  ],
+  "key": {
+    "C": {
+      "item": "dye_depot:slate_candle"
+    },
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "supplementaries:candle_holder_slate",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "candle_holder"
+    }
+  ]
+}

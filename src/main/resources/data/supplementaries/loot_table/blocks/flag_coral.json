@@ -1,0 +1,37 @@
+{
+  "fabric:load_conditions": {
+    "condition": "fabric:all_mods_loaded",
+    "values": [
+      "supplementaries"
+    ]
+  },
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "minecraft:custom_name",
+                "minecraft:item_name",
+                "minecraft:hide_additional_tooltip",
+                "minecraft:banner_patterns"
+              ]
+            }
+          ],
+          "name": "supplementaries:flag_coral"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

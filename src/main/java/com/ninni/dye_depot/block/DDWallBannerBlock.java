@@ -2,6 +2,8 @@ package com.ninni.dye_depot.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.DyeColor;
@@ -21,12 +23,21 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Map;
 
 public class DDWallBannerBlock extends DDAbstractBannerBlock {
+    public static final MapCodec<DDWallBannerBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DyeColor.CODEC.fieldOf("color").forGetter(DDAbstractBannerBlock::getColor),
+            propertiesCodec()
+    ).apply(instance, (DDWallBannerBlock::new)));
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     private static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(0.0, 0.0, 14.0, 16.0, 12.5, 16.0), Direction.SOUTH, Block.box(0.0, 0.0, 0.0, 16.0, 12.5, 2.0), Direction.WEST, Block.box(14.0, 0.0, 0.0, 16.0, 12.5, 16.0), Direction.EAST, Block.box(0.0, 0.0, 0.0, 2.0, 12.5, 16.0)));
 
     public DDWallBannerBlock(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         super(dyeColor, properties);
         this.registerDefaultState((this.stateDefinition.any()).setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    protected MapCodec<DDWallBannerBlock> codec() {
+        return CODEC;
     }
 
     @Override
