@@ -8,12 +8,15 @@
 		"Yapetto",
 		"Ninni"
 	],
+	"contributors": [
+		"Apollo",
+	],
 	"contact": {
 		"homepage": "https://www.curseforge.com/minecraft/mc-mods/dye_depot",
 		"issues": "https://github.com/N1nn1/dye_depot/issues",
 		"sources": "https://github.com/N1nn1/dye_depot"
 	},
-	"license": "CC0-1.0",
+	"license": "ARR",
 	"accessWidener" : "dye_depot.accesswidener",
 	"icon": "assets/dye_depot/icon.png",
 	"environment": "*",
