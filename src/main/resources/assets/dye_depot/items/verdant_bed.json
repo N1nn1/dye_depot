@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "dye_depot:item/verdant_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "dye_depot:verdant"
+    }
+  }
+}

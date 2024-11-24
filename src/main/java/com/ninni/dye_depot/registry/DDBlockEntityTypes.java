@@ -1,56 +1,46 @@
 package com.ninni.dye_depot.registry;
 
-import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.block.DDBannerBlockEntity;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.ninni.dye_depot.mixin.BannerBlockAccessor;
+import net.minecraft.world.level.block.AbstractBannerBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class DDBlockEntityTypes {
 
-    public static final BlockEntityType<DDBannerBlockEntity> BANNER = Registry.register(
-        BuiltInRegistries.BLOCK_ENTITY_TYPE,
-        DyeDepot.id("banner"),
-        FabricBlockEntityTypeBuilder.create(DDBannerBlockEntity::new,
-            DDBlocks.MAROON_BANNER,
-            DDBlocks.ROSE_BANNER,
-            DDBlocks.CORAL_BANNER,
-            DDBlocks.INDIGO_BANNER,
-            DDBlocks.NAVY_BANNER,
-            DDBlocks.SLATE_BANNER,
-            DDBlocks.OLIVE_BANNER,
-            DDBlocks.AMBER_BANNER,
-            DDBlocks.BEIGE_BANNER,
-            DDBlocks.TEAL_BANNER,
-            DDBlocks.MINT_BANNER,
-            DDBlocks.AQUA_BANNER,
-            DDBlocks.VERDANT_BANNER,
-            DDBlocks.FOREST_BANNER,
-            DDBlocks.GINGER_BANNER,
-            DDBlocks.TAN_BANNER,
-            DDBlocks.MAROON_WALL_BANNER,
-            DDBlocks.ROSE_WALL_BANNER,
-            DDBlocks.CORAL_WALL_BANNER,
-            DDBlocks.INDIGO_WALL_BANNER,
-            DDBlocks.NAVY_WALL_BANNER,
-            DDBlocks.SLATE_WALL_BANNER,
-            DDBlocks.OLIVE_WALL_BANNER,
-            DDBlocks.AMBER_WALL_BANNER,
-            DDBlocks.BEIGE_WALL_BANNER,
-            DDBlocks.TEAL_WALL_BANNER,
-            DDBlocks.MINT_WALL_BANNER,
-            DDBlocks.AQUA_WALL_BANNER,
-            DDBlocks.VERDANT_WALL_BANNER,
-            DDBlocks.FOREST_WALL_BANNER,
-            DDBlocks.GINGER_WALL_BANNER,
-                DDBlocks.TAN_WALL_BANNER
-        ).build(null)
-    );
-
     public static void init() {
+        registerBanner(DDBlocks.MAROON_BANNER);
+        registerBanner(DDBlocks.ROSE_BANNER);
+        registerBanner(DDBlocks.CORAL_BANNER);
+        registerBanner(DDBlocks.INDIGO_BANNER);
+        registerBanner(DDBlocks.NAVY_BANNER);
+        registerBanner(DDBlocks.SLATE_BANNER);
+        registerBanner(DDBlocks.OLIVE_BANNER);
+        registerBanner(DDBlocks.AMBER_BANNER);
+        registerBanner(DDBlocks.BEIGE_BANNER);
+        registerBanner(DDBlocks.TEAL_BANNER);
+        registerBanner(DDBlocks.MINT_BANNER);
+        registerBanner(DDBlocks.AQUA_BANNER);
+        registerBanner(DDBlocks.VERDANT_BANNER);
+        registerBanner(DDBlocks.FOREST_BANNER);
+        registerBanner(DDBlocks.GINGER_BANNER);
+        registerBanner(DDBlocks.TAN_BANNER);
+        registerBanner(DDBlocks.MAROON_WALL_BANNER);
+        registerBanner(DDBlocks.ROSE_WALL_BANNER);
+        registerBanner(DDBlocks.CORAL_WALL_BANNER);
+        registerBanner(DDBlocks.INDIGO_WALL_BANNER);
+        registerBanner(DDBlocks.NAVY_WALL_BANNER);
+        registerBanner(DDBlocks.SLATE_WALL_BANNER);
+        registerBanner(DDBlocks.OLIVE_WALL_BANNER);
+        registerBanner(DDBlocks.AMBER_WALL_BANNER);
+        registerBanner(DDBlocks.BEIGE_WALL_BANNER);
+        registerBanner(DDBlocks.TEAL_WALL_BANNER);
+        registerBanner(DDBlocks.MINT_WALL_BANNER);
+        registerBanner(DDBlocks.AQUA_WALL_BANNER);
+        registerBanner(DDBlocks.VERDANT_WALL_BANNER);
+        registerBanner(DDBlocks.FOREST_WALL_BANNER);
+        registerBanner(DDBlocks.GINGER_WALL_BANNER);
+        registerBanner(DDBlocks.TAN_WALL_BANNER);
+
         registerShulkerBox(DDBlocks.MAROON_SHULKER_BOX);
         registerShulkerBox(DDBlocks.ROSE_SHULKER_BOX);
         registerShulkerBox(DDBlocks.CORAL_SHULKER_BOX);
@@ -84,6 +74,11 @@ public class DDBlockEntityTypes {
         registerBed(DDBlocks.FOREST_BED);
         registerBed(DDBlocks.GINGER_BED);
         registerBed(DDBlocks.TAN_BED);
+    }
+
+    private static void registerBanner(Block block) {
+        BlockEntityType.BANNER.addSupportedBlock(block);
+        BannerBlockAccessor.getByColor().put(((AbstractBannerBlock)block).getColor(), block);
     }
 
     private static void registerShulkerBox(Block block) {

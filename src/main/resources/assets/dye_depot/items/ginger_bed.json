@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "dye_depot:item/ginger_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "dye_depot:ginger"
+    }
+  }
+}

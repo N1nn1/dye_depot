@@ -5,7 +5,9 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
@@ -53,11 +55,11 @@ public enum DDDyes implements StringRepresentable {
     }
 
     public static List<DyeColor> getAll() {
-        List<DyeColor> colors = new ArrayList<>();
-        for (DDDyes dye : DDDyes.values()) {
-            colors.add(dye.get());
-        }
-        return colors;
+        return Arrays.stream(DDDyes.values()).map(DDDyes::get).toList();
+    }
+
+    public static boolean contains(DyeColor dyeColor) {
+        return dyeColor.getId() > 15;
     }
 
 

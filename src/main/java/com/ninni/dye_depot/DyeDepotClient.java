@@ -1,29 +1,20 @@
 package com.ninni.dye_depot;
 
 import com.ninni.dye_depot.client.particles.PoofParticle;
-import com.ninni.dye_depot.client.renderer.DDBannerRenderer;
-import com.ninni.dye_depot.registry.DDBlockEntityTypes;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDParticles;
-import com.ninni.dye_depot.registry.DDVanillaIntegration;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 
 
 public class DyeDepotClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		registerModelLayers();
 		registerBlockRenderLayers();
 		registerParticles();
-	}
-
-	private static void registerModelLayers() {
-		BlockEntityRenderers.register(DDBlockEntityTypes.BANNER, DDBannerRenderer::new);
 	}
 
 	private static void registerParticles() {

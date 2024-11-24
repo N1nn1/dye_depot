@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "dye_depot:item/tan_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "dye_depot:tan"
+    }
+  }
+}

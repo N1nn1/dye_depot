@@ -337,12 +337,12 @@ public class DDBlocks {
 
     private static Block banner(DDDyes dddye) {
         DyeColor dyeColor = dddye.get();
-        return baseDyed(key(dddye, "banner"), dyeColor, DDBannerBlock::new, copy(Blocks.WHITE_BANNER));
+        return baseDyed(key(dddye, "banner"), dyeColor, BannerBlock::new, copy(Blocks.WHITE_BANNER));
     }
 
     private static Block wallBanner(DDDyes dddye, Block baseBanner) {
         DyeColor dyeColor = dddye.get();
-        return baseDyed(key(dddye, "wall_banner"), dyeColor, DDWallBannerBlock::new, copy(Blocks.WHITE_WALL_BANNER).overrideLootTable(baseBanner.getLootTable()));
+        return baseDyed(key(dddye, "wall_banner"), dyeColor, WallBannerBlock::new, copy(Blocks.WHITE_WALL_BANNER).overrideLootTable(baseBanner.getLootTable()));
     }
 
     private static Block shulkerBox(DDDyes dddye) {

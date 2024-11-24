@@ -8,7 +8,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DDItems {
+    public static final List<Item> ALL_ITEMS = new ArrayList<>();
 
     public static final Item MAROON_DYE = dye(DDDyes.MAROON);
     public static final Item ROSE_DYE = dye(DDDyes.ROSE);
@@ -286,6 +290,7 @@ public class DDItems {
     }
 
     private static Item register(ResourceKey<Item> key, Item item) {
+        ALL_ITEMS.add(item);
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 

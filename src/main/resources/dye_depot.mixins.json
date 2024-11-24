@@ -3,6 +3,8 @@
   "package": "com.ninni.dye_depot.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BannerBlockAccessor",
+    "BannerBlockMixin",
     "DispenseItemBehaviorMixin",
     "DyeColorMixin",
     "MapBannerMixin",
@@ -10,8 +12,7 @@
     "ShulkerBoxBlockMixin"
   ],
   "client": [
-    "client.BedRendererMixin",
-    "client.ShulkerBoxRendererMixin"
+    "client.SheetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

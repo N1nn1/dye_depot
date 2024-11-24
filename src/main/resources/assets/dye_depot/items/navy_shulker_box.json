@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "dye_depot:item/navy_shulker_box",
+    "model": {
+      "type": "minecraft:shulker_box",
+      "texture": "dye_depot:shulker_navy"
+    }
+  }
+}
