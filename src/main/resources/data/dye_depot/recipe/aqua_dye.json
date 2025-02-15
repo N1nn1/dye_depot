@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "aqua_dye",
+  "ingredients": [
+    "minecraft:glow_ink_sac"
+  ],
+  "result": {
+    "id": "dye_depot:aqua_dye"
+  }
+}

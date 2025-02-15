@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "beige_dye",
+  "ingredients": [
+    "minecraft:oxeye_daisy"
+  ],
+  "result": {
+    "id": "dye_depot:beige_dye"
+  }
+}

@@ -307,4 +307,8 @@ public class DDCreativeModeTabs {
             entries.addBefore(PURPLE_BANNER, INDIGO_BANNER);
         });
     }
+
+    public static void init() {
+
+    }
 }

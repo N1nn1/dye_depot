@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "beige_dye",
+  "ingredients": [
+    "dye_depot:beige_dye_basket"
+  ],
+  "result": {
+    "count": 9,
+    "id": "dye_depot:beige_dye"
+  }
+}

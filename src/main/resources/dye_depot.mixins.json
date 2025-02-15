@@ -3,16 +3,16 @@
   "package": "com.ninni.dye_depot.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BannerBlockAccessor",
+    "BannerBlockMixin",
+    "DispenseItemBehaviorMixin",
     "DyeColorMixin",
     "MapBannerMixin",
-    "MapDecorationTypeMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "ShulkerBoxBlockMixin"
   ],
   "client": [
-    "client.BlockEntityWithoutLevelRendererMixin",
-    "client.LlamaDecorLayerMixin",
-    "client.MapRendererMixin",
-    "client.ShulkerBoxRendererMixin"
+    "client.SheetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

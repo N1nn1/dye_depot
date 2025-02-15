@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_dye",
+    "dye_depot:indigo_dye",
+    "dye_depot:teal_dye",
+    "dye_depot:verdant_dye",
+    "dye_depot:navy_dye",
+    "dye_depot:olive_dye"
+  ]
+}

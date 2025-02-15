@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "olive_dye",
+  "ingredients": [
+    "minecraft:poisonous_potato"
+  ],
+  "result": {
+    "id": "dye_depot:olive_dye"
+  }
+}

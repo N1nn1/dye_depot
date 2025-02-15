@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "red_dye",
+  "ingredients": [
+    "dye_depot:red_dye_basket"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:red_dye"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "forest_dye",
+  "ingredients": [
+    "minecraft:bamboo"
+  ],
+  "result": {
+    "id": "dye_depot:forest_dye"
+  }
+}

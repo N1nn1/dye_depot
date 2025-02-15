@@ -1,11 +1,12 @@
 package com.ninni.dye_depot.block;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.ninni.dye_depot.registry.DDParticles;
 import com.ninni.dye_depot.registry.DDSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -28,14 +29,23 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DyeBasketBlock extends HorizontalDirectionalBlock {
+    public static final MapCodec<DyeBasketBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            DyeColor.CODEC.fieldOf("color").forGetter(DyeBasketBlock::getColor),
+            propertiesCodec()
+    ).apply(instance, (DyeBasketBlock::new)));
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 15.0, 16.0);
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    private DyeColor dyeColor;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
+    private final DyeColor color;
 
-    public DyeBasketBlock(DyeColor dyeColor, Properties properties) {
-        super(properties);
-        this.dyeColor = dyeColor;
+    public DyeBasketBlock(DyeColor color, Properties properties) {
+        super(properties.mapColor(color.getMapColor()));
+        this.color = color;
         this.registerDefaultState(((this.stateDefinition.any()).setValue(FACING, Direction.NORTH)));
+    }
+
+    @Override
+    protected MapCodec<DyeBasketBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -67,8 +77,8 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
         }
     }
 
-    public DyeColor getDyeColor() {
-        return dyeColor;
+    public DyeColor getColor() {
+        return color;
     }
 
     @Override
@@ -91,19 +101,23 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
         builder.add(FACING);
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
         return SHAPE;
     }
 
+    @Override
     public VoxelShape getBlockSupportShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return Shapes.block();
     }
 
+    @Override
     public VoxelShape getVisualShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
         return Shapes.block();
     }
 
-    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType) {
+    @Override
+    public boolean isPathfindable(BlockState blockState, PathComputationType pathComputationType) {
         return false;
     }
 

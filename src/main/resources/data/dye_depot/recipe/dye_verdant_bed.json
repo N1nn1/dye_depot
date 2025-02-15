@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "bed",
+  "ingredients": [
+    "dye_depot:verdant_dye",
+    [
+      "dye_depot:indigo_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:teal_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:mint_bed",
+      "dye_depot:rose_bed",
+      "dye_depot:beige_bed",
+      "dye_depot:verdant_bed",
+      "dye_depot:aqua_bed",
+      "dye_depot:forest_bed",
+      "dye_depot:ginger_bed",
+      "dye_depot:slate_bed",
+      "dye_depot:navy_bed",
+      "dye_depot:tan_bed",
+      "dye_depot:coral_bed",
+      "minecraft:black_bed",
+      "minecraft:blue_bed",
+      "minecraft:brown_bed",
+      "minecraft:cyan_bed",
+      "minecraft:green_bed",
+      "minecraft:light_blue_bed",
+      "minecraft:light_gray_bed",
+      "minecraft:lime_bed",
+      "minecraft:magenta_bed",
+      "minecraft:orange_bed",
+      "minecraft:pink_bed",
+      "minecraft:purple_bed",
+      "minecraft:red_bed",
+      "minecraft:yellow_bed",
+      "minecraft:white_bed"
+    ]
+  ],
+  "result": {
+    "id": "dye_depot:verdant_bed"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "dye_depot:maroon_banner",
+    "dye_depot:rose_banner",
+    "dye_depot:coral_banner",
+    "dye_depot:indigo_banner",
+    "dye_depot:navy_banner",
+    "dye_depot:slate_banner",
+    "dye_depot:olive_banner",
+    "dye_depot:amber_banner",
+    "dye_depot:beige_banner",
+    "dye_depot:teal_banner",
+    "dye_depot:mint_banner",
+    "dye_depot:aqua_banner",
+    "dye_depot:verdant_banner",
+    "dye_depot:forest_banner",
+    "dye_depot:ginger_banner",
+    "dye_depot:tan_banner"
+  ]
+}

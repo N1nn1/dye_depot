@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "red_dye",
+  "ingredients": [
+    "dye_depot:maroon_dye",
+    "dye_depot:coral_dye"
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:red_dye"
+  }
+}

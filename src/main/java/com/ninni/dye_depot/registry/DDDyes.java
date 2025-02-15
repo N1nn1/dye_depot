@@ -4,6 +4,11 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
     ROSE(17, "rose", 0xFF5E64, MapColor.TERRACOTTA_MAGENTA, 0xFF5E64, 0xFF5E64),
@@ -47,6 +52,14 @@ public enum DDDyes implements StringRepresentable {
         int p = (k & 0xFF) >> 0;
         this.textureDiffuseColors = new float[]{(float)n / 255.0f, (float)o / 255.0f, (float)p / 255.0f};
         this.fireworkColor = l;
+    }
+
+    public static List<DyeColor> getAll() {
+        return Arrays.stream(DDDyes.values()).map(DDDyes::get).toList();
+    }
+
+    public static boolean contains(DyeColor dyeColor) {
+        return dyeColor.getId() > 15;
     }
 
 

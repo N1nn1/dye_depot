@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "navy_dye",
+  "ingredients": [
+    "minecraft:light_blue_dye",
+    "minecraft:black_dye",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:navy_dye"
+  }
+}

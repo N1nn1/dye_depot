@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "teal_dye",
+  "ingredients": [
+    "dye_depot:aqua_dye",
+    "minecraft:black_dye",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:teal_dye"
+  }
+}
