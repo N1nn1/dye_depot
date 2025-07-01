@@ -4,7 +4,7 @@
   "group": "bed",
   "ingredients": [
     {
-      "item": "dye_depot:tan_dye"
+      "item": "dye_depot:amber_dye"
     },
     [
       {
@@ -100,6 +100,6 @@
     ]
   ],
   "result": {
-    "item": "dye_depot:tan_bed"
+    "item": "dye_depot:amber_bed"
   }
 }

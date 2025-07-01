@@ -4,7 +4,7 @@
   "group": "shulker_box",
   "ingredients": [
     {
-      "item": "dye_depot:tan_dye"
+      "item": "dye_depot:amber_dye"
     },
     [
       {
@@ -103,6 +103,6 @@
     ]
   ],
   "result": {
-    "item": "dye_depot:tan_shulker_box"
+    "item": "dye_depot:amber_shulker_box"
   }
 }
