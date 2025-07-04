@@ -182,20 +182,20 @@ public class DDCreativeModeTabs {
             entries.addAfter(BLUE_STAINED_GLASS_PANE, SLATE_STAINED_GLASS_PANE, NAVY_STAINED_GLASS_PANE);
             entries.addBefore(PURPLE_STAINED_GLASS_PANE, INDIGO_STAINED_GLASS_PANE);
 
-            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
-            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
-            entries.addBefore(ORANGE_SHULKER_BOX, GINGER_SHULKER_BOX);
-            entries.addAfter(ORANGE_SHULKER_BOX, TAN_SHULKER_BOX);
-            entries.addBefore(YELLOW_SHULKER_BOX, BEIGE_SHULKER_BOX);
-            entries.addAfter(YELLOW_SHULKER_BOX, AMBER_SHULKER_BOX, OLIVE_SHULKER_BOX);
-            entries.addBefore(GREEN_SHULKER_BOX, FOREST_SHULKER_BOX);
-            entries.addAfter(GREEN_SHULKER_BOX, VERDANT_SHULKER_BOX);
-            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
-            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
-            entries.addBefore(CYAN_SHULKER_BOX, TEAL_SHULKER_BOX);
-            entries.addAfter(CYAN_SHULKER_BOX, MINT_SHULKER_BOX, AQUA_SHULKER_BOX);
-            entries.addAfter(BLUE_SHULKER_BOX, SLATE_SHULKER_BOX, NAVY_SHULKER_BOX);
-            entries.addBefore(PURPLE_SHULKER_BOX, INDIGO_SHULKER_BOX);
+            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
+            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
+            entries.addBefore(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.GINGER.get()));
+            entries.addAfter(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TAN.get()));
+            entries.addBefore(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.BEIGE.get()));
+            entries.addAfter(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.AMBER.get()), SHULKER_BOXES.get(DDDyes.OLIVE.get()));
+            entries.addBefore(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.FOREST.get()));
+            entries.addAfter(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.VERDANT.get()));
+            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
+            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
+            entries.addBefore(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TEAL.get()));
+            entries.addAfter(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MINT.get()), SHULKER_BOXES.get(DDDyes.AQUA.get()));
+            entries.addAfter(BLUE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.SLATE.get()), SHULKER_BOXES.get(DDDyes.NAVY.get()));
+            entries.addBefore(PURPLE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.INDIGO.get()));
 
             entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
             entries.addAfter(RED_BED, CORAL_BED);
@@ -246,20 +246,20 @@ public class DDCreativeModeTabs {
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
 
-            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
-            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
-            entries.addBefore(ORANGE_SHULKER_BOX, GINGER_SHULKER_BOX);
-            entries.addAfter(ORANGE_SHULKER_BOX, TAN_SHULKER_BOX);
-            entries.addBefore(YELLOW_SHULKER_BOX, BEIGE_SHULKER_BOX);
-            entries.addAfter(YELLOW_SHULKER_BOX, AMBER_SHULKER_BOX, OLIVE_SHULKER_BOX);
-            entries.addBefore(GREEN_SHULKER_BOX, FOREST_SHULKER_BOX);
-            entries.addAfter(GREEN_SHULKER_BOX, VERDANT_SHULKER_BOX);
-            entries.addBefore(RED_SHULKER_BOX, MAROON_SHULKER_BOX, ROSE_SHULKER_BOX);
-            entries.addAfter(RED_SHULKER_BOX, CORAL_SHULKER_BOX);
-            entries.addBefore(CYAN_SHULKER_BOX, TEAL_SHULKER_BOX);
-            entries.addAfter(CYAN_SHULKER_BOX, MINT_SHULKER_BOX, AQUA_SHULKER_BOX);
-            entries.addAfter(BLUE_SHULKER_BOX, SLATE_SHULKER_BOX, NAVY_SHULKER_BOX);
-            entries.addBefore(PURPLE_SHULKER_BOX, INDIGO_SHULKER_BOX);
+            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
+            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
+            entries.addBefore(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.GINGER.get()));
+            entries.addAfter(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TAN.get()));
+            entries.addBefore(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.BEIGE.get()));
+            entries.addAfter(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.AMBER.get()), SHULKER_BOXES.get(DDDyes.OLIVE.get()));
+            entries.addBefore(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.FOREST.get()));
+            entries.addAfter(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.VERDANT.get()));
+            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
+            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
+            entries.addBefore(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TEAL.get()));
+            entries.addAfter(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MINT.get()), SHULKER_BOXES.get(DDDyes.AQUA.get()));
+            entries.addAfter(BLUE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.SLATE.get()), SHULKER_BOXES.get(DDDyes.NAVY.get()));
+            entries.addBefore(PURPLE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.INDIGO.get()));
 
             entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
             entries.addAfter(RED_BED, CORAL_BED);

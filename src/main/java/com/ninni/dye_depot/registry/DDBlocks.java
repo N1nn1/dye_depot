@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
+import java.util.Map;
+
 @SuppressWarnings("unused")
 public class DDBlocks {
 
@@ -154,22 +156,9 @@ public class DDBlocks {
     public static final Block GINGER_STAINED_GLASS_PANE = register("ginger_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block TAN_STAINED_GLASS_PANE = register("tan_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
 
-    public static final Block MAROON_SHULKER_BOX = register("maroon_shulker_box", shulkerBox(DDDyes.MAROON.get(), FabricBlockSettings.create().mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_SHULKER_BOX = register("rose_shulker_box", shulkerBox(DDDyes.ROSE.get(), FabricBlockSettings.create().mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_SHULKER_BOX = register("coral_shulker_box", shulkerBox(DDDyes.CORAL.get(), FabricBlockSettings.create().mapColor(DDDyes.CORAL.getMapColor())));
-    public static final Block INDIGO_SHULKER_BOX = register("indigo_shulker_box", shulkerBox(DDDyes.INDIGO.get(), FabricBlockSettings.create().mapColor(DDDyes.INDIGO.getMapColor())));
-    public static final Block NAVY_SHULKER_BOX = register("navy_shulker_box", shulkerBox(DDDyes.NAVY.get(), FabricBlockSettings.create().mapColor(DDDyes.NAVY.getMapColor())));
-    public static final Block SLATE_SHULKER_BOX = register("slate_shulker_box", shulkerBox(DDDyes.SLATE.get(), FabricBlockSettings.create().mapColor(DDDyes.SLATE.getMapColor())));
-    public static final Block OLIVE_SHULKER_BOX = register("olive_shulker_box", shulkerBox(DDDyes.OLIVE.get(), FabricBlockSettings.create().mapColor(DDDyes.OLIVE.getMapColor())));
-    public static final Block AMBER_SHULKER_BOX = register("amber_shulker_box", shulkerBox(DDDyes.AMBER.get(), FabricBlockSettings.create().mapColor(DDDyes.AMBER.getMapColor())));
-    public static final Block BEIGE_SHULKER_BOX = register("beige_shulker_box", shulkerBox(DDDyes.BEIGE.get(), FabricBlockSettings.create().mapColor(DDDyes.BEIGE.getMapColor())));
-    public static final Block TEAL_SHULKER_BOX = register("teal_shulker_box", shulkerBox(DDDyes.TEAL.get(), FabricBlockSettings.create().mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block MINT_SHULKER_BOX = register("mint_shulker_box", shulkerBox(DDDyes.MINT.get(), FabricBlockSettings.create().mapColor(DDDyes.MINT.getMapColor())));
-    public static final Block AQUA_SHULKER_BOX = register("aqua_shulker_box", shulkerBox(DDDyes.AQUA.get(), FabricBlockSettings.create().mapColor(DDDyes.AQUA.getMapColor())));
-    public static final Block VERDANT_SHULKER_BOX = register("verdant_shulker_box", shulkerBox(DDDyes.VERDANT.get(), FabricBlockSettings.create().mapColor(DDDyes.VERDANT.getMapColor())));
-    public static final Block FOREST_SHULKER_BOX = register("forest_shulker_box", shulkerBox(DDDyes.FOREST.get(), FabricBlockSettings.create().mapColor(DDDyes.FOREST.getMapColor())));
-    public static final Block GINGER_SHULKER_BOX = register("ginger_shulker_box", shulkerBox(DDDyes.GINGER.get(), FabricBlockSettings.create().mapColor(DDDyes.GINGER.getMapColor())));
-    public static final Block TAN_SHULKER_BOX = register("tan_shulker_box", shulkerBox(DDDyes.TAN.get(), FabricBlockSettings.create().mapColor(DDDyes.TAN.getMapColor())));
+    public static final Map<DyeColor, Block> SHULKER_BOXES = DDDyes.createDyed(dye ->
+            register(dye + "_shulker_box", shulkerBox(dye, FabricBlockSettings.create().mapColor(dye.getMapColor())))
+    );
 
     public static final Block MAROON_CANDLE = register("maroon_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.MAROON.getMapColor())));
     public static final Block ROSE_CANDLE = register("rose_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.ROSE.getMapColor())));

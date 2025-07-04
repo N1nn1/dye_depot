@@ -42,7 +42,7 @@ public class BlockEntityWithoutLevelRendererMixin {
     private static final DDShulkerBoxBlockEntity[] SHULKER_BOXES =
             Arrays.stream(DDDyes.values())
                     .sorted(Comparator.comparingInt(DDDyes::getId))
-                    .map((dyeColor) -> new DDShulkerBoxBlockEntity(dyeColor.get(), BlockPos.ZERO, DDBlocks.MAROON_SHULKER_BOX.defaultBlockState()))
+                    .map((dyeColor) -> new DDShulkerBoxBlockEntity(dyeColor.get(), BlockPos.ZERO, DDBlocks.SHULKER_BOXES.get(dyeColor.get()).defaultBlockState()))
                     .toArray(DDShulkerBoxBlockEntity[]::new);
 
 

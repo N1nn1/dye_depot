@@ -6,6 +6,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 
+import java.util.Map;
+
 public class DDItems {
 
     public static final Item MAROON_DYE = register("maroon_dye", new DyeItem(DDDyes.MAROON.get(), new Item.Properties()));
@@ -161,22 +163,9 @@ public class DDItems {
     public static final Item GINGER_STAINED_GLASS_PANE = register("ginger_stained_glass_pane", new BlockItem(DDBlocks.GINGER_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item TAN_STAINED_GLASS_PANE = register("tan_stained_glass_pane", new BlockItem(DDBlocks.TAN_STAINED_GLASS_PANE, new Item.Properties()));
 
-    public static final Item MAROON_SHULKER_BOX = register("maroon_shulker_box", new BlockItem(DDBlocks.MAROON_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item ROSE_SHULKER_BOX = register("rose_shulker_box", new BlockItem(DDBlocks.ROSE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item CORAL_SHULKER_BOX = register("coral_shulker_box", new BlockItem(DDBlocks.CORAL_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item INDIGO_SHULKER_BOX = register("indigo_shulker_box", new BlockItem(DDBlocks.INDIGO_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item NAVY_SHULKER_BOX = register("navy_shulker_box", new BlockItem(DDBlocks.NAVY_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item SLATE_SHULKER_BOX = register("slate_shulker_box", new BlockItem(DDBlocks.SLATE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item OLIVE_SHULKER_BOX = register("olive_shulker_box", new BlockItem(DDBlocks.OLIVE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item AMBER_SHULKER_BOX = register("amber_shulker_box", new BlockItem(DDBlocks.AMBER_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item BEIGE_SHULKER_BOX = register("beige_shulker_box", new BlockItem(DDBlocks.BEIGE_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item TEAL_SHULKER_BOX = register("teal_shulker_box", new BlockItem(DDBlocks.TEAL_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item MINT_SHULKER_BOX = register("mint_shulker_box", new BlockItem(DDBlocks.MINT_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item AQUA_SHULKER_BOX = register("aqua_shulker_box", new BlockItem(DDBlocks.AQUA_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item VERDANT_SHULKER_BOX = register("verdant_shulker_box", new BlockItem(DDBlocks.VERDANT_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item FOREST_SHULKER_BOX = register("forest_shulker_box", new BlockItem(DDBlocks.FOREST_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item GINGER_SHULKER_BOX = register("ginger_shulker_box", new BlockItem(DDBlocks.GINGER_SHULKER_BOX, new Item.Properties().stacksTo(1)));
-    public static final Item TAN_SHULKER_BOX = register("tan_shulker_box", new BlockItem(DDBlocks.TAN_SHULKER_BOX, new Item.Properties().stacksTo(1)));
+    public static final Map<DyeColor, Item> SHULKER_BOXES = DDDyes.createDyed(dye ->
+        register(dye + "_shulker_box", new BlockItem(DDBlocks.SHULKER_BOXES.get(dye), new Item.Properties().stacksTo(1)))
+    );
 
     public static final Item MAROON_CANDLE = register("maroon_candle", new BlockItem(DDBlocks.MAROON_CANDLE, new Item.Properties()));
     public static final Item ROSE_CANDLE = register("rose_candle", new BlockItem(DDBlocks.ROSE_CANDLE, new Item.Properties()));

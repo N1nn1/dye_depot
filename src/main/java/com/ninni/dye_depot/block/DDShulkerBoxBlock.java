@@ -3,17 +3,18 @@ package com.ninni.dye_depot.block;
 import com.ninni.dye_depot.registry.DDBlockEntityType;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+import com.ninni.dye_depot.registry.DDItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -33,7 +34,7 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return new DDShulkerBoxBlockEntity(this.getColor(), blockPos, blockState);
     }
 
-    public void playerWillDestroy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
+    public void playerWillDestroyy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) {
             if (!level.isClientSide && player.isCreative() && !shulkerBoxBlockEntity.isEmpty()) {
@@ -78,27 +79,8 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return null;
     }
 
-    public static Block getBlockByColor(@Nullable DyeColor dyeColor) {
-        if (dyeColor == DDDyes.MAROON.get()) return DDBlocks.MAROON_SHULKER_BOX;
-        else if (dyeColor == DDDyes.ROSE.get()) return DDBlocks.ROSE_SHULKER_BOX;
-        else if (dyeColor == DDDyes.CORAL.get()) return DDBlocks.CORAL_SHULKER_BOX;
-        else if (dyeColor == DDDyes.INDIGO.get()) return DDBlocks.INDIGO_SHULKER_BOX;
-        else if (dyeColor == DDDyes.NAVY.get()) return DDBlocks.NAVY_SHULKER_BOX;
-        else if (dyeColor == DDDyes.SLATE.get()) return DDBlocks.SLATE_SHULKER_BOX;
-        else if (dyeColor == DDDyes.OLIVE.get()) return DDBlocks.OLIVE_SHULKER_BOX;
-        else if (dyeColor == DDDyes.AMBER.get()) return DDBlocks.AMBER_SHULKER_BOX;
-        else if (dyeColor == DDDyes.BEIGE.get()) return DDBlocks.BEIGE_SHULKER_BOX;
-        else if (dyeColor == DDDyes.TEAL.get()) return DDBlocks.TEAL_SHULKER_BOX;
-        else if (dyeColor == DDDyes.MINT.get()) return DDBlocks.MINT_SHULKER_BOX;
-        else if (dyeColor == DDDyes.AQUA.get()) return DDBlocks.AQUA_SHULKER_BOX;
-        else if (dyeColor == DDDyes.VERDANT.get()) return DDBlocks.VERDANT_SHULKER_BOX;
-        else if (dyeColor == DDDyes.FOREST.get()) return DDBlocks.FOREST_SHULKER_BOX;
-        else if (dyeColor == DDDyes.GINGER.get()) return DDBlocks.GINGER_SHULKER_BOX;
-        else if (dyeColor == DDDyes.TAN.get()) return DDBlocks.TAN_SHULKER_BOX;
-        else return Blocks.SHULKER_BOX;
-    }
-
-    public static ItemStack getColoredItemStack(@Nullable DyeColor dyeColor) {
-        return new ItemStack(getBlockByColor(dyeColor));
+    @Override
+    public Item asItem() {
+        return DDItems.SHULKER_BOXES.get(getColor());
     }
 }
