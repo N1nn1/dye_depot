@@ -34,32 +34,6 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return new DDShulkerBoxBlockEntity(this.getColor(), blockPos, blockState);
     }
 
-    public void playerWillDestroyy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
-        BlockEntity blockEntity = level.getBlockEntity(blockPos);
-        if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) {
-            if (!level.isClientSide && player.isCreative() && !shulkerBoxBlockEntity.isEmpty()) {
-                ItemStack itemStack = getColoredItemStack(this.getColor());
-                blockEntity.saveToItem(itemStack);
-                if (shulkerBoxBlockEntity.hasCustomName()) {
-                    itemStack.setHoverName(shulkerBoxBlockEntity.getCustomName());
-                }
-
-                ItemEntity itemEntity = new ItemEntity(level, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.5, (double)blockPos.getZ() + 0.5, itemStack);
-                itemEntity.setDefaultPickUpDelay();
-                level.addFreshEntity(itemEntity);
-            } else {
-                shulkerBoxBlockEntity.unpackLootTable(player);
-            }
-        }
-
-        this.spawnDestroyParticles(level, player, blockPos, blockState);
-        if (blockState.is(BlockTags.GUARDED_BY_PIGLINS)) {
-            PiglinAi.angerNearbyPiglins(player, false);
-        }
-
-        level.gameEvent(GameEvent.BLOCK_DESTROY, blockPos, GameEvent.Context.of(player, blockState));
-    }
-
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
         return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
