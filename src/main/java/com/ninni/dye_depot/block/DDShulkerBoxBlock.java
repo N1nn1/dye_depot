@@ -73,8 +73,8 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
 
     @Nullable
     public static DyeColor getColorFromBlock(Block block) {
-        if (block instanceof DDShulkerBoxBlock) {
-            return ((DDShulkerBoxBlock)block).getColor();
+        if (block instanceof DDShulkerBoxBlock shulker) {
+            return shulker.getColor();
         }
         return null;
     }
