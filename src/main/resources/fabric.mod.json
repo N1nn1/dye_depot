@@ -1,43 +1,45 @@
 {
-	"schemaVersion": 1,
-	"id": "dye_depot",
-	"version": "1.0.2-fabric",
-	"name": "Dye Depot",
-	"description": "Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks",
-	"authors": [
-		"Yapetto",
-		"Ninni"
-	],
-	"contact": {
-		"homepage": "https://www.curseforge.com/minecraft/mc-mods/dye_depot",
-		"issues": "https://github.com/N1nn1/dye_depot/issues",
-		"sources": "https://github.com/N1nn1/dye_depot"
-	},
-	"license": "CC0-1.0",
-	"accessWidener" : "dye_depot.accesswidener",
-	"icon": "assets/dye_depot/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.ninni.dye_depot.DyeDepot"
-		],
-		"client": [
-			"com.ninni.dye_depot.DyeDepotClient"
-		],
-        "jei_mod_plugin": [
-          "com.ninni.dye_depot.compat.DyeDepotJei"
-        ]
-	},
-	"mixins": [
-		"dye_depot.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16",
-		"fabric-api": "*",
-		"minecraft": "~1.20",
-		"java": ">=17"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "dye_depot",
+  "version": "1.0.2-fabric",
+  "name": "Dye Depot",
+  "description": "Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks",
+  "authors": [
+    "Yapetto", "Ninni"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/dye_depot",
+    "issues": "https://github.com/N1nn1/dye_depot/issues",
+    "sources": "https://github.com/N1nn1/dye_depot"
+  },
+  "license": "CC0-1.0",
+  "accessWidener": "dye_depot.accesswidener",
+  "icon": "assets/dye_depot/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.ninni.dye_depot.DyeDepot"
+    ],
+    "client": [
+      "com.ninni.dye_depot.DyeDepotClient"
+    ],
+    "fabric-datagen": [
+      "com.ninni.dye_depot.data.DyeDepotDatagen"
+    ],
+    "jei_mod_plugin": [
+      "com.ninni.dye_depot.compat.DyeDepotJei"
+    ]
+  },
+  "mixins": [
+    "dye_depot.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16",
+    "fabric-api": "*",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }

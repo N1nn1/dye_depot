@@ -8,7 +8,7 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+	archivesName = project.mod_id
 }
 
 repositories {
@@ -20,8 +20,22 @@ repositories {
     }
 }
 
+def datagenOutput = file("src/generated/resources")
+sourceSets.main.resources {
+    srcDir(datagenOutput)
+}
+
 loom {
 	accessWidenerPath = file("src/main/resources/dye_depot.accesswidener")
+
+    runs {
+        create("data") {
+            client()
+            property("fabric-api.datagen")
+            property("fabric-api.datagen.output-dir=${datagenOutput}")
+            property("fabric-api.datagen.modid=${project.mod_id}")
+        }
+    }
 }
 
 
