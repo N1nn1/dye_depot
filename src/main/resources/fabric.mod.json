@@ -23,7 +23,10 @@
 		],
 		"client": [
 			"com.ninni.dye_depot.DyeDepotClient"
-		]
+		],
+        "jei_mod_plugin": [
+          "com.ninni.dye_depot.compat.DyeDepotJei"
+        ]
 	},
 	"mixins": [
 		"dye_depot.mixins.json"
