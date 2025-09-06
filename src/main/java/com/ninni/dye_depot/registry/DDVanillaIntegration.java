@@ -12,7 +12,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -228,9 +228,9 @@ public class DDVanillaIntegration {
 
         //client methods
         private static void registerModelLayers() {
-            BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
-            BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.BED, DDBedRenderer::new);
-            BlockEntityRendererRegistry.INSTANCE.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
+            BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
+            BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
+            BlockEntityRendererRegistry.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
         }
 
         private static void registerParticles() {
