@@ -5,26 +5,19 @@ import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDLootTables;
-import com.ninni.dye_depot.registry.DDMapDecorationType;
 import net.minecraft.Util;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,8 +35,8 @@ public abstract class SheepMixin extends Animal {
     @Unique
     private static final Map<DyeColor, ItemLike> MORE_ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (enumMap) -> {
         enumMap.put(DDDyes.MAROON.get(), DDBlocks.MAROON_WOOL);
-        enumMap.put(DDDyes.ROSE.get(), DDBlocks.ROSE_WOOL);
-        enumMap.put(DDDyes.CORAL.get(), DDBlocks.CORAL_WOOL);
+        enumMap.put(DDDyes.DYEDEPOT_ROSE.get(), DDBlocks.ROSE_WOOL);
+        enumMap.put(DDDyes.DYEDEPOT_CORAL.get(), DDBlocks.CORAL_WOOL);
         enumMap.put(DDDyes.INDIGO.get(), DDBlocks.INDIGO_WOOL);
         enumMap.put(DDDyes.NAVY.get(), DDBlocks.NAVY_WOOL);
         enumMap.put(DDDyes.SLATE.get(), DDBlocks.SLATE_WOOL);
@@ -63,6 +56,8 @@ public abstract class SheepMixin extends Animal {
     private static EntityDataAccessor<Byte> DATA_WOOL_ID;
 
 
+    @Shadow public abstract DyeColor getColor();
+
     protected SheepMixin(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
@@ -81,7 +76,7 @@ public abstract class SheepMixin extends Animal {
     @Inject(method = "shear", at = @At(value = "HEAD"), cancellable = true)
     private void DD$shear(SoundSource soundSource, CallbackInfo ci) {
         Sheep $this = (Sheep) (Object) this;
-
+        DyeDepot.DYEDEPOTLOGGER.info("sheared sheep with color " + $this.getColor() + " with id " + $this.getColor().getId());
         if ($this.getColor().getId() > 15) {
             ci.cancel();
             $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
@@ -108,14 +103,14 @@ public abstract class SheepMixin extends Animal {
                 else if ($this.getColor() == DDDyes.AMBER.get()) cir.setReturnValue(DDLootTables.SHEEP_AMBER);
                 else if ($this.getColor() == DDDyes.AQUA.get()) cir.setReturnValue(DDLootTables.SHEEP_AQUA);
                 else if ($this.getColor() == DDDyes.BEIGE.get()) cir.setReturnValue(DDLootTables.SHEEP_BEIGE);
-                else if ($this.getColor() == DDDyes.CORAL.get()) cir.setReturnValue(DDLootTables.SHEEP_CORAL);
+                else if ($this.getColor() == DDDyes.DYEDEPOT_CORAL.get()) cir.setReturnValue(DDLootTables.SHEEP_CORAL);
                 else if ($this.getColor() == DDDyes.FOREST.get()) cir.setReturnValue(DDLootTables.SHEEP_FOREST);
                 else if ($this.getColor() == DDDyes.GINGER.get()) cir.setReturnValue(DDLootTables.SHEEP_GINGER);
                 else if ($this.getColor() == DDDyes.INDIGO.get()) cir.setReturnValue(DDLootTables.SHEEP_INDIGO);
                 else if ($this.getColor() == DDDyes.MINT.get()) cir.setReturnValue(DDLootTables.SHEEP_MINT);
                 else if ($this.getColor() == DDDyes.NAVY.get()) cir.setReturnValue(DDLootTables.SHEEP_NAVY);
                 else if ($this.getColor() == DDDyes.OLIVE.get()) cir.setReturnValue(DDLootTables.SHEEP_OLIVE);
-                else if ($this.getColor() == DDDyes.ROSE.get()) cir.setReturnValue(DDLootTables.SHEEP_ROSE);
+                else if ($this.getColor() == DDDyes.DYEDEPOT_ROSE.get()) cir.setReturnValue(DDLootTables.SHEEP_ROSE);
                 else if ($this.getColor() == DDDyes.SLATE.get()) cir.setReturnValue(DDLootTables.SHEEP_SLATE);
                 else if ($this.getColor() == DDDyes.TAN.get()) cir.setReturnValue(DDLootTables.SHEEP_TAN);
                 else if ($this.getColor() == DDDyes.VERDANT.get()) cir.setReturnValue(DDLootTables.SHEEP_VERDANT);
@@ -151,7 +146,9 @@ public abstract class SheepMixin extends Animal {
     @Inject(method = "setColor", at = @At(value = "HEAD"), cancellable = true)
     private void DD$setColor(DyeColor dyeColor, CallbackInfo ci) {
         byte b = this.entityData.get(DATA_WOOL_ID);
+        DyeDepot.DYEDEPOTLOGGER.info("DATA_WOOL_ID before dyeing: " + b);
         this.entityData.set(DATA_WOOL_ID, (byte)(b & 224 | dyeColor.getId() & 31));
+        DyeDepot.DYEDEPOTLOGGER.info("dyed sheep to " + dyeColor + " with id " + dyeColor.getId() + " and DATA_WOOL_ID " + b);
         ci.cancel();
     }
 
@@ -163,11 +160,13 @@ public abstract class SheepMixin extends Animal {
     @Inject(method = "setSheared", at = @At(value = "HEAD"), cancellable = true)
     private void DD$setSheared(boolean bl, CallbackInfo ci) {
         byte b = this.entityData.get(DATA_WOOL_ID);
+        DyeDepot.DYEDEPOTLOGGER.info("DATA_WOOL_ID before shearing: " + b);
         if (bl) {
             this.entityData.set(DATA_WOOL_ID, (byte)(b | 32));
         } else {
             this.entityData.set(DATA_WOOL_ID, (byte)(b & -33));
         }
+        DyeDepot.DYEDEPOTLOGGER.info("sheep with color " + this.getColor() + " with id " + this.getColor().getId() + " is now sheared and DATA_WOOL_ID " + b);
         ci.cancel();
     }
 }

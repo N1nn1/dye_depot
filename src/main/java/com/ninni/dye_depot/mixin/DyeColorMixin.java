@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.mixin;
 
+import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDDyes;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
@@ -38,5 +39,6 @@ public class DyeColorMixin {
             i++;
         }
         $VALUES = dyeColors.toArray(new DyeColor[0]);
+        DyeDepot.DYEDEPOTLOGGER.info("all colors present:" + Arrays.toString($VALUES));
     }
 }

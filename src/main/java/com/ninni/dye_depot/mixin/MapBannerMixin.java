@@ -20,8 +20,8 @@ public class MapBannerMixin {
     @Inject(method = "getDecoration", at = @At(value = "HEAD"), cancellable = true)
     private void DD$addCustomDecoration(CallbackInfoReturnable<MapDecoration.Type> cir) {
         if (color == DDDyes.MAROON.get()) cir.setReturnValue(DDMapDecorationType.BANNER_MAROON.get());
-        else if (color == DDDyes.ROSE.get()) cir.setReturnValue(DDMapDecorationType.BANNER_ROSE.get());
-        else if (color == DDDyes.CORAL.get()) cir.setReturnValue(DDMapDecorationType.BANNER_CORAL.get());
+        else if (color == DDDyes.DYEDEPOT_ROSE.get()) cir.setReturnValue(DDMapDecorationType.BANNER_ROSE.get());
+        else if (color == DDDyes.DYEDEPOT_CORAL.get()) cir.setReturnValue(DDMapDecorationType.BANNER_CORAL.get());
         else if (color == DDDyes.INDIGO.get()) cir.setReturnValue(DDMapDecorationType.BANNER_INDIGO.get());
         else if (color == DDDyes.NAVY.get()) cir.setReturnValue(DDMapDecorationType.BANNER_NAVY.get());
         else if (color == DDDyes.SLATE.get()) cir.setReturnValue(DDMapDecorationType.BANNER_SLATE.get());

@@ -3,21 +3,32 @@ package com.ninni.dye_depot;
 import com.google.common.reflect.Reflection;
 import com.ninni.dye_depot.registry.*;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.dispenser.DispenseItemBehavior;
+import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
+import net.minecraft.world.level.block.DispenserBlock;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DyeDepot implements ModInitializer {
-	public static final String MOD_ID = "dye_depot";
+    public static final String MOD_ID = "dye_depot";
+    public static final Logger DYEDEPOTLOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	@Override
-	public void onInitialize() {
-		DDVanillaIntegration.serverInit();
-		Reflection.initialize(
-				DDItems.class,
-				DDBlocks.class,
-				DDBlockEntityType.class,
-				DDParticles.class,
-				DDSoundEvents.class,
-				DDLootTables.class,
-				DDCreativeModeTabs.class
-		);
-	}
+    @Override
+    public void onInitialize() {
+        DDVanillaIntegration.serverInit();
+        Reflection.initialize(
+                DDItems.class,
+                DDBlocks.class,
+                DDBlockEntityType.class,
+                DDParticles.class,
+                DDSoundEvents.class,
+                DDLootTables.class,
+                DDCreativeModeTabs.class
+        );
+
+        for (DDDyes dye : DDDyes.values()) {
+            var shulkerBox = DDBlocks.SHULKER_BOXES.get(dye.get());
+            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior());
+        }
+    }
 }

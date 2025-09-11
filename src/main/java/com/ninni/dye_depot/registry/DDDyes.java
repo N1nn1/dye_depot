@@ -4,10 +4,15 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
-    ROSE(17, "rose", 0xFF5E64, MapColor.TERRACOTTA_MAGENTA, 0xFF5E64, 0xFF5E64),
-    CORAL(18, "coral", 0xDF7758, MapColor.RAW_IRON, 0xDF7758, 0xDF7758),
+    DYEDEPOT_ROSE(17, "rose", 0xFF5E64, MapColor.TERRACOTTA_MAGENTA, 0xFF5E64, 0xFF5E64),
+    DYEDEPOT_CORAL(18, "coral", 0xDF7758, MapColor.RAW_IRON, 0xDF7758, 0xDF7758),
 
     INDIGO(19, "indigo", 0x331E57, MapColor.TERRACOTTA_BLUE, 0x331E57, 0x331E57),
 
@@ -27,6 +32,12 @@ public enum DDDyes implements StringRepresentable {
 
     GINGER(30, "ginger", 0xCF6121, MapColor.TERRACOTTA_ORANGE, 0xCF6121, 0xCF6121),
     TAN(31, "tan", 0xF49C5D, MapColor.DIRT, 0xF49C5D, 0xF49C5D);
+
+    public static <T> Map<DyeColor, T> createDyed(Function<DyeColor, T> mapper) {
+        return Arrays.stream(DDDyes.values())
+                .map(DDDyes::get)
+                .collect(Collectors.toMap(Function.identity(), mapper));
+    }
 
     private final int id;
     private final String name;

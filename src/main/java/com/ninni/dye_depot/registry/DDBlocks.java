@@ -15,12 +15,14 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
+import java.util.Map;
+
 @SuppressWarnings("unused")
 public class DDBlocks {
 
     public static final Block MAROON_WOOL = register("maroon_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_WOOL = register("rose_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_WOOL = register("coral_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_WOOL = register("rose_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_WOOL = register("coral_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_WOOL = register("indigo_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_WOOL = register("navy_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_WOOL = register("slate_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.SLATE.getMapColor())));
@@ -36,8 +38,8 @@ public class DDBlocks {
     public static final Block TAN_WOOL = register("tan_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(DDDyes.TAN.getMapColor())));
 
     public static final Block MAROON_CARPET = register("maroon_carpet", new WoolCarpetBlock(DDDyes.MAROON.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_CARPET = register("rose_carpet", new WoolCarpetBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_CARPET = register("coral_carpet", new WoolCarpetBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_CARPET = register("rose_carpet", new WoolCarpetBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_CARPET = register("coral_carpet", new WoolCarpetBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_CARPET = register("indigo_carpet", new WoolCarpetBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_CARPET = register("navy_carpet", new WoolCarpetBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_CARPET = register("slate_carpet", new WoolCarpetBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.SLATE.getMapColor())));
@@ -53,8 +55,8 @@ public class DDBlocks {
     public static final Block TAN_CARPET = register("tan_carpet", new WoolCarpetBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(DDDyes.TAN.getMapColor())));
 
     public static final Block MAROON_TERRACOTTA = register("maroon_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_TERRACOTTA = register("rose_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_TERRACOTTA = register("coral_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_TERRACOTTA = register("rose_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_TERRACOTTA = register("coral_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_TERRACOTTA = register("indigo_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_TERRACOTTA = register("navy_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_TERRACOTTA = register("slate_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(DDDyes.SLATE.getMapColor())));
@@ -87,8 +89,8 @@ public class DDBlocks {
     public static final Block TAN_CONCRETE = register("tan_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(MapColor.DIRT)));
 
     public static final Block MAROON_CONCRETE_POWDER = register("maroon_concrete_powder", new ConcretePowderBlock(MAROON_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_CONCRETE_POWDER = register("rose_concrete_powder", new ConcretePowderBlock(ROSE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_CONCRETE_POWDER = register("coral_concrete_powder", new ConcretePowderBlock(CORAL_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_CONCRETE_POWDER = register("rose_concrete_powder", new ConcretePowderBlock(ROSE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_CONCRETE_POWDER = register("coral_concrete_powder", new ConcretePowderBlock(CORAL_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_CONCRETE_POWDER = register("indigo_concrete_powder", new ConcretePowderBlock(INDIGO_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_CONCRETE_POWDER = register("navy_concrete_powder", new ConcretePowderBlock(NAVY_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_CONCRETE_POWDER = register("slate_concrete_powder", new ConcretePowderBlock(SLATE_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.SLATE.getMapColor())));
@@ -104,8 +106,8 @@ public class DDBlocks {
     public static final Block TAN_CONCRETE_POWDER = register("tan_concrete_powder", new ConcretePowderBlock(TAN_CONCRETE, FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(DDDyes.TAN.getMapColor())));
 
     public static final Block MAROON_GLAZED_TERRACOTTA = register("maroon_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_GLAZED_TERRACOTTA = register("rose_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_GLAZED_TERRACOTTA = register("coral_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_GLAZED_TERRACOTTA = register("rose_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_GLAZED_TERRACOTTA = register("coral_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_GLAZED_TERRACOTTA = register("indigo_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_GLAZED_TERRACOTTA = register("navy_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_GLAZED_TERRACOTTA = register("slate_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.SLATE.getMapColor())));
@@ -121,8 +123,8 @@ public class DDBlocks {
     public static final Block TAN_GLAZED_TERRACOTTA = register("tan_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(DDDyes.TAN.getMapColor())));
 
     public static final Block MAROON_STAINED_GLASS = register("maroon_stained_glass", new StainedGlassBlock(DDDyes.MAROON.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
-    public static final Block ROSE_STAINED_GLASS = register("rose_stained_glass", new StainedGlassBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
-    public static final Block CORAL_STAINED_GLASS = register("coral_stained_glass", new StainedGlassBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
+    public static final Block ROSE_STAINED_GLASS = register("rose_stained_glass", new StainedGlassBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
+    public static final Block CORAL_STAINED_GLASS = register("coral_stained_glass", new StainedGlassBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block INDIGO_STAINED_GLASS = register("indigo_stained_glass", new StainedGlassBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block NAVY_STAINED_GLASS = register("navy_stained_glass", new StainedGlassBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
     public static final Block SLATE_STAINED_GLASS = register("slate_stained_glass", new StainedGlassBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
@@ -138,8 +140,8 @@ public class DDBlocks {
     public static final Block TAN_STAINED_GLASS = register("tan_stained_glass", new StainedGlassBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)));
 
     public static final Block MAROON_STAINED_GLASS_PANE = register("maroon_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.MAROON.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
-    public static final Block ROSE_STAINED_GLASS_PANE = register("rose_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
-    public static final Block CORAL_STAINED_GLASS_PANE = register("coral_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
+    public static final Block ROSE_STAINED_GLASS_PANE = register("rose_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
+    public static final Block CORAL_STAINED_GLASS_PANE = register("coral_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block INDIGO_STAINED_GLASS_PANE = register("indigo_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block NAVY_STAINED_GLASS_PANE = register("navy_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block SLATE_STAINED_GLASS_PANE = register("slate_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
@@ -154,26 +156,13 @@ public class DDBlocks {
     public static final Block GINGER_STAINED_GLASS_PANE = register("ginger_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block TAN_STAINED_GLASS_PANE = register("tan_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
 
-    public static final Block MAROON_SHULKER_BOX = register("maroon_shulker_box", shulkerBox(DDDyes.MAROON.get(), FabricBlockSettings.create().mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_SHULKER_BOX = register("rose_shulker_box", shulkerBox(DDDyes.ROSE.get(), FabricBlockSettings.create().mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_SHULKER_BOX = register("coral_shulker_box", shulkerBox(DDDyes.CORAL.get(), FabricBlockSettings.create().mapColor(DDDyes.CORAL.getMapColor())));
-    public static final Block INDIGO_SHULKER_BOX = register("indigo_shulker_box", shulkerBox(DDDyes.INDIGO.get(), FabricBlockSettings.create().mapColor(DDDyes.INDIGO.getMapColor())));
-    public static final Block NAVY_SHULKER_BOX = register("navy_shulker_box", shulkerBox(DDDyes.NAVY.get(), FabricBlockSettings.create().mapColor(DDDyes.NAVY.getMapColor())));
-    public static final Block SLATE_SHULKER_BOX = register("slate_shulker_box", shulkerBox(DDDyes.SLATE.get(), FabricBlockSettings.create().mapColor(DDDyes.SLATE.getMapColor())));
-    public static final Block OLIVE_SHULKER_BOX = register("olive_shulker_box", shulkerBox(DDDyes.OLIVE.get(), FabricBlockSettings.create().mapColor(DDDyes.OLIVE.getMapColor())));
-    public static final Block AMBER_SHULKER_BOX = register("amber_shulker_box", shulkerBox(DDDyes.AMBER.get(), FabricBlockSettings.create().mapColor(DDDyes.AMBER.getMapColor())));
-    public static final Block BEIGE_SHULKER_BOX = register("beige_shulker_box", shulkerBox(DDDyes.BEIGE.get(), FabricBlockSettings.create().mapColor(DDDyes.BEIGE.getMapColor())));
-    public static final Block TEAL_SHULKER_BOX = register("teal_shulker_box", shulkerBox(DDDyes.TEAL.get(), FabricBlockSettings.create().mapColor(DDDyes.TEAL.getMapColor())));
-    public static final Block MINT_SHULKER_BOX = register("mint_shulker_box", shulkerBox(DDDyes.MINT.get(), FabricBlockSettings.create().mapColor(DDDyes.MINT.getMapColor())));
-    public static final Block AQUA_SHULKER_BOX = register("aqua_shulker_box", shulkerBox(DDDyes.AQUA.get(), FabricBlockSettings.create().mapColor(DDDyes.AQUA.getMapColor())));
-    public static final Block VERDANT_SHULKER_BOX = register("verdant_shulker_box", shulkerBox(DDDyes.VERDANT.get(), FabricBlockSettings.create().mapColor(DDDyes.VERDANT.getMapColor())));
-    public static final Block FOREST_SHULKER_BOX = register("forest_shulker_box", shulkerBox(DDDyes.FOREST.get(), FabricBlockSettings.create().mapColor(DDDyes.FOREST.getMapColor())));
-    public static final Block GINGER_SHULKER_BOX = register("ginger_shulker_box", shulkerBox(DDDyes.GINGER.get(), FabricBlockSettings.create().mapColor(DDDyes.GINGER.getMapColor())));
-    public static final Block TAN_SHULKER_BOX = register("tan_shulker_box", shulkerBox(DDDyes.TAN.get(), FabricBlockSettings.create().mapColor(DDDyes.TAN.getMapColor())));
+    public static final Map<DyeColor, Block> SHULKER_BOXES = DDDyes.createDyed(dye ->
+            register(dye + "_shulker_box", shulkerBox(dye, FabricBlockSettings.create().mapColor(dye.getMapColor())))
+    );
 
     public static final Block MAROON_CANDLE = register("maroon_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_CANDLE = register("rose_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_CANDLE = register("coral_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_CANDLE = register("rose_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_CANDLE = register("coral_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_CANDLE = register("indigo_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_CANDLE = register("navy_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_CANDLE = register("slate_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(DDDyes.SLATE.getMapColor())));
@@ -206,8 +195,8 @@ public class DDBlocks {
     public static final Block TAN_CANDLE_CAKE = register("tan_candle_cake", new CandleCakeBlock(TAN_CANDLE, FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)));
 
     public static final Block MAROON_BANNER = register("maroon_banner", new DDBannerBlock(DDDyes.MAROON.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
-    public static final Block ROSE_BANNER = register("rose_banner", new DDBannerBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
-    public static final Block CORAL_BANNER = register("coral_banner", new DDBannerBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
+    public static final Block ROSE_BANNER = register("rose_banner", new DDBannerBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
+    public static final Block CORAL_BANNER = register("coral_banner", new DDBannerBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block INDIGO_BANNER = register("indigo_banner", new DDBannerBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block NAVY_BANNER = register("navy_banner", new DDBannerBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block SLATE_BANNER = register("slate_banner", new DDBannerBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
@@ -222,8 +211,8 @@ public class DDBlocks {
     public static final Block GINGER_BANNER = register("ginger_banner", new DDBannerBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block TAN_BANNER = register("tan_banner", new DDBannerBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)));
     public static final Block MAROON_WALL_BANNER = register("maroon_wall_banner", new DDWallBannerBlock(DDDyes.MAROON.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(MAROON_BANNER)));
-    public static final Block ROSE_WALL_BANNER = register("rose_wall_banner", new DDWallBannerBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(ROSE_BANNER)));
-    public static final Block CORAL_WALL_BANNER = register("coral_wall_banner", new DDWallBannerBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(CORAL_BANNER)));
+    public static final Block ROSE_WALL_BANNER = register("rose_wall_banner", new DDWallBannerBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(ROSE_BANNER)));
+    public static final Block CORAL_WALL_BANNER = register("coral_wall_banner", new DDWallBannerBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(CORAL_BANNER)));
     public static final Block INDIGO_WALL_BANNER = register("indigo_wall_banner", new DDWallBannerBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(INDIGO_BANNER)));
     public static final Block NAVY_WALL_BANNER = register("navy_wall_banner", new DDWallBannerBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(NAVY_BANNER)));
     public static final Block SLATE_WALL_BANNER = register("slate_wall_banner", new DDWallBannerBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(SLATE_BANNER)));
@@ -239,8 +228,8 @@ public class DDBlocks {
     public static final Block TAN_WALL_BANNER = register("tan_wall_banner", new DDWallBannerBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(TAN_BANNER)));
 
     public static final Block MAROON_BED = register("maroon_bed", bed(DDDyes.MAROON.get()));
-    public static final Block ROSE_BED = register("rose_bed", bed(DDDyes.ROSE.get()));
-    public static final Block CORAL_BED = register("coral_bed", bed(DDDyes.CORAL.get()));
+    public static final Block ROSE_BED = register("rose_bed", bed(DDDyes.DYEDEPOT_ROSE.get()));
+    public static final Block CORAL_BED = register("coral_bed", bed(DDDyes.DYEDEPOT_CORAL.get()));
     public static final Block INDIGO_BED = register("indigo_bed", bed(DDDyes.INDIGO.get()));
     public static final Block NAVY_BED = register("navy_bed", bed(DDDyes.NAVY.get()));
     public static final Block SLATE_BED = register("slate_bed", bed(DDDyes.SLATE.get()));
@@ -256,8 +245,8 @@ public class DDBlocks {
     public static final Block TAN_BED = register("tan_bed", bed(DDDyes.TAN.get()));
 
     public static final Block MAROON_DYE_BASKET = register("maroon_dye_basket", new DyeBasketBlock(DDDyes.MAROON.get(), FabricBlockSettings.create().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(DDDyes.MAROON.getMapColor())));
-    public static final Block ROSE_DYE_BASKET = register("rose_dye_basket", new DyeBasketBlock(DDDyes.ROSE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.ROSE.getMapColor())));
-    public static final Block CORAL_DYE_BASKET = register("coral_dye_basket", new DyeBasketBlock(DDDyes.CORAL.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.CORAL.getMapColor())));
+    public static final Block ROSE_DYE_BASKET = register("rose_dye_basket", new DyeBasketBlock(DDDyes.DYEDEPOT_ROSE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.DYEDEPOT_ROSE.getMapColor())));
+    public static final Block CORAL_DYE_BASKET = register("coral_dye_basket", new DyeBasketBlock(DDDyes.DYEDEPOT_CORAL.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.DYEDEPOT_CORAL.getMapColor())));
     public static final Block INDIGO_DYE_BASKET = register("indigo_dye_basket", new DyeBasketBlock(DDDyes.INDIGO.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.INDIGO.getMapColor())));
     public static final Block NAVY_DYE_BASKET = register("navy_dye_basket", new DyeBasketBlock(DDDyes.NAVY.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.NAVY.getMapColor())));
     public static final Block SLATE_DYE_BASKET = register("slate_dye_basket", new DyeBasketBlock(DDDyes.SLATE.get(), FabricBlockSettings.copyOf(MAROON_DYE_BASKET).mapColor(DDDyes.SLATE.getMapColor())));

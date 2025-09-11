@@ -30,7 +30,10 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+	/*modCompileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+	modCompileOnly("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
+	modRuntimeOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}")*/
 
 	// Uncomment the following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
@@ -60,10 +63,6 @@ java {
 }
 
 jar {
-	doFirst {
-		from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-	}
-	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
