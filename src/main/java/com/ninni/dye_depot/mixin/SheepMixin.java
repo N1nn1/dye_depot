@@ -76,20 +76,35 @@ public abstract class SheepMixin extends Animal {
     @Inject(method = "shear", at = @At(value = "HEAD"), cancellable = true)
     private void DD$shear(SoundSource soundSource, CallbackInfo ci) {
         Sheep $this = (Sheep) (Object) this;
-        DyeDepot.DYEDEPOTLOGGER.info("sheared sheep with color " + $this.getColor() + " with id " + $this.getColor().getId());
+        DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: sheared sheep with color " + $this.getColor() + " with id " + $this.getColor().getId());
+        DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + " dropped.");
         if ($this.getColor().getId() > 15) {
+            DyeDepot.DYEDEPOTLOGGER.info("$this.getColor().getId() > 15");
             ci.cancel();
             $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
             $this.setSheared(true);
             int i = 1 + $this.getRandom().nextInt(3);
 
             for (int j = 0; j < i; ++j) {
+                DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + " dropped. MORE_ITEM_BY_DYE: " + MORE_ITEM_BY_DYE.get($this.getColor()));
                 ItemEntity itemEntity = $this.spawnAtLocation(MORE_ITEM_BY_DYE.get($this.getColor()), 1);
                 if (itemEntity == null)  continue;
                 itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F, ($this.getRandom().nextFloat() * 0.05F), (($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F)));
             }
         }
-    }
+       /* else {
+            $this = (Sheep) (Object) this;
+            $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
+            $this.setSheared(true, ci);
+            int i = 1 + $this.getRandom().nextInt(3);
+
+            for (int j = 0; j < i; ++j) {
+                DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + ". MORE_ITEM_BY_DYE: " + MORE_ITEM_BY_DYE.get($this.getColor()));
+                ItemEntity itemEntity = $this.spawnAtLocation(MORE_ITEM_BY_DYE.get($this.getColor()), 1);
+                if (itemEntity == null)  continue;
+                itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F, ($this.getRandom().nextFloat() * 0.05F), (($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F)));
+            }*/
+        }
 
     @Inject(method = "getDefaultLootTable", at = @At(value = "HEAD"), cancellable = true)
     private void DD$getDefaultLootTable(CallbackInfoReturnable<ResourceLocation> cir) {
@@ -159,14 +174,14 @@ public abstract class SheepMixin extends Animal {
 
     @Inject(method = "setSheared", at = @At(value = "HEAD"), cancellable = true)
     private void DD$setSheared(boolean bl, CallbackInfo ci) {
-        byte b = this.entityData.get(DATA_WOOL_ID);
-        DyeDepot.DYEDEPOTLOGGER.info("DATA_WOOL_ID before shearing: " + b);
-        if (bl) {
-            this.entityData.set(DATA_WOOL_ID, (byte)(b | 32));
-        } else {
-            this.entityData.set(DATA_WOOL_ID, (byte)(b & -33));
-        }
-        DyeDepot.DYEDEPOTLOGGER.info("sheep with color " + this.getColor() + " with id " + this.getColor().getId() + " is now sheared and DATA_WOOL_ID " + b);
-        ci.cancel();
+            byte b = this.entityData.get(DATA_WOOL_ID);
+            DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: DATA_WOOL_ID before shearing: " + b + " (in binary: " + Integer.toBinaryString(b) + ")");
+            if (bl) {
+                this.entityData.set(DATA_WOOL_ID, (byte)(b | 32));
+            } else {
+                this.entityData.set(DATA_WOOL_ID, (byte)(b & -33));
+            }
+            DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: sheep with color " + this.getColor() + " with id " + this.getColor().getId() + " is now sheared and DATA_WOOL_ID " + b + " (in binary: " + Integer.toBinaryString(b) + ")");
+            ci.cancel();
     }
 }
