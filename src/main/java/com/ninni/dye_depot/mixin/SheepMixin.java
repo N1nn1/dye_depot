@@ -16,6 +16,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -75,22 +76,21 @@ public abstract class SheepMixin extends Animal {
 
     @Inject(method = "shear", at = @At(value = "HEAD"), cancellable = true)
     private void DD$shear(SoundSource soundSource, CallbackInfo ci) {
+        DyeDepot.DYEDEPOTLOGGER.info("DD$shear called");
         Sheep $this = (Sheep) (Object) this;
+        try {
         DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: sheared sheep with color " + $this.getColor() + " with id " + $this.getColor().getId());
-        DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + " dropped.");
-        if ($this.getColor().getId() > 15) {
-            DyeDepot.DYEDEPOTLOGGER.info("$this.getColor().getId() > 15");
-            ci.cancel();
-            $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
-            $this.setSheared(true);
-            int i = 1 + $this.getRandom().nextInt(3);
+        DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + " dropped. MORE_ITEM_BY_DYE: " + MORE_ITEM_BY_DYE.get($this.getColor()));
 
-            for (int j = 0; j < i; ++j) {
-                DyeDepot.DYEDEPOTLOGGER.info("method DD$shear: wool from sheep with color " + $this.getColor() + " dropped. MORE_ITEM_BY_DYE: " + MORE_ITEM_BY_DYE.get($this.getColor()));
-                ItemEntity itemEntity = $this.spawnAtLocation(MORE_ITEM_BY_DYE.get($this.getColor()), 1);
-                if (itemEntity == null)  continue;
-                itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F, ($this.getRandom().nextFloat() * 0.05F), (($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F)));
+            if ($this.getColor().getId() > 15) {
+                DyeDepot.DYEDEPOTLOGGER.info("$this.getColor().getId() > 15");
+                ci.cancel();
+                $this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, soundSource, 1.0f, 1.0f);
+                $this.setSheared(true);
             }
+        }
+        catch (NullPointerException e) {
+            DyeDepot.DYEDEPOTLOGGER.info("NullPointerException caught. item: " + MORE_ITEM_BY_DYE.get($this.getColor()));
         }
        /* else {
             $this = (Sheep) (Object) this;
@@ -182,6 +182,16 @@ public abstract class SheepMixin extends Animal {
                 this.entityData.set(DATA_WOOL_ID, (byte)(b & -33));
             }
             DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: sheep with color " + this.getColor() + " with id " + this.getColor().getId() + " is now sheared and DATA_WOOL_ID " + b + " (in binary: " + Integer.toBinaryString(b) + ")");
+            DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: sheared sheep with color " + this.getColor() + " with id " + this.getColor().getId());
+        DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: wool from sheep with color " + this.getColor() + " dropped. MORE_ITEM_BY_DYE: " + MORE_ITEM_BY_DYE.get(this.getColor()));
             ci.cancel();
+        int i = 1 + this.getRandom().nextInt(3);
+
+        for (int j = 0; j < i; ++j) {
+            ItemEntity itemEntity = this.spawnAtLocation(MORE_ITEM_BY_DYE.get(this.getColor()), 1);
+            if (itemEntity == null) continue;
+            itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add((this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.1F, (this.getRandom().nextFloat() * 0.05F), ((this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.1F)));
+            DyeDepot.DYEDEPOTLOGGER.info("method DD$setSheared: " + itemEntity.toString());
+        }
     }
 }
