@@ -161,15 +161,21 @@ public abstract class SheepMixin extends Animal {
     @Inject(method = "setColor", at = @At(value = "HEAD"), cancellable = true)
     private void DD$setColor(DyeColor dyeColor, CallbackInfo ci) {
         byte b = this.entityData.get(DATA_WOOL_ID);
-        DyeDepot.DYEDEPOTLOGGER.info("DATA_WOOL_ID before dyeing: " + b);
-        this.entityData.set(DATA_WOOL_ID, (byte)(b & 224 | dyeColor.getId() & 31));
-        DyeDepot.DYEDEPOTLOGGER.info("dyed sheep to " + dyeColor + " with id " + dyeColor.getId() + " and DATA_WOOL_ID " + b);
+        DyeDepot.DYEDEPOTLOGGER.info("DATA_WOOL_ID before dyeing: " + b + " (" + Integer.toBinaryString(b) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("from delicate dyes: b & 0x80 = " + (b & 0x80) + " (" + Integer.toBinaryString(b & 0x80) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("from delicate dyes: color.getId() % 0x7F = " + ( dyeColor.getId() % 0x7F) + " (" + Integer.toBinaryString(dyeColor.getId() % 0x7F) + ")");
+        this.entityData.set(DATA_WOOL_ID, (byte)(b & 224 | dyeColor.getId() & 127));
+        DyeDepot.DYEDEPOTLOGGER.info("from delicate dyes: ((b & 0x80) | color.getId() % 0x7F)) = " + ((b & 0x80) | dyeColor.getId() % 0x7F) + " (" + Integer.toBinaryString((b & 0x80) | dyeColor.getId() % 0x7F) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("b & 224 = " + (b & 224) + " (" + Integer.toBinaryString(b & 224) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("dyeColor.getId() & 127 = " + (dyeColor.getId() & 127) + " (" + Integer.toBinaryString(dyeColor.getId() & 127) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("b & 224 | dyeColor.getId() & 127 = " + (b & 224 | dyeColor.getId() & 127) + " (" + Integer.toBinaryString(b & 224 | dyeColor.getId() & 127) + ")");
+        DyeDepot.DYEDEPOTLOGGER.info("dyed sheep to " + dyeColor + " with id " + dyeColor.getId() + " and DATA_WOOL_ID " + DATA_WOOL_ID);
         ci.cancel();
     }
 
     @Inject(method = "isSheared", at = @At(value = "HEAD"), cancellable = true)
     private void DD$isSheared(CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue((this.entityData.get(DATA_WOOL_ID) & 32) != 0);
+        cir.setReturnValue((this.entityData.get(DATA_WOOL_ID) & 128) != 0);
     }
 
     @Inject(method = "setSheared", at = @At(value = "HEAD"), cancellable = true)
