@@ -27,7 +27,7 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
             DDBlocks.SHULKER_BOXES.values().forEach(block -> {
                 var key = id(block);
                 tag(key("c", "dyed")).add(key);
-                tag(key("c", "dyed/" + dye.getSerializedName())).add(key);
+                tag(key("c", "dyed/" + dye)).add(key);
             });
         }
 

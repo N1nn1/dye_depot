@@ -25,16 +25,29 @@ public final class DyedHolders<T> {
         this.entries = entries;
     }
 
-    public static <T> DyedHolders<T> create(Function<DyeColor, T> mapper) {
-        var entries = Arrays.stream(DDDyes.values())
-                .map(DDDyes::get)
+    public static <T> DyedHolders<T> create(Stream<DyeColor> colors, Function<DyeColor, T> mapper) {
+        var entries = colors
                 .collect(Collectors.toMap(Function.identity(), mapper));
         return new DyedHolders<>(entries);
     }
 
+    public static <T> DyedHolders<T> create(Function<DyeColor, T> mapper) {
+        return create(Arrays.stream(DDDyes.values()).map(DDDyes::get), mapper);
+    }
+
+    public static <T> DyedHolders<T> createWithVanilla(Function<DyeColor, T> mapper) {
+        return create(
+                Stream.of(
+                        Arrays.stream(DyeColor.values()).filter(it -> it.getId() < 16),
+                        Arrays.stream(DDDyes.values()).map(DDDyes::get)
+                ).flatMap(Function.identity()),
+                mapper
+        );
+    }
+
     public static <T> DyedHolders<T> fromRegistry(Registry<T> registry, ResourceLocation baseName) {
         return DyedHolders.create(color ->
-                registry.getOrThrow(ResourceKey.create(registry.key(), baseName.withPrefix(color.getSerializedName() + "_")))
+                registry.getOrThrow(ResourceKey.create(registry.key(), baseName.withPrefix(color + "_")))
         );
     }
 

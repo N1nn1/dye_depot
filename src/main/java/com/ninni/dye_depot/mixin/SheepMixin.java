@@ -1,63 +1,30 @@
 package com.ninni.dye_depot.mixin;
 
-import com.google.common.collect.Maps;
-import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDLootTables;
-import com.ninni.dye_depot.registry.DDMapDecorationType;
-import net.minecraft.Util;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Map;
-
 @Mixin(Sheep.class)
 public abstract class SheepMixin extends Animal {
-    @Unique
-    private static final Map<DyeColor, ItemLike> MORE_ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (enumMap) -> {
-        enumMap.put(DDDyes.MAROON.get(), DDBlocks.MAROON_WOOL);
-        enumMap.put(DDDyes.ROSE.get(), DDBlocks.ROSE_WOOL);
-        enumMap.put(DDDyes.CORAL.get(), DDBlocks.CORAL_WOOL);
-        enumMap.put(DDDyes.INDIGO.get(), DDBlocks.INDIGO_WOOL);
-        enumMap.put(DDDyes.NAVY.get(), DDBlocks.NAVY_WOOL);
-        enumMap.put(DDDyes.SLATE.get(), DDBlocks.SLATE_WOOL);
-        enumMap.put(DDDyes.OLIVE.get(), DDBlocks.OLIVE_WOOL);
-        enumMap.put(DDDyes.AMBER.get(), DDBlocks.AMBER_WOOL);
-        enumMap.put(DDDyes.BEIGE.get(), DDBlocks.BEIGE_WOOL);
-        enumMap.put(DDDyes.TEAL.get(), DDBlocks.TEAL_WOOL);
-        enumMap.put(DDDyes.MINT.get(), DDBlocks.MINT_WOOL);
-        enumMap.put(DDDyes.AQUA.get(), DDBlocks.AQUA_WOOL);
-        enumMap.put(DDDyes.VERDANT.get(), DDBlocks.VERDANT_WOOL);
-        enumMap.put(DDDyes.FOREST.get(), DDBlocks.FOREST_WOOL);
-        enumMap.put(DDDyes.GINGER.get(), DDBlocks.GINGER_WOOL);
-        enumMap.put(DDDyes.TAN.get(), DDBlocks.TAN_WOOL);
-    });
     @Shadow
     @Final
     private static EntityDataAccessor<Byte> DATA_WOOL_ID;
@@ -89,7 +56,7 @@ public abstract class SheepMixin extends Animal {
             int i = 1 + $this.getRandom().nextInt(3);
 
             for (int j = 0; j < i; ++j) {
-                ItemEntity itemEntity = $this.spawnAtLocation(MORE_ITEM_BY_DYE.get($this.getColor()), 1);
+                ItemEntity itemEntity = $this.spawnAtLocation(DDBlocks.WOOL.getOrThrow($this.getColor()), 1);
                 if (itemEntity == null)  continue;
                 itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F, ($this.getRandom().nextFloat() * 0.05F), (($this.getRandom().nextFloat() - $this.getRandom().nextFloat()) * 0.1F)));
             }

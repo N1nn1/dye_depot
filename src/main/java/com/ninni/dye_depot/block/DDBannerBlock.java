@@ -23,13 +23,11 @@ import java.util.Map;
 
 public class DDBannerBlock extends DDAbstractBannerBlock {
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    private static final Map<DyeColor, Block> BY_COLOR = Maps.newHashMap();
     private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
 
     public DDBannerBlock(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         super(dyeColor, properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ROTATION, 0));
-        BY_COLOR.put(dyeColor, this);
     }
 
     @Override
@@ -70,8 +68,8 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
         builder.add(ROTATION);
     }
 
-    public static Block byColor(DyeColor dyeColor) {
-        return BY_COLOR.getOrDefault(dyeColor, DDBlocks.MAROON_BANNER);
+    public static Block byColor(DyeColor color) {
+        return DDBlocks.BANNERS.getOrThrow(color);
     }
 }
 
