@@ -20,7 +20,6 @@ import net.minecraft.world.level.material.PushReaction;
 import java.util.EnumMap;
 import java.util.Map;
 
-@SuppressWarnings("unused")
 public class DDBlocks {
 
     public static final DyedHolders<Block> WOOL = DyedHolders.create(dye ->
@@ -99,7 +98,7 @@ public class DDBlocks {
     );
 
     public static final DyedHolders<Block> DYE_BASKETS = DyedHolders.createWithVanilla(dye ->
-            register(dye + "_dye_basket", new DyeBasketBlock(dye, FabricBlockSettings.create().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
+            registerWithItem(dye + "_dye_basket", new DyeBasketBlock(dye, FabricBlockSettings.create().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
     );
 
     private static DDBedBlock bed(DyeColor dyeColor) {
@@ -121,7 +120,7 @@ public class DDBlocks {
     }
 
     private static Block registerWithItem(String id, Block block) {
-        DDItems.register(id, new BlockItem(block, new Item.Properties()));
+        Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), new BlockItem(block, new Item.Properties()));
         return register(id, block);
     }
 }

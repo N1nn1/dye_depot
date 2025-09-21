@@ -20,7 +20,6 @@ public class DDCreativeModeTabs {
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
-
             entries.addBefore(WHITE_WOOL,
                     DDBlocks.DYE_BASKETS.getOrThrow(DyeColor.WHITE),
                     DDBlocks.DYE_BASKETS.getOrThrow(DyeColor.LIGHT_GRAY),
@@ -94,20 +93,20 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, DyedHolders<? extends ItemLike> reference) {
-        entries.addBefore(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.MAROON.get()), reference.getOrThrow(DDDyes.ROSE.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.CORAL.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), reference.getOrThrow(DDDyes.GINGER.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.ORANGE), reference.getOrThrow(DDDyes.TAN.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.YELLOW), reference.getOrThrow(DDDyes.BEIGE.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.YELLOW), reference.getOrThrow(DDDyes.AMBER.get()), reference.getOrThrow(DDDyes.OLIVE.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.GREEN), reference.getOrThrow(DDDyes.FOREST.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.GREEN), reference.getOrThrow(DDDyes.VERDANT.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.MAROON.get()), reference.getOrThrow(DDDyes.ROSE.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.CORAL.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.CYAN), reference.getOrThrow(DDDyes.TEAL.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.CYAN), reference.getOrThrow(DDDyes.MINT.get()), reference.getOrThrow(DDDyes.AQUA.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.BLUE), reference.getOrThrow(DDDyes.SLATE.get()), reference.getOrThrow(DDDyes.NAVY.get()));
-        entries.addBefore(reference.getOrThrow(DyeColor.PURPLE), reference.getOrThrow(DDDyes.INDIGO.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.MAROON.get()), values.getOrThrow(DDDyes.ROSE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.CORAL.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.GINGER.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.TAN.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.YELLOW), values.getOrThrow(DDDyes.BEIGE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.YELLOW), values.getOrThrow(DDDyes.AMBER.get()), values.getOrThrow(DDDyes.OLIVE.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.GREEN), values.getOrThrow(DDDyes.FOREST.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.GREEN), values.getOrThrow(DDDyes.VERDANT.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.MAROON.get()), values.getOrThrow(DDDyes.ROSE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.CORAL.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.CYAN), values.getOrThrow(DDDyes.TEAL.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.CYAN), values.getOrThrow(DDDyes.MINT.get()), values.getOrThrow(DDDyes.AQUA.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.BLUE), values.getOrThrow(DDDyes.SLATE.get()), values.getOrThrow(DDDyes.NAVY.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.PURPLE), values.getOrThrow(DDDyes.INDIGO.get()));
     }
 
 }

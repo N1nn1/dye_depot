@@ -35,18 +35,26 @@ public final class DyedHolders<T> {
         return create(Arrays.stream(DDDyes.values()).map(DDDyes::get), mapper);
     }
 
+    public static Stream<DyeColor> vanillaColors() {
+        return Arrays.stream(DyeColor.values()).filter(it -> it.getId() < 16);
+    }
+
+    public static Stream<DyeColor> modColors() {
+        return Arrays.stream(DDDyes.values()).map(DDDyes::get);
+    }
+
     public static <T> DyedHolders<T> createWithVanilla(Function<DyeColor, T> mapper) {
         return create(
                 Stream.of(
-                        Arrays.stream(DyeColor.values()).filter(it -> it.getId() < 16),
-                        Arrays.stream(DDDyes.values()).map(DDDyes::get)
+                        vanillaColors(),
+                        modColors()
                 ).flatMap(Function.identity()),
                 mapper
         );
     }
 
     public static <T> DyedHolders<T> fromRegistry(Registry<T> registry, ResourceLocation baseName) {
-        return DyedHolders.create(color ->
+        return create(vanillaColors(), color ->
                 registry.getOrThrow(ResourceKey.create(registry.key(), baseName.withPrefix(color + "_")))
         );
     }
@@ -60,7 +68,7 @@ public final class DyedHolders<T> {
     }
 
     public T getOrThrow(DyeColor color) {
-        return Objects.requireNonNull(getOrNull(color));
+        return Objects.requireNonNull(getOrNull(color), () -> "holders does not contain block of color " + color);
     }
 
     public Stream<T> values() {

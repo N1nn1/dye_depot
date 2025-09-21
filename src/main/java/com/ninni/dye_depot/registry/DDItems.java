@@ -17,7 +17,7 @@ public class DDItems {
     );
 
     public static final DyedHolders<Item> SHULKER_BOXES = DyedHolders.create(dye ->
-        register(dye + "_shulker_box", new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), new Item.Properties().stacksTo(1)))
+            register(dye + "_shulker_box", new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), new Item.Properties().stacksTo(1)))
     );
 
     public static final DyedHolders<Item> BANNERS = DyedHolders.create(dye ->
@@ -28,7 +28,7 @@ public class DDItems {
             register(dye + "_bed", new BedItem(DDBlocks.BEDS.getOrThrow(dye), new Item.Properties().stacksTo(1)))
     );
 
-    static Item register(String id, Item item) {
+    private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), item);
     }
 }
