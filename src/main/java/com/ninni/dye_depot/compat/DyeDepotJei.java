@@ -25,7 +25,7 @@ import java.util.Arrays;
 @JeiPlugin
 public class DyeDepotJei implements IModPlugin {
 
-    private static final ResourceLocation ID = new ResourceLocation(DyeDepot.MOD_ID, "jei");
+    private static final ResourceLocation ID = DyeDepot.modLoc("jei");
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -48,7 +48,7 @@ public class DyeDepotJei implements IModPlugin {
         var colorIngredient = Ingredient.of(DyeItem.byColor(color));
         var inputs = NonNullList.of(Ingredient.EMPTY, baseShulkerIngredient, colorIngredient);
         var output = ShulkerBoxBlock.getColoredItemStack(color);
-        var id = new ResourceLocation(ModIds.MINECRAFT_ID, "jei.shulker.color" + "." + output.getDescriptionId());
+        var id = new ResourceLocation("jei.shulker.color" + "." + output.getDescriptionId());
         return new ShapelessRecipe(id, "jei.shulker.color", CraftingBookCategory.MISC, output, inputs);
     }
 

@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "supplementaries:present_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_navy",
+      "required": false
+    }
+  ]
+}

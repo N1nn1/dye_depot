@@ -1,6 +1,81 @@
 {
   "replace": false,
   "values": [
-    "dye_depot:aqua_shulker_box"
+    {
+      "id": "dye_depot:aqua_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete_powder",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_aqua",
+      "required": false
+    }
   ]
 }

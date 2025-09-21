@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:ginger_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

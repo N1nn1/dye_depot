@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:teal_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

@@ -9,7 +9,8 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         var pack = generator.createPack();
 
-        pack.addProvider(DDBlockTags::new);
+        var blockTags = pack.addProvider(DDBlockTags::new);
+        pack.addProvider((output, lookup) -> new DDItemTags(output, lookup, blockTags));
     }
 
 }

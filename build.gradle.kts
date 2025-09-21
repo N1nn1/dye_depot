@@ -23,15 +23,22 @@ repositories {
             includeGroup("mezz.jei")
         }
     }
+
+    maven {
+        url = uri("https://api.modrinth.com/maven")
+        content {
+            includeGroup("maven.modrinth")
+        }
+    }
 }
 
-val datagenOutput = "src/generated/resources"
+val datagenOutput = file("src/generated/resources").absolutePath
 sourceSets.main {
     resources.srcDir(datagenOutput)
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/dye_depot.accesswidener")
+    accessWidenerPath = file("src/main/resources/$mod_id.accesswidener")
 
     runs {
         create("data") {
@@ -45,16 +52,21 @@ loom {
 
 
 dependencies {
-    minecraft("com.mojang:minecraft:${minecraft_version}")
+    minecraft("com.mojang:minecraft:$minecraft_version")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    modImplementation("net.fabricmc:fabric-loader:$fabric_loader_version")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
 
     val jei_version: String by project.extra
-    modCompileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    modCompileOnly("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
-    modRuntimeOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version")
+    modRuntimeOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_version")
+
+    val supplementaries_version: String by project.extra
+    val moonlight_lib_version: String by project.extra
+    modImplementation("maven.modrinth:moonlight:$moonlight_lib_version")
+    modImplementation("maven.modrinth:supplementaries:$supplementaries_version")
 }
 
 tasks.withType<ProcessResources> {

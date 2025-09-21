@@ -8,8 +8,6 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 
-import java.awt.event.ItemListener;
-
 import static com.ninni.dye_depot.registry.DDItems.*;
 import static net.minecraft.world.item.Items.*;
 
@@ -89,7 +87,7 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, String baseName) {
-        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM, new ResourceLocation(baseName)));
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM, DyedHolders.vanillaColors(), new ResourceLocation(baseName)));
     }
 
     private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, DyedHolders<? extends ItemLike> reference) {

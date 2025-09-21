@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "supplementaries:candle_holder_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_navy",
+      "required": false
+    }
+  ]
+}

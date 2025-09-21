@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:navy_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

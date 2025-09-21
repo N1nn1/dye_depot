@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:aqua_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

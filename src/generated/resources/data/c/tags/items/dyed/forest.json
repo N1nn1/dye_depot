@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:forest_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

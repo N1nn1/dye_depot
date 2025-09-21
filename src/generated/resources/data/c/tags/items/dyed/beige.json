@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:beige_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

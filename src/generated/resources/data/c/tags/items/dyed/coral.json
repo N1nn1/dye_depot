@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:coral_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 package com.ninni.dye_depot.registry;
 
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
@@ -53,9 +52,13 @@ public final class DyedHolders<T> {
         );
     }
 
-    public static <T> DyedHolders<T> fromRegistry(Registry<T> registry, ResourceLocation baseName) {
-        return create(vanillaColors(), color ->
-                registry.getOrThrow(ResourceKey.create(registry.key(), baseName.withPrefix(color + "_")))
+    public static <T> DyedHolders<T> fromRegistry(Registry<T> registry, Stream<DyeColor> colors, ResourceLocation baseName) {
+        return fromRegistry(registry, colors, color -> baseName.withPrefix(color + "_"));
+    }
+
+    public static <T> DyedHolders<T> fromRegistry(Registry<T> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceLocation> idMapper) {
+        return create(colors, color ->
+                registry.getOrThrow(ResourceKey.create(registry.key(), idMapper.apply(color)))
         );
     }
 

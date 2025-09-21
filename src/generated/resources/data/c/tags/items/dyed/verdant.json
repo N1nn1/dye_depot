@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:verdant_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass_pane",
+      "required": false
+    }
+  ]
+}

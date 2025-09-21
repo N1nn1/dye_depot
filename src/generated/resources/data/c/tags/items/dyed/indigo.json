@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dye_depot:indigo_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_stained_glass_pane",
+      "required": false
+    }
+  ]
+}
