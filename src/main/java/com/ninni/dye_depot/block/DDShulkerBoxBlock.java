@@ -55,6 +55,6 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
 
     @Override
     public Item asItem() {
-        return DDItems.SHULKER_BOXES.get(getColor());
+        return DDItems.SHULKER_BOXES.getOrThrow(getColor());
     }
 }

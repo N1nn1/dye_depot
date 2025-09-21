@@ -14,7 +14,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Stream;
 
 public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
 
@@ -25,16 +24,14 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         for (DDDyes dye : DDDyes.values()) {
-            Stream.of(
-                    DDBlocks.SHULKER_BOXES.get(dye.get())
-            ).forEach(block -> {
+            DDBlocks.SHULKER_BOXES.values().forEach(block -> {
                 var key = id(block);
                 tag(key("c", "dyed")).add(key);
-                tag(key("c", "dyed/" + dye.getSerializedName())).add(key);
+                tag(key("c", "dyed/" + dye)).add(key);
             });
         }
 
-        DDBlocks.SHULKER_BOXES.values().stream()
+        DDBlocks.SHULKER_BOXES.values()
                 .map(this::id)
                 .forEach(id -> tag(BlockTags.SHULKER_BOXES).add(id));
     }

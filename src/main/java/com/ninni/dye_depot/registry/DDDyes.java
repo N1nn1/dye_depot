@@ -33,12 +33,6 @@ public enum DDDyes implements StringRepresentable {
     GINGER(30, "ginger", 0xCF6121, MapColor.TERRACOTTA_ORANGE, 0xCF6121, 0xCF6121),
     TAN(31, "tan", 0xF49C5D, MapColor.DIRT, 0xF49C5D, 0xF49C5D);
 
-    public static <T> Map<DyeColor, T> createDyed(Function<DyeColor, T> mapper) {
-        return Arrays.stream(DDDyes.values())
-                .map(DDDyes::get)
-                .collect(Collectors.toMap(Function.identity(), mapper));
-    }
-
     private final int id;
     private final String name;
     private final MapColor mapColor;

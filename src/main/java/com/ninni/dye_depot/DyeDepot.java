@@ -5,10 +5,15 @@ import com.ninni.dye_depot.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DispenserBlock;
 
 public class DyeDepot implements ModInitializer {
     public static final String MOD_ID = "dye_depot";
+
+    public static ResourceLocation modLoc(String path) {
+        return new ResourceLocation(MOD_ID, path);
+    }
 
     @Override
     public void onInitialize() {
@@ -23,9 +28,8 @@ public class DyeDepot implements ModInitializer {
                 DDCreativeModeTabs.class
         );
 
-        for (DDDyes dye : DDDyes.values()) {
-            var shulkerBox = DDBlocks.SHULKER_BOXES.get(dye.get());
-            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior());
-        }
+        DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->
+            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior())
+        );
     }
 }

@@ -49,7 +49,7 @@ public class BlockEntityWithoutLevelRendererMixin {
 
 
     @Inject(method = "renderByItem", at = @At("HEAD"), cancellable = true)
-    private void DD$renderShulkerItems(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
+    private void DD$renderDyedItems(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
 
         if (itemStack.getItem() instanceof BlockItem blockItem && (blockItem.getBlock() instanceof DDShulkerBoxBlock || blockItem.getBlock() instanceof DDBedBlock)) {
             ci.cancel();
@@ -63,7 +63,7 @@ public class BlockEntityWithoutLevelRendererMixin {
                 else blockEntity = SHULKER_BOXES[dyeColor.getId() - 16];
             }
             else if (block instanceof DDBedBlock) {
-                DDBedBlockEntity ddBed = new DDBedBlockEntity(BlockPos.ZERO, DDBlocks.MAROON_BED.defaultBlockState());
+                DDBedBlockEntity ddBed = new DDBedBlockEntity(BlockPos.ZERO, block.defaultBlockState());
                 ddBed.setColor(((DDBedBlock)block).getColor());
                 blockEntity = ddBed;
             } else blockEntity = null;
