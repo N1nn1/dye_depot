@@ -23,9 +23,8 @@ public class DyeDepot implements ModInitializer {
                 DDCreativeModeTabs.class
         );
 
-        for (DDDyes dye : DDDyes.values()) {
-            var shulkerBox = DDBlocks.SHULKER_BOXES.get(dye.get());
-            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior());
-        }
+        DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->
+            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior())
+        );
     }
 }

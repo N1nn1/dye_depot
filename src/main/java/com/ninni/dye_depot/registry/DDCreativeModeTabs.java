@@ -1,7 +1,14 @@
 package com.ninni.dye_depot.registry;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.ItemLike;
+
+import java.awt.event.ItemListener;
 
 import static com.ninni.dye_depot.registry.DDItems.*;
 import static net.minecraft.world.item.Items.*;
@@ -182,20 +189,7 @@ public class DDCreativeModeTabs {
             entries.addAfter(BLUE_STAINED_GLASS_PANE, SLATE_STAINED_GLASS_PANE, NAVY_STAINED_GLASS_PANE);
             entries.addBefore(PURPLE_STAINED_GLASS_PANE, INDIGO_STAINED_GLASS_PANE);
 
-            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
-            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
-            entries.addBefore(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.GINGER.get()));
-            entries.addAfter(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TAN.get()));
-            entries.addBefore(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.BEIGE.get()));
-            entries.addAfter(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.AMBER.get()), SHULKER_BOXES.get(DDDyes.OLIVE.get()));
-            entries.addBefore(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.FOREST.get()));
-            entries.addAfter(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.VERDANT.get()));
-            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
-            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
-            entries.addBefore(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TEAL.get()));
-            entries.addAfter(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MINT.get()), SHULKER_BOXES.get(DDDyes.AQUA.get()));
-            entries.addAfter(BLUE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.SLATE.get()), SHULKER_BOXES.get(DDDyes.NAVY.get()));
-            entries.addBefore(PURPLE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.INDIGO.get()));
+            addDyed(entries, DDBlocks.SHULKER_BOXES, "shulker_box");
 
             entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
             entries.addAfter(RED_BED, CORAL_BED);
@@ -245,21 +239,7 @@ public class DDCreativeModeTabs {
 
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
-
-            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
-            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
-            entries.addBefore(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.GINGER.get()));
-            entries.addAfter(ORANGE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TAN.get()));
-            entries.addBefore(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.BEIGE.get()));
-            entries.addAfter(YELLOW_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.AMBER.get()), SHULKER_BOXES.get(DDDyes.OLIVE.get()));
-            entries.addBefore(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.FOREST.get()));
-            entries.addAfter(GREEN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.VERDANT.get()));
-            entries.addBefore(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MAROON.get()), SHULKER_BOXES.get(DDDyes.ROSE.get()));
-            entries.addAfter(RED_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.CORAL.get()));
-            entries.addBefore(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.TEAL.get()));
-            entries.addAfter(CYAN_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.MINT.get()), SHULKER_BOXES.get(DDDyes.AQUA.get()));
-            entries.addAfter(BLUE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.SLATE.get()), SHULKER_BOXES.get(DDDyes.NAVY.get()));
-            entries.addBefore(PURPLE_SHULKER_BOX, SHULKER_BOXES.get(DDDyes.INDIGO.get()));
+            addDyed(entries, DDBlocks.SHULKER_BOXES, "shulker_box");
 
             entries.addBefore(RED_BED, MAROON_BED, ROSE_BED);
             entries.addAfter(RED_BED, CORAL_BED);
@@ -307,4 +287,26 @@ public class DDCreativeModeTabs {
             entries.addBefore(PURPLE_BANNER, INDIGO_BANNER);
         });
     }
+
+    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, String baseName) {
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM, new ResourceLocation(baseName)));
+    }
+
+    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, DyedHolders<? extends ItemLike> reference) {
+        entries.addBefore(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.MAROON.get()), reference.getOrThrow(DDDyes.ROSE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.CORAL.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), reference.getOrThrow(DDDyes.GINGER.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.ORANGE), reference.getOrThrow(DDDyes.TAN.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.YELLOW), reference.getOrThrow(DDDyes.BEIGE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.YELLOW), reference.getOrThrow(DDDyes.AMBER.get()), reference.getOrThrow(DDDyes.OLIVE.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.GREEN), reference.getOrThrow(DDDyes.FOREST.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.GREEN), reference.getOrThrow(DDDyes.VERDANT.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.MAROON.get()), reference.getOrThrow(DDDyes.ROSE.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.RED), reference.getOrThrow(DDDyes.CORAL.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.CYAN), reference.getOrThrow(DDDyes.TEAL.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.CYAN), reference.getOrThrow(DDDyes.MINT.get()), reference.getOrThrow(DDDyes.AQUA.get()));
+        entries.addAfter(reference.getOrThrow(DyeColor.BLUE), reference.getOrThrow(DDDyes.SLATE.get()), reference.getOrThrow(DDDyes.NAVY.get()));
+        entries.addBefore(reference.getOrThrow(DyeColor.PURPLE), reference.getOrThrow(DDDyes.INDIGO.get()));
+    }
+
 }

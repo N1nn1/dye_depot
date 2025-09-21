@@ -19,7 +19,7 @@ public class ShulkerBoxBlockMixin {
     )
     private static void injectModShulkers(DyeColor dye, CallbackInfoReturnable<ItemStack> cir) {
         if (dye == null) return;
-        var box = DDBlocks.SHULKER_BOXES.get(dye);
+        var box = DDBlocks.SHULKER_BOXES.getOrNull(dye);
         if (box != null) cir.setReturnValue(new ItemStack(box));
     }
 

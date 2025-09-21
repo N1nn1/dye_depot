@@ -5,8 +5,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 
 import java.util.Map;
+import java.util.function.Function;
 
 public class DDItems {
 
@@ -163,8 +165,8 @@ public class DDItems {
     public static final Item GINGER_STAINED_GLASS_PANE = register("ginger_stained_glass_pane", new BlockItem(DDBlocks.GINGER_STAINED_GLASS_PANE, new Item.Properties()));
     public static final Item TAN_STAINED_GLASS_PANE = register("tan_stained_glass_pane", new BlockItem(DDBlocks.TAN_STAINED_GLASS_PANE, new Item.Properties()));
 
-    public static final Map<DyeColor, Item> SHULKER_BOXES = DDDyes.createDyed(dye ->
-        register(dye + "_shulker_box", new BlockItem(DDBlocks.SHULKER_BOXES.get(dye), new Item.Properties().stacksTo(1)))
+    public static final DyedHolders<Item> SHULKER_BOXES = DyedHolders.create(dye ->
+        register(dye + "_shulker_box", new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), new Item.Properties().stacksTo(1)))
     );
 
     public static final Item MAROON_CANDLE = register("maroon_candle", new BlockItem(DDBlocks.MAROON_CANDLE, new Item.Properties()));
@@ -250,7 +252,7 @@ public class DDItems {
     public static final Item PURPLE_DYE_BASKET = register("purple_dye_basket", new BlockItem(DDBlocks.PURPLE_DYE_BASKET, new Item.Properties()));
     public static final Item MAGENTA_DYE_BASKET = register("magenta_dye_basket", new BlockItem(DDBlocks.MAGENTA_DYE_BASKET, new Item.Properties()));
     public static final Item PINK_DYE_BASKET = register("pink_dye_basket", new BlockItem(DDBlocks.PINK_DYE_BASKET, new Item.Properties()));
-    
+
     private static Item register(String id, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(DyeDepot.MOD_ID, id), item);
     }

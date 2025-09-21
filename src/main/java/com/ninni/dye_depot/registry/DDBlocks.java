@@ -16,6 +16,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.Map;
+import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public class DDBlocks {
@@ -156,7 +157,7 @@ public class DDBlocks {
     public static final Block GINGER_STAINED_GLASS_PANE = register("ginger_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.GINGER.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
     public static final Block TAN_STAINED_GLASS_PANE = register("tan_stained_glass_pane", new StainedGlassPaneBlock(DDDyes.TAN.get(), FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)));
 
-    public static final Map<DyeColor, Block> SHULKER_BOXES = DDDyes.createDyed(dye ->
+    public static final DyedHolders<Block> SHULKER_BOXES = DyedHolders.create(dye ->
             register(dye + "_shulker_box", shulkerBox(dye, FabricBlockSettings.create().mapColor(dye.getMapColor())))
     );
 
@@ -284,12 +285,13 @@ public class DDBlocks {
     private static DDShulkerBoxBlock shulkerBox(DyeColor dyeColor, BlockBehaviour.Properties properties) {
         BlockBehaviour.StatePredicate statePredicate = (blockState, blockGetter, blockPos) -> {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
-            if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) return shulkerBoxBlockEntity.isClosed();
+            if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity)
+                return shulkerBoxBlockEntity.isClosed();
             else return true;
         };
         return new DDShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
     }
-    
+
     private static Block register(String id, Block block) {
         return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(DyeDepot.MOD_ID, id), block);
     }
