@@ -11,6 +11,8 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
 
         var blockTags = pack.addProvider(DDBlockTags::new);
         pack.addProvider((output, lookup) -> new DDItemTags(output, lookup, blockTags));
+        pack.addProvider(DDBlockLoot::new);
+        pack.addProvider(DDEntityLoot::new);
     }
 
 }

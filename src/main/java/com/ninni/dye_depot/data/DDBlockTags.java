@@ -72,7 +72,7 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     }
 
     private DyedHolders<Block> supplementariesHolders(String name) {
-        return DyedHolders.fromRegistry(BuiltInRegistries.BLOCK, DyedHolders.modColors(), color -> new ResourceLocation("supplementaries", name + "_" + color));
+        return ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, name);
     }
 
 }

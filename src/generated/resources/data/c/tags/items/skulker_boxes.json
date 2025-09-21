@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_shulker_box",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_shulker_box",
+      "id": "dye_depot:rose_shulker_box",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_shulker_box",
+      "id": "dye_depot:indigo_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_shulker_box",
+      "id": "dye_depot:navy_shulker_box",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_shulker_box",
+      "id": "dye_depot:olive_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_shulker_box",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_shulker_box",
+      "id": "dye_depot:teal_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_shulker_box",
       "required": false
     }
   ]

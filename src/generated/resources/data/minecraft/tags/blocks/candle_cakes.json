@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_candle_cake",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_candle_cake",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_candle_cake",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_candle_cake",
+      "id": "dye_depot:rose_candle_cake",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_candle_cake",
+      "id": "dye_depot:indigo_candle_cake",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_candle_cake",
+      "id": "dye_depot:navy_candle_cake",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_candle_cake",
+      "id": "dye_depot:olive_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_candle_cake",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_candle_cake",
+      "id": "dye_depot:teal_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_candle_cake",
       "required": false
     }
   ]

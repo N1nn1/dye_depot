@@ -36,6 +36,10 @@
     {
       "id": "dye_depot:indigo_stained_glass_pane",
       "required": false
+    },
+    {
+      "id": "dye_depot:indigo_dye_basket",
+      "required": false
     }
   ]
 }

@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "supplementaries:trapped_present_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_teal",
-      "required": false
-    },
-    {
       "id": "supplementaries:trapped_present_maroon",
       "required": false
     },
     {
-      "id": "supplementaries:trapped_present_ginger",
+      "id": "supplementaries:trapped_present_rose",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:trapped_present_tan",
+      "id": "supplementaries:trapped_present_indigo",
       "required": false
     },
     {
-      "id": "supplementaries:trapped_present_verdant",
+      "id": "supplementaries:trapped_present_navy",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:trapped_present_forest",
+      "id": "supplementaries:trapped_present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_amber",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "supplementaries:trapped_present_navy",
+      "id": "supplementaries:trapped_present_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_tan",
       "required": false
     }
   ]

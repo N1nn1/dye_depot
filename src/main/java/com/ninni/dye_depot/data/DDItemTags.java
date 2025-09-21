@@ -2,19 +2,18 @@ package com.ninni.dye_depot.data;
 
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
+import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -37,11 +36,30 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.TERRACOTTA, ItemTags.TERRACOTTA);
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"));
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
+        tagDyed(DDBlocks.DYE_BASKETS);
 
         copy("supplementaries", "candle_holders");
         copy("supplementaries", "flags");
         copy("supplementaries", "presents");
         copy("supplementaries", "trapped_presents");
+
+        getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
+                Items.TUBE_CORAL,
+                Items.BRAIN_CORAL,
+                Items.BUBBLE_CORAL,
+                Items.FIRE_CORAL,
+                Items.HORN_CORAL,
+                Items.TUBE_CORAL_FAN,
+                Items.BRAIN_CORAL_FAN,
+                Items.BUBBLE_CORAL_FAN,
+                Items.FIRE_CORAL_FAN,
+                Items.HORN_CORAL_FAN,
+                Items.TUBE_CORAL_BLOCK,
+                Items.BRAIN_CORAL_BLOCK,
+                Items.BUBBLE_CORAL_BLOCK,
+                Items.FIRE_CORAL_BLOCK,
+                Items.HORN_CORAL_BLOCK
+        );
     }
 
     private void tag(DyedHolders<? extends ItemLike> values, TagKey<Item> tag) {

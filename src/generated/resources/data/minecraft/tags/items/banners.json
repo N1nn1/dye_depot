@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_banner",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_banner",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_banner",
+      "id": "dye_depot:rose_banner",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_banner",
+      "id": "dye_depot:indigo_banner",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_banner",
+      "id": "dye_depot:navy_banner",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_banner",
+      "id": "dye_depot:olive_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_banner",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_banner",
+      "id": "dye_depot:teal_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_banner",
       "required": false
     }
   ]

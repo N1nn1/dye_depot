@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_stained_glass",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_stained_glass",
+      "id": "dye_depot:rose_stained_glass",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_stained_glass",
+      "id": "dye_depot:indigo_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_stained_glass",
+      "id": "dye_depot:navy_stained_glass",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_stained_glass",
+      "id": "dye_depot:olive_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_stained_glass",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_stained_glass",
+      "id": "dye_depot:teal_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_stained_glass",
       "required": false
     }
   ]

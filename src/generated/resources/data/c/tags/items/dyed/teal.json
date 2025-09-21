@@ -36,6 +36,10 @@
     {
       "id": "dye_depot:teal_stained_glass_pane",
       "required": false
+    },
+    {
+      "id": "dye_depot:teal_dye_basket",
+      "required": false
     }
   ]
 }

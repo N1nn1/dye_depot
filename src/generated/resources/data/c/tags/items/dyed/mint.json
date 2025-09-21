@@ -36,6 +36,10 @@
     {
       "id": "dye_depot:mint_stained_glass_pane",
       "required": false
+    },
+    {
+      "id": "dye_depot:mint_dye_basket",
+      "required": false
     }
   ]
 }

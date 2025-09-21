@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "supplementaries:flag_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_teal",
-      "required": false
-    },
-    {
       "id": "supplementaries:flag_maroon",
       "required": false
     },
     {
-      "id": "supplementaries:flag_ginger",
+      "id": "supplementaries:flag_rose",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:flag_tan",
+      "id": "supplementaries:flag_indigo",
       "required": false
     },
     {
-      "id": "supplementaries:flag_verdant",
+      "id": "supplementaries:flag_navy",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:flag_forest",
+      "id": "supplementaries:flag_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_amber",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "supplementaries:flag_navy",
+      "id": "supplementaries:flag_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_tan",
       "required": false
     }
   ]

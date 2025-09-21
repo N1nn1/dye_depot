@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_terracotta",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_terracotta",
+      "id": "dye_depot:rose_terracotta",
       "required": false
     },
     {
@@ -42,23 +14,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_terracotta",
+      "id": "dye_depot:indigo_terracotta",
       "required": false
     },
     {
@@ -66,31 +22,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_glazed_terracotta",
+      "id": "dye_depot:slate_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:olive_glazed_terracotta",
+      "id": "dye_depot:olive_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:mint_glazed_terracotta",
+      "id": "dye_depot:amber_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_glazed_terracotta",
+      "id": "dye_depot:beige_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:amber_glazed_terracotta",
+      "id": "dye_depot:teal_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_glazed_terracotta",
+      "id": "dye_depot:mint_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:teal_glazed_terracotta",
+      "id": "dye_depot:aqua_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_terracotta",
       "required": false
     },
     {
@@ -98,7 +70,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_glazed_terracotta",
+      "id": "dye_depot:rose_glazed_terracotta",
       "required": false
     },
     {
@@ -106,23 +78,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_glazed_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_glazed_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_glazed_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_glazed_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_glazed_terracotta",
+      "id": "dye_depot:indigo_glazed_terracotta",
       "required": false
     },
     {
@@ -130,31 +86,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_concrete",
+      "id": "dye_depot:slate_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:olive_concrete",
+      "id": "dye_depot:olive_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:mint_concrete",
+      "id": "dye_depot:amber_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_concrete",
+      "id": "dye_depot:beige_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:amber_concrete",
+      "id": "dye_depot:teal_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_concrete",
+      "id": "dye_depot:mint_glazed_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:teal_concrete",
+      "id": "dye_depot:aqua_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_glazed_terracotta",
       "required": false
     },
     {
@@ -162,7 +134,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_concrete",
+      "id": "dye_depot:rose_concrete",
       "required": false
     },
     {
@@ -170,11 +142,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_concrete",
+      "id": "dye_depot:indigo_concrete",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_concrete",
+      "id": "dye_depot:navy_concrete",
       "required": false
     },
     {
@@ -182,7 +154,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_concrete",
+      "id": "dye_depot:olive_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_concrete",
       "required": false
     },
     {
@@ -190,7 +166,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_concrete",
+      "id": "dye_depot:teal_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_concrete",
       "required": false
     }
   ]

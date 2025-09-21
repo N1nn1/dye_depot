@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_wool",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_wool",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_wool",
+      "id": "dye_depot:rose_wool",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_wool",
+      "id": "dye_depot:indigo_wool",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_wool",
+      "id": "dye_depot:navy_wool",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_wool",
+      "id": "dye_depot:olive_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_wool",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_wool",
+      "id": "dye_depot:teal_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_wool",
       "required": false
     }
   ]

@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "supplementaries:present_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_teal",
-      "required": false
-    },
-    {
       "id": "supplementaries:present_maroon",
       "required": false
     },
     {
-      "id": "supplementaries:present_ginger",
+      "id": "supplementaries:present_rose",
       "required": false
     },
     {
@@ -42,11 +14,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:present_tan",
+      "id": "supplementaries:present_indigo",
       "required": false
     },
     {
-      "id": "supplementaries:present_verdant",
+      "id": "supplementaries:present_navy",
       "required": false
     },
     {
@@ -54,7 +26,11 @@
       "required": false
     },
     {
-      "id": "supplementaries:present_forest",
+      "id": "supplementaries:present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_amber",
       "required": false
     },
     {
@@ -62,7 +38,31 @@
       "required": false
     },
     {
-      "id": "supplementaries:present_navy",
+      "id": "supplementaries:present_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_tan",
       "required": false
     }
   ]

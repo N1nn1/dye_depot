@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.registry;
 
+import it.unimi.dsi.fastutil.ints.IntComparator;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -7,6 +8,7 @@ import net.minecraft.world.item.DyeColor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -75,11 +77,15 @@ public final class DyedHolders<T> {
     }
 
     public Stream<T> values() {
-        return entries.values().stream();
+        return entries.entrySet().stream()
+                .sorted(Comparator.comparing(it -> it.getKey().getId()))
+                .map(Map.Entry::getValue);
     }
 
     public void forEach(BiConsumer<DyeColor, T> consumer) {
-        entries.entrySet().stream().forEach(it -> consumer.accept(it.getKey(), it.getValue()));
+        entries.entrySet().stream()
+                .sorted(Comparator.comparing(it -> it.getKey().getId()))
+                .forEach(it -> consumer.accept(it.getKey(), it.getValue()));
     }
 
     public <R> Stream<R> map(BiFunction<DyeColor, T, R> mapper) {

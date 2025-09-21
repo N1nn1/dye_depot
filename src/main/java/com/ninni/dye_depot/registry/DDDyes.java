@@ -54,6 +54,9 @@ public enum DDDyes implements StringRepresentable {
         this.fireworkColor = l;
     }
 
+    public static boolean isModDye(DyeColor color) {
+        return color.getId() > 15;
+    }
 
     public int getId() {
         return this.id;

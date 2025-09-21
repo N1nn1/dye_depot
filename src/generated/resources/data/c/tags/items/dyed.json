@@ -2,39 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dye_depot:rose_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_shulker_box",
-      "required": false
-    },
-    {
       "id": "dye_depot:maroon_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_shulker_box",
+      "id": "dye_depot:rose_shulker_box",
       "required": false
     },
     {
@@ -42,23 +14,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_shulker_box",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_shulker_box",
+      "id": "dye_depot:indigo_shulker_box",
       "required": false
     },
     {
@@ -66,31 +22,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_banner",
+      "id": "dye_depot:slate_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:olive_banner",
+      "id": "dye_depot:olive_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:mint_banner",
+      "id": "dye_depot:amber_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_banner",
+      "id": "dye_depot:beige_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:amber_banner",
+      "id": "dye_depot:teal_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_banner",
+      "id": "dye_depot:mint_shulker_box",
       "required": false
     },
     {
-      "id": "dye_depot:teal_banner",
+      "id": "dye_depot:aqua_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_shulker_box",
       "required": false
     },
     {
@@ -98,7 +70,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_banner",
+      "id": "dye_depot:rose_banner",
       "required": false
     },
     {
@@ -106,23 +78,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_banner",
+      "id": "dye_depot:indigo_banner",
       "required": false
     },
     {
@@ -130,31 +86,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_carpet",
+      "id": "dye_depot:slate_banner",
       "required": false
     },
     {
-      "id": "dye_depot:olive_carpet",
+      "id": "dye_depot:olive_banner",
       "required": false
     },
     {
-      "id": "dye_depot:mint_carpet",
+      "id": "dye_depot:amber_banner",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_carpet",
+      "id": "dye_depot:beige_banner",
       "required": false
     },
     {
-      "id": "dye_depot:amber_carpet",
+      "id": "dye_depot:teal_banner",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_carpet",
+      "id": "dye_depot:mint_banner",
       "required": false
     },
     {
-      "id": "dye_depot:teal_carpet",
+      "id": "dye_depot:aqua_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_banner",
       "required": false
     },
     {
@@ -162,7 +134,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_carpet",
+      "id": "dye_depot:rose_carpet",
       "required": false
     },
     {
@@ -170,23 +142,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_carpet",
+      "id": "dye_depot:indigo_carpet",
       "required": false
     },
     {
@@ -194,31 +150,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_candle",
+      "id": "dye_depot:slate_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:olive_candle",
+      "id": "dye_depot:olive_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:mint_candle",
+      "id": "dye_depot:amber_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_candle",
+      "id": "dye_depot:beige_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:amber_candle",
+      "id": "dye_depot:teal_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_candle",
+      "id": "dye_depot:mint_carpet",
       "required": false
     },
     {
-      "id": "dye_depot:teal_candle",
+      "id": "dye_depot:aqua_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_carpet",
       "required": false
     },
     {
@@ -226,7 +198,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_candle",
+      "id": "dye_depot:rose_candle",
       "required": false
     },
     {
@@ -234,23 +206,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_candle",
+      "id": "dye_depot:indigo_candle",
       "required": false
     },
     {
@@ -258,31 +214,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_bed",
+      "id": "dye_depot:slate_candle",
       "required": false
     },
     {
-      "id": "dye_depot:olive_bed",
+      "id": "dye_depot:olive_candle",
       "required": false
     },
     {
-      "id": "dye_depot:mint_bed",
+      "id": "dye_depot:amber_candle",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_bed",
+      "id": "dye_depot:beige_candle",
       "required": false
     },
     {
-      "id": "dye_depot:amber_bed",
+      "id": "dye_depot:teal_candle",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_bed",
+      "id": "dye_depot:mint_candle",
       "required": false
     },
     {
-      "id": "dye_depot:teal_bed",
+      "id": "dye_depot:aqua_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_candle",
       "required": false
     },
     {
@@ -290,7 +262,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_bed",
+      "id": "dye_depot:rose_bed",
       "required": false
     },
     {
@@ -298,23 +270,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_bed",
+      "id": "dye_depot:indigo_bed",
       "required": false
     },
     {
@@ -322,31 +278,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_wool",
+      "id": "dye_depot:slate_bed",
       "required": false
     },
     {
-      "id": "dye_depot:olive_wool",
+      "id": "dye_depot:olive_bed",
       "required": false
     },
     {
-      "id": "dye_depot:mint_wool",
+      "id": "dye_depot:amber_bed",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_wool",
+      "id": "dye_depot:beige_bed",
       "required": false
     },
     {
-      "id": "dye_depot:amber_wool",
+      "id": "dye_depot:teal_bed",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_wool",
+      "id": "dye_depot:mint_bed",
       "required": false
     },
     {
-      "id": "dye_depot:teal_wool",
+      "id": "dye_depot:aqua_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_bed",
       "required": false
     },
     {
@@ -354,7 +326,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_wool",
+      "id": "dye_depot:rose_wool",
       "required": false
     },
     {
@@ -362,23 +334,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_wool",
+      "id": "dye_depot:indigo_wool",
       "required": false
     },
     {
@@ -386,31 +342,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_terracotta",
+      "id": "dye_depot:slate_wool",
       "required": false
     },
     {
-      "id": "dye_depot:olive_terracotta",
+      "id": "dye_depot:olive_wool",
       "required": false
     },
     {
-      "id": "dye_depot:mint_terracotta",
+      "id": "dye_depot:amber_wool",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_terracotta",
+      "id": "dye_depot:beige_wool",
       "required": false
     },
     {
-      "id": "dye_depot:amber_terracotta",
+      "id": "dye_depot:teal_wool",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_terracotta",
+      "id": "dye_depot:mint_wool",
       "required": false
     },
     {
-      "id": "dye_depot:teal_terracotta",
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_wool",
       "required": false
     },
     {
@@ -418,7 +390,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_terracotta",
+      "id": "dye_depot:rose_terracotta",
       "required": false
     },
     {
@@ -426,23 +398,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_terracotta",
+      "id": "dye_depot:indigo_terracotta",
       "required": false
     },
     {
@@ -450,31 +406,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_stained_glass",
+      "id": "dye_depot:slate_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:olive_stained_glass",
+      "id": "dye_depot:olive_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:mint_stained_glass",
+      "id": "dye_depot:amber_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_stained_glass",
+      "id": "dye_depot:beige_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:amber_stained_glass",
+      "id": "dye_depot:teal_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_stained_glass",
+      "id": "dye_depot:mint_terracotta",
       "required": false
     },
     {
-      "id": "dye_depot:teal_stained_glass",
+      "id": "dye_depot:aqua_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_terracotta",
       "required": false
     },
     {
@@ -482,7 +454,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_stained_glass",
+      "id": "dye_depot:rose_stained_glass",
       "required": false
     },
     {
@@ -490,23 +462,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_stained_glass",
+      "id": "dye_depot:indigo_stained_glass",
       "required": false
     },
     {
@@ -514,31 +470,47 @@
       "required": false
     },
     {
-      "id": "dye_depot:rose_stained_glass_pane",
+      "id": "dye_depot:slate_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:olive_stained_glass_pane",
+      "id": "dye_depot:olive_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:mint_stained_glass_pane",
+      "id": "dye_depot:amber_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_stained_glass_pane",
+      "id": "dye_depot:beige_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:amber_stained_glass_pane",
+      "id": "dye_depot:teal_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_stained_glass_pane",
+      "id": "dye_depot:mint_stained_glass",
       "required": false
     },
     {
-      "id": "dye_depot:teal_stained_glass_pane",
+      "id": "dye_depot:aqua_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_stained_glass",
       "required": false
     },
     {
@@ -546,7 +518,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:ginger_stained_glass_pane",
+      "id": "dye_depot:rose_stained_glass_pane",
       "required": false
     },
     {
@@ -554,11 +526,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_stained_glass_pane",
+      "id": "dye_depot:indigo_stained_glass_pane",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_stained_glass_pane",
+      "id": "dye_depot:navy_stained_glass_pane",
       "required": false
     },
     {
@@ -566,7 +538,11 @@
       "required": false
     },
     {
-      "id": "dye_depot:forest_stained_glass_pane",
+      "id": "dye_depot:olive_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_stained_glass_pane",
       "required": false
     },
     {
@@ -574,7 +550,159 @@
       "required": false
     },
     {
-      "id": "dye_depot:navy_stained_glass_pane",
+      "id": "dye_depot:teal_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:white_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:orange_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:magenta_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:light_blue_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:yellow_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:lime_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:pink_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:gray_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:light_gray_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:cyan_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:purple_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:blue_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:brown_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:green_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:red_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:black_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:maroon_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_dye_basket",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_dye_basket",
       "required": false
     }
   ]
