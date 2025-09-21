@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carpet",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool_carpets"
+    },
+    {
+      "item": "dye_depot:coral_dye"
+    }
+  ],
+  "result": {
+    "item": "dye_depot:coral_carpet"
+  }
+}

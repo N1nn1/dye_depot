@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bed",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "item": "minecraft:cyan_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_bed"
+  }
+}

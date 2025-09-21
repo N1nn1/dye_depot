@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wool",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "dye_depot:beige_dye"
+    }
+  ],
+  "result": {
+    "item": "dye_depot:beige_wool"
+  }
+}

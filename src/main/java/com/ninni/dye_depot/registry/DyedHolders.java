@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.registry;
 
+import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.IntComparator;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -34,6 +35,17 @@ public final class DyedHolders<T> {
 
     public static <T> DyedHolders<T> create(Function<DyeColor, T> mapper) {
         return create(Arrays.stream(DDDyes.values()).map(DDDyes::get), mapper);
+    }
+
+    @SafeVarargs
+    public static <T> DyedHolders<T> merge(DyedHolders<? extends T>... from) {
+        var entries = ImmutableMap.<DyeColor, T>builder();
+
+        for (var holders : from) {
+            entries.putAll(holders.entries);
+        }
+
+        return new DyedHolders<>(entries.build());
     }
 
     public static Stream<DyeColor> vanillaColors() {

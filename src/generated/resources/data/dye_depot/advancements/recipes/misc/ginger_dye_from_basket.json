@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ginger_dye_basket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:ginger_dye_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ginger_dye_from_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ginger_dye_basket",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ginger_dye_from_basket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

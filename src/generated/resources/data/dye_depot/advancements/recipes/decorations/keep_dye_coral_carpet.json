@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coral_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:coral_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:keep_dye_coral_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool_carpets": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wool_carpets"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wool_carpets",
+      "has_coral_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:keep_dye_coral_carpet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

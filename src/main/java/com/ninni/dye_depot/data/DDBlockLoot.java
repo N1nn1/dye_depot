@@ -45,7 +45,7 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.TERRACOTTA.values().forEach(this::dropSelf);
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
-        var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded("supplementaries"));
+        var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
         supplementariesHolders("candle_holder").values().forEach(it -> supplementariesLoot.add(it, createCandleHolderDrops(it)));
         supplementariesHolders("flag").values().forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
     }

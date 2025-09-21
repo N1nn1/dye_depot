@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wool",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "dye_depot:ginger_dye"
+    }
+  ],
+  "result": {
+    "item": "dye_depot:ginger_wool"
+  }
+}

@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -38,10 +39,10 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS);
 
-        copy("supplementaries", "candle_holders");
-        copy("supplementaries", "flags");
-        copy("supplementaries", "presents");
-        copy("supplementaries", "trapped_presents");
+        copy(ModCompat.SUPPLEMENTARIES, "candle_holders");
+        copy(ModCompat.SUPPLEMENTARIES, "flags");
+        copy(ModCompat.SUPPLEMENTARIES, "presents");
+        copy(ModCompat.SUPPLEMENTARIES, "trapped_presents");
 
         getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,
@@ -66,15 +67,16 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         values.values()
                 .map(ItemLike::asItem)
                 .map(this::reverseLookup)
-                .forEach(it -> getOrCreateTagBuilder(tag).addOptional(it));
+                .map(ResourceKey::location)
+                .forEach(it -> tag(tag).addOptional(it));
     }
 
     @SafeVarargs
     private void tagDyed(DyedHolders<? extends ItemLike> values, TagKey<Item>... additionalTags) {
         values.forEach((dye, item) -> {
-            var id = reverseLookup(item.asItem());
-            getOrCreateTagBuilder(loaderTag("dyed")).addOptional(id);
-            getOrCreateTagBuilder(loaderTag("dyed/" + dye)).addOptional(id);
+            var id = reverseLookup(item.asItem()).location();
+            tag(loaderTag("dyed")).addOptional(id);
+            tag(loaderTag("dyed/" + dye)).addOptional(id);
         });
 
         for (var tag : additionalTags) {

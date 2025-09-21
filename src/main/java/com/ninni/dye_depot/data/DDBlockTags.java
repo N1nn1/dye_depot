@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -47,15 +48,16 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     private void tag(DyedHolders<? extends Block> values, TagKey<Block> tag) {
         values.values()
                 .map(this::reverseLookup)
-                .forEach(it -> getOrCreateTagBuilder(tag).addOptional(it));
+                .map(ResourceKey::location)
+                .forEach(it -> tag(tag).addOptional(it));
     }
 
     @SafeVarargs
     private void tagDyed(DyedHolders<? extends Block> values, TagKey<Block>... additionalTags) {
         values.forEach((dye, block) -> {
-            var key = reverseLookup(block);
-            getOrCreateTagBuilder(loaderTag("dyed")).addOptional(key);
-            getOrCreateTagBuilder(loaderTag("dyed/" + dye)).addOptional(key);
+            var key = reverseLookup(block).location();
+            tag(loaderTag("dyed")).addOptional(key);
+            tag(loaderTag("dyed/" + dye)).addOptional(key);
         });
 
         for (var tag : additionalTags) {
@@ -68,7 +70,7 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     }
 
     private TagKey<Block> supplementariesTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation("supplementaries", path));
+        return TagKey.create(Registries.BLOCK, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
     }
 
     private DyedHolders<Block> supplementariesHolders(String name) {
