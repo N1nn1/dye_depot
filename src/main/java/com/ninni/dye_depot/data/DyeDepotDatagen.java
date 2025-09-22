@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.data;
 
+import com.ninni.dye_depot.DyeDepot;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -14,6 +15,7 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(DDBlockLoot::new);
         pack.addProvider(DDEntityLoot::new);
         pack.addProvider(DDRecipes::new);
+        pack.addProvider((output, $) -> new DDPackMetadata(output, DyeDepot.MOD_ID + " resources"));
     }
 
 }
