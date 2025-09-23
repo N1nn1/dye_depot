@@ -2,10 +2,12 @@ package com.ninni.dye_depot.data.server;
 
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
+import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BedPart;
@@ -19,12 +21,18 @@ import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 
 public class DDBlockLoot extends FabricBlockLootTableProvider {
 
-    public DDBlockLoot(FabricDataOutput output) {
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+
+    public DDBlockLoot(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         super(output);
+        this.lookup = lookup;
     }
 
     @Override
     public void generate() {
+        var lookup = this.lookup.join();
+        var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+        
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
@@ -41,11 +49,11 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
         var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag").values()
+        ModCompat.supplementariesHolders(blockLookup, "flag").values()
                 .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder").values()
+        ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
                 .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder").values()
+        ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").values()
                 .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
     }
 

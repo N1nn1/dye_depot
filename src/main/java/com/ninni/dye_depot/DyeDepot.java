@@ -27,7 +27,7 @@ public class DyeDepot implements ModInitializer {
         );
 
         DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->
-            DispenserBlock.registerBehavior(shulkerBox, new ShulkerBoxDispenseBehavior())
+            DispenserBlock.registerBehavior(shulkerBox.value(), new ShulkerBoxDispenseBehavior())
         );
     }
 }

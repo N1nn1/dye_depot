@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.*;
 import java.util.Map;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
@@ -113,11 +114,12 @@ public class DDBlocks {
         return new DDShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
     }
 
-    private static <T extends Block> T register(String id, T block) {
-        return Registry.register(BuiltInRegistries.BLOCK, DyeDepot.modLoc(id), block);
+    @SuppressWarnings("unchecked")
+    private static <T extends Block> Holder<T> register(String id, T block) {
+        return (Holder<T>) Registry.registerForHolder(BuiltInRegistries.BLOCK, DyeDepot.modLoc(id), block);
     }
 
-    private static <T extends Block> T registerWithItem(String id, T block) {
+    private static <T extends Block> Holder<T> registerWithItem(String id, T block) {
         Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), new BlockItem(block, new Item.Properties()));
         return register(id, block);
     }

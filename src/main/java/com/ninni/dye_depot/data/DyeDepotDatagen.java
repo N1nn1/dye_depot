@@ -31,13 +31,13 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(DDRecipes::new);
 
         var fileHelper = ExistingFileHelper.withResourcesFromArg();
-        pack.addProvider((output, $) -> new DDBlockModels(output, fileHelper));
-        pack.addProvider((output, $) -> new DDItemModels(output, fileHelper));
-        pack.addProvider((output, $) -> new DDLang(output));
+        pack.addProvider((output, lookup) -> new DDBlockModels(output, lookup, fileHelper));
+        pack.addProvider((output, lookup) -> new DDItemModels(output, lookup, fileHelper));
+        pack.addProvider(DDLang::new);
 
         var overrides = generator.createBuiltinResourcePack(DyeDepot.modLoc("dye_override"));
         overrides.addProvider((output, $) -> new DDPackMetadata(output, Component.literal("Slight dye adjustments").withStyle(ChatFormatting.GRAY)));
-        overrides.addProvider((output, $) -> new DDLangOverrides(output));
+        overrides.addProvider(DDLangOverrides::new);
     }
 
 }

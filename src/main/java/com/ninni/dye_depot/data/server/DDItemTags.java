@@ -9,9 +9,7 @@ import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -21,12 +19,18 @@ import net.minecraft.world.level.ItemLike;
 
 public class DDItemTags extends FabricTagProvider.ItemTagProvider {
 
-    public DDItemTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture, BlockTagProvider blockTags) {
-        super(output, registriesFuture, blockTags);
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+
+    public DDItemTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup, BlockTagProvider blockTags) {
+        super(output, lookup, blockTags);
+        this.lookup = lookup;
     }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        var lookup = this.lookup.join();
+        var itemLookup = lookup.lookupOrThrow(Registries.ITEM);
+
         tag(DDItems.DYES, loaderTag("dyes"));
 
         tagDyed(DDBlocks.SHULKER_BOXES, loaderTag("skulker_boxes"));
@@ -40,12 +44,11 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS);
 
-        var itemRegistry = BuiltInRegistries.ITEM.asLookup();
-        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(itemRegistry, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
-        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "trapped_present"), supplementariesTag("trapped_presents"));
+        tagDyed(ModCompat.supplementariesHolders(itemLookup, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
+        tagDyed(ModCompat.supplementariesHolders(itemLookup, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(itemLookup, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(itemLookup, "trapped_present"), supplementariesTag("trapped_presents"));
 
         getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,
@@ -67,17 +70,15 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
     }
 
     private void tag(DyedHolders<?, ? extends ItemLike> values, TagKey<Item> tag) {
-        values.values()
-                .map(ItemLike::asItem)
-                .map(this::reverseLookup)
-                .map(ResourceKey::location)
+        values.holders()
+                .map(it -> it.unwrapKey().orElseThrow().location())
                 .forEach(it -> tag(tag).addOptional(it));
     }
 
     @SafeVarargs
     private void tagDyed(DyedHolders<?, ? extends ItemLike> values, TagKey<Item>... additionalTags) {
         values.forEach((dye, item) -> {
-            var id = reverseLookup(item.asItem()).location();
+            var id = item.unwrapKey().orElseThrow().location();
             tag(loaderTag("dyed")).addOptional(id);
             tag(loaderTag("dyed/" + dye)).addOptional(id);
         });

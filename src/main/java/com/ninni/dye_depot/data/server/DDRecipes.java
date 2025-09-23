@@ -7,7 +7,10 @@ import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
@@ -15,7 +18,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -30,60 +34,67 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
 public class DDRecipes extends FabricRecipeProvider {
 
-    private final DyedHolders<Item, Item> dyes = DDItems.DYES.mergeVanilla(BuiltInRegistries.ITEM);
+    private final DyedHolders<Item, Item> dyes;
+    private final HolderLookup.RegistryLookup<Block> blockLookup;
+    private final HolderLookup.RegistryLookup<Item> itemLookup;
 
-    public DDRecipes(FabricDataOutput output) {
+    public DDRecipes(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookupFuture) {
         super(output);
+        var lookup = lookupFuture.join();
+        this.dyes = DDItems.DYES.mergeVanilla(lookup.lookupOrThrow(Registries.ITEM));
+        this.blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+        this.itemLookup = lookup.lookupOrThrow(Registries.ITEM);
     }
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> output) {
         DDBlocks.BANNERS.forEach((dye, block) ->
-                banner(output, block, DDBlocks.WOOL.getOrThrow(dye))
+                banner(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
 
-        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.BEDS.mergeVanilla(BuiltInRegistries.BLOCK), ItemTags.BEDS);
+        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.BEDS.mergeVanilla(blockLookup), ItemTags.BEDS);
         DDBlocks.BEDS.forEach((dye, block) ->
-                bedFromPlanksAndWool(output, block, DDBlocks.WOOL.getOrThrow(dye))
+                bedFromPlanksAndWool(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
 
         DDBlocks.CANDLES.forEach((dye, block) ->
-                candle(output, block, dyes.getOrThrow(dye))
+                candle(output, block.value(), dyes.getOrThrow(dye))
         );
 
-        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.CARPETS.mergeVanilla(BuiltInRegistries.BLOCK), ItemTags.WOOL_CARPETS);
+        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.CARPETS.mergeVanilla(blockLookup), ItemTags.WOOL_CARPETS);
         DDBlocks.CARPETS.forEach((dye, block) ->
-                carpet(output, block, DDBlocks.WOOL.getOrThrow(dye))
+                carpet(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
 
         DDBlocks.CONCRETE_POWDER.forEach((dye, block) ->
-                concretePowder(output, block, dyes.getOrThrow(dye))
+                concretePowder(output, block.value(), dyes.getOrThrow(dye))
         );
 
         DDBlocks.GLAZED_TERRACOTTA.forEach((dye, block) ->
-                smeltingResultFromBase(output, block, DDBlocks.TERRACOTTA.getOrThrow(dye))
+                smeltingResultFromBase(output, block.value(), DDBlocks.TERRACOTTA.getOrThrow(dye))
         );
 
         DDBlocks.STAINED_GLASS.forEach((dye, block) ->
-                stainedGlassFromGlassAndDye(output, block, dyes.getOrThrow(dye))
+                stainedGlassFromGlassAndDye(output, block.value(), dyes.getOrThrow(dye))
         );
 
         DDBlocks.STAINED_GLASS_PANES.forEach((dye, block) -> {
-            stainedGlassPaneFromGlassPaneAndDye(output, block, dyes.getOrThrow(dye));
-            stainedGlassPaneFromStainedGlass(output, block, DDBlocks.STAINED_GLASS.getOrThrow(dye));
+            stainedGlassPaneFromGlassPaneAndDye(output, block.value(), dyes.getOrThrow(dye));
+            stainedGlassPaneFromStainedGlass(output, block.value(), DDBlocks.STAINED_GLASS.getOrThrow(dye));
         });
 
         DDBlocks.TERRACOTTA.forEach((dye, block) ->
-                coloredTerracottaFromTerracottaAndDye(output, block, dyes.getOrThrow(dye))
+                coloredTerracottaFromTerracottaAndDye(output, block.value(), dyes.getOrThrow(dye))
         );
 
         DDBlocks.DYE_BASKETS.forEach((dye, block) -> {
             nineBlockStorageRecipes(
-                    output, RecipeCategory.MISC, dyes.getOrThrow(dye), RecipeCategory.DECORATIONS, block,
-                    getItemName(block), null, dye + "_dye_from_basket", dye + "_dye"
+                    output, RecipeCategory.MISC, dyes.getOrThrow(dye), RecipeCategory.DECORATIONS, block.value(),
+                    getItemName(block.value()), null, dye + "_dye_from_basket", dye + "_dye"
             );
         });
 
@@ -152,9 +163,9 @@ public class DDRecipes extends FabricRecipeProvider {
         disable(output, new ResourceLocation("red_dye_from_rose_bush"));
 
         // Supplementaries compat
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "candle_holder").forEach((dye, block) -> {
+        ModCompat.supplementariesHolders(itemLookup, "candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
                     .pattern("NCN")
                     .pattern(" N ")
                     .define('C', candle)
@@ -164,9 +175,9 @@ public class DDRecipes extends FabricRecipeProvider {
                     .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
         });
 
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM.asLookup(), "gold_candle_holder").forEach((dye, block) -> {
+        ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
                     .pattern("C")
                     .pattern("N")
                     .define('C', candle)
@@ -176,9 +187,9 @@ public class DDRecipes extends FabricRecipeProvider {
                     .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
         });
 
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "flag").forEach((dye, block) -> {
+        ModCompat.supplementariesHolders(itemLookup, "flag").forEach((dye, block) -> {
             var wool = DDBlocks.WOOL.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
                     .pattern("###")
                     .pattern("###")
                     .pattern("|  ")
@@ -228,12 +239,11 @@ public class DDRecipes extends FabricRecipeProvider {
     }
 
     private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, Ingredient from, UnaryOperator<ShapelessRecipeBuilder> factory) {
-        var items = dyed.mapValues(ItemLike::asItem);
-        var group = items.detectBaseName(BuiltInRegistries.ITEM);
-        items.forEach((color, item) -> {
-            var id = BuiltInRegistries.ITEM.getKey(item);
+        var group = dyed.detectBaseName();
+        dyed.forEach((color, item) -> {
+            var id = item.unwrapKey().orElseThrow().location();
             var dye = dyes.getOrThrow(color);
-            factory.apply(ShapelessRecipeBuilder.shapeless(category, item))
+            factory.apply(ShapelessRecipeBuilder.shapeless(category, item.value()))
                     .requires(from)
                     .requires(dye)
                     .group(group)
@@ -282,6 +292,7 @@ public class DDRecipes extends FabricRecipeProvider {
         }
 
         var name = getItemName(result) + "_from_" + unique.stream()
+                .sorted(Comparator.comparing(DyeColor::getId))
                 .map(DyeColor::getSerializedName)
                 .collect(Collectors.joining("_and_"));
 
