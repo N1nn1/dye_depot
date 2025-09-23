@@ -1,6 +1,7 @@
 package com.ninni.dye_depot.block;
 
 import com.ninni.dye_depot.registry.DDBlockEntityType;
+import com.ninni.dye_depot.registry.DDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.BedBlock;
@@ -13,7 +14,7 @@ public class DDBedBlockEntity extends BedBlockEntity {
 
     public DDBedBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(blockPos, blockState);
-        this.color = ((BedBlock)blockState.getBlock()).getColor();
+        this.color = ((BedBlock) blockState.getBlock()).getColor();
     }
 
     public DDBedBlockEntity(BlockPos blockPos, BlockState blockState, DyeColor dyeColor) {
@@ -32,6 +33,11 @@ public class DDBedBlockEntity extends BedBlockEntity {
 
     public void setColor(DyeColor dyeColor) {
         this.color = dyeColor;
+    }
+
+    @Override
+    public boolean isValidBlockState(BlockState state) {
+        return DDBlocks.BEDS.values().anyMatch(state::is);
     }
 
 }
