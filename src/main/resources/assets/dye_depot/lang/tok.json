@@ -57,7 +57,6 @@
   "item.minecraft.firework_star.maroon": "loje pimeja",
   "item.dye_depot.maroon_dye": "kule pi loje pimeja",
   "item.minecraft.shield.maroon": "sinpin sijelo pi loje pimeja",
-
   "block.minecraft.banner.base.rose": "ale pi loje suwi",
   "block.minecraft.banner.border.rose": "selo pi loje suwi",
   "block.minecraft.banner.bricks.rose": "leko lili pi loje suwi",
@@ -116,7 +115,6 @@
   "item.minecraft.firework_star.rose": "loje suwi",
   "item.dye_depot.rose_dye": "kule pi loje suwi",
   "item.minecraft.shield.rose": "sinpin sijelo pi loje suwi",
-
   "block.minecraft.banner.base.coral": "ale pi loje sijelo",
   "block.minecraft.banner.border.coral": "selo pi loje sijelo",
   "block.minecraft.banner.bricks.coral": "leko lili pi loje sijelo",
@@ -175,7 +173,6 @@
   "item.minecraft.firework_star.coral": "loje sijelo",
   "item.dye_depot.coral_dye": "kule pi loje sijelo",
   "item.minecraft.shield.coral": "sinpin sijelo pi loje sijelo",
-
   "block.minecraft.banner.base.indigo": "ale pi laso loje pimeja",
   "block.minecraft.banner.border.indigo": "selo pi laso loje pimeja",
   "block.minecraft.banner.bricks.indigo": "leko lili pi laso loje pimeja",
@@ -234,7 +231,6 @@
   "item.minecraft.firework_star.indigo": "laso loje pimeja",
   "item.dye_depot.indigo_dye": "kule pi laso loje pimeja",
   "item.minecraft.shield.indigo": "sinpin sijelo pi laso loje pimeja",
-
   "block.minecraft.banner.base.navy": "ale pi laso telo pimeja",
   "block.minecraft.banner.border.navy": "selo pi laso telo pimeja",
   "block.minecraft.banner.bricks.navy": "leko lili pi laso telo pimeja",
@@ -293,7 +289,6 @@
   "item.minecraft.firework_star.navy": "laso telo pimeja",
   "item.dye_depot.navy_dye": "kule pi laso telo pimeja",
   "item.minecraft.shield.navy": "sinpin sijelo pi laso telo pimeja",
-
   "block.minecraft.banner.base.slate": "ale pi laso kiwen",
   "block.minecraft.banner.border.slate": "selo pi laso kiwen",
   "block.minecraft.banner.bricks.slate": "leko lili pi laso kiwen",
@@ -352,7 +347,6 @@
   "item.minecraft.firework_star.slate": "laso kiwen",
   "item.dye_depot.slate_dye": "kule pi laso kiwen",
   "item.minecraft.shield.slate": "sinpin sijelo pi laso kiwen",
-
   "block.minecraft.banner.base.olive": "ale pi jelo pimeja",
   "block.minecraft.banner.border.olive": "selo pi jelo pimeja",
   "block.minecraft.banner.bricks.olive": "leko lili pi jelo pimeja",
@@ -411,7 +405,6 @@
   "item.minecraft.firework_star.olive": "jelo pimeja",
   "item.dye_depot.olive_dye": "kule pi jelo pimeja",
   "item.minecraft.shield.olive": "sinpin sijelo pi jelo pimeja",
-
   "block.minecraft.banner.base.amber": "ale pi jelo loje",
   "block.minecraft.banner.border.amber": "selo pi jelo loje",
   "block.minecraft.banner.bricks.amber": "leko lili pi jelo loje",
@@ -470,7 +463,6 @@
   "item.minecraft.firework_star.amber": "jelo loje",
   "item.dye_depot.amber_dye": "kule pi jelo loje",
   "item.minecraft.shield.amber": "sinpin sijelo pi jelo loje",
-
   "block.minecraft.banner.base.beige": "ale pi jelo walo",
   "block.minecraft.banner.border.beige": "selo pi jelo walo",
   "block.minecraft.banner.bricks.beige": "leko lili pi jelo walo",
@@ -529,7 +521,6 @@
   "item.minecraft.firework_star.beige": "jelo walo",
   "item.dye_depot.beige_dye": "kule pi jelo walo",
   "item.minecraft.shield.beige": "sinpin sijelo pi jelo walo",
-
   "block.minecraft.banner.base.teal": "ale pi laso pimeja",
   "block.minecraft.banner.border.teal": "selo pi laso pimeja",
   "block.minecraft.banner.bricks.teal": "leko lili pi laso pimeja",
@@ -588,7 +579,6 @@
   "item.minecraft.firework_star.teal": "laso pimeja",
   "item.dye_depot.teal_dye": "kule pi laso pimeja",
   "item.minecraft.shield.teal": "sinpin sijelo pi laso pimeja",
-
   "block.minecraft.banner.base.mint": "ale pi laso akesi",
   "block.minecraft.banner.border.mint": "selo pi laso akesi",
   "block.minecraft.banner.bricks.mint": "leko lili pi laso akesi",
@@ -705,7 +695,6 @@
   "item.minecraft.firework_star.aqua": "laso walo",
   "item.dye_depot.aqua_dye": "kule pi laso walo",
   "item.minecraft.shield.aqua": "sinpin sijelo pi laso walo",
-
   "block.minecraft.banner.base.verdant": "ale pi laso kasi pimeja",
   "block.minecraft.banner.border.verdant": "selo pi laso kasi pimeja",
   "block.minecraft.banner.bricks.verdant": "leko lili pi laso kasi pimeja",
@@ -764,7 +753,6 @@
   "item.minecraft.firework_star.verdant": "laso kasi pimeja",
   "item.dye_depot.verdant_dye": "kule pi laso kasi pimeja",
   "item.minecraft.shield.verdant": "sinpin sijelo pi laso kasi pimeja",
-
   "block.minecraft.banner.base.forest": "ale pi laso kasi walo",
   "block.minecraft.banner.border.forest": "selo pi laso kasi walo",
   "block.minecraft.banner.bricks.forest": "leko lili pi laso kasi walo",
@@ -823,7 +811,6 @@
   "item.minecraft.firework_star.forest": "laso kasi walo",
   "item.dye_depot.forest_dye": "kule pi laso kasi walo",
   "item.minecraft.shield.forest": "sinpin sijelo pi laso kasi walo",
-  
   "block.minecraft.banner.base.ginger": "ale pi loje seli",
   "block.minecraft.banner.border.ginger": "selo pi loje seli",
   "block.minecraft.banner.bricks.ginger": "leko lili pi loje seli",
@@ -882,7 +869,6 @@
   "item.minecraft.firework_star.ginger": "loje seli",
   "item.dye_depot.ginger_dye": "kule pi loje seli",
   "item.minecraft.shield.ginger": "sinpin sijelo pi loje seli",
-
   "block.minecraft.banner.base.tan": "ale pi loje jelo walo",
   "block.minecraft.banner.border.tan": "selo pi loje jelo walo",
   "block.minecraft.banner.bricks.tan": "leko lili pi loje jelo walo",
@@ -941,7 +927,6 @@
   "item.minecraft.firework_star.tan": "loje jelo walo",
   "item.dye_depot.tan_dye": "kule pi loje jelo walo",
   "item.minecraft.shield.tan": "sinpin sijelo pi loje jelo walo",
-
   "block.dye_depot.white_dye_basket": "poki kule walo",
   "block.dye_depot.light_gray_dye_basket": "poki kule pi walo pimeja",
   "block.dye_depot.gray_dye_basket": "poki kule pi pimeja walo",

@@ -5,6 +5,7 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -17,9 +18,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-
-import java.util.concurrent.CompletableFuture;
 
 public class DDItemTags extends FabricTagProvider.ItemTagProvider {
 

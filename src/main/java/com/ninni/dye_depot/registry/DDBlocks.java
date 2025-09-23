@@ -3,6 +3,7 @@ package com.ninni.dye_depot.registry;
 import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.*;
+import java.util.Map;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,8 +17,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-
-import java.util.Map;
 
 public class DDBlocks {
 

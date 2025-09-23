@@ -1,6 +1,5 @@
 package com.ninni.dye_depot.block;
 
-import com.google.common.collect.Maps;
 import com.ninni.dye_depot.registry.DDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,8 +17,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Map;
 
 public class DDBannerBlock extends DDAbstractBannerBlock {
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
@@ -72,4 +69,3 @@ public class DDBannerBlock extends DDAbstractBannerBlock {
         return DDBlocks.BANNERS.getOrThrow(color);
     }
 }
-

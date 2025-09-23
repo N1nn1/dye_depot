@@ -1,11 +1,10 @@
 package com.ninni.dye_depot.data.client;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.world.item.DyeColor;
-
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.world.item.DyeColor;
 
 public class DDLangOverrides extends DDLangProvider {
 

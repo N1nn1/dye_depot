@@ -1,5 +1,8 @@
 package com.ninni.dye_depot.registry;
 
+import static com.ninni.dye_depot.registry.DDItems.*;
+import static net.minecraft.world.item.Items.*;
+
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -7,9 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
-
-import static com.ninni.dye_depot.registry.DDItems.*;
-import static net.minecraft.world.item.Items.*;
 
 public class DDCreativeModeTabs {
     static {

@@ -2,6 +2,7 @@ package com.ninni.dye_depot.block;
 
 import com.mojang.datafixers.util.Pair;
 import com.ninni.dye_depot.registry.DDBlockEntityType;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
@@ -11,14 +12,11 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AbstractBannerBlock;
-import net.minecraft.world.level.block.BannerBlock;
 import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class DDBannerBlockEntity extends BannerBlockEntity {
     private DyeColor baseColor;

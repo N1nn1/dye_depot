@@ -1,14 +1,8 @@
 package com.ninni.dye_depot.block;
 
 import com.ninni.dye_depot.registry.DDBlockEntityType;
-import com.ninni.dye_depot.registry.DDBlocks;
-import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +15,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class DDShulkerBoxBlock extends ShulkerBoxBlock {

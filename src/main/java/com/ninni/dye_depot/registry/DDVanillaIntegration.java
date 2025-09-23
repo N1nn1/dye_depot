@@ -8,6 +8,7 @@ import com.ninni.dye_depot.client.renderer.DDBedRenderer;
 import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import java.util.stream.Stream;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -20,7 +21,6 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
@@ -29,9 +29,6 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-
-import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class DDVanillaIntegration {
 

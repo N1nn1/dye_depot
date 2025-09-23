@@ -1,6 +1,9 @@
 package com.ninni.dye_depot.mixin;
 
 import com.ninni.dye_depot.registry.DDMapDecorationType;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,10 +13,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Mixin(MapDecoration.Type.class)
 public class MapDecorationTypeMixin {

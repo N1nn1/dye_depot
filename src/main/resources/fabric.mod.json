@@ -5,7 +5,8 @@
   "name": "${mod_name}",
   "description": "Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks",
   "authors": [
-    "Yapetto", "Ninni"
+    "Yapetto",
+    "Ninni"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/dye_depot",

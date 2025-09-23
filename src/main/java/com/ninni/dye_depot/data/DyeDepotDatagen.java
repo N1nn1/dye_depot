@@ -4,7 +4,6 @@ import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.client.DDBlockModels;
 import com.ninni.dye_depot.data.client.DDItemModels;
 import com.ninni.dye_depot.data.client.DDLang;
-import com.ninni.dye_depot.data.client.DDLangProvider;
 import com.ninni.dye_depot.data.client.DDLangOverrides;
 import com.ninni.dye_depot.data.server.DDBlockLoot;
 import com.ninni.dye_depot.data.server.DDBlockTags;

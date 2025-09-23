@@ -1,5 +1,6 @@
 plugins {
     id("fabric-loom") version "1.11-SNAPSHOT"
+    id("com.diffplug.spotless") version "7.0.4"
     `maven-publish`
 }
 
@@ -131,5 +132,22 @@ publishing {
 
     repositories {
         mavenLocal()
+    }
+}
+
+spotless {
+    java {
+        importOrder()
+        removeUnusedImports()
+    }
+
+    kotlinGradle {
+        ktlint()
+        suppressLintsFor { shortCode = "standard:property-naming" }
+    }
+
+    json {
+        target("src/main/**/*.json")
+        gson().indentWithSpaces(2)
     }
 }

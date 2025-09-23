@@ -4,11 +4,6 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 public enum DDDyes implements StringRepresentable {
     MAROON(16, "maroon", 0x7B2713, MapColor.CRIMSON_HYPHAE, 0x7B2713, 0x7B2713),
     ROSE(17, "rose", 0xFF5E64, MapColor.TERRACOTTA_MAGENTA, 0xFF5E64, 0xFF5E64),

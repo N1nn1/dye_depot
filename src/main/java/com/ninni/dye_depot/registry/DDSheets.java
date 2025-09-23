@@ -1,13 +1,12 @@
 package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
+import java.util.Arrays;
+import java.util.List;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.resources.model.Material;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class DDSheets {

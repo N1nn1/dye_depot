@@ -1,6 +1,9 @@
 package com.ninni.dye_depot.mixin;
 
 import com.ninni.dye_depot.registry.DDDyes;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 import org.spongepowered.asm.mixin.Final;
@@ -11,10 +14,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Mixin(DyeColor.class)
 public class DyeColorMixin {

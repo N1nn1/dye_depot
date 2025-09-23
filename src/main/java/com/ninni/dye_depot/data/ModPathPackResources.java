@@ -1,14 +1,13 @@
 package com.ninni.dye_depot.data;
 
 import io.github.fabricators_of_create.porting_lib.resources.PathPackResources;
-import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.server.packs.resources.IoSupplier;
-import org.jetbrains.annotations.Nullable;
-
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.NoSuchElementException;
+import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.server.packs.resources.IoSupplier;
+import org.jetbrains.annotations.Nullable;
 
 public class ModPathPackResources extends PathPackResources {
 

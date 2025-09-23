@@ -2,9 +2,9 @@ package com.ninni.dye_depot.compat;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDDyes;
+import java.util.Arrays;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.constants.ModIds;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.core.NonNullList;
@@ -16,11 +16,8 @@ import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
-
-import java.util.Arrays;
 
 @JeiPlugin
 public class DyeDepotJei implements IModPlugin {

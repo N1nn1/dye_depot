@@ -5,20 +5,19 @@ import com.ninni.dye_depot.block.DDBedBlock;
 import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.block.DDShulkerBoxBlock;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
-import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+import java.util.Arrays;
+import java.util.Comparator;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.*;
@@ -29,9 +28,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 @Environment(EnvType.CLIENT)
 @Mixin(BlockEntityWithoutLevelRenderer.class)

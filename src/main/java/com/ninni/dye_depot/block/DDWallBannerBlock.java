@@ -2,6 +2,7 @@ package com.ninni.dye_depot.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import java.util.Map;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.DyeColor;
@@ -17,8 +18,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Map;
 
 public class DDWallBannerBlock extends DDAbstractBannerBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;

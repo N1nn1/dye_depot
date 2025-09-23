@@ -57,7 +57,6 @@
   "item.minecraft.firework_star.maroon": "Marrón",
   "item.dye_depot.maroon_dye": "Tinte marrón",
   "item.minecraft.shield.maroon": "Escudo marrón",
-
   "block.minecraft.banner.base.rose": "Tela completamente rosada",
   "block.minecraft.banner.border.rose": "Bordura rosada",
   "block.minecraft.banner.bricks.rose": "Mazonado rosado",
@@ -116,7 +115,6 @@
   "item.minecraft.firework_star.rose": "Rosado",
   "item.dye_depot.rose_dye": "Tinte rosado",
   "item.minecraft.shield.rose": "Escudo rosado",
-
   "block.minecraft.banner.base.coral": "Tela completamente coral",
   "block.minecraft.banner.border.coral": "Bordura coral",
   "block.minecraft.banner.bricks.coral": "Mazonado coral",
@@ -175,7 +173,6 @@
   "item.minecraft.firework_star.coral": "Coral",
   "item.dye_depot.coral_dye": "Tinte coral",
   "item.minecraft.shield.coral": "Escudo coral",
-
   "block.minecraft.banner.base.indigo": "Tela completamente índigo",
   "block.minecraft.banner.border.indigo": "Bordura índigo",
   "block.minecraft.banner.bricks.indigo": "Mazonado índigo",
@@ -234,7 +231,6 @@
   "item.minecraft.firework_star.indigo": "Índigo",
   "item.dye_depot.indigo_dye": "Tinte índigo",
   "item.minecraft.shield.indigo": "Escudo índigo",
-
   "block.minecraft.banner.base.navy": "Tela completamente azul marino",
   "block.minecraft.banner.border.navy": "Bordura azul marino",
   "block.minecraft.banner.bricks.navy": "Mazonado azul marino",
@@ -293,7 +289,6 @@
   "item.minecraft.firework_star.navy": "Azul marino",
   "item.dye_depot.navy_dye": "Tinte azul marino",
   "item.minecraft.shield.navy": "Escudo azul marino",
-
   "block.minecraft.banner.base.slate": "Tela completamente azul grisáceo",
   "block.minecraft.banner.border.slate": "Bordura azul grisácea",
   "block.minecraft.banner.bricks.slate": "Mazonado azul grisáceo",
@@ -352,7 +347,6 @@
   "item.minecraft.firework_star.slate": "Azul grisáceo",
   "item.dye_depot.slate_dye": "Tinte azul grisáceo",
   "item.minecraft.shield.slate": "Escudo azul grisáceo",
-
   "block.minecraft.banner.base.olive": "Tela completamente verde oliva",
   "block.minecraft.banner.border.olive": "Bordura verde oliva",
   "block.minecraft.banner.bricks.olive": "Mazonado verde oliva",
@@ -411,7 +405,6 @@
   "item.minecraft.firework_star.olive": "Verde oliva",
   "item.dye_depot.olive_dye": "Tinte verde oliva",
   "item.minecraft.shield.olive": "Escudo verde oliva",
-
   "block.minecraft.banner.base.amber": "Tela completamente ámbar",
   "block.minecraft.banner.border.amber": "Bordura ámbar",
   "block.minecraft.banner.bricks.amber": "Mazonado ámbar",
@@ -470,7 +463,6 @@
   "item.minecraft.firework_star.amber": "Ámbar",
   "item.dye_depot.amber_dye": "Tinte de ámbar",
   "item.minecraft.shield.amber": "Escudo ámbar",
-
   "block.minecraft.banner.base.beige": "Tela completamente beige",
   "block.minecraft.banner.border.beige": "Bordura beige",
   "block.minecraft.banner.bricks.beige": "Mazonado beige",
@@ -529,7 +521,6 @@
   "item.minecraft.firework_star.beige": "Beige",
   "item.dye_depot.beige_dye": "Tinte beige",
   "item.minecraft.shield.beige": "Escudo beige",
-
   "block.minecraft.banner.base.teal": "Tela completamente azul verdoso",
   "block.minecraft.banner.border.teal": "Bordura azul verdosa",
   "block.minecraft.banner.bricks.teal": "Mazonado azul verdoso",
@@ -588,7 +579,6 @@
   "item.minecraft.firework_star.teal": "Azul verdoso",
   "item.dye_depot.teal_dye": "Tinte azul verdoso",
   "item.minecraft.shield.teal": "Escudo azul verdoso",
-
   "block.minecraft.banner.base.mint": "Tela completamente menta",
   "block.minecraft.banner.border.mint": "Bordura menta",
   "block.minecraft.banner.bricks.mint": "Mazonado menta",
@@ -647,7 +637,6 @@
   "item.minecraft.firework_star.mint": "Menta",
   "item.dye_depot.mint_dye": "Tinte menta",
   "item.minecraft.shield.mint": "Escudo menta",
-
   "block.minecraft.banner.base.aqua": "Tela completamente aqua",
   "block.minecraft.banner.border.aqua": "Bordura aqua",
   "block.minecraft.banner.bricks.aqua": "Mazonado aqua",
@@ -706,7 +695,6 @@
   "item.minecraft.firework_star.aqua": "Aqua",
   "item.dye_depot.aqua_dye": "Tinte aqua",
   "item.minecraft.shield.aqua": "Escudo aqua",
-
   "block.minecraft.banner.base.verdant": "Tela completamente verde bosque",
   "block.minecraft.banner.border.verdant": "Bordura verde bosque",
   "block.minecraft.banner.bricks.verdant": "Mazonado verde bosque",
@@ -765,7 +753,6 @@
   "item.minecraft.firework_star.verdant": "Verde bosque",
   "item.dye_depot.verdant_dye": "Tinte verde bosque",
   "item.minecraft.shield.verdant": "Escudo verde bosque",
-
   "block.minecraft.banner.base.forest": "Tela completamente verde claro",
   "block.minecraft.banner.border.forest": "Bordura verde claro",
   "block.minecraft.banner.bricks.forest": "Mazonado verde claro",
@@ -824,7 +811,6 @@
   "item.minecraft.firework_star.forest": "Verde claro",
   "item.dye_depot.forest_dye": "Tinte verde claro",
   "item.minecraft.shield.forest": "Escudo verde claro",
-
   "block.minecraft.banner.base.ginger": "Tela completamente cobrizo",
   "block.minecraft.banner.border.ginger": "Bordura cobriza",
   "block.minecraft.banner.bricks.ginger": "Mazonado cobrizo",
@@ -883,7 +869,6 @@
   "item.minecraft.firework_star.ginger": "Cobrizo",
   "item.dye_depot.ginger_dye": "Tinte cobrizo",
   "item.minecraft.shield.ginger": "Escudo cobrizo",
-
   "block.minecraft.banner.base.tan": "Tela completamente canela",
   "block.minecraft.banner.border.tan": "Bordura canela",
   "block.minecraft.banner.bricks.tan": "Mazonado canela",
@@ -942,7 +927,6 @@
   "item.minecraft.firework_star.tan": "Canela",
   "item.dye_depot.tan_dye": "Tinte canela",
   "item.minecraft.shield.tan": "Escudo canela",
-
   "block.dye_depot.white_dye_basket": "Canasta de tinte blanco",
   "block.dye_depot.light_gray_dye_basket": "Canasta de tinte gris claro",
   "block.dye_depot.gray_dye_basket": "Canasta de tinte gris",

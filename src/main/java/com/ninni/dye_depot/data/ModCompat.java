@@ -2,13 +2,12 @@ package com.ninni.dye_depot.data;
 
 import com.google.gson.JsonObject;
 import com.ninni.dye_depot.registry.DyedHolders;
+import java.util.stream.Stream;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-
-import java.util.stream.Stream;
 
 public class ModCompat {
 

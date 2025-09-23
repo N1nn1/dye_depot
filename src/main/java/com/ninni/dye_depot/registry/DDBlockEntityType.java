@@ -4,15 +4,11 @@ import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.DDBannerBlockEntity;
 import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
+import java.util.stream.Stream;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
-
-import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class DDBlockEntityType {
 

@@ -6,6 +6,7 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import io.github.fabricators_of_create.porting_lib.models.generators.ConfiguredModel;
 import io.github.fabricators_of_create.porting_lib.models.generators.block.BlockStateProvider;
+import java.util.List;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.PresentBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -17,9 +18,6 @@ import net.minecraft.world.level.block.CandleCakeBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-
-import java.util.List;
-import java.util.function.Function;
 
 public class DDBlockModels extends BlockStateProvider {
 

@@ -1,12 +1,6 @@
 package com.ninni.dye_depot.registry;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.DyeColor;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
@@ -21,6 +15,11 @@ import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
+import org.jetbrains.annotations.Nullable;
 
 public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 

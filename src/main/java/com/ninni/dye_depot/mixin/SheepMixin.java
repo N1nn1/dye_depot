@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+import java.util.function.Function;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -19,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.function.Function;
 
 @Mixin(Sheep.class)
 public abstract class SheepMixin {

@@ -1,13 +1,12 @@
 package com.ninni.dye_depot.data.client;
 
 import com.ninni.dye_depot.registry.DyedHolders;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.world.item.DyeColor;
-
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.world.item.DyeColor;
 
 public class DDLang extends DDLangProvider {
 

@@ -4,6 +4,8 @@ import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DyedHolders;
+import java.util.function.Function;
+import java.util.stream.Stream;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.Registry;
@@ -11,12 +13,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public abstract class DDLangProvider extends FabricLanguageProvider {
 
