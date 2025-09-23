@@ -26,6 +26,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;
 import java.util.function.Consumer;
@@ -34,14 +35,7 @@ import java.util.stream.Collectors;
 
 public class DDRecipes extends FabricRecipeProvider {
 
-    private static DyedHolders<Item> vanillaVariants(String path) {
-        return DyedHolders.fromRegistry(BuiltInRegistries.ITEM, DyedHolders.vanillaColors(), new ResourceLocation(path));
-    }
-
-    private final DyedHolders<Item> dyes = DyedHolders.merge(
-            vanillaVariants("dye"),
-            DDItems.DYES
-    );
+    private final DyedHolders<Item, Item> dyes = DDItems.DYES.mergeVanilla(BuiltInRegistries.ITEM);
 
     public DDRecipes(FabricDataOutput output) {
         super(output);
@@ -53,7 +47,7 @@ public class DDRecipes extends FabricRecipeProvider {
                 banner(output, block, DDBlocks.WOOL.getOrThrow(dye))
         );
 
-        dyeing(output, RecipeCategory.DECORATIONS, DyedHolders.merge(DDBlocks.BEDS, vanillaVariants("bed")), ItemTags.BEDS);
+        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.BEDS.mergeVanilla(BuiltInRegistries.BLOCK), ItemTags.BEDS);
         DDBlocks.BEDS.forEach((dye, block) ->
                 bedFromPlanksAndWool(output, block, DDBlocks.WOOL.getOrThrow(dye))
         );
@@ -62,7 +56,7 @@ public class DDRecipes extends FabricRecipeProvider {
                 candle(output, block, dyes.getOrThrow(dye))
         );
 
-        dyeing(output, RecipeCategory.DECORATIONS, DyedHolders.merge(DDBlocks.CARPETS, vanillaVariants("carpet")), ItemTags.WOOL_CARPETS);
+        dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.CARPETS.mergeVanilla(BuiltInRegistries.BLOCK), ItemTags.WOOL_CARPETS);
         DDBlocks.CARPETS.forEach((dye, block) ->
                 carpet(output, block, DDBlocks.WOOL.getOrThrow(dye))
         );
@@ -195,7 +189,7 @@ public class DDRecipes extends FabricRecipeProvider {
                     .group("flag")
                     .unlockedBy("has_wool", has(wool))
                     .save(withConditions(output, ModCompat.supplementariesFlag("flag")));
-        }  );
+        });
     }
 
     private void dyeConversion(Consumer<FinishedRecipe> output, DyeColor dye, ItemLike from, int amount) {
@@ -223,23 +217,24 @@ public class DDRecipes extends FabricRecipeProvider {
                 .save(withConditions(output, DefaultResourceConditions.not(DefaultResourceConditions.anyModLoaded(DyeDepot.MOD_ID))), id.withPrefix("keep_"));
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<? extends ItemLike> dyed) {
+    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
         dyeing(output, category, dyed, Ingredient.of(dyed.values().map(ItemStack::new)), builder -> builder
                 .unlockedBy("has_base", inventoryTrigger(ItemPredicate.Builder.item().of(dyed.values().toArray(ItemLike[]::new)).build()))
         );
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<? extends ItemLike> dyed, TagKey<Item> from) {
+    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, TagKey<Item> from) {
         dyeing(output, category, dyed, Ingredient.of(from), builder -> builder
                 .unlockedBy(getHasName(from), has(from))
         );
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<? extends ItemLike> dyed, Ingredient from, UnaryOperator<ShapelessRecipeBuilder> factory) {
-        dyed.forEach((color, item) -> {
-            var id = BuiltInRegistries.ITEM.getKey(item.asItem());
+    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, Ingredient from, UnaryOperator<ShapelessRecipeBuilder> factory) {
+        var items = dyed.mapValues(ItemLike::asItem);
+        var group = items.detectBaseName(BuiltInRegistries.ITEM);
+        items.forEach((color, item) -> {
+            var id = BuiltInRegistries.ITEM.getKey(item);
             var dye = dyes.getOrThrow(color);
-            var group = getItemName(item).replaceAll("_?" + color + "_?", "");
             factory.apply(ShapelessRecipeBuilder.shapeless(category, item))
                     .requires(from)
                     .requires(dye)

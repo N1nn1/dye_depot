@@ -36,10 +36,10 @@ public class DDBlockEntityType {
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
             DyeDepot.modLoc("banner"),
             BlockEntityType.Builder.of(DDBannerBlockEntity::new,
-                    Stream.of(
+                    Stream.concat(
                             DDBlocks.BANNERS.values(),
                             DDBlocks.WALL_BANNERS.values()
-                    ).flatMap(Function.identity()).toArray(Block[]::new)
+                    ).toArray(Block[]::new)
             ).build(null)
     );
 }

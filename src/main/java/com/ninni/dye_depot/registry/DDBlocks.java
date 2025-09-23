@@ -17,20 +17,19 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
-import java.util.EnumMap;
 import java.util.Map;
 
 public class DDBlocks {
 
-    public static final DyedHolders<Block> WOOL = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> WOOL = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_wool", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> CARPETS = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> CARPETS = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_carpet", new WoolCarpetBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> TERRACOTTA = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> TERRACOTTA = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_terracotta", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_TERRACOTTA).mapColor(dye)))
     );
 
@@ -53,51 +52,51 @@ public class DDBlocks {
             .put(DDDyes.TAN.get(), MapColor.DIRT)
             .build();
 
-    public static final DyedHolders<Block> CONCRETE = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> CONCRETE = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_concrete", new Block(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE).mapColor(CONCRETE_COLORS.get(dye))))
     );
 
-    public static final DyedHolders<Block> CONCRETE_POWDER = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> CONCRETE_POWDER = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_concrete_powder", new ConcretePowderBlock(CONCRETE.getOrThrow(dye), FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE_POWDER).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> GLAZED_TERRACOTTA = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> GLAZED_TERRACOTTA = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_glazed_terracotta", new GlazedTerracottaBlock(FabricBlockSettings.copyOf(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> STAINED_GLASS = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> STAINED_GLASS = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_stained_glass", new StainedGlassBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)))
     );
 
-    public static final DyedHolders<StainedGlassPaneBlock> STAINED_GLASS_PANES = DyedHolders.create(dye ->
+    public static final DyedHolders<StainedGlassPaneBlock, Block> STAINED_GLASS_PANES = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_stained_glass_pane", new StainedGlassPaneBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
-    public static final DyedHolders<Block> SHULKER_BOXES = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
             register(dye + "_shulker_box", shulkerBox(dye, FabricBlockSettings.create().mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> CANDLES = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> CANDLES = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_candle", new CandleBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block> CANDLE_CAKES = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
             register(dye + "_candle_cake", new CandleCakeBlock(CANDLES.getOrThrow(dye), FabricBlockSettings.copyOf(Blocks.WHITE_CANDLE_CAKE)))
     );
 
-    public static final DyedHolders<Block> BANNERS = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_banner", new DDBannerBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_BANNER)))
     );
 
-    public static final DyedHolders<Block> WALL_BANNERS = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_wall_banner", new DDWallBannerBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye))))
     );
 
-    public static final DyedHolders<Block> BEDS = DyedHolders.create(dye ->
+    public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->
             register(dye + "_bed", bed(dye))
     );
 
-    public static final DyedHolders<Block> DYE_BASKETS = DyedHolders.createWithVanilla(dye ->
+    public static final DyedHolders<Block, Block> DYE_BASKETS = DyedHolders.createWithVanilla(dye ->
             registerWithItem(dye + "_dye_basket", new DyeBasketBlock(dye, FabricBlockSettings.create().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
     );
 

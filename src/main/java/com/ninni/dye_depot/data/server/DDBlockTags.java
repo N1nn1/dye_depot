@@ -48,7 +48,7 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
         tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "trapped_present"), supplementariesTag("trapped_presents"));
     }
 
-    private void tag(DyedHolders<? extends Block> values, TagKey<Block> tag) {
+    private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {
         values.values()
                 .map(this::reverseLookup)
                 .map(ResourceKey::location)
@@ -56,7 +56,7 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     }
 
     @SafeVarargs
-    private void tagDyed(DyedHolders<? extends Block> values, TagKey<Block>... additionalTags) {
+    private void tagDyed(DyedHolders<?, Block> values, TagKey<Block>... additionalTags) {
         values.forEach((dye, block) -> {
             var key = reverseLookup(block).location();
             tag(loaderTag("dyed")).addOptional(key);

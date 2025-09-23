@@ -147,10 +147,10 @@ public class DDVanillaIntegration {
 
         private static void registerBlockRenderLayers() {
             BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
-                    Stream.of(
+                    Stream.concat(
                             DDBlocks.STAINED_GLASS.values(),
                             DDBlocks.STAINED_GLASS_PANES.values()
-                    ).flatMap(Function.identity()).toArray(Block[]::new)
+                    ).toArray(Block[]::new)
             );
         }
     }

@@ -67,7 +67,7 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         );
     }
 
-    private void tag(DyedHolders<? extends ItemLike> values, TagKey<Item> tag) {
+    private void tag(DyedHolders<?, ? extends ItemLike> values, TagKey<Item> tag) {
         values.values()
                 .map(ItemLike::asItem)
                 .map(this::reverseLookup)
@@ -76,7 +76,7 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
     }
 
     @SafeVarargs
-    private void tagDyed(DyedHolders<? extends ItemLike> values, TagKey<Item>... additionalTags) {
+    private void tagDyed(DyedHolders<?, ? extends ItemLike> values, TagKey<Item>... additionalTags) {
         values.forEach((dye, item) -> {
             var id = reverseLookup(item.asItem()).location();
             tag(loaderTag("dyed")).addOptional(id);

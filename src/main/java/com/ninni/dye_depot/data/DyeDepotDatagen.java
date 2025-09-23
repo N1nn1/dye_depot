@@ -3,6 +3,9 @@ package com.ninni.dye_depot.data;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.client.DDBlockModels;
 import com.ninni.dye_depot.data.client.DDItemModels;
+import com.ninni.dye_depot.data.client.DDLang;
+import com.ninni.dye_depot.data.client.DDLangProvider;
+import com.ninni.dye_depot.data.client.DDLangOverrides;
 import com.ninni.dye_depot.data.server.DDBlockLoot;
 import com.ninni.dye_depot.data.server.DDBlockTags;
 import com.ninni.dye_depot.data.server.DDEntityLoot;
@@ -11,6 +14,8 @@ import com.ninni.dye_depot.data.server.DDRecipes;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 
 public class DyeDepotDatagen implements DataGeneratorEntrypoint {
 
@@ -18,7 +23,7 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         var pack = generator.createPack();
 
-        pack.addProvider((output, $) -> new DDPackMetadata(output, DyeDepot.MOD_ID + " resources"));
+        pack.addProvider((output, $) -> new DDPackMetadata(output, Component.literal(DyeDepot.MOD_ID + " resources")));
 
         var blockTags = pack.addProvider(DDBlockTags::new);
         pack.addProvider((output, lookup) -> new DDItemTags(output, lookup, blockTags));
@@ -29,6 +34,11 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
         var fileHelper = ExistingFileHelper.withResourcesFromArg();
         pack.addProvider((output, $) -> new DDBlockModels(output, fileHelper));
         pack.addProvider((output, $) -> new DDItemModels(output, fileHelper));
+        pack.addProvider((output, $) -> new DDLang(output));
+
+        var overrides = generator.createBuiltinResourcePack(DyeDepot.modLoc("dye_override"));
+        overrides.addProvider((output, $) -> new DDPackMetadata(output, Component.literal("Slight dye adjustments").withStyle(ChatFormatting.GRAY)));
+        overrides.addProvider((output, $) -> new DDLangOverrides(output));
     }
 
 }

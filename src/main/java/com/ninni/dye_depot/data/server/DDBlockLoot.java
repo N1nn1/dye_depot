@@ -2,12 +2,9 @@ package com.ninni.dye_depot.data.server;
 
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
-import com.ninni.dye_depot.registry.DyedHolders;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
-import net.mehvahdjukaar.supplementaries.common.block.blocks.CandleHolderBlock;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
@@ -18,10 +15,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
 import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 public class DDBlockLoot extends FabricBlockLootTableProvider {
 
@@ -79,18 +73,6 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         return LootTable.lootTable().withPool(
                 applyExplosionDecay(block, LootPool.lootPool().add(entry))
         );
-    }
-
-    private LootTable.Builder createCandleHolderDrops(Block block) {
-        var entry = LootItem.lootTableItem(block)
-                .apply(CandleHolderBlock.CANDLES.getPossibleValues(), count ->
-                        SetItemCountFunction.setCount(ConstantValue.exactly(count))
-                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CandleHolderBlock.CANDLES, count))
-                                )
-                );
-
-        return createTable(block, entry);
     }
 
     private LootTable.Builder createFlagDrops(Block block) {

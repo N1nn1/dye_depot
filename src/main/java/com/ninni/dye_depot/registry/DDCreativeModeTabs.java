@@ -86,11 +86,11 @@ public class DDCreativeModeTabs {
         });
     }
 
-    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, String baseName) {
+    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
         addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM, DyedHolders.vanillaColors(), new ResourceLocation(baseName)));
     }
 
-    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<? extends ItemLike> values, DyedHolders<? extends ItemLike> reference) {
+    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {
         entries.addBefore(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.MAROON.get()), values.getOrThrow(DDDyes.ROSE.get()));
         entries.addAfter(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.CORAL.get()));
         entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.GINGER.get()));
