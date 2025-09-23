@@ -1,44 +1,19 @@
 package com.ninni.dye_depot.registry;
 
-import net.minecraft.world.level.saveddata.maps.MapDecoration;
+import com.ninni.dye_depot.DyeDepot;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.saveddata.maps.MapDecorationType;
 
-public enum DDMapDecorationType {
-    BANNER_MAROON(true, true),
-    BANNER_ROSE(true, true),
-    BANNER_CORAL(true, true),
-    BANNER_INDIGO(true, true),
-    BANNER_NAVY(true, true),
-    BANNER_SLATE(true, true),
-    BANNER_OLIVE(true, true),
-    BANNER_AMBER(true, true),
-    BANNER_BEIGE(true, true),
-    BANNER_TEAL(true, true),
-    BANNER_MINT(true, true),
-    BANNER_AQUA(true, true),
-    BANNER_VERDANT(true, true),
-    BANNER_FOREST(true, true),
-    BANNER_GINGER(true, true),
-    BANNER_TAN(true, true);
+public class DDMapDecorationType {
 
-    private final byte icon;
-    private final boolean renderedOnFrame;
-    private final boolean trackCount;
+    public static final DyedHolders<MapDecorationType, MapDecorationType> BANNERS = DyedHolders.createModded(color -> {
+        var id = DyeDepot.modLoc(color + "_banner");
+        return Registry.registerForHolder(
+                BuiltInRegistries.MAP_DECORATION_TYPE,
+                id,
+                new MapDecorationType(id, true, -1, true, false)
+        );
+    });
 
-    DDMapDecorationType(boolean bl, boolean bl2) {
-        this.trackCount = bl2;
-        this.icon = (byte)this.ordinal();
-        this.renderedOnFrame = bl;
-    }
-
-    public MapDecoration.Type get() {
-        return MapDecoration.Type.valueOf(this.name());
-    }
-
-    public boolean isRenderedOnFrame() {
-        return this.renderedOnFrame;
-    }
-
-    public boolean shouldTrackCount() {
-        return this.trackCount;
-    }
 }

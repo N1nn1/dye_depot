@@ -11,7 +11,7 @@ public class DyeDepot implements ModInitializer {
     public static final String MOD_ID = "dye_depot";
 
     public static ResourceLocation modLoc(String path) {
-        return new ResourceLocation(MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
     @Override
@@ -23,7 +23,8 @@ public class DyeDepot implements ModInitializer {
                 DDBlockEntityType.class,
                 DDParticles.class,
                 DDSoundEvents.class,
-                DDCreativeModeTabs.class
+                DDCreativeModeTabs.class,
+                DDMapDecorationType.class
         );
 
         DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->

@@ -17,16 +17,12 @@ import net.minecraft.world.level.block.Block;
 
 public abstract class DDLangProvider extends FabricLanguageProvider {
 
-    private final CompletableFuture<HolderLookup.Provider> lookup;
-
     protected DDLangProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output);
-        this.lookup = lookup;
+        super(output, lookup);
     }
 
     @Override
-    public final void generateTranslations(TranslationBuilder builder) {
-        var lookup = this.lookup.join();
+    public final void generateTranslations(HolderLookup.Provider lookup, TranslationBuilder builder) {
         var itemLookup = lookup.lookupOrThrow(Registries.ITEM);
         var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
 

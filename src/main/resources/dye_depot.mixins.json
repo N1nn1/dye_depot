@@ -5,10 +5,8 @@
   "mixins": [
     "DyeColorMixin",
     "MapBannerMixin",
-    "MapDecorationTypeMixin",
     "SheepMixin",
-    "ShulkerBoxBlockMixin",
-    "data.PathPackResourcesMixin"
+    "ShulkerBoxBlockMixin"
   ],
   "client": [
     "client.BlockEntityWithoutLevelRendererMixin",

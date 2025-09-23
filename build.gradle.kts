@@ -32,7 +32,7 @@ repositories {
         }
     }
     maven {
-        url = uri("https://mvn.devos.one/releases/")
+        url = uri("https://registry.somethingcatchy.net/repository/maven-public/")
         content {
             includeGroup("io.github.fabricators_of_create.Porting-Lib")
         }
@@ -82,7 +82,7 @@ dependencies {
 
     // for data generation
     val porting_lib_version: String by project.extra
-    modImplementation("io.github.fabricators_of_create.Porting-Lib:model_generators:$porting_lib_version")
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:models:$porting_lib_version")
 }
 
 tasks.withType<ProcessResources> {
@@ -105,7 +105,7 @@ tasks.withType<ProcessResources> {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
     withSourcesJar()
 }
 

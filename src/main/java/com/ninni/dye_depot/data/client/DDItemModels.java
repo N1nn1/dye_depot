@@ -5,7 +5,7 @@ import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
-import io.github.fabricators_of_create.porting_lib.models.generators.item.ItemModelProvider;
+import io.github.fabricators_of_create.porting_lib.models.generators.ItemModelProvider;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -89,20 +89,20 @@ public class DDItemModels extends ItemModelProvider {
 
     private void candleHolder(DyeColor color, Holder<? extends ItemLike> item) {
         var namespace = key(item).getNamespace();
-        basicItem(item, new ResourceLocation(namespace, "item/candle_holders/" + color));
+        basicItem(item, ResourceLocation.fromNamespaceAndPath(namespace, "item/candle_holders/" + color));
     }
 
     private void flag(Holder<? extends ItemLike> item) {
-        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
+        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
     }
 
     private void present(DyeColor color, Holder<? extends ItemLike> item) {
         var type = name(item).replace("_" + color, "");
-        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
+        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
     }
 
     private ResourceLocation vanillaResource(String name) {
-        return new ResourceLocation("item/" + name);
+        return ResourceLocation.withDefaultNamespace("item/" + name);
     }
 
     private String name(Holder<? extends ItemLike> item) {

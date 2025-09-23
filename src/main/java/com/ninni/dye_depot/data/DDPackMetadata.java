@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.data;
 
+import java.util.Optional;
 import net.minecraft.DetectedVersion;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
@@ -13,7 +14,8 @@ public class DDPackMetadata extends PackMetadataGenerator {
         super(output);
         add(PackMetadataSection.TYPE, new PackMetadataSection(
                 description,
-                DetectedVersion.BUILT_IN.getPackVersion(PackType.CLIENT_RESOURCES)
+                DetectedVersion.BUILT_IN.getPackVersion(PackType.CLIENT_RESOURCES),
+                Optional.empty()
         ));
     }
 

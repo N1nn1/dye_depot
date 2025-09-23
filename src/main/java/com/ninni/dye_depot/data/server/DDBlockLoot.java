@@ -2,11 +2,13 @@ package com.ninni.dye_depot.data.server;
 
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
+import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
@@ -15,16 +17,14 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
-import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
-import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
 
 public class DDBlockLoot extends FabricBlockLootTableProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
     public DDBlockLoot(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output);
+        super(output, lookup);
         this.lookup = lookup;
     }
 
@@ -32,7 +32,7 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
     public void generate() {
         var lookup = this.lookup.join();
         var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
-        
+
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
@@ -48,7 +48,7 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.TERRACOTTA.values().forEach(this::dropSelf);
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
-        var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
+        var supplementariesLoot = withConditions(new AllModsLoadedResourceCondition(List.of(ModCompat.SUPPLEMENTARIES)));
         ModCompat.supplementariesHolders(blockLookup, "flag").values()
                 .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
         ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
@@ -85,9 +85,11 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
 
     private LootTable.Builder createFlagDrops(Block block) {
         var entry = LootItem.lootTableItem(block)
-                .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
-                .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
-                        .copy("Patterns", "BlockEntityTag.Patterns")
+                .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+                        .include(DataComponents.CUSTOM_NAME)
+                        .include(DataComponents.ITEM_NAME)
+                        .include(DataComponents.HIDE_ADDITIONAL_TOOLTIP)
+                        .include(DataComponents.BANNER_PATTERNS)
                 );
 
         return createTable(block, entry);
