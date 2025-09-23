@@ -40,11 +40,12 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS);
 
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "trapped_present"), supplementariesTag("trapped_presents"));
+        var itemRegistry = BuiltInRegistries.ITEM.asLookup();
+        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(itemRegistry, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
+        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(itemRegistry, "trapped_present"), supplementariesTag("trapped_presents"));
 
         getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,

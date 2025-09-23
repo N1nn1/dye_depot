@@ -152,7 +152,7 @@ public class DDRecipes extends FabricRecipeProvider {
         disable(output, new ResourceLocation("red_dye_from_rose_bush"));
 
         // Supplementaries compat
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "candle_holder").forEach((dye, block) -> {
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
             ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
                     .pattern("NCN")
@@ -164,7 +164,7 @@ public class DDRecipes extends FabricRecipeProvider {
                     .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
         });
 
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder").forEach((dye, block) -> {
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM.asLookup(), "gold_candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
             ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
                     .pattern("C")
@@ -176,7 +176,7 @@ public class DDRecipes extends FabricRecipeProvider {
                     .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
         });
 
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag").forEach((dye, block) -> {
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "flag").forEach((dye, block) -> {
             var wool = DDBlocks.WOOL.getOrThrow(dye);
             ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
                     .pattern("###")

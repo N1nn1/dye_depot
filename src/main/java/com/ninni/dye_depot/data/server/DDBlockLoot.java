@@ -41,11 +41,11 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
         var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "flag").values()
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag").values()
                 .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder").values()
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder").values()
                 .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder").values()
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder").values()
                 .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
     }
 

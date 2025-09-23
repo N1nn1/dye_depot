@@ -39,11 +39,12 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE);
 
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "trapped_present"), supplementariesTag("trapped_presents"));
+        var blockRegistry = BuiltInRegistries.BLOCK.asLookup();
+        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(blockRegistry, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
+        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "trapped_present"), supplementariesTag("trapped_presents"));
     }
 
     private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {
