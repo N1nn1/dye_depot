@@ -2,15 +2,13 @@ package com.ninni.dye_depot.registry;
 
 import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.client.particles.PoofParticle;
+import com.ninni.dye_depot.client.particles.PoofParticleProvider;
 import com.ninni.dye_depot.client.renderer.DDBannerRenderer;
 import com.ninni.dye_depot.client.renderer.DDBedRenderer;
 import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import java.util.stream.Stream;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
@@ -32,16 +30,10 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 public class DDVanillaIntegration {
 
-    public static void serverInit() {
+    public static void commonInit() {
         addResourcePacks();
         registerLootTableAdditions();
         registerVillagerTrades();
-    }
-
-    //server methods
-    public static void addResourcePacks() {
-        ModContainer modContainer = FabricLoader.getInstance().getModContainer(DyeDepot.MOD_ID).orElseThrow(() -> new IllegalStateException("Dye Depot's ModContainer couldn't be found!"));
-        ResourceManagerHelper.registerBuiltinResourcePack(DyeDepot.modLoc("dye_override"), modContainer, "Dye Override", ResourcePackActivationType.DEFAULT_ENABLED);
     }
 
     private static void registerLootTableAdditions() {
@@ -122,33 +114,33 @@ public class DDVanillaIntegration {
         return new Int2ObjectOpenHashMap<>(immutableMap);
     }
 
-    @Environment(EnvType.CLIENT)
-    public static class Client {
+    public static void clientInit() {
+        registerModelLayers();
+        registerBlockRenderLayers();
+        registerParticles();
+    }
 
-        public static void clientInit() {
-            registerModelLayers();
-            registerBlockRenderLayers();
-            registerParticles();
-        }
+    public static void addResourcePacks() {
+        ModContainer modContainer = FabricLoader.getInstance().getModContainer(DyeDepot.MOD_ID).orElseThrow(() -> new IllegalStateException("Dye Depot's ModContainer couldn't be found!"));
+        ResourceManagerHelper.registerBuiltinResourcePack(DyeDepot.modLoc("dye_override"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED);
+    }
 
-        //client methods
-        private static void registerModelLayers() {
-            BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
-            BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
-            BlockEntityRendererRegistry.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
-        }
+    private static void registerModelLayers() {
+        BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
+        BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
+        BlockEntityRendererRegistry.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
+    }
 
-        private static void registerParticles() {
-            ParticleFactoryRegistry.getInstance().register(DDParticles.DYE_POOF, PoofParticle.Provider::new);
-        }
+    private static void registerParticles() {
+        ParticleFactoryRegistry.getInstance().register(DDParticles.DYE_POOF, PoofParticleProvider::new);
+    }
 
-        private static void registerBlockRenderLayers() {
-            BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
-                    Stream.concat(
-                            DDBlocks.STAINED_GLASS.values(),
-                            DDBlocks.STAINED_GLASS_PANES.values()
-                    ).toArray(Block[]::new)
-            );
-        }
+    private static void registerBlockRenderLayers() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
+                Stream.concat(
+                        DDBlocks.STAINED_GLASS.values(),
+                        DDBlocks.STAINED_GLASS_PANES.values()
+                ).toArray(Block[]::new)
+        );
     }
 }

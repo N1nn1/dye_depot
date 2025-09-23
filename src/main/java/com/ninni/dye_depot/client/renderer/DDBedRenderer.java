@@ -8,8 +8,6 @@ import com.ninni.dye_depot.block.DDBedBlockEntity;
 import com.ninni.dye_depot.registry.DDBlockEntityType;
 import com.ninni.dye_depot.registry.DDSheets;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -25,7 +23,6 @@ import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 
-@Environment(EnvType.CLIENT)
 public class DDBedRenderer implements BlockEntityRenderer<DDBedBlockEntity> {
     private final ModelPart headRoot;
     private final ModelPart footRoot;

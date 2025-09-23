@@ -5,8 +5,6 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDMapDecorationType;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.MapRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -20,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
-@Environment(EnvType.CLIENT)
 @Mixin(MapRenderer.MapInstance.class)
 public abstract class MapRendererMixin {
     @Shadow private MapItemSavedData data;

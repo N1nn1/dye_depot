@@ -4,8 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
 import com.ninni.dye_depot.registry.DDSheets;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ShulkerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
@@ -18,7 +16,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-@Environment(EnvType.CLIENT)
 public class DDShulkerBoxRenderer implements BlockEntityRenderer<DDShulkerBoxBlockEntity> {
     private final ShulkerModel<?> model;
 

@@ -8,6 +8,6 @@ public class DyeDepotClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		DDVanillaIntegration.Client.clientInit();
+		DDVanillaIntegration.clientInit();
 	}
 }
