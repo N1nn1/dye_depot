@@ -19,7 +19,7 @@ public class DDEntityLoot extends SimpleFabricLootTableProvider {
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
         DDBlocks.WOOL.forEach((color, wool) ->
-                consumer.accept(DyeDepot.modLoc("entities/sheep/" + color), EntityLootSubProvider.createSheepTable(wool))
+                consumer.accept(DyeDepot.modLoc("entities/sheep/" + color), EntityLootSubProvider.createSheepTable(wool.value()))
         );
     }
 

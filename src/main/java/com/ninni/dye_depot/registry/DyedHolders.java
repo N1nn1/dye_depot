@@ -15,6 +15,7 @@ import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -24,25 +25,25 @@ import org.jetbrains.annotations.Nullable;
 
 public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 
-    private final Map<DyeColor, TImplementation> entries;
+    private final Map<DyeColor, Holder<TImplementation>> entries;
 
-    public DyedHolders(Map<DyeColor, TImplementation> entries) {
+    private DyedHolders(Map<DyeColor, Holder<TImplementation>> entries) {
         this.entries = entries;
     }
 
-    public static <T extends R, R> DyedHolders<T, R> create(Stream<DyeColor> colors, Function<DyeColor, T> mapper) {
+    public static <T extends R, R> DyedHolders<T, R> create(Stream<DyeColor> colors, Function<DyeColor, Holder<T>> mapper) {
         var entries = colors
                 .collect(Collectors.toMap(Function.identity(), mapper));
         return new DyedHolders<>(entries);
     }
 
-    public static <T extends R, R> DyedHolders<T, R> createModded(Function<DyeColor, T> mapper) {
+    public static <T extends R, R> DyedHolders<T, R> createModded(Function<DyeColor, Holder<T>> mapper) {
         return create(Arrays.stream(DDDyes.values()).map(DDDyes::get), mapper);
     }
 
     @SafeVarargs
-    public static <T extends R, R> DyedHolders<T, R> merge(DyedHolders<? extends T, R>... from) {
-        var entries = ImmutableMap.<DyeColor, T>builder();
+    public static <T extends R, R> DyedHolders<T, R> merge(DyedHolders<T, R>... from) {
+        var entries = ImmutableMap.<DyeColor, Holder<T>>builder();
 
         for (var holders : from) {
             entries.putAll(holders.entries);
@@ -59,7 +60,7 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
         return Arrays.stream(DDDyes.values()).map(DDDyes::get);
     }
 
-    public static <T extends R, R> DyedHolders<T, R> createWithVanilla(Function<DyeColor, T> mapper) {
+    public static <T extends R, R> DyedHolders<T, R> createWithVanilla(Function<DyeColor, Holder<T>> mapper) {
         return create(
                 Stream.concat(
                         vanillaColors(),
@@ -83,67 +84,77 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
     @SuppressWarnings("unchecked")
     public static <T extends R, R> DyedHolders<T, R> fromLookup(HolderLookup<R> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceKey<R>> idMapper) {
         return create(colors, color ->
-                (T) registry.getOrThrow(idMapper.apply(color))
+                (Holder<T>) registry.getOrThrow(idMapper.apply(color))
         );
     }
 
-    public @Nullable TImplementation getOrNull(DyeColor color) {
+    public @Nullable Holder<TImplementation> holderOrNull(DyeColor color) {
         return entries.get(color);
     }
 
+    public Optional<Holder<TImplementation>> holder(DyeColor color) {
+        return Optional.ofNullable(holderOrNull(color));
+    }
+
+    public @Nullable TImplementation getOrNull(DyeColor color) {
+        return get(color).orElse(null);
+    }
+
     public Optional<TImplementation> get(DyeColor color) {
-        return Optional.ofNullable(getOrNull(color));
+        return holder(color).map(Holder::value);
+    }
+
+    public Holder<TImplementation> holderOrThrow(DyeColor color) {
+        return Objects.requireNonNull(holderOrNull(color), () -> "holders does not contain block of color " + color);
     }
 
     public TImplementation getOrThrow(DyeColor color) {
-        return Objects.requireNonNull(getOrNull(color), () -> "holders does not contain block of color " + color);
+        return holderOrThrow(color).value();
     }
 
-    public Stream<TImplementation> values() {
+    public Stream<Holder<TImplementation>> holders() {
         return entries.entrySet().stream()
                 .sorted(Comparator.comparing(it -> it.getKey().getId()))
                 .map(Map.Entry::getValue);
     }
 
-    public void forEach(BiConsumer<DyeColor, TImplementation> consumer) {
+    public Stream<TImplementation> values() {
+        return holders().map(Holder::value);
+    }
+
+    public void forEach(BiConsumer<DyeColor, Holder<TImplementation>> consumer) {
         entries.entrySet().stream()
                 .sorted(Comparator.comparing(it -> it.getKey().getId()))
                 .forEach(it -> consumer.accept(it.getKey(), it.getValue()));
     }
 
     public <R> Stream<R> map(BiFunction<DyeColor, TImplementation, R> mapper) {
-        return entries.entrySet().stream().map(it -> mapper.apply(it.getKey(), it.getValue()));
-    }
-
-    public <R> DyedHolders<R, R> mapValues(Function<TImplementation, R> mapper) {
-        var entries = ImmutableMap.<DyeColor, R>builder();
-        forEach((color, value) -> entries.put(color, mapper.apply(value)));
-        return new DyedHolders<>(entries.build());
+        return entries.entrySet().stream().map(it -> mapper.apply(it.getKey(), it.getValue().value()));
     }
 
     public DyedHolders<TImplementation, RRegistry> filter(Supplier<Stream<DyeColor>> colors) {
         return filter((color, $) -> colors.get().anyMatch(it -> it == color));
     }
 
-    public DyedHolders<TImplementation, RRegistry> filter(BiPredicate<DyeColor, TImplementation> predicate) {
-        var entries = ImmutableMap.<DyeColor, TImplementation>builder();
+    public DyedHolders<TImplementation, RRegistry> filter(BiPredicate<DyeColor, Holder<TImplementation>> predicate) {
+        var entries = ImmutableMap.<DyeColor, Holder<TImplementation>>builder();
         forEach((color, value) -> {
             if (predicate.test(color, value)) entries.put(color, value);
         });
         return new DyedHolders<>(entries.build());
     }
 
-    public String detectBaseName(Registry<RRegistry> registry) {
+    public String detectBaseName() {
         var entry = entries.entrySet().stream().findFirst().orElseThrow(() -> new NoSuchElementException("DyedHolders is empty"));
-        var id = Objects.requireNonNull(registry.getKey(entry.getValue()));
+        var id = entry.getValue().unwrapKey().orElseThrow().location();
         return Pattern.compile("_?" + entry.getKey() + "_?")
                 .matcher(id.getPath())
                 .replaceFirst("");
     }
 
-    public DyedHolders<TImplementation, RRegistry> mergeVanilla(Registry<RRegistry> registry) {
-        var base = detectBaseName(registry);
-        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry.asLookup(), DyedHolders.vanillaColors(), new ResourceLocation(base));
+    public DyedHolders<TImplementation, RRegistry> mergeVanilla(HolderLookup.RegistryLookup<RRegistry> registry) {
+        var base = detectBaseName();
+        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), new ResourceLocation(base));
         return merge(vanillaVariants, this);
     }
 

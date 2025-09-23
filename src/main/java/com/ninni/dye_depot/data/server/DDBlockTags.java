@@ -7,9 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -17,12 +15,18 @@ import net.minecraft.world.level.block.Block;
 
 public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
 
-    public DDBlockTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+
+    public DDBlockTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup);
+        this.lookup = lookup;
     }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        var lookup = this.lookup.join();
+        var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+
         tagDyed(DDBlocks.SHULKER_BOXES, BlockTags.SHULKER_BOXES);
         tagDyed(DDBlocks.BANNERS, BlockTags.BANNERS);
         tagDyed(DDBlocks.WALL_BANNERS, BlockTags.BANNERS);
@@ -39,25 +43,23 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE);
 
-        var blockRegistry = BuiltInRegistries.BLOCK.asLookup();
-        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(blockRegistry, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
-        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(blockRegistry, "trapped_present"), supplementariesTag("trapped_presents"));
+        tagDyed(ModCompat.supplementariesHolders(blockLookup, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
+        tagDyed(ModCompat.supplementariesHolders(blockLookup, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(blockLookup, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(blockLookup, "trapped_present"), supplementariesTag("trapped_presents"));
     }
 
     private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {
-        values.values()
-                .map(this::reverseLookup)
-                .map(ResourceKey::location)
+        values.holders()
+                .map(it -> it.unwrapKey().orElseThrow().location())
                 .forEach(it -> tag(tag).addOptional(it));
     }
 
     @SafeVarargs
     private void tagDyed(DyedHolders<?, Block> values, TagKey<Block>... additionalTags) {
         values.forEach((dye, block) -> {
-            var key = reverseLookup(block).location();
+            var key = block.unwrapKey().orElseThrow().location();
             tag(loaderTag("dyed")).addOptional(key);
             tag(loaderTag("dyed/" + dye)).addOptional(key);
         });

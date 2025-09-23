@@ -4,25 +4,32 @@ import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DyedHolders;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public abstract class DDLangProvider extends FabricLanguageProvider {
 
-    protected DDLangProvider(FabricDataOutput output) {
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+
+    protected DDLangProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         super(output);
+        this.lookup = lookup;
     }
 
     @Override
     public final void generateTranslations(TranslationBuilder builder) {
+        var lookup = this.lookup.join();
+        var itemLookup = lookup.lookupOrThrow(Registries.ITEM);
+        var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+
         colors("general").forEach(color -> {
             builder.add("color.minecraft." + color, translate(color));
             builder.add("item.minecraft.firework_star." + color, translate(color));
@@ -71,27 +78,27 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         dyedBannerPattern(builder, "triangles_bottom", color -> color + " Base Indented");
         dyedBannerPattern(builder, "triangles_top", color -> color + " Chief Indented");
 
-        dyed(builder, filterAndMerge(DDItems.DYES, BuiltInRegistries.ITEM), "Dye");
-        dyed(builder, filterAndMerge(DDBlocks.BANNERS, BuiltInRegistries.BLOCK), "Banner");
-        dyed(builder, filterAndMerge(DDBlocks.BEDS, BuiltInRegistries.BLOCK), "Bed");
-        dyed(builder, filterAndMerge(DDBlocks.CANDLES, BuiltInRegistries.BLOCK), "Candle");
-        dyed(builder, filterAndMerge(DDBlocks.CANDLE_CAKES, BuiltInRegistries.BLOCK), it -> "Cake with " + it + " Candle");
-        dyed(builder, filterAndMerge(DDBlocks.CARPETS, BuiltInRegistries.BLOCK), "Carpet");
-        dyed(builder, filterAndMerge(DDBlocks.CONCRETE, BuiltInRegistries.BLOCK), "Concrete");
-        dyed(builder, filterAndMerge(DDBlocks.CONCRETE_POWDER, BuiltInRegistries.BLOCK), "Concrete Powder");
-        dyed(builder, filterAndMerge(DDBlocks.GLAZED_TERRACOTTA, BuiltInRegistries.BLOCK), "Glazed Terracotta");
-        dyed(builder, filterAndMerge(DDBlocks.SHULKER_BOXES, BuiltInRegistries.BLOCK), "Shulker Box");
-        dyed(builder, filterAndMerge(DDBlocks.STAINED_GLASS, BuiltInRegistries.BLOCK), "Stained Glass");
-        dyed(builder, filterAndMerge(DDBlocks.STAINED_GLASS_PANES, BuiltInRegistries.BLOCK), "Stained Glass Pane");
-        dyed(builder, filterAndMerge(DDBlocks.TERRACOTTA, BuiltInRegistries.BLOCK), "Terracotta");
-        dyed(builder, filterAndMerge(DDBlocks.WOOL, BuiltInRegistries.BLOCK), "Wool");
-        dyed(builder, filter(DDBlocks.DYE_BASKETS, BuiltInRegistries.BLOCK), "Dye Basket");
+        dyed(builder, filterAndMerge(DDItems.DYES, itemLookup), "Dye");
+        dyed(builder, filterAndMerge(DDBlocks.BANNERS, blockLookup), "Banner");
+        dyed(builder, filterAndMerge(DDBlocks.BEDS, blockLookup), "Bed");
+        dyed(builder, filterAndMerge(DDBlocks.CANDLES, blockLookup), "Candle");
+        dyed(builder, filterAndMerge(DDBlocks.CANDLE_CAKES, blockLookup), it -> "Cake with " + it + " Candle");
+        dyed(builder, filterAndMerge(DDBlocks.CARPETS, blockLookup), "Carpet");
+        dyed(builder, filterAndMerge(DDBlocks.CONCRETE, blockLookup), "Concrete");
+        dyed(builder, filterAndMerge(DDBlocks.CONCRETE_POWDER, blockLookup), "Concrete Powder");
+        dyed(builder, filterAndMerge(DDBlocks.GLAZED_TERRACOTTA, blockLookup), "Glazed Terracotta");
+        dyed(builder, filterAndMerge(DDBlocks.SHULKER_BOXES, blockLookup), "Shulker Box");
+        dyed(builder, filterAndMerge(DDBlocks.STAINED_GLASS, blockLookup), "Stained Glass");
+        dyed(builder, filterAndMerge(DDBlocks.STAINED_GLASS_PANES, blockLookup), "Stained Glass Pane");
+        dyed(builder, filterAndMerge(DDBlocks.TERRACOTTA, blockLookup), "Terracotta");
+        dyed(builder, filterAndMerge(DDBlocks.WOOL, blockLookup), "Wool");
+        dyed(builder, filter(DDBlocks.DYE_BASKETS), "Dye Basket");
 
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "present"), "Present");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "trapped_present"), "Trapped Present");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag"), "Flag");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder"), "Candle Holder");
-        dyed(builder, supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
+        dyed(builder, supplementariesHolders(blockLookup, "present"), "Present");
+        dyed(builder, supplementariesHolders(blockLookup, "trapped_present"), "Trapped Present");
+        dyed(builder, supplementariesHolders(blockLookup, "flag"), "Flag");
+        dyed(builder, supplementariesHolders(blockLookup, "candle_holder"), "Candle Holder");
+        dyed(builder, supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
 
         translateAdditional(builder);
     }
@@ -111,12 +118,12 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         return ModCompat.supplementariesSquaredHolders(registry, name, colors(name));
     }
 
-    private <T extends R, R> DyedHolders<T, R> filterAndMerge(DyedHolders<T, R> dyed, Registry<R> registry) {
-        return filter(dyed.mergeVanilla(registry), registry);
+    private <T extends R, R> DyedHolders<T, R> filterAndMerge(DyedHolders<T, R> dyed, HolderLookup.RegistryLookup<R> registry) {
+        return filter(dyed.mergeVanilla(registry));
     }
 
-    private <T extends R, R> DyedHolders<T, R> filter(DyedHolders<T, R> dyed, Registry<R> registry) {
-        var baseName = dyed.detectBaseName(registry);
+    private <T extends R, R> DyedHolders<T, R> filter(DyedHolders<T, R> dyed) {
+        var baseName = dyed.detectBaseName();
         return dyed.filter(() -> colors(baseName));
     }
 
@@ -126,7 +133,7 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
 
     private void dyed(TranslationBuilder builder, DyedHolders<?, ? extends ItemLike> dyed, Function<String, String> translation) {
         dyed.forEach((color, item) ->
-                add(builder, item, translation.apply(translate(color)))
+                add(builder, item.value(), translation.apply(translate(color)))
         );
     }
 

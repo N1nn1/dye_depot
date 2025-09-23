@@ -1,6 +1,7 @@
 package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
@@ -23,7 +24,8 @@ public class DDItems {
             register(dye + "_bed", new BedItem(DDBlocks.BEDS.getOrThrow(dye), new Item.Properties().stacksTo(1)))
     );
 
-    private static Item register(String id, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), item);
+    @SuppressWarnings("unchecked")
+    private static <T extends Item> Holder<T> register(String id, T item) {
+        return (Holder<T>) Registry.registerForHolder(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), item);
     }
 }

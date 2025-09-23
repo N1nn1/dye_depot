@@ -3,15 +3,17 @@ package com.ninni.dye_depot.data.client;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.DyeColor;
 
 public class DDLang extends DDLangProvider {
 
-    public DDLang(FabricDataOutput output) {
-        super(output);
+    public DDLang(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup);
     }
 
     @Override

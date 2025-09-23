@@ -7,8 +7,11 @@ import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import io.github.fabricators_of_create.porting_lib.models.generators.ConfiguredModel;
 import io.github.fabricators_of_create.porting_lib.models.generators.block.BlockStateProvider;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.PresentBlock;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
@@ -21,57 +24,63 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class DDBlockModels extends BlockStateProvider {
 
-    public DDBlockModels(PackOutput output, ExistingFileHelper fileHelper) {
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+
+    public DDBlockModels(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, ExistingFileHelper fileHelper) {
         super(output, DyeDepot.MOD_ID, fileHelper);
+        this.lookup = lookup;
     }
 
     @Override
     protected void registerStatesAndModels() {
+        var lookup = this.lookup.join();
+        var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+
         DDBlocks.WOOL.values().forEach(this::simpleBlock);
         DDBlocks.CARPETS.forEach(this::carpet);
         DDBlocks.TERRACOTTA.values().forEach(this::simpleBlock);
         DDBlocks.CONCRETE.values().forEach(this::simpleBlock);
         DDBlocks.CONCRETE_POWDER.values().forEach(this::simpleBlock);
-        DDBlocks.GLAZED_TERRACOTTA.values().forEach(this::glazedTerracotta);
+        DDBlocks.GLAZED_TERRACOTTA.holders().forEach(this::glazedTerracotta);
         DDBlocks.STAINED_GLASS.values().forEach(this::simpleBlock);
         DDBlocks.STAINED_GLASS_PANES.forEach(this::stainedGlassPane);
-        DDBlocks.SHULKER_BOXES.values().forEach(this::particleOnly);
-        DDBlocks.CANDLES.values().forEach(this::candle);
+        DDBlocks.SHULKER_BOXES.holders().forEach(this::particleOnly);
+        DDBlocks.CANDLES.holders().forEach(this::candle);
         DDBlocks.CANDLE_CAKES.forEach(this::candleCake);
-        DDBlocks.BANNERS.values().forEach(this::banner);
-        DDBlocks.WALL_BANNERS.values().forEach(this::banner);
-        DDBlocks.BEDS.values().forEach(this::bed);
-        DDBlocks.DYE_BASKETS.values().forEach(this::basket);
+        DDBlocks.BANNERS.holders().forEach(this::banner);
+        DDBlocks.WALL_BANNERS.holders().forEach(this::banner);
+        DDBlocks.BEDS.holders().forEach(this::bed);
+        DDBlocks.DYE_BASKETS.holders().forEach(this::basket);
 
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag").values().forEach(this::flag);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "trapped_present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder").forEach(this::candleHolder);
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesHolders(blockLookup, "flag").holders().forEach(this::flag);
+        ModCompat.supplementariesHolders(blockLookup, "present").forEach(this::present);
+        ModCompat.supplementariesHolders(blockLookup, "trapped_present").forEach(this::present);
+        ModCompat.supplementariesHolders(blockLookup, "candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").forEach(this::candleHolder);
     }
 
-    private void carpet(DyeColor color, Block block) {
-        var wool = DDBlocks.WOOL.getOrThrow(color);
-        simpleBlock(block, models().carpet(name(block), blockTexture(wool)));
+    private void carpet(DyeColor color, Holder<? extends Block> block) {
+        var wool = DDBlocks.WOOL.holderOrThrow(color);
+        simpleBlock(block.value(), models().carpet(name(block), blockTexture(wool)));
     }
 
-    private void glazedTerracotta(Block block) {
+    private void glazedTerracotta(Holder<? extends Block> block) {
         var model = models().withExistingParent(name(block), vanillaResource("template_glazed_terracotta"))
                 .texture("pattern", blockTexture(block));
-        horizontalBlock(block, model);
+        horizontalBlock(block.value(), model);
     }
 
-    private void stainedGlassPane(DyeColor color, StainedGlassPaneBlock block) {
-        paneBlock(block, blockTexture(DDBlocks.STAINED_GLASS.getOrNull(color)), blockTexture(block).withSuffix("_top"));
+    private void stainedGlassPane(DyeColor color, Holder<? extends StainedGlassPaneBlock> block) {
+        paneBlock(block.value(), blockTexture(DDBlocks.STAINED_GLASS.getOrNull(color)), blockTexture(block).withSuffix("_top"));
     }
 
-    private void particleOnly(Block block) {
+    private void particleOnly(Holder<? extends Block> block) {
         var texture = blockTexture(block);
-        simpleBlock(block, models().getBuilder(name(block)).texture("particle", texture));
+        simpleBlock(block.value(), models().getBuilder(name(block)).texture("particle", texture));
     }
 
-    private void candle(Block block) {
-        getVariantBuilder(block).forAllStatesExcept(state -> {
+    private void candle(Holder<? extends Block> block) {
+        getVariantBuilder(block.value()).forAllStatesExcept(state -> {
             var lit = state.getValue(CandleBlock.LIT);
             var count = state.getValue(CandleBlock.CANDLES);
             var litSuffix = lit ? "_lit" : "";
@@ -87,8 +96,8 @@ public class DDBlockModels extends BlockStateProvider {
         }, BlockStateProperties.WATERLOGGED);
     }
 
-    private void candleCake(DyeColor color, Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
+    private void candleCake(DyeColor color, Holder<? extends Block> block) {
+        getVariantBuilder(block.value()).forAllStates(state -> {
             var lit = state.getValue(CandleCakeBlock.LIT);
             var suffix = lit ? "_lit" : "";
             var model = models().withExistingParent(name(block) + suffix, vanillaResource("template_cake_with_candle"))
@@ -103,15 +112,15 @@ public class DDBlockModels extends BlockStateProvider {
         });
     }
 
-    private void banner(Block block) {
-        simpleBlock(block, models().getExistingFile(vanillaResource("banner")));
+    private void banner(Holder<? extends Block> block) {
+        simpleBlock(block.value(), models().getExistingFile(vanillaResource("banner")));
     }
 
-    private void bed(Block block) {
-        simpleBlock(block, models().getExistingFile(vanillaResource("bed")));
+    private void bed(Holder<? extends Block> block) {
+        simpleBlock(block.value(), models().getExistingFile(vanillaResource("bed")));
     }
 
-    private void basket(Block block) {
+    private void basket(Holder<? extends Block> block) {
         var texture = blockTexture(block);
         var model = models().orientableWithBottom(
                 name(block),
@@ -120,11 +129,11 @@ public class DDBlockModels extends BlockStateProvider {
                 texture.withSuffix("_bottom"),
                 texture.withSuffix("_top")
         );
-        horizontalBlock(block, model);
+        horizontalBlock(block.value(), model);
     }
 
-    private void candleHolder(DyeColor color, Block block) {
-        getVariantBuilder(block).forAllStatesExcept(state -> {
+    private void candleHolder(DyeColor color, Holder<? extends Block> block) {
+        getVariantBuilder(block.value()).forAllStatesExcept(state -> {
             var lit = state.getValue(BlockStateProperties.LIT);
             var candles = state.getValue(BlockStateProperties.CANDLES);
             var facing = state.getValue(HorizontalDirectionalBlock.FACING);
@@ -145,14 +154,14 @@ public class DDBlockModels extends BlockStateProvider {
         }, BlockStateProperties.WATERLOGGED);
     }
 
-    private void flag(Block block) {
-        simpleBlock(block, models().getExistingFile(new ResourceLocation(ModCompat.SUPPLEMENTARIES, "block/flag")));
+    private void flag(Holder<? extends Block> block) {
+        simpleBlock(block.value(), models().getExistingFile(new ResourceLocation(ModCompat.SUPPLEMENTARIES, "block/flag")));
     }
 
-    private void present(DyeColor color, Block block) {
+    private void present(DyeColor color, Holder<? extends Block> block) {
         var type = name(block).replace("_" + color, "");
 
-        getVariantBuilder(block).forAllStatesExcept(state -> {
+        getVariantBuilder(block.value()).forAllStatesExcept(state -> {
             var packed = state.getValue(PresentBlock.PACKED);
 
             var suffix = packed ? "_closed" : "_opened";
@@ -175,12 +184,16 @@ public class DDBlockModels extends BlockStateProvider {
         return new ResourceLocation("block/" + name);
     }
 
-    private ResourceLocation key(Block block) {
-        return BuiltInRegistries.BLOCK.getKey(block);
+    private ResourceLocation key(Holder<? extends Block> block) {
+        return block.unwrapKey().orElseThrow().location();
     }
 
-    private String name(Block block) {
+    private String name(Holder<? extends Block> block) {
         return key(block).getPath();
+    }
+
+    private ResourceLocation blockTexture(Holder<? extends Block> block) {
+        return block.unwrapKey().orElseThrow().location().withPrefix("block/");
     }
 
 }
