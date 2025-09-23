@@ -3,6 +3,7 @@
   "package": "com.ninni.dye_depot.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BannerBlockMixin",
     "DyeColorMixin",
     "MapBannerMixin",
     "SheepMixin",
