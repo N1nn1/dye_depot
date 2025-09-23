@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "front": "dye_depot:block/orange_dye_basket_front",
-    "side": "dye_depot:block/orange_dye_basket_side",
-    "top": "dye_depot:block/orange_dye_basket_top",
-    "bottom": "dye_depot:block/orange_dye_basket_bottom"
-  }
-}

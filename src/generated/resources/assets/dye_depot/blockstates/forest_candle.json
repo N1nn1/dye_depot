@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "candles=1,lit=false": {
+      "model": "dye_depot:block/forest_candle_1"
+    },
+    "candles=1,lit=true": {
+      "model": "dye_depot:block/forest_candle_1_lit"
+    },
+    "candles=2,lit=false": {
+      "model": "dye_depot:block/forest_candle_2"
+    },
+    "candles=2,lit=true": {
+      "model": "dye_depot:block/forest_candle_2_lit"
+    },
+    "candles=3,lit=false": {
+      "model": "dye_depot:block/forest_candle_3"
+    },
+    "candles=3,lit=true": {
+      "model": "dye_depot:block/forest_candle_3_lit"
+    },
+    "candles=4,lit=false": {
+      "model": "dye_depot:block/forest_candle_4"
+    },
+    "candles=4,lit=true": {
+      "model": "dye_depot:block/forest_candle_4_lit"
+    }
+  }
+}

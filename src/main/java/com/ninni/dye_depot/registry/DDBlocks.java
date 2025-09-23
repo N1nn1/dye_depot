@@ -69,7 +69,7 @@ public class DDBlocks {
             registerWithItem(dye + "_stained_glass", new StainedGlassBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS)))
     );
 
-    public static final DyedHolders<Block> STAINED_GLASS_PANES = DyedHolders.create(dye ->
+    public static final DyedHolders<StainedGlassPaneBlock> STAINED_GLASS_PANES = DyedHolders.create(dye ->
             registerWithItem(dye + "_stained_glass_pane", new StainedGlassPaneBlock(dye, FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
@@ -115,11 +115,11 @@ public class DDBlocks {
         return new DDShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
     }
 
-    private static Block register(String id, Block block) {
+    private static <T extends Block> T register(String id, T block) {
         return Registry.register(BuiltInRegistries.BLOCK, DyeDepot.modLoc(id), block);
     }
 
-    private static Block registerWithItem(String id, Block block) {
+    private static <T extends Block> T registerWithItem(String id, T block) {
         Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), new BlockItem(block, new Item.Properties()));
         return register(id, block);
     }

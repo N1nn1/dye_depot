@@ -30,6 +30,12 @@ repositories {
             includeGroup("maven.modrinth")
         }
     }
+    maven {
+        url = uri("https://mvn.devos.one/releases/")
+        content {
+            includeGroup("io.github.fabricators_of_create.Porting-Lib")
+        }
+    }
 }
 
 val datagenOutput = file("src/generated/resources").absolutePath
@@ -46,6 +52,7 @@ loom {
             property("fabric-api.datagen")
             property("fabric-api.datagen.output-dir=${datagenOutput}")
             property("fabric-api.datagen.modid=${mod_id}")
+            property("porting_lib.datagen.existing_resources=${file("src/main/resources").absolutePath}")
         }
     }
 }
@@ -67,6 +74,10 @@ dependencies {
     val moonlight_lib_version: String by project.extra
     modImplementation("maven.modrinth:moonlight:$moonlight_lib_version")
     modImplementation("maven.modrinth:supplementaries:$supplementaries_version")
+
+    // for data generation
+    val porting_lib_version: String by project.extra
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:model_generators:$porting_lib_version")
 }
 
 tasks.withType<ProcessResources> {
