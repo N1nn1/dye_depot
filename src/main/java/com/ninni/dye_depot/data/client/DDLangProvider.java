@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.DyeColor;
@@ -86,11 +87,11 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         dyed(builder, filterAndMerge(DDBlocks.WOOL, BuiltInRegistries.BLOCK), "Wool");
         dyed(builder, filter(DDBlocks.DYE_BASKETS, BuiltInRegistries.BLOCK), "Dye Basket");
 
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK, "present"), "Present");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK, "trapped_present"), "Trapped Present");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK, "flag"), "Flag");
-        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder"), "Candle Holder");
-        dyed(builder, supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
+        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "present"), "Present");
+        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "trapped_present"), "Trapped Present");
+        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag"), "Flag");
+        dyed(builder, supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder"), "Candle Holder");
+        dyed(builder, supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
 
         translateAdditional(builder);
     }
@@ -102,11 +103,11 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
 
     protected abstract String translate(DyeColor dye);
 
-    private <R> DyedHolders<R, R> supplementariesHolders(Registry<R> registry, String name) {
+    private <R> DyedHolders<R, R> supplementariesHolders(HolderLookup.RegistryLookup<R> registry, String name) {
         return ModCompat.supplementariesHolders(registry, name, colors(name));
     }
 
-    private <R> DyedHolders<R, R> supplementariesSquaredHolders(Registry<R> registry, String name) {
+    private <R> DyedHolders<R, R> supplementariesSquaredHolders(HolderLookup.RegistryLookup<R> registry, String name) {
         return ModCompat.supplementariesSquaredHolders(registry, name, colors(name));
     }
 

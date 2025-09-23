@@ -43,11 +43,11 @@ public class DDBlockModels extends BlockStateProvider {
         DDBlocks.BEDS.values().forEach(this::bed);
         DDBlocks.DYE_BASKETS.values().forEach(this::basket);
 
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "flag").values().forEach(this::flag);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "trapped_present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder").forEach(this::candleHolder);
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "flag").values().forEach(this::flag);
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "trapped_present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK.asLookup(), "candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK.asLookup(), "gold_candle_holder").forEach(this::candleHolder);
     }
 
     private void carpet(DyeColor color, Block block) {

@@ -37,11 +37,11 @@ public class DDItemModels extends ItemModelProvider {
         DDBlocks.BEDS.forEach(this::bed);
         DDBlocks.DYE_BASKETS.values().forEach(this::blockReference);
 
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag").values().forEach(this::flag);
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "trapped_present").forEach(this::present);
-        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "candle_holder").forEach(this::candleHolder);
-        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "flag").values().forEach(this::flag);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "trapped_present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM.asLookup(), "candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM.asLookup(), "gold_candle_holder").forEach(this::candleHolder);
     }
 
     private void basicItem(ItemLike item) {

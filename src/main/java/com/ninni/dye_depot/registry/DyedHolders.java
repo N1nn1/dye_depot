@@ -15,6 +15,7 @@ import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -68,14 +69,21 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
         );
     }
 
-    public static <T extends R, R> DyedHolders<T, R> fromRegistry(Registry<R> registry, Stream<DyeColor> colors, ResourceLocation baseName) {
+    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, ResourceLocation baseName) {
         return fromRegistry(registry, colors, color -> baseName.withPrefix(color + "_"));
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends R, R> DyedHolders<T, R> fromRegistry(Registry<R> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceLocation> idMapper) {
+    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceLocation> idMapper) {
+        var registryKey = (ResourceKey<Registry<R>>) registry.key();
+        Function<DyeColor, ResourceKey<R>> keyMapper = idMapper.andThen(id -> ResourceKey.create(registryKey, id));
+        return fromLookup(registry, colors, keyMapper);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T extends R, R> DyedHolders<T, R> fromLookup(HolderLookup<R> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceKey<R>> idMapper) {
         return create(colors, color ->
-                (T) registry.getOrThrow(ResourceKey.create(registry.key(), idMapper.apply(color)))
+                (T) registry.getOrThrow(idMapper.apply(color))
         );
     }
 
@@ -135,7 +143,7 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 
     public DyedHolders<TImplementation, RRegistry> mergeVanilla(Registry<RRegistry> registry) {
         var base = detectBaseName(registry);
-        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), new ResourceLocation(base));
+        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry.asLookup(), DyedHolders.vanillaColors(), new ResourceLocation(base));
         return merge(vanillaVariants, this);
     }
 
