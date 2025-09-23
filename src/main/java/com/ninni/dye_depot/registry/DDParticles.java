@@ -8,5 +8,5 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public class DDParticles {
-    public static final ParticleType<BlockParticleOption> DYE_POOF = Registry.register(BuiltInRegistries.PARTICLE_TYPE, DyeDepot.modLoc("dye_poof"), FabricParticleTypes.complex(false, BlockParticleOption.DESERIALIZER));
+    public static final ParticleType<BlockParticleOption> DYE_POOF = Registry.register(BuiltInRegistries.PARTICLE_TYPE, DyeDepot.modLoc("dye_poof"), FabricParticleTypes.complex(false, BlockParticleOption::codec, BlockParticleOption::streamCodec));
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dye_depot:forest_terracotta"
+  },
+  "result": {
+    "id": "dye_depot:forest_glazed_terracotta"
+  }
+}

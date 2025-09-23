@@ -1,0 +1,64 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:amber_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_amber",
+      "required": false
+    }
+  ]
+}

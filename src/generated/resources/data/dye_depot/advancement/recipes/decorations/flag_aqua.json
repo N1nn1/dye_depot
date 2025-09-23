@@ -1,0 +1,49 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:and",
+      "values": [
+        {
+          "condition": "fabric:all_mods_loaded",
+          "values": [
+            "supplementaries"
+          ]
+        },
+        {
+          "condition": "supplementaries:flag",
+          "flag": "flag"
+        }
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:flag_aqua"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:aqua_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:flag_aqua"
+    ]
+  }
+}

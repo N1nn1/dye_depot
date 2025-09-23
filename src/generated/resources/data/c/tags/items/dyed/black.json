@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "dye_depot:black_dye_basket",
-      "required": false
-    }
-  ]
-}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "teal_dye",
+  "ingredient": {
+    "item": "minecraft:prismarine_shard"
+  },
+  "result": {
+    "id": "dye_depot:teal_dye"
+  }
+}

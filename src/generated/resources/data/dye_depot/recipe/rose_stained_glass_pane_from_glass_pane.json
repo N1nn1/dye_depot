@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_glass_pane",
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
+    },
+    "$": {
+      "item": "dye_depot:rose_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dye_depot:rose_stained_glass_pane"
+  }
+}

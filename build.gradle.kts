@@ -55,7 +55,7 @@ loom {
             property("fabric-api.datagen.modid=${mod_id}")
             property("porting_lib.datagen.existing_resources=${file("src/main/resources").absolutePath}")
             val existingMods = listOf("supplementaries", "suppsquared")
-            property("porting_lib.datagen.existing-mod=${existingMods.joinToString(";")}")
+            property("porting_lib.datagen.existing-mod=${existingMods.joinToString(",")}")
         }
     }
 }

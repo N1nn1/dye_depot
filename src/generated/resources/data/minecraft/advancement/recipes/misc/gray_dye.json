@@ -1,0 +1,43 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:any_mods_loaded",
+        "values": [
+          "dye_depot"
+        ]
+      }
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gray_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "never": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:debug_stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "never"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gray_dye"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "supplementaries:candle_holder_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_maroon",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_rose",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_indigo",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_beige",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_teal",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_mint",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_ginger",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_tan",
+      "required": false
+    }
+  ]
+}

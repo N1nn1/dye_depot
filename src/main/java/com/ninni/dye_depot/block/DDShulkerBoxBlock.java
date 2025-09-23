@@ -33,9 +33,9 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
     }
 
-    public ItemStack getCloneItemStack(LevelReader blockGetter, BlockPos blockPos, BlockState blockState) {
-        ItemStack itemStack = super.getCloneItemStack(blockGetter, blockPos, blockState);
-        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack));
+    public ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        ItemStack itemStack = super.getCloneItemStack(levelReader, blockPos, blockState);
+        levelReader.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack, levelReader.registryAccess()));
         return itemStack;
     }
 

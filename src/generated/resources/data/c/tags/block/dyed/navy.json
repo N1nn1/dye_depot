@@ -1,0 +1,84 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:navy_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_concrete_powder",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_navy",
+      "required": false
+    }
+  ]
+}

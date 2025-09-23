@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:maroon_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_wool",
+      "required": false
+    }
+  ]
+}

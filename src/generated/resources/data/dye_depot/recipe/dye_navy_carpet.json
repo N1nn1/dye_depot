@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carpet",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool_carpets"
+    },
+    {
+      "item": "dye_depot:navy_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dye_depot:navy_carpet"
+  }
+}

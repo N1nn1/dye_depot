@@ -1,0 +1,64 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:verdant_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_verdant",
+      "required": false
+    }
+  ]
+}

@@ -45,8 +45,6 @@ public class LlamaDecorLayerMixin {
 
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/animal/horse/Llama;FFFFFF)V", at = @At("HEAD"), cancellable = true)
     private void DD$llamaCarpets(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, Llama llama, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
-
-
         DyeColor dyeColor = llama.getSwag();
 
         if (dyeColor != null && dyeColor.getId() >= 16) {
@@ -58,9 +56,8 @@ public class LlamaDecorLayerMixin {
             that.getParentModel().copyPropertiesTo(this.model);
             this.model.setupAnim(llama, f, g, j, k, l);
             VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(resourceLocation));
-            this.model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 0xFFFFFF);
         }
-
 
     }
 }

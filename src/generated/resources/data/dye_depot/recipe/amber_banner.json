@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "banner",
+  "key": {
+    "#": {
+      "item": "dye_depot:amber_wool"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    " | "
+  ],
+  "result": {
+    "count": 1,
+    "id": "dye_depot:amber_banner"
+  }
+}

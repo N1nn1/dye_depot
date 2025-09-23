@@ -22,15 +22,15 @@ import net.minecraft.world.level.material.PushReaction;
 public class DDBlocks {
 
     public static final DyedHolders<Block, Block> WOOL = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_wool", new Block(Properties.copy(Blocks.WHITE_WOOL).mapColor(dye)))
+            registerWithItem(dye + "_wool", new Block(Properties.ofFullCopy(Blocks.WHITE_WOOL).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> CARPETS = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_carpet", new WoolCarpetBlock(dye, Properties.copy(Blocks.WHITE_CARPET).mapColor(dye)))
+            registerWithItem(dye + "_carpet", new WoolCarpetBlock(dye, Properties.ofFullCopy(Blocks.WHITE_CARPET).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> TERRACOTTA = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_terracotta", new Block(Properties.copy(Blocks.WHITE_TERRACOTTA).mapColor(dye)))
+            registerWithItem(dye + "_terracotta", new Block(Properties.ofFullCopy(Blocks.WHITE_TERRACOTTA).mapColor(dye)))
     );
 
     private static final Map<DyeColor, MapColor> CONCRETE_COLORS = new ImmutableMap.Builder<DyeColor, MapColor>()
@@ -53,23 +53,23 @@ public class DDBlocks {
             .build();
 
     public static final DyedHolders<Block, Block> CONCRETE = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_concrete", new Block(Properties.copy(Blocks.WHITE_CONCRETE).mapColor(CONCRETE_COLORS.get(dye))))
+            registerWithItem(dye + "_concrete", new Block(Properties.ofFullCopy(Blocks.WHITE_CONCRETE).mapColor(CONCRETE_COLORS.get(dye))))
     );
 
     public static final DyedHolders<Block, Block> CONCRETE_POWDER = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_concrete_powder", new ConcretePowderBlock(CONCRETE.getOrThrow(dye), Properties.copy(Blocks.WHITE_CONCRETE_POWDER).mapColor(dye)))
+            registerWithItem(dye + "_concrete_powder", new ConcretePowderBlock(CONCRETE.getOrThrow(dye), Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> GLAZED_TERRACOTTA = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_glazed_terracotta", new GlazedTerracottaBlock(Properties.copy(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(dye)))
+            registerWithItem(dye + "_glazed_terracotta", new GlazedTerracottaBlock(Properties.ofFullCopy(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> STAINED_GLASS = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_stained_glass", new StainedGlassBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS)))
+            registerWithItem(dye + "_stained_glass", new StainedGlassBlock(dye, Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)))
     );
 
     public static final DyedHolders<StainedGlassPaneBlock, Block> STAINED_GLASS_PANES = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_stained_glass_pane", new StainedGlassPaneBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS_PANE)))
+            registerWithItem(dye + "_stained_glass_pane", new StainedGlassPaneBlock(dye, Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
     public static final DyedHolders<Block, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
@@ -77,19 +77,19 @@ public class DDBlocks {
     );
 
     public static final DyedHolders<Block, Block> CANDLES = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_candle", new CandleBlock(Properties.copy(Blocks.WHITE_CANDLE).mapColor(dye)))
+            registerWithItem(dye + "_candle", new CandleBlock(Properties.ofFullCopy(Blocks.WHITE_CANDLE).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
-            register(dye + "_candle_cake", new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.copy(Blocks.WHITE_CANDLE_CAKE)))
+            register(dye + "_candle_cake", new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.ofFullCopy(Blocks.WHITE_CANDLE_CAKE)))
     );
 
     public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", new DDBannerBlock(dye, Properties.copy(Blocks.WHITE_BANNER)))
+            register(dye + "_banner", new DDBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_BANNER)))
     );
 
     public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_wall_banner", new DDWallBannerBlock(dye, Properties.copy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye))))
+            register(dye + "_wall_banner", new DDWallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye))))
     );
 
     public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->

@@ -1,0 +1,64 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:olive_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_olive",
+      "required": false
+    }
+  ]
+}

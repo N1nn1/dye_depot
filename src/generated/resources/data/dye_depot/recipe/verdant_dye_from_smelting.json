@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "verdant_dye",
+  "ingredient": {
+    "item": "minecraft:vine"
+  },
+  "result": {
+    "id": "dye_depot:verdant_dye"
+  }
+}

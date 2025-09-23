@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:maroon_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_candle",
+      "required": false
+    }
+  ]
+}

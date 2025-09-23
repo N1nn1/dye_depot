@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "X": {
+      "item": "dye_depot:olive_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dye_depot:olive_stained_glass"
+  }
+}

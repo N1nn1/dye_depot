@@ -1,8 +1,6 @@
 {
   "pack": {
-    "description": {
-      "text": "dye_depot resources"
-    },
-    "pack_format": 15
+    "description": "dye_depot resources",
+    "pack_format": 34
   }
 }

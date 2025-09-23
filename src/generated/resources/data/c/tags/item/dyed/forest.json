@@ -1,0 +1,64 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:forest_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_forest",
+      "required": false
+    }
+  ]
+}

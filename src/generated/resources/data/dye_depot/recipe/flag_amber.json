@@ -1,0 +1,39 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:and",
+      "values": [
+        {
+          "condition": "fabric:all_mods_loaded",
+          "values": [
+            "supplementaries"
+          ]
+        },
+        {
+          "condition": "supplementaries:flag",
+          "flag": "flag"
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "flag",
+  "key": {
+    "#": {
+      "item": "dye_depot:amber_wool"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "|  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "supplementaries:flag_amber"
+  }
+}

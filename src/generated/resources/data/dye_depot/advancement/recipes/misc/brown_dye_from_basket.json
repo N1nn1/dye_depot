@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_dye_basket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:brown_dye_basket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:brown_dye_from_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brown_dye_basket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:brown_dye_from_basket"
+    ]
+  }
+}

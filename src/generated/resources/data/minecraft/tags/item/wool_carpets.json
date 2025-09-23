@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:maroon_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_carpet",
+      "required": false
+    }
+  ]
+}

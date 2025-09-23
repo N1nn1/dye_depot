@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "X": {
+      "item": "dye_depot:verdant_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dye_depot:verdant_stained_glass"
+  }
+}

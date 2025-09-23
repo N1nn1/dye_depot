@@ -70,11 +70,11 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
     }
 
     private TagKey<Block> loaderTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation("c", path));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Block> supplementariesTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

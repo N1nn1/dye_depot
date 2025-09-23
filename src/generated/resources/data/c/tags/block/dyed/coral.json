@@ -1,0 +1,84 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:coral_shulker_box",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_carpet",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_candle",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_candle_cake",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_bed",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_concrete_powder",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_stained_glass",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_dye_basket",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_coral",
+      "required": false
+    }
+  ]
+}

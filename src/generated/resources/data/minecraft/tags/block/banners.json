@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:maroon_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:maroon_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_wall_banner",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_wall_banner",
+      "required": false
+    }
+  ]
+}

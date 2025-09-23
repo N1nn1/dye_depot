@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wool",
+  "ingredients": [
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "dye_depot:maroon_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dye_depot:maroon_wool"
+  }
+}

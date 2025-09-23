@@ -89,11 +89,11 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
     }
 
     private TagKey<Item> loaderTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", path));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Item> supplementariesTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

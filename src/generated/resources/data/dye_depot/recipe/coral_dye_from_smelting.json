@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "coral_dye",
+  "ingredient": {
+    "tag": "dye_depot:smelts_into_coral_dye"
+  },
+  "result": {
+    "id": "dye_depot:coral_dye"
+  }
+}

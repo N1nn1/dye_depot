@@ -87,7 +87,7 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
-        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), new ResourceLocation(baseName)));
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), ResourceLocation.withDefaultNamespace(baseName)));
     }
 
     private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {

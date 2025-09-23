@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:custom_name",
+                "minecraft:item_name",
+                "minecraft:hide_additional_tooltip",
+                "minecraft:banner_patterns"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "dye_depot:mint_banner"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
