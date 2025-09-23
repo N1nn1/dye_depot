@@ -3,14 +3,11 @@ package com.ninni.dye_depot.registry;
 import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import com.ninni.dye_depot.client.renderer.DDBannerRenderer;
 import com.ninni.dye_depot.client.renderer.DDBedRenderer;
 import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-
 import java.util.stream.Stream;
-
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
@@ -21,12 +18,15 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BannerBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 
@@ -152,7 +152,7 @@ public class DDVanillaIntegration {
     private static void registerModelLayers() {
         BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
         BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
-        BlockEntityRendererRegistry.register(DDBlockEntityType.BANNER, DDBannerRenderer::new);
+        BlockEntityRendererRegistry.register((BlockEntityType<BannerBlockEntity>) (Object) DDBlockEntityType.BANNER, BannerRenderer::new);
     }
 
     private static void registerParticles() {
