@@ -1,0 +1,6 @@
+{
+  "parent": "supplementaries:block/candle_holders/ceiling_3",
+  "textures": {
+    "all": "dye_depot:block/rose_candle_lit"
+  }
+}

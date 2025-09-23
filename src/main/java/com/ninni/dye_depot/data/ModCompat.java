@@ -10,9 +10,14 @@ import net.minecraft.resources.ResourceLocation;
 public class ModCompat {
 
     public static final String SUPPLEMENTARIES = "supplementaries";
+    public static final String SUPPLEMENTARIES_SQUARED = "suppsquared";
 
     public static <T> DyedHolders<T> supplementariesHolders(Registry<T> registry, String name) {
         return DyedHolders.fromRegistry(registry, DyedHolders.modColors(), color -> new ResourceLocation(SUPPLEMENTARIES, name + "_" + color));
+    }
+
+    public static <T> DyedHolders<T> supplementariesSquaredHolders(Registry<T> registry, String name) {
+        return DyedHolders.fromRegistry(registry, DyedHolders.modColors(), color -> new ResourceLocation(SUPPLEMENTARIES_SQUARED, name + "_" + color));
     }
 
     public static ConditionJsonProvider supplementariesFlag(String flag) {

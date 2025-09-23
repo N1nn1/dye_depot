@@ -1,0 +1,6 @@
+{
+  "parent": "supplementaries:block/candle_holders/floor_3",
+  "textures": {
+    "all": "dye_depot:block/maroon_candle_lit"
+  }
+}

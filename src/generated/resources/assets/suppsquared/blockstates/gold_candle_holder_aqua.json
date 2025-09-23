@@ -1,0 +1,388 @@
+{
+  "variants": {
+    "candles=1,face=ceiling,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1",
+      "y": 450
+    },
+    "candles=1,face=ceiling,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1_lit",
+      "y": 450
+    },
+    "candles=1,face=ceiling,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1",
+      "y": 360
+    },
+    "candles=1,face=ceiling,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1_lit",
+      "y": 360
+    },
+    "candles=1,face=ceiling,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1",
+      "y": 180
+    },
+    "candles=1,face=ceiling,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1_lit",
+      "y": 180
+    },
+    "candles=1,face=ceiling,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1",
+      "y": 270
+    },
+    "candles=1,face=ceiling,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_1_lit",
+      "y": 270
+    },
+    "candles=1,face=floor,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1",
+      "y": 450
+    },
+    "candles=1,face=floor,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1_lit",
+      "y": 450
+    },
+    "candles=1,face=floor,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1",
+      "y": 360
+    },
+    "candles=1,face=floor,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1_lit",
+      "y": 360
+    },
+    "candles=1,face=floor,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1",
+      "y": 180
+    },
+    "candles=1,face=floor,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1_lit",
+      "y": 180
+    },
+    "candles=1,face=floor,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1",
+      "y": 270
+    },
+    "candles=1,face=floor,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_1_lit",
+      "y": 270
+    },
+    "candles=1,face=wall,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1",
+      "y": 450
+    },
+    "candles=1,face=wall,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1_lit",
+      "y": 450
+    },
+    "candles=1,face=wall,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1",
+      "y": 360
+    },
+    "candles=1,face=wall,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1_lit",
+      "y": 360
+    },
+    "candles=1,face=wall,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1",
+      "y": 180
+    },
+    "candles=1,face=wall,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1_lit",
+      "y": 180
+    },
+    "candles=1,face=wall,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1",
+      "y": 270
+    },
+    "candles=1,face=wall,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_1_lit",
+      "y": 270
+    },
+    "candles=2,face=ceiling,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2",
+      "y": 450
+    },
+    "candles=2,face=ceiling,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2_lit",
+      "y": 450
+    },
+    "candles=2,face=ceiling,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2",
+      "y": 360
+    },
+    "candles=2,face=ceiling,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2_lit",
+      "y": 360
+    },
+    "candles=2,face=ceiling,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2",
+      "y": 180
+    },
+    "candles=2,face=ceiling,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2_lit",
+      "y": 180
+    },
+    "candles=2,face=ceiling,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2",
+      "y": 270
+    },
+    "candles=2,face=ceiling,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_2_lit",
+      "y": 270
+    },
+    "candles=2,face=floor,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2",
+      "y": 450
+    },
+    "candles=2,face=floor,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2_lit",
+      "y": 450
+    },
+    "candles=2,face=floor,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2",
+      "y": 360
+    },
+    "candles=2,face=floor,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2_lit",
+      "y": 360
+    },
+    "candles=2,face=floor,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2",
+      "y": 180
+    },
+    "candles=2,face=floor,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2_lit",
+      "y": 180
+    },
+    "candles=2,face=floor,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2",
+      "y": 270
+    },
+    "candles=2,face=floor,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_2_lit",
+      "y": 270
+    },
+    "candles=2,face=wall,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2",
+      "y": 450
+    },
+    "candles=2,face=wall,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2_lit",
+      "y": 450
+    },
+    "candles=2,face=wall,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2",
+      "y": 360
+    },
+    "candles=2,face=wall,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2_lit",
+      "y": 360
+    },
+    "candles=2,face=wall,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2",
+      "y": 180
+    },
+    "candles=2,face=wall,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2_lit",
+      "y": 180
+    },
+    "candles=2,face=wall,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2",
+      "y": 270
+    },
+    "candles=2,face=wall,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_2_lit",
+      "y": 270
+    },
+    "candles=3,face=ceiling,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3",
+      "y": 450
+    },
+    "candles=3,face=ceiling,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3_lit",
+      "y": 450
+    },
+    "candles=3,face=ceiling,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3",
+      "y": 360
+    },
+    "candles=3,face=ceiling,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3_lit",
+      "y": 360
+    },
+    "candles=3,face=ceiling,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3",
+      "y": 180
+    },
+    "candles=3,face=ceiling,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3_lit",
+      "y": 180
+    },
+    "candles=3,face=ceiling,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3",
+      "y": 270
+    },
+    "candles=3,face=ceiling,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_3_lit",
+      "y": 270
+    },
+    "candles=3,face=floor,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3",
+      "y": 450
+    },
+    "candles=3,face=floor,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3_lit",
+      "y": 450
+    },
+    "candles=3,face=floor,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3",
+      "y": 360
+    },
+    "candles=3,face=floor,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3_lit",
+      "y": 360
+    },
+    "candles=3,face=floor,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3",
+      "y": 180
+    },
+    "candles=3,face=floor,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3_lit",
+      "y": 180
+    },
+    "candles=3,face=floor,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3",
+      "y": 270
+    },
+    "candles=3,face=floor,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_3_lit",
+      "y": 270
+    },
+    "candles=3,face=wall,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3",
+      "y": 450
+    },
+    "candles=3,face=wall,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3_lit",
+      "y": 450
+    },
+    "candles=3,face=wall,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3",
+      "y": 360
+    },
+    "candles=3,face=wall,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3_lit",
+      "y": 360
+    },
+    "candles=3,face=wall,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3",
+      "y": 180
+    },
+    "candles=3,face=wall,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3_lit",
+      "y": 180
+    },
+    "candles=3,face=wall,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3",
+      "y": 270
+    },
+    "candles=3,face=wall,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_3_lit",
+      "y": 270
+    },
+    "candles=4,face=ceiling,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4",
+      "y": 450
+    },
+    "candles=4,face=ceiling,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4_lit",
+      "y": 450
+    },
+    "candles=4,face=ceiling,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4",
+      "y": 360
+    },
+    "candles=4,face=ceiling,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4_lit",
+      "y": 360
+    },
+    "candles=4,face=ceiling,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4",
+      "y": 180
+    },
+    "candles=4,face=ceiling,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4_lit",
+      "y": 180
+    },
+    "candles=4,face=ceiling,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4",
+      "y": 270
+    },
+    "candles=4,face=ceiling,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_ceiling_4_lit",
+      "y": 270
+    },
+    "candles=4,face=floor,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4",
+      "y": 450
+    },
+    "candles=4,face=floor,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4_lit",
+      "y": 450
+    },
+    "candles=4,face=floor,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4",
+      "y": 360
+    },
+    "candles=4,face=floor,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4_lit",
+      "y": 360
+    },
+    "candles=4,face=floor,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4",
+      "y": 180
+    },
+    "candles=4,face=floor,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4_lit",
+      "y": 180
+    },
+    "candles=4,face=floor,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4",
+      "y": 270
+    },
+    "candles=4,face=floor,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_floor_4_lit",
+      "y": 270
+    },
+    "candles=4,face=wall,facing=east,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4",
+      "y": 450
+    },
+    "candles=4,face=wall,facing=east,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4_lit",
+      "y": 450
+    },
+    "candles=4,face=wall,facing=north,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4",
+      "y": 360
+    },
+    "candles=4,face=wall,facing=north,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4_lit",
+      "y": 360
+    },
+    "candles=4,face=wall,facing=south,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4",
+      "y": 180
+    },
+    "candles=4,face=wall,facing=south,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4_lit",
+      "y": 180
+    },
+    "candles=4,face=wall,facing=west,lit=false": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4",
+      "y": 270
+    },
+    "candles=4,face=wall,facing=west,lit=true": {
+      "model": "suppsquared:block/candle_holders/aqua_wall_4_lit",
+      "y": 270
+    }
+  }
+}

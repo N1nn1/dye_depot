@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_slate",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_slate",
       "required": false
     },

@@ -8,6 +8,7 @@ import com.ninni.dye_depot.registry.DyedHolders;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +17,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -40,10 +42,11 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS);
 
-        copy(ModCompat.SUPPLEMENTARIES, "candle_holders");
-        copy(ModCompat.SUPPLEMENTARIES, "flags");
-        copy(ModCompat.SUPPLEMENTARIES, "presents");
-        copy(ModCompat.SUPPLEMENTARIES, "trapped_presents");
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "trapped_present"), supplementariesTag("trapped_presents"));
 
         getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,
@@ -89,9 +92,8 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         return TagKey.create(Registries.ITEM, new ResourceLocation("c", path));
     }
 
-    private void copy(String namespace, String path) {
-        var key = new ResourceLocation(namespace, path);
-        copy(TagKey.create(Registries.BLOCK, key), TagKey.create(Registries.ITEM, key));
+    private TagKey<Item> supplementariesTag(String path) {
+        return TagKey.create(Registries.ITEM, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

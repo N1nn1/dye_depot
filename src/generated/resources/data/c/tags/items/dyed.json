@@ -704,6 +704,326 @@
     {
       "id": "dye_depot:tan_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_maroon",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_rose",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_coral",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_indigo",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_navy",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_beige",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_teal",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_mint",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_verdant",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_forest",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_ginger",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_maroon",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_rose",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_coral",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_indigo",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_navy",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_beige",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_teal",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_mint",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_verdant",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_forest",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_ginger",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_tan",
+      "required": false
     }
   ]
 }

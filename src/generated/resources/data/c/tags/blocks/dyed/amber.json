@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_amber",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_amber",
       "required": false
     },

@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_teal",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_teal",
       "required": false
     },

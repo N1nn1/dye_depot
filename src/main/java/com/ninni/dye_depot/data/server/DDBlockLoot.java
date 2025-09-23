@@ -47,8 +47,12 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
         var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
-        supplementariesHolders("candle_holder").values().forEach(it -> supplementariesLoot.add(it, createCandleHolderDrops(it)));
-        supplementariesHolders("flag").values().forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "flag").values()
+                .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
+        ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder").values()
+                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder").values()
+                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
     }
 
     private void dropBanner(Block block) {
@@ -69,10 +73,6 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
 
     private void dropShulkerBox(Block block) {
         add(block, createShulkerBoxDrop(block));
-    }
-
-    private DyedHolders<Block> supplementariesHolders(String name) {
-        return ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, name);
     }
 
     private LootTable.Builder createTable(Block block, LootPoolEntryContainer.Builder<?> entry) {

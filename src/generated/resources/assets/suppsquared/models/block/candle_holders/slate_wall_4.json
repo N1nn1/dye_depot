@@ -1,0 +1,6 @@
+{
+  "parent": "suppsquared:block/candle_holders/wall_4",
+  "textures": {
+    "all": "dye_depot:block/slate_candle"
+  }
+}

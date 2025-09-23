@@ -22,20 +22,6 @@
                   "block": "supplementaries:candle_holder_coral",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "candles": "1"
-                  }
-                }
-              ],
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "add": false,
-              "conditions": [
-                {
-                  "block": "supplementaries:candle_holder_coral",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
                     "candles": "2"
                   }
                 }
@@ -70,14 +56,12 @@
               ],
               "count": 4.0,
               "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
             }
           ],
           "name": "supplementaries:candle_holder_coral"
-        }
-      ],
-      "functions": [
-        {
-          "function": "minecraft:explosion_decay"
         }
       ],
       "rolls": 1.0

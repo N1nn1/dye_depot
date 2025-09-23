@@ -1,0 +1,6 @@
+{
+  "parent": "supplementaries:block/candle_holders/floor_4",
+  "textures": {
+    "all": "dye_depot:block/mint_candle_lit"
+  }
+}

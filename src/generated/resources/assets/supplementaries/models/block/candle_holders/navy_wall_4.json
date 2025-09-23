@@ -1,0 +1,6 @@
+{
+  "parent": "supplementaries:block/candle_holders/wall_4",
+  "textures": {
+    "all": "dye_depot:block/navy_candle"
+  }
+}

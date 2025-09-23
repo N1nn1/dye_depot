@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "packed=false": {
+      "model": "supplementaries:block/presents/forest_opened"
+    },
+    "packed=true": {
+      "model": "supplementaries:block/presents/forest_closed"
+    }
+  }
+}

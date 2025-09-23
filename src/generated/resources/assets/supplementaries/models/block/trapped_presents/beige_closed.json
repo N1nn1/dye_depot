@@ -1,0 +1,9 @@
+{
+  "parent": "supplementaries:block/present_closed_template",
+  "textures": {
+    "bottom": "supplementaries:block/presents/bottom_beige",
+    "particle": "supplementaries:block/trapped_presents/side_beige",
+    "side": "supplementaries:block/trapped_presents/side_beige",
+    "top": "supplementaries:block/presents/top_beige"
+  }
+}

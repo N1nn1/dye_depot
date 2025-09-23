@@ -40,6 +40,26 @@
     {
       "id": "dye_depot:aqua_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_aqua",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_aqua",
+      "required": false
     }
   ]
 }

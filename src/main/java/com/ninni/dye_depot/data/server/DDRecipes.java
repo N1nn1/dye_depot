@@ -172,6 +172,18 @@ public class DDRecipes extends FabricRecipeProvider {
                     .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
         });
 
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder").forEach((dye, block) -> {
+            var candle = DDBlocks.CANDLES.getOrThrow(dye);
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)
+                    .pattern("C")
+                    .pattern("N")
+                    .define('C', candle)
+                    .define('N', Items.GOLD_INGOT)
+                    .group("gold_candle_holder")
+                    .unlockedBy("has_candle", has(candle))
+                    .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
+        });
+
         ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag").forEach((dye, block) -> {
             var wool = DDBlocks.WOOL.getOrThrow(dye);
             ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block)

@@ -40,6 +40,26 @@
     {
       "id": "dye_depot:tan_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_tan",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_tan",
+      "required": false
     }
   ]
 }

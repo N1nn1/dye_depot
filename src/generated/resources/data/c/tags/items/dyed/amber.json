@@ -40,6 +40,26 @@
     {
       "id": "dye_depot:amber_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_amber",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_amber",
+      "required": false
     }
   ]
 }

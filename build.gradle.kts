@@ -53,6 +53,8 @@ loom {
             property("fabric-api.datagen.output-dir=${datagenOutput}")
             property("fabric-api.datagen.modid=${mod_id}")
             property("porting_lib.datagen.existing_resources=${file("src/main/resources").absolutePath}")
+            val existingMods = listOf("supplementaries", "suppsquared")
+            property("porting_lib.datagen.existing-mod=${existingMods.joinToString(";")}")
         }
     }
 }
@@ -70,10 +72,12 @@ dependencies {
     modCompileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version")
     modRuntimeOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_version")
 
-    val supplementaries_version: String by project.extra
     val moonlight_lib_version: String by project.extra
+    val supplementaries_version: String by project.extra
+    val supplementaries_squared_version: String by project.extra
     modImplementation("maven.modrinth:moonlight:$moonlight_lib_version")
     modImplementation("maven.modrinth:supplementaries:$supplementaries_version")
+    modImplementation("maven.modrinth:supplementaries-squared:$supplementaries_squared_version")
 
     // for data generation
     val porting_lib_version: String by project.extra

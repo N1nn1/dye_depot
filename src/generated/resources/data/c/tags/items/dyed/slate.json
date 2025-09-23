@@ -40,6 +40,26 @@
     {
       "id": "dye_depot:slate_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_slate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_slate",
+      "required": false
     }
   ]
 }

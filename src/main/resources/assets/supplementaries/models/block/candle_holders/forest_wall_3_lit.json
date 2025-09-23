@@ -1,9 +1,0 @@
-{
-	"credit": "Made with Blockbench",
-	"parent": "supplementaries:block/candle_holders/wall_3",
-	"textures": {
-		"2": "supplementaries:block/candle_holder",
-		"particle": "supplementaries:block/candle_holder",
-		"all": "dye_depot:block/forest_candle_lit"
-	}
-}

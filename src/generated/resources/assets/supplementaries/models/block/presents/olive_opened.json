@@ -1,0 +1,9 @@
+{
+  "parent": "supplementaries:block/present_opened_template",
+  "textures": {
+    "bottom": "supplementaries:block/presents/bottom_olive",
+    "particle": "supplementaries:block/presents/side_olive",
+    "side": "supplementaries:block/presents/side_olive",
+    "top": "supplementaries:block/presents/top_olive"
+  }
+}

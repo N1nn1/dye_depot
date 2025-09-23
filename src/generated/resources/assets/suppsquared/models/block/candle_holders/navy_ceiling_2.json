@@ -1,0 +1,6 @@
+{
+  "parent": "suppsquared:block/candle_holders/ceiling_2",
+  "textures": {
+    "all": "dye_depot:block/navy_candle"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "supplementaries:block/present_closed_template",
+  "textures": {
+    "bottom": "supplementaries:block/presents/bottom_mint",
+    "particle": "supplementaries:block/trapped_presents/side_mint",
+    "side": "supplementaries:block/trapped_presents/side_mint",
+    "top": "supplementaries:block/presents/top_mint"
+  }
+}

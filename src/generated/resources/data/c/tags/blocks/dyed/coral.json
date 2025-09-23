@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_coral",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_coral",
       "required": false
     },

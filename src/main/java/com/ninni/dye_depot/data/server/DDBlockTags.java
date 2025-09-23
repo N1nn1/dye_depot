@@ -11,6 +11,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
@@ -40,10 +41,11 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE);
 
-        tagDyed(supplementariesHolders("candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(supplementariesHolders("flag"), supplementariesTag("flags"));
-        tagDyed(supplementariesHolders("present"), supplementariesTag("presents"));
-        tagDyed(supplementariesHolders("trapped_present"), supplementariesTag("trapped_presents"));
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "candle_holder"), supplementariesTag("candle_holders"));
+        tagDyed(ModCompat.supplementariesSquaredHolders(BuiltInRegistries.BLOCK, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "flag"), supplementariesTag("flags"));
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "present"), supplementariesTag("presents"));
+        tagDyed(ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, "trapped_present"), supplementariesTag("trapped_presents"));
     }
 
     private void tag(DyedHolders<? extends Block> values, TagKey<Block> tag) {
@@ -72,10 +74,6 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
 
     private TagKey<Block> supplementariesTag(String path) {
         return TagKey.create(Registries.BLOCK, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
-    }
-
-    private DyedHolders<Block> supplementariesHolders(String name) {
-        return ModCompat.supplementariesHolders(BuiltInRegistries.BLOCK, name);
     }
 
 }

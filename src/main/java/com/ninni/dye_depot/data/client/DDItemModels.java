@@ -1,6 +1,7 @@
 package com.ninni.dye_depot.data.client;
 
 import com.ninni.dye_depot.DyeDepot;
+import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
@@ -35,15 +36,25 @@ public class DDItemModels extends ItemModelProvider {
         DDBlocks.WALL_BANNERS.values().forEach(this::banner);
         DDBlocks.BEDS.forEach(this::bed);
         DDBlocks.DYE_BASKETS.values().forEach(this::blockReference);
+
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "flag").values().forEach(this::flag);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "trapped_present").forEach(this::present);
+        ModCompat.supplementariesHolders(BuiltInRegistries.ITEM, "candle_holder").forEach(this::candleHolder);
+        ModCompat.supplementariesSquaredHolders(BuiltInRegistries.ITEM, "gold_candle_holder").forEach(this::candleHolder);
     }
 
     private void basicItem(ItemLike item) {
         basicItem(item.asItem());
     }
 
-    private void glassPane(DyeColor color, Block block) {
-        withExistingParent(name(block), vanillaResource("generated"))
-                .texture("layer0", blockTexture(DDBlocks.STAINED_GLASS.getOrNull(color)));
+    private void basicItem(ItemLike item, ResourceLocation texture) {
+        withExistingParent(key(item).toString(), vanillaResource("generated"))
+                .texture("layer0", texture);
+    }
+
+    private void glassPane(DyeColor color, ItemLike item) {
+        basicItem(item, blockTexture(DDBlocks.STAINED_GLASS.getOrNull(color)));
     }
 
     private ResourceLocation blockTexture(Block block) {
@@ -68,12 +79,30 @@ public class DDItemModels extends ItemModelProvider {
                 .texture("particle", blockTexture(DDBlocks.WOOL.getOrThrow(color)));
     }
 
+    private void candleHolder(DyeColor color, ItemLike item) {
+        var namespace = key(item).getNamespace();
+        basicItem(item, new ResourceLocation(namespace, "item/candle_holders/" + color));
+    }
+
+    private void flag(ItemLike item) {
+        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
+    }
+
+    private void present(DyeColor color, ItemLike item) {
+        var type = name(item).replace("_" + color, "");
+        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
+    }
+
     private ResourceLocation vanillaResource(String name) {
         return new ResourceLocation("item/" + name);
     }
 
     private String name(ItemLike item) {
-        return BuiltInRegistries.ITEM.getKey(item.asItem()).getPath();
+        return key(item).getPath();
+    }
+
+    private ResourceLocation key(ItemLike item) {
+        return BuiltInRegistries.ITEM.getKey(item.asItem());
     }
 
 }

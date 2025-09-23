@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_aqua",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_aqua",
       "required": false
     },

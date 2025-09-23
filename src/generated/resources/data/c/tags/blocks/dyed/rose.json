@@ -66,6 +66,10 @@
       "required": false
     },
     {
+      "id": "suppsquared:gold_candle_holder_rose",
+      "required": false
+    },
+    {
       "id": "supplementaries:flag_rose",
       "required": false
     },

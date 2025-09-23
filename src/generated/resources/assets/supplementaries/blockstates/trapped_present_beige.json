@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=east,packed=false,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=east,packed=false,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=east,packed=true,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=east,packed=true,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=north,packed=false,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=north,packed=false,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=north,packed=true,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=north,packed=true,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=south,packed=false,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=south,packed=false,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=south,packed=true,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=south,packed=true,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=west,packed=false,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=west,packed=false,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_opened"
+    },
+    "facing=west,packed=true,triggered=false": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    },
+    "facing=west,packed=true,triggered=true": {
+      "model": "supplementaries:block/trapped_presents/beige_closed"
+    }
+  }
+}

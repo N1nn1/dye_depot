@@ -1,0 +1,9 @@
+{
+  "parent": "supplementaries:block/present_opened_template",
+  "textures": {
+    "bottom": "supplementaries:block/presents/bottom_verdant",
+    "particle": "supplementaries:block/trapped_presents/side_verdant",
+    "side": "supplementaries:block/trapped_presents/side_verdant",
+    "top": "supplementaries:block/presents/top_verdant"
+  }
+}

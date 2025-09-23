@@ -40,6 +40,26 @@
     {
       "id": "dye_depot:olive_dye_basket",
       "required": false
+    },
+    {
+      "id": "supplementaries:candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "suppsquared:gold_candle_holder_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:flag_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:present_olive",
+      "required": false
+    },
+    {
+      "id": "supplementaries:trapped_present_olive",
+      "required": false
     }
   ]
 }
