@@ -11,7 +11,6 @@ import com.ninni.dye_depot.data.server.DDLoot;
 import com.ninni.dye_depot.data.server.DDLootModifiersProvider;
 import com.ninni.dye_depot.data.server.DDRecipes;
 import net.minecraft.ChatFormatting;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.data.event.GatherDataEvent;

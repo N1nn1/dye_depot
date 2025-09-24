@@ -7,12 +7,14 @@ import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
+
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -35,6 +37,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.conditions.FalseCondition;
 import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraft.world.level.block.Blocks;
 
 public class DDRecipes extends RecipeProvider {
 
@@ -52,6 +55,8 @@ public class DDRecipes extends RecipeProvider {
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> output) {
+        var namespace = DyeDepot.MOD_ID + ":";
+
         DDBlocks.BANNERS.forEach((dye, block) ->
                 banner(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
@@ -83,7 +88,17 @@ public class DDRecipes extends RecipeProvider {
         );
 
         DDBlocks.STAINED_GLASS_PANES.forEach((dye, block) -> {
-            stainedGlassPaneFromGlassPaneAndDye(output, block.value(), dyes.getOrThrow(dye));
+            var dyeItem = dyes.getOrThrow(dye);
+            ShapedRecipeBuilder
+                    .shaped(RecipeCategory.DECORATIONS, block.value(), 8)
+                    .define('#', Blocks.GLASS_PANE).define('$', dyeItem)
+                    .pattern("###")
+                    .pattern("#$#")
+                    .pattern("###")
+                    .group("stained_glass_pane")
+                    .unlockedBy("has_glass_pane", has(Blocks.GLASS_PANE))
+                    .unlockedBy(getHasName(dyeItem), has(dyeItem))
+                    .save(output, namespace + getConversionRecipeName(block.value(), Blocks.GLASS_PANE));
             stainedGlassPaneFromStainedGlass(output, block.value(), DDBlocks.STAINED_GLASS.getOrThrow(dye));
         });
 
@@ -94,7 +109,7 @@ public class DDRecipes extends RecipeProvider {
         DDBlocks.DYE_BASKETS.forEach((dye, block) -> {
             nineBlockStorageRecipes(
                     output, RecipeCategory.MISC, dyes.getOrThrow(dye), RecipeCategory.DECORATIONS, block.value(),
-                    getItemName(block.value()), null, dye + "_dye_from_basket", dye + "_dye"
+                    namespace + getItemName(block.value()), null, namespace + dye + "_dye_from_basket", dye + "_dye"
             );
         });
 
@@ -202,7 +217,12 @@ public class DDRecipes extends RecipeProvider {
     }
 
     private void dyeConversion(Consumer<FinishedRecipe> output, DyeColor dye, ItemLike from, int amount) {
-        oneToOneConversionRecipe(output, dyes.getOrThrow(dye), from, dye + "_dye", amount);
+        var to = dyes.getOrThrow(dye);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, to, amount)
+                .requires(from)
+                .group(dye + "_dye")
+                .unlockedBy(getHasName(from), has(from))
+                .save(output, DyeDepot.modLoc(getConversionRecipeName(to, from)));
     }
 
     private void dyeSmelting(Consumer<FinishedRecipe> output, DyeColor dye, TagKey<Item> ingredient) {
@@ -223,7 +243,7 @@ public class DDRecipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK)
                 .requires(Items.DEBUG_STICK)
                 .unlockedBy("never", has(Items.DEBUG_STICK))
-                .save(withConditions(output, FalseCondition.INSTANCE), id.withPrefix("keep_"));
+                .save(withConditions(output, FalseCondition.INSTANCE), id);
     }
 
     private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
@@ -248,7 +268,7 @@ public class DDRecipes extends RecipeProvider {
                     .requires(dye)
                     .group(group)
                     .unlockedBy(getHasName(dye), has(dye))
-                    .save(output, id.withPrefix("keep_dye_"));
+                    .save(output, id.withPrefix("dye_"));
         });
     }
 
@@ -298,16 +318,6 @@ public class DDRecipes extends RecipeProvider {
 
         builder.save(output, DyeDepot.modLoc(name));
     }
-
-    /**
-     * TODO check
-     *
-     * @Override protected ResourceLocation getRecipeIdentifier(ResourceLocation key) {
-     * // Do not replace namespace for specific recipes
-     * if (key.getPath().startsWith("keep_")) return key.withPath(it -> it.substring(5));
-     * return super.getRecipeIdentifier(key);
-     * }
-     **/
 
     public static String getHasName(TagKey<?> tag) {
         return "has_" + tag.location().getPath();
