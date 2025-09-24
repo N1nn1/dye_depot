@@ -1,12 +1,10 @@
 package com.ninni.dye_depot.registry;
 
-import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
 import com.ninni.dye_depot.client.renderer.DDBedRenderer;
 import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -20,7 +18,6 @@ import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -132,10 +129,6 @@ public class DDVanillaIntegration {
                         factories.add((entity, random) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(item, 3), 12, 1, 0.05f))
                 )
         );
-    }
-
-    private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> immutableMap) {
-        return new Int2ObjectOpenHashMap<>(immutableMap);
     }
 
     public static void clientInit() {
