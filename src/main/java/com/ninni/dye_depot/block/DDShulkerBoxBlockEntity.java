@@ -31,4 +31,9 @@ public class DDShulkerBoxBlockEntity extends ShulkerBoxBlockEntity {
     public BlockEntityType<?> getType() {
         return DDBlockEntityType.SHULKER_BOX;
     }
+
+    @Override
+    public boolean isValidBlockState(BlockState blockState) {
+        return true;
+    }
 }

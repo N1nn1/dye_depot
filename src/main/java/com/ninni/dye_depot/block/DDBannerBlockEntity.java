@@ -22,4 +22,8 @@ public class DDBannerBlockEntity extends BannerBlockEntity {
         return DDBlockEntityType.BANNER;
     }
 
+    @Override
+    public boolean isValidBlockState(BlockState blockState) {
+        return true;
+    }
 }
