@@ -1,57 +1,17 @@
 package com.ninni.dye_depot.registry;
 
-import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import java.util.stream.Stream;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BannerRenderer;
-import net.minecraft.client.renderer.blockentity.BedRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 public class DDVanillaIntegration {
 
     public static void commonInit() {
-        addResourcePacks();
-        registerLootTableAdditions();
         registerVillagerTrades();
     }
 
-    private static void registerLootTableAdditions() {
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if (id.equals(BuiltInLootTables.SHEPHERD_GIFT))
-                tableBuilder.modifyPools(builder ->
-                        DDBlocks.WOOL.forEach((dye, block) ->
-                                builder.add(LootItem.lootTableItem(block.value()))
-                        )
-                );
-            if (id.equals(BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY))
-                tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.DYES.getOrThrow(DDDyes.BEIGE.get())).setWeight(2)));
-            if (id.equals(BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY))
-                tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(DDItems.DYES.getOrThrow(DDDyes.VERDANT.get())).setWeight(3)));
-        });
-    }
-
     private static void registerVillagerTrades() {
-
         //Cartographer additions
         DDBlocks.BANNERS.forEach((dye, block) ->
                 TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories ->
@@ -128,41 +88,6 @@ public class DDVanillaIntegration {
                 TradeOfferHelper.registerWanderingTraderOffers(1, factories ->
                         factories.add((entity, random) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), ItemStack.EMPTY, new ItemStack(item, 3), 12, 1, 0.05f))
                 )
-        );
-    }
-
-    public static void clientInit() {
-        registerModelLayers();
-        registerBlockRenderLayers();
-        registerParticles();
-    }
-
-    public static void addResourcePacks() {
-        ModContainer modContainer = FabricLoader.getInstance().getModContainer(DyeDepot.MOD_ID).orElseThrow(() -> new IllegalStateException("Dye Depot's ModContainer couldn't be found!"));
-        ResourceManagerHelper.registerBuiltinResourcePack(DyeDepot.modLoc("dye_override"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED);
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <E extends BlockEntity> void registerRenderer(BlockEntityType<? extends E> type, BlockEntityRendererProvider<E> renderer) {
-        BlockEntityRendererRegistry.register((BlockEntityType<E>) type, renderer);
-    }
-
-    private static void registerModelLayers() {
-        registerRenderer(DDBlockEntityType.SHULKER_BOX, ShulkerBoxRenderer::new);
-        registerRenderer(DDBlockEntityType.BED, BedRenderer::new);
-        registerRenderer(DDBlockEntityType.BANNER, BannerRenderer::new);
-    }
-
-    private static void registerParticles() {
-        ParticleFactoryRegistry.getInstance().register(DDParticles.DYE_POOF, PoofParticleProvider::new);
-    }
-
-    private static void registerBlockRenderLayers() {
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
-                Stream.concat(
-                        DDBlocks.STAINED_GLASS.values(),
-                        DDBlocks.STAINED_GLASS_PANES.values()
-                ).toArray(Block[]::new)
         );
     }
 }

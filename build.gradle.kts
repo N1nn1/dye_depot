@@ -1,17 +1,19 @@
 plugins {
-    id("fabric-loom") version "1.11-SNAPSHOT"
+    id("net.minecraftforge.gradle") version "[6.0,6.2)"
+    id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
     id("com.diffplug.spotless") version "7.0.4"
     `maven-publish`
 }
 
 val minecraft_version: String by extra
-val fabric_api_version: String by extra
-val fabric_loader_version: String by extra
+val forge_version: String by extra
 val mod_id: String by extra
 val mod_name: String by extra
 val mod_version: String by extra
 val maven_group: String by extra
 val repository: String by extra
+val mixin_version: String by extra
+val mixin_extras_version: String by extra
 
 base {
     archivesName = mod_id
@@ -31,12 +33,6 @@ repositories {
             includeGroup("maven.modrinth")
         }
     }
-    maven {
-        url = uri("https://mvn.devos.one/releases/")
-        content {
-            includeGroup("io.github.fabricators_of_create.Porting-Lib")
-        }
-    }
 }
 
 val datagenOutput = file("src/generated/resources").absolutePath
@@ -44,34 +40,58 @@ sourceSets.main {
     resources.srcDir(datagenOutput)
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/$mod_id.accesswidener")
+minecraft {
+    mappings("official", minecraft_version)
+
+    accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs {
+        create("client")
+        create("server") {
+            workingDirectory("run/server")
+        }
         create("data") {
-            client()
-            property("fabric-api.datagen")
-            property("fabric-api.datagen.output-dir=${datagenOutput}")
-            property("fabric-api.datagen.modid=${mod_id}")
-            property("porting_lib.datagen.existing_resources=${file("src/main/resources").absolutePath}")
             val existingMods = listOf("supplementaries", "suppsquared")
-            property("porting_lib.datagen.existing-mod=${existingMods.joinToString(",")}")
+            args(
+                listOf(
+                    "--mod",
+                    mod_id,
+                    "--all",
+                    "--output",
+                    datagenOutput,
+                    "--existing",
+                    file("src/main/resources/"),
+                ) + existingMods.flatMap {
+                    listOf("--existing-mod", it)
+                })
         }
     }
 }
 
+mixin {
+    config("${mod_id}.mixins.json")
+}
+
+fun DependencyHandler.modImplementation(notation: String) = implementation(fg.deobf(notation))
+fun DependencyHandler.modCompileOnly(notation: String) = compileOnly(fg.deobf(notation))
+fun DependencyHandler.modRuntimeOnly(notation: String) = runtimeOnly(fg.deobf(notation))
 
 dependencies {
-    minecraft("com.mojang:minecraft:$minecraft_version")
-    mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:$fabric_loader_version")
+    minecraft("net.minecraftforge:forge:$minecraft_version-$forge_version")
+    annotationProcessor("org.spongepowered:mixin:$mixin_version:processor")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:$mixin_extras_version")!!)
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:$mixin_extras_version") {
+        version {
+            strictly("[$mixin_extras_version,)")
+            prefer(mixin_extras_version)
+        }
+    })
 
     val jei_version: String by project.extra
     modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version")
-    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version")
-    modRuntimeOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_version")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-forge-api:$jei_version")
+    modRuntimeOnly("mezz.jei:jei-$minecraft_version-forge:$jei_version")
 
     val moonlight_lib_version: String by project.extra
     val supplementaries_version: String by project.extra
@@ -79,17 +99,13 @@ dependencies {
     modImplementation("maven.modrinth:moonlight:$moonlight_lib_version")
     modImplementation("maven.modrinth:supplementaries:$supplementaries_version")
     modImplementation("maven.modrinth:supplementaries-squared:$supplementaries_squared_version")
-
-    // for data generation
-    val porting_lib_version: String by project.extra
-    modImplementation("io.github.fabricators_of_create.Porting-Lib:model_generators:$porting_lib_version")
 }
 
 tasks.withType<ProcessResources> {
     inputs.property("version", mod_version)
     filesMatching(
         listOf(
-            "fabric.mod.json",
+            "META-INF/mods.toml",
             "${mod_id}*.mixins.json",
         )
     ) {

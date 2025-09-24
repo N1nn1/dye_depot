@@ -1,12 +1,4 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "supplementaries"
-      ]
-    }
-  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -66,5 +58,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "suppsquared:blocks/gold_candle_holder_navy"
 }

@@ -8,8 +8,7 @@
     "MapBannerMixin",
     "MapDecorationTypeMixin",
     "SheepMixin",
-    "ShulkerBoxBlockMixin",
-    "data.PathPackResourcesMixin"
+    "ShulkerBoxBlockMixin"
   ],
   "client": [
     "client.BedRendererMixin",

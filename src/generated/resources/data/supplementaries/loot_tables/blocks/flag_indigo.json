@@ -1,12 +1,4 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "supplementaries"
-      ]
-    }
-  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -41,5 +33,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "supplementaries:blocks/flag_indigo"
 }

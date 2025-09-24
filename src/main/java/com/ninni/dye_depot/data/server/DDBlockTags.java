@@ -1,24 +1,26 @@
 package com.ninni.dye_depot.data.server;
 
+import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
+public class DDBlockTags extends BlockTagsProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
-    public DDBlockTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output, lookup);
+    public DDBlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, ExistingFileHelper fileHelper) {
+        super(output, lookup, DyeDepot.MOD_ID, fileHelper);
         this.lookup = lookup;
     }
 

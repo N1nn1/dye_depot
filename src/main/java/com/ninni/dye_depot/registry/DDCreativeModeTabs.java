@@ -3,21 +3,50 @@ package com.ninni.dye_depot.registry;
 import static com.ninni.dye_depot.registry.DDItems.*;
 import static net.minecraft.world.item.Items.*;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import com.ninni.dye_depot.DyeDepot;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
+@EventBusSubscriber(modid = DyeDepot.MOD_ID)
 public class DDCreativeModeTabs {
-    static {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
-            addDyed(entries, DYES, "dye");
-        });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
+    interface Entries {
+        void addBefore(ItemLike reference, ItemLike... values);
+        void addAfter(ItemLike reference, ItemLike... values);
+    }
+
+    @SubscribeEvent
+    public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
+        var tab = event.getTabKey();
+        var entries = new Entries() {
+            @Override
+            public void addBefore(ItemLike reference, ItemLike... values) {
+                for (ItemLike value : values) {
+                    event.getEntries().putBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            }
+
+            @Override
+            public void addAfter(ItemLike reference, ItemLike... values) {
+                for (ItemLike value : values) {
+                    event.getEntries().putBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            }
+        };
+
+        if (tab == CreativeModeTabs.INGREDIENTS) {
+            addDyed(entries, DYES, "dye");
+        }
+
+        if (tab == CreativeModeTabs.COLORED_BLOCKS) {
             entries.addBefore(WHITE_WOOL,
                     DDBlocks.DYE_BASKETS.getOrThrow(DyeColor.WHITE),
                     DDBlocks.DYE_BASKETS.getOrThrow(DyeColor.LIGHT_GRAY),
@@ -72,10 +101,10 @@ public class DDCreativeModeTabs {
             addDyed(entries, DDBlocks.CANDLES, "candle");
 
             addDyed(entries, DDBlocks.BANNERS, "banner");
-        });
+        }
 
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+        if (tab == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             addDyed(entries, DDBlocks.SHULKER_BOXES, "shulker_box");
 
             addDyed(entries, DDBlocks.BEDS, "bed");
@@ -83,14 +112,14 @@ public class DDCreativeModeTabs {
             addDyed(entries, DDBlocks.CANDLES, "candle");
 
             addDyed(entries, DDBlocks.BANNERS, "banner");
-        });
+        }
     }
 
-    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
+    private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
         addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), new ResourceLocation(baseName)));
     }
 
-    private static void addDyed(FabricItemGroupEntries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {
+    private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {
         entries.addBefore(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.MAROON.get()), values.getOrThrow(DDDyes.ROSE.get()));
         entries.addAfter(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.CORAL.get()));
         entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.GINGER.get()));

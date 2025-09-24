@@ -23,7 +23,7 @@ public class DDBedBlockEntity extends BedBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DDBlockEntityType.BED;
+        return DDBlockEntityType.BED.get();
     }
 
     public DyeColor getColor() {

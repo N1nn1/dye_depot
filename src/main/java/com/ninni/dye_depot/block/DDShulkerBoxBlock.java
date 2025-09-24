@@ -29,12 +29,12 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
+        return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX.get(), ShulkerBoxBlockEntity::tick);
     }
 
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         ItemStack itemStack = super.getCloneItemStack(blockGetter, blockPos, blockState);
-        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack));
+        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX.get()).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack));
         return itemStack;
     }
 

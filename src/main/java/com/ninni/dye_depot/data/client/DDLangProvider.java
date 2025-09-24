@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.data.client;
 
+import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
@@ -7,25 +8,27 @@ import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.data.LanguageProvider;
 
-public abstract class DDLangProvider extends FabricLanguageProvider {
+public abstract class DDLangProvider extends LanguageProvider implements TranslationBuilder {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
-    protected DDLangProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output);
+    protected DDLangProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, DyeDepot.MOD_ID, "en_us");
         this.lookup = lookup;
     }
 
     @Override
-    public final void generateTranslations(TranslationBuilder builder) {
+    public final void addTranslations() {
+        var builder = this;
+
         var lookup = this.lookup.join();
         var itemLookup = lookup.lookupOrThrow(Registries.ITEM);
         var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);

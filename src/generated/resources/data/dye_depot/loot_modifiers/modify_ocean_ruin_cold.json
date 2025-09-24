@@ -1,0 +1,22 @@
+{
+  "type": "dye_depot:replace_drop",
+  "conditions": [
+    {
+      "chance": 0.1,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/ocean_ruin_cold"
+    }
+  ],
+  "items": [
+    {
+      "data": {
+        "Count": 1,
+        "id": "dye_depot:verdant_dye"
+      },
+      "weight": 1
+    }
+  ]
+}

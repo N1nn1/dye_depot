@@ -5,39 +5,48 @@ import com.ninni.dye_depot.data.client.DDBlockModels;
 import com.ninni.dye_depot.data.client.DDItemModels;
 import com.ninni.dye_depot.data.client.DDLang;
 import com.ninni.dye_depot.data.client.DDLangOverrides;
-import com.ninni.dye_depot.data.server.DDBlockLoot;
 import com.ninni.dye_depot.data.server.DDBlockTags;
-import com.ninni.dye_depot.data.server.DDEntityLoot;
 import com.ninni.dye_depot.data.server.DDItemTags;
+import com.ninni.dye_depot.data.server.DDLoot;
+import com.ninni.dye_depot.data.server.DDLootModifiersProvider;
 import com.ninni.dye_depot.data.server.DDRecipes;
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.ChatFormatting;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
+import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-public class DyeDepotDatagen implements DataGeneratorEntrypoint {
+@EventBusSubscriber(modid = DyeDepot.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+public class DyeDepotDatagen {
 
-    @Override
-    public void onInitializeDataGenerator(FabricDataGenerator generator) {
-        var pack = generator.createPack();
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent event) {
+        var generator = event.getGenerator();
+        var output = generator.getPackOutput();
+        var lookup = event.getLookupProvider();
+        var fileHelper = event.getExistingFileHelper();
 
-        pack.addProvider((output, $) -> new DDPackMetadata(output, Component.literal(DyeDepot.MOD_ID + " resources")));
+        var client = event.includeClient();
+        var server = event.includeServer();
 
-        var blockTags = pack.addProvider(DDBlockTags::new);
-        pack.addProvider((output, lookup) -> new DDItemTags(output, lookup, blockTags));
-        pack.addProvider(DDBlockLoot::new);
-        pack.addProvider(DDEntityLoot::new);
-        pack.addProvider(DDRecipes::new);
+        generator.addProvider(true, new DDPackMetadata(output, Component.literal(DyeDepot.MOD_ID + " resources")));
 
-        var fileHelper = ExistingFileHelper.withResourcesFromArg();
-        pack.addProvider((output, lookup) -> new DDBlockModels(output, lookup, fileHelper));
-        pack.addProvider((output, lookup) -> new DDItemModels(output, lookup, fileHelper));
-        pack.addProvider(DDLang::new);
+        var blockTags = generator.addProvider(server, new DDBlockTags(output, lookup, fileHelper));
+        generator.addProvider(server, new DDItemTags(output, lookup, blockTags.contentsGetter()));
+        generator.addProvider(server, new DDLoot(output, lookup));
+        generator.addProvider(server, new DDRecipes(output, lookup));
+        generator.addProvider(server, new DDLootModifiersProvider(output));
 
-        var overrides = generator.createBuiltinResourcePack(DyeDepot.modLoc("dye_override"));
-        overrides.addProvider((output, $) -> new DDPackMetadata(output, Component.literal("Slight dye adjustments").withStyle(ChatFormatting.GRAY)));
-        overrides.addProvider(DDLangOverrides::new);
+        generator.addProvider(client, new DDBlockModels(output, lookup, fileHelper));
+        generator.addProvider(client, new DDItemModels(output, lookup, fileHelper));
+        generator.addProvider(client, new DDLang(output, lookup));
+
+        var supplementariesPack = generator.getBuiltinDatapack(client, "dye_override");
+        var supplementariesOutput = new PackOutput(output.getOutputFolder().resolve("resourcepacks/dye_override"));
+        supplementariesPack.addProvider($ -> new DDPackMetadata(supplementariesOutput, Component.literal("Slight dye adjustments").withStyle(ChatFormatting.GRAY)));
+        supplementariesPack.addProvider($ -> new DDLangOverrides(supplementariesOutput, lookup));
     }
 
 }

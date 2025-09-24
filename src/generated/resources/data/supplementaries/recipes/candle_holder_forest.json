@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "candle_holder",
+  "key": {
+    "C": {
+      "item": "dye_depot:forest_candle"
+    },
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "NCN",
+    " N "
+  ],
+  "result": {
+    "item": "supplementaries:candle_holder_forest"
+  },
+  "show_notification": true
+}

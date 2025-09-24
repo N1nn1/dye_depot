@@ -2,12 +2,14 @@ package com.ninni.dye_depot.data.server;
 
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BedPart;
@@ -19,12 +21,12 @@ import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
 import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 
-public class DDBlockLoot extends FabricBlockLootTableProvider {
+public class DDBlockLoot extends BlockLootSubProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
-    public DDBlockLoot(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output);
+    public DDBlockLoot(CompletableFuture<HolderLookup.Provider> lookup) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
         this.lookup = lookup;
     }
 
@@ -32,7 +34,7 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
     public void generate() {
         var lookup = this.lookup.join();
         var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
-        
+
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
@@ -48,7 +50,9 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.TERRACOTTA.values().forEach(this::dropSelf);
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
-        var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
+        // TODO this is not possible in forge, use forge-fix?
+        // var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
+        var supplementariesLoot = this;
         ModCompat.supplementariesHolders(blockLookup, "flag").values()
                 .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
         ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
@@ -93,4 +97,16 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         return createTable(block, entry);
     }
 
+    private final Collection<Block> knownBlocks = new HashSet<>();
+
+    @Override
+    protected void add(Block block, LootTable.Builder builder) {
+        super.add(block, builder);
+        knownBlocks.add(block);
+    }
+
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return knownBlocks;
+    }
 }

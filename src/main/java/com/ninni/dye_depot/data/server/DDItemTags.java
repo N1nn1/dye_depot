@@ -1,28 +1,31 @@
 package com.ninni.dye_depot.data.server;
 
+import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
-public class DDItemTags extends FabricTagProvider.ItemTagProvider {
+public class DDItemTags extends ItemTagsProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
-    public DDItemTags(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup, BlockTagProvider blockTags) {
-        super(output, lookup, blockTags);
+    public DDItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, CompletableFuture<TagsProvider.TagLookup<Block>> blockTags) {
+        super(output, lookup, blockTags, DyeDepot.MOD_ID, null);
         this.lookup = lookup;
     }
 
@@ -50,7 +53,7 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(ModCompat.supplementariesHolders(itemLookup, "present"), supplementariesTag("presents"));
         tagDyed(ModCompat.supplementariesHolders(itemLookup, "trapped_present"), supplementariesTag("trapped_presents"));
 
-        getOrCreateTagBuilder(DDTags.SMELTS_INTO_CORAL_DYE).add(
+        tag(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,
                 Items.BRAIN_CORAL,
                 Items.BUBBLE_CORAL,

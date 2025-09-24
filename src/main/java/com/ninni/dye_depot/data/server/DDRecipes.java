@@ -13,14 +13,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
@@ -34,14 +33,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.crafting.conditions.FalseCondition;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 
-public class DDRecipes extends FabricRecipeProvider {
+public class DDRecipes extends RecipeProvider {
 
     private final DyedHolders<Item, Item> dyes;
     private final HolderLookup.RegistryLookup<Block> blockLookup;
     private final HolderLookup.RegistryLookup<Item> itemLookup;
 
-    public DDRecipes(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookupFuture) {
+    public DDRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupFuture) {
         super(output);
         var lookup = lookupFuture.join();
         this.dyes = DDItems.DYES.mergeVanilla(lookup.lookupOrThrow(Registries.ITEM));
@@ -222,7 +223,7 @@ public class DDRecipes extends FabricRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK)
                 .requires(Items.DEBUG_STICK)
                 .unlockedBy("never", has(Items.DEBUG_STICK))
-                .save(withConditions(output, DefaultResourceConditions.not(DefaultResourceConditions.anyModLoaded(DyeDepot.MOD_ID))), id.withPrefix("keep_"));
+                .save(withConditions(output, FalseCondition.INSTANCE), id.withPrefix("keep_"));
     }
 
     private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
@@ -298,15 +299,23 @@ public class DDRecipes extends FabricRecipeProvider {
         builder.save(output, DyeDepot.modLoc(name));
     }
 
-    @Override
-    protected ResourceLocation getRecipeIdentifier(ResourceLocation id) {
-        // Do not replace namespace for specific recipes
-        if (id.getPath().startsWith("keep_")) return id.withPath(it -> it.substring(5));
-        return super.getRecipeIdentifier(id);
-    }
+    /**
+     * TODO check
+     *
+     * @Override protected ResourceLocation getRecipeIdentifier(ResourceLocation key) {
+     * // Do not replace namespace for specific recipes
+     * if (key.getPath().startsWith("keep_")) return key.withPath(it -> it.substring(5));
+     * return super.getRecipeIdentifier(key);
+     * }
+     **/
 
     public static String getHasName(TagKey<?> tag) {
         return "has_" + tag.location().getPath();
+    }
+
+    public static Consumer<FinishedRecipe> withConditions(Consumer<FinishedRecipe> output, ICondition... conditions) {
+        // TODO
+        return output;
     }
 
 }

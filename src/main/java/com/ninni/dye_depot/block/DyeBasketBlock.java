@@ -41,7 +41,7 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
         super.entityInside(blockState, level, blockPos, entity);
         if (level instanceof ServerLevel serverLevel && serverLevel.random.nextInt(15) == 0) {
-            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF, blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
+            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF.get(), blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
         }
     }
 
@@ -61,8 +61,8 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
 
     public void spawnParticles(Level level, BlockPos blockPos, BlockState state) {
         if (level instanceof ServerLevel serverLevel) {
-            level.playSound(null, blockPos, DDSoundEvents.DYE_BASKET_POOF, SoundSource.BLOCKS,1.5f, 1);
-            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF, state), blockPos.getX() + 0.5,blockPos.getY() + 1.2,blockPos.getZ() + 0.5, 60, 0.75, 0.2, 0.75, 3.0);
+            level.playSound(null, blockPos, DDSoundEvents.DYE_BASKET_POOF.get(), SoundSource.BLOCKS,1.5f, 1);
+            serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF.get(), state), blockPos.getX() + 0.5,blockPos.getY() + 1.2,blockPos.getZ() + 0.5, 60, 0.75, 0.2, 0.75, 3.0);
         }
     }
 

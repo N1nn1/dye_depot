@@ -6,13 +6,13 @@ import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
 
 public class DDLang extends DDLangProvider {
 
-    public DDLang(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+    public DDLang(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         super(output, lookup);
     }
 

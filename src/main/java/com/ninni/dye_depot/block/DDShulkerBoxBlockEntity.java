@@ -29,6 +29,6 @@ public class DDShulkerBoxBlockEntity extends ShulkerBoxBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DDBlockEntityType.SHULKER_BOX;
+        return DDBlockEntityType.SHULKER_BOX.get();
     }
 }

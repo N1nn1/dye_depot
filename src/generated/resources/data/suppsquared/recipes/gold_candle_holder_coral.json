@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "gold_candle_holder",
+  "key": {
+    "C": {
+      "item": "dye_depot:coral_candle"
+    },
+    "N": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "C",
+    "N"
+  ],
+  "result": {
+    "item": "suppsquared:gold_candle_holder_coral"
+  },
+  "show_notification": true
+}

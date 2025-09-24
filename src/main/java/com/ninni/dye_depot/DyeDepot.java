@@ -1,33 +1,39 @@
 package com.ninni.dye_depot;
 
-import com.google.common.reflect.Reflection;
 import com.ninni.dye_depot.registry.*;
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-public class DyeDepot implements ModInitializer {
+@Mod(DyeDepot.MOD_ID)
+public class DyeDepot {
     public static final String MOD_ID = "dye_depot";
 
     public static ResourceLocation modLoc(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
 
-    @Override
-    public void onInitialize() {
-        DDVanillaIntegration.commonInit();
-        Reflection.initialize(
-                DDItems.class,
-                DDBlocks.class,
-                DDBlockEntityType.class,
-                DDParticles.class,
-                DDSoundEvents.class,
-                DDCreativeModeTabs.class
-        );
+    public DyeDepot() {
+        var modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        DDItems.register(modBus);
+        DDBlocks.register(modBus);
+        DDBlockEntityType.register(modBus);
+        DDParticles.register(modBus);
+        DDSoundEvents.register(modBus);
+        DDLootModifiers.register(modBus);
+
+        modBus.addListener(this::setup);
+    }
+
+    private void setup(FMLCommonSetupEvent event) {
+        DDVanillaIntegration.commonInit();
         DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->
-            DispenserBlock.registerBehavior(shulkerBox.value(), new ShulkerBoxDispenseBehavior())
+                DispenserBlock.registerBehavior(shulkerBox.value(), new ShulkerBoxDispenseBehavior())
         );
     }
+
 }

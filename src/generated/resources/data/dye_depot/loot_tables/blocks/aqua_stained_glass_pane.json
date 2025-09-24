@@ -26,5 +26,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "dye_depot:blocks/aqua_stained_glass_pane"
 }

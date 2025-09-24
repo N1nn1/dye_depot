@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:keep_magenta_dye_from_blue_red_pink"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "never": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:debug_stick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "never",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:keep_magenta_dye_from_blue_red_pink"
+    ]
+  },
+  "sends_telemetry_event": false
+}

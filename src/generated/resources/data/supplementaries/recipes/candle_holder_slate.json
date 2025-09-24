@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "candle_holder",
+  "key": {
+    "C": {
+      "item": "dye_depot:slate_candle"
+    },
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "NCN",
+    " N "
+  ],
+  "result": {
+    "item": "supplementaries:candle_holder_slate"
+  },
+  "show_notification": true
+}

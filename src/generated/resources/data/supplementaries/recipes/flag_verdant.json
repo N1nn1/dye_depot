@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "flag",
+  "key": {
+    "#": {
+      "item": "dye_depot:verdant_wool"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "|  "
+  ],
+  "result": {
+    "item": "supplementaries:flag_verdant"
+  },
+  "show_notification": true
+}
