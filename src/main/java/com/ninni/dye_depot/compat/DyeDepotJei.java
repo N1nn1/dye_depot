@@ -1,11 +1,6 @@
 package com.ninni.dye_depot.compat;
 
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.registry.DDDyes;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 import com.ninni.dye_depot.registry.DyedHolders;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
