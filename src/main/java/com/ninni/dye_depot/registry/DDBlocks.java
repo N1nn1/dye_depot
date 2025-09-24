@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.*;
 import java.util.Map;
+import java.util.function.Supplier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,15 +23,15 @@ import net.minecraft.world.level.material.PushReaction;
 public class DDBlocks {
 
     public static final DyedHolders<Block, Block> WOOL = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_wool", new Block(Properties.copy(Blocks.WHITE_WOOL).mapColor(dye)))
+            registerWithItem(dye + "_wool", () -> new Block(Properties.copy(Blocks.WHITE_WOOL).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> CARPETS = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_carpet", new WoolCarpetBlock(dye, Properties.copy(Blocks.WHITE_CARPET).mapColor(dye)))
+            registerWithItem(dye + "_carpet", () -> new WoolCarpetBlock(dye, Properties.copy(Blocks.WHITE_CARPET).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> TERRACOTTA = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_terracotta", new Block(Properties.copy(Blocks.WHITE_TERRACOTTA).mapColor(dye)))
+            registerWithItem(dye + "_terracotta", () -> new Block(Properties.copy(Blocks.WHITE_TERRACOTTA).mapColor(dye)))
     );
 
     private static final Map<DyeColor, MapColor> CONCRETE_COLORS = new ImmutableMap.Builder<DyeColor, MapColor>()
@@ -53,51 +54,51 @@ public class DDBlocks {
             .build();
 
     public static final DyedHolders<Block, Block> CONCRETE = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_concrete", new Block(Properties.copy(Blocks.WHITE_CONCRETE).mapColor(CONCRETE_COLORS.get(dye))))
+            registerWithItem(dye + "_concrete", () -> new Block(Properties.copy(Blocks.WHITE_CONCRETE).mapColor(CONCRETE_COLORS.get(dye))))
     );
 
     public static final DyedHolders<Block, Block> CONCRETE_POWDER = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_concrete_powder", new ConcretePowderBlock(CONCRETE.getOrThrow(dye), Properties.copy(Blocks.WHITE_CONCRETE_POWDER).mapColor(dye)))
+            registerWithItem(dye + "_concrete_powder", () -> new ConcretePowderBlock(CONCRETE.getOrThrow(dye), Properties.copy(Blocks.WHITE_CONCRETE_POWDER).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> GLAZED_TERRACOTTA = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_glazed_terracotta", new GlazedTerracottaBlock(Properties.copy(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(dye)))
+            registerWithItem(dye + "_glazed_terracotta", () -> new GlazedTerracottaBlock(Properties.copy(Blocks.WHITE_GLAZED_TERRACOTTA).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> STAINED_GLASS = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_stained_glass", new StainedGlassBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS)))
+            registerWithItem(dye + "_stained_glass", () -> new StainedGlassBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS)))
     );
 
     public static final DyedHolders<StainedGlassPaneBlock, Block> STAINED_GLASS_PANES = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_stained_glass_pane", new StainedGlassPaneBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS_PANE)))
+            registerWithItem(dye + "_stained_glass_pane", () -> new StainedGlassPaneBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
     public static final DyedHolders<Block, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
-            register(dye + "_shulker_box", shulkerBox(dye, Properties.of().mapColor(dye)))
+            register(dye + "_shulker_box", () -> shulkerBox(dye, Properties.of().mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> CANDLES = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_candle", new CandleBlock(Properties.copy(Blocks.WHITE_CANDLE).mapColor(dye)))
+            registerWithItem(dye + "_candle", () -> new CandleBlock(Properties.copy(Blocks.WHITE_CANDLE).mapColor(dye)))
     );
 
     public static final DyedHolders<Block, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
-            register(dye + "_candle_cake", new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.copy(Blocks.WHITE_CANDLE_CAKE)))
+            register(dye + "_candle_cake", () -> new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.copy(Blocks.WHITE_CANDLE_CAKE)))
     );
 
     public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", banner(dye))
+            register(dye + "_banner", () -> banner(dye))
     );
 
     public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_wall_banner", wallBanner(dye))
+            register(dye + "_wall_banner", () -> wallBanner(dye))
     );
 
     public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->
-            register(dye + "_bed", bed(dye))
+            register(dye + "_bed", () -> bed(dye))
     );
 
     public static final DyedHolders<Block, Block> DYE_BASKETS = DyedHolders.createWithVanilla(dye ->
-            registerWithItem(dye + "_dye_basket", new DyeBasketBlock(dye, Properties.of().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
+            registerWithItem(dye + "_dye_basket", () -> new DyeBasketBlock(dye, Properties.of().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
     );
 
     private static BannerBlock banner(DyeColor dye) {
@@ -139,12 +140,13 @@ public class DDBlocks {
     }
 
     @SuppressWarnings("unchecked")
-    private static <T extends Block> Holder<T> register(String id, T block) {
-        return (Holder<T>) Registry.registerForHolder(BuiltInRegistries.BLOCK, DyeDepot.modLoc(id), block);
+    private static <T extends Block> Holder<T> register(String id, Supplier<T> block) {
+        return (Holder<T>) Registry.registerForHolder(BuiltInRegistries.BLOCK, DyeDepot.modLoc(id), block.get());
     }
 
-    private static <T extends Block> Holder<T> registerWithItem(String id, T block) {
-        Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), new BlockItem(block, new Item.Properties()));
-        return register(id, block);
+    private static <T extends Block> Holder<T> registerWithItem(String id, Supplier<T> block) {
+        var supplier = register(id, block);
+        Registry.register(BuiltInRegistries.ITEM, DyeDepot.modLoc(id), new BlockItem(supplier.value(), new Item.Properties()));
+        return supplier;
     }
 }
