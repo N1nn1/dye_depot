@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:amber_dye_from_honeycomb"
+        "recipe": "dye_depot:amber_dye_from_honeycomb"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:amber_dye_from_honeycomb"
+      "dye_depot:amber_dye_from_honeycomb"
     ]
   },
   "sends_telemetry_event": false

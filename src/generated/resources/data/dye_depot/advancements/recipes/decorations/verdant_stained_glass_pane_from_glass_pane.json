@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:verdant_stained_glass_pane_from_glass_pane"
+        "recipe": "dye_depot:verdant_stained_glass_pane_from_glass_pane"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:verdant_stained_glass_pane_from_glass_pane"
+      "dye_depot:verdant_stained_glass_pane_from_glass_pane"
     ]
   },
   "sends_telemetry_event": false

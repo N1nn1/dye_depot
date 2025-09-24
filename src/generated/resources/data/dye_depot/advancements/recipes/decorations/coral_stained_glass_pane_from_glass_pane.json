@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coral_stained_glass_pane_from_glass_pane"
+        "recipe": "dye_depot:coral_stained_glass_pane_from_glass_pane"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coral_stained_glass_pane_from_glass_pane"
+      "dye_depot:coral_stained_glass_pane_from_glass_pane"
     ]
   },
   "sends_telemetry_event": false

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:yellow_dye_from_basket"
+        "recipe": "dye_depot:yellow_dye_from_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:yellow_dye_from_basket"
+      "dye_depot:yellow_dye_from_basket"
     ]
   },
   "sends_telemetry_event": false

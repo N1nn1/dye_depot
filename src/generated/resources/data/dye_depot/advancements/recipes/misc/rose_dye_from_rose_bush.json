@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:rose_dye_from_rose_bush"
+        "recipe": "dye_depot:rose_dye_from_rose_bush"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:rose_dye_from_rose_bush"
+      "dye_depot:rose_dye_from_rose_bush"
     ]
   },
   "sends_telemetry_event": false

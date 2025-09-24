@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:white_dye_basket"
+        "recipe": "dye_depot:white_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:white_dye_basket"
+      "dye_depot:white_dye_basket"
     ]
   },
   "sends_telemetry_event": false

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:forest_dye_from_bamboo"
+        "recipe": "dye_depot:forest_dye_from_bamboo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:forest_dye_from_bamboo"
+      "dye_depot:forest_dye_from_bamboo"
     ]
   },
   "sends_telemetry_event": false

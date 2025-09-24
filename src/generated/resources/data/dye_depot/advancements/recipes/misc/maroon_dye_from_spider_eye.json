@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:maroon_dye_from_spider_eye"
+        "recipe": "dye_depot:maroon_dye_from_spider_eye"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:maroon_dye_from_spider_eye"
+      "dye_depot:maroon_dye_from_spider_eye"
     ]
   },
   "sends_telemetry_event": false

@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_slate_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:slate_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:dye_slate_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool_carpets": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wool_carpets"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wool_carpets",
+      "has_slate_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:dye_slate_carpet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

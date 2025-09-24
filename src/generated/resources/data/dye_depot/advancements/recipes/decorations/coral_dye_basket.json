@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coral_dye_basket"
+        "recipe": "dye_depot:coral_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coral_dye_basket"
+      "dye_depot:coral_dye_basket"
     ]
   },
   "sends_telemetry_event": false

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:verdant_dye_basket"
+        "recipe": "dye_depot:verdant_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:verdant_dye_basket"
+      "dye_depot:verdant_dye_basket"
     ]
   },
   "sends_telemetry_event": false

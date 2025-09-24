@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lime_dye_basket"
+        "recipe": "dye_depot:lime_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lime_dye_basket"
+      "dye_depot:lime_dye_basket"
     ]
   },
   "sends_telemetry_event": false

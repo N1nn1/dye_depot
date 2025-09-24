@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blue_dye_basket"
+        "recipe": "dye_depot:blue_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blue_dye_basket"
+      "dye_depot:blue_dye_basket"
     ]
   },
   "sends_telemetry_event": false

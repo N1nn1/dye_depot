@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:verdant_dye_from_dried_kelp"
+        "recipe": "dye_depot:verdant_dye_from_dried_kelp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:verdant_dye_from_dried_kelp"
+      "dye_depot:verdant_dye_from_dried_kelp"
     ]
   },
   "sends_telemetry_event": false

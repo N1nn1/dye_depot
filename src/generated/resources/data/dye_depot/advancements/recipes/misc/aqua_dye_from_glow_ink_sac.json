@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:aqua_dye_from_glow_ink_sac"
+        "recipe": "dye_depot:aqua_dye_from_glow_ink_sac"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:aqua_dye_from_glow_ink_sac"
+      "dye_depot:aqua_dye_from_glow_ink_sac"
     ]
   },
   "sends_telemetry_event": false

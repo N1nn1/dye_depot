@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coral_dye_from_nautilus_shell"
+        "recipe": "dye_depot:coral_dye_from_nautilus_shell"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coral_dye_from_nautilus_shell"
+      "dye_depot:coral_dye_from_nautilus_shell"
     ]
   },
   "sends_telemetry_event": false

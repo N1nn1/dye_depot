@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:amber_dye_from_glow_berries"
+        "recipe": "dye_depot:amber_dye_from_glow_berries"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:amber_dye_from_glow_berries"
+      "dye_depot:amber_dye_from_glow_berries"
     ]
   },
   "sends_telemetry_event": false

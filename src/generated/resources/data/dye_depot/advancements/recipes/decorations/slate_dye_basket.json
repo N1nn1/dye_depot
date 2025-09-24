@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:slate_dye_basket"
+        "recipe": "dye_depot:slate_dye_basket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:slate_dye_basket"
+      "dye_depot:slate_dye_basket"
     ]
   },
   "sends_telemetry_event": false
