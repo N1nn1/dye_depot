@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_beds": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:beds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_maroon_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dye_depot:maroon_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:dye_maroon_bed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_beds",
+      "has_maroon_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:dye_maroon_bed"
+    ]
+  },
+  "sends_telemetry_event": false
+}
