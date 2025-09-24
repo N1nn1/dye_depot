@@ -35,6 +35,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 public class DDRecipes extends FabricRecipeProvider {
 
@@ -52,6 +53,8 @@ public class DDRecipes extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput output) {
+        var namespace = DyeDepot.MOD_ID + ":";
+
         DDBlocks.BANNERS.forEach((dye, block) ->
                 banner(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
@@ -83,7 +86,17 @@ public class DDRecipes extends FabricRecipeProvider {
         );
 
         DDBlocks.STAINED_GLASS_PANES.forEach((dye, block) -> {
-            stainedGlassPaneFromGlassPaneAndDye(output, block.value(), dyes.getOrThrow(dye));
+            var dyeItem = dyes.getOrThrow(dye);
+            ShapedRecipeBuilder
+                    .shaped(RecipeCategory.DECORATIONS, block.value(), 8)
+                    .define('#', Blocks.GLASS_PANE).define('$', dyeItem)
+                    .pattern("###")
+                    .pattern("#$#")
+                    .pattern("###")
+                    .group("stained_glass_pane")
+                    .unlockedBy("has_glass_pane", has(Blocks.GLASS_PANE))
+                    .unlockedBy(getHasName(dyeItem), has(dyeItem))
+                    .save(output, namespace + getConversionRecipeName(block.value(), Blocks.GLASS_PANE));
             stainedGlassPaneFromStainedGlass(output, block.value(), DDBlocks.STAINED_GLASS.getOrThrow(dye));
         });
 
@@ -94,7 +107,7 @@ public class DDRecipes extends FabricRecipeProvider {
         DDBlocks.DYE_BASKETS.forEach((dye, block) -> {
             nineBlockStorageRecipes(
                     output, RecipeCategory.MISC, dyes.getOrThrow(dye), RecipeCategory.DECORATIONS, block.value(),
-                    getItemName(block.value()), null, dye + "_dye_from_basket", dye + "_dye"
+                    namespace + getItemName(block.value()), null, namespace + dye + "_dye_from_basket", dye + "_dye"
             );
         });
 
@@ -202,7 +215,12 @@ public class DDRecipes extends FabricRecipeProvider {
     }
 
     private void dyeConversion(RecipeOutput output, DyeColor dye, ItemLike from, int amount) {
-        oneToOneConversionRecipe(output, dyes.getOrThrow(dye), from, dye + "_dye", amount);
+        var to = dyes.getOrThrow(dye);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, to, amount)
+                .requires(from)
+                .group(dye + "_dye")
+                .unlockedBy(getHasName(from), has(from))
+                .save(output, DyeDepot.modLoc(getConversionRecipeName(to, from)));
     }
 
     private void dyeSmelting(RecipeOutput output, DyeColor dye, TagKey<Item> ingredient) {
@@ -223,7 +241,7 @@ public class DDRecipes extends FabricRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK)
                 .requires(Items.DEBUG_STICK)
                 .unlockedBy("never", has(Items.DEBUG_STICK))
-                .save(withConditions(output, new NotResourceCondition(new AnyModsLoadedResourceCondition(List.of(DyeDepot.MOD_ID)))), id.withPrefix("keep_"));
+                .save(withConditions(output, new NotResourceCondition(new AnyModsLoadedResourceCondition(List.of(DyeDepot.MOD_ID)))), id);
     }
 
     private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
@@ -248,7 +266,7 @@ public class DDRecipes extends FabricRecipeProvider {
                     .requires(dye)
                     .group(group)
                     .unlockedBy(getHasName(dye), has(dye))
-                    .save(output, id.withPrefix("keep_dye_"));
+                    .save(output, id.withPrefix("dye_"));
         });
     }
 
@@ -301,9 +319,7 @@ public class DDRecipes extends FabricRecipeProvider {
 
     @Override
     protected ResourceLocation getRecipeIdentifier(ResourceLocation id) {
-        // Do not replace namespace for specific recipes
-        if (id.getPath().startsWith("keep_")) return id.withPath(it -> it.substring(5));
-        return super.getRecipeIdentifier(id);
+        return id;
     }
 
     public static String getHasName(TagKey<?> tag) {
