@@ -2,9 +2,6 @@ package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import com.ninni.dye_depot.client.renderer.DDBedRenderer;
-import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
-
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -17,12 +14,15 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BannerRenderer;
+import net.minecraft.client.renderer.blockentity.BedRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BannerBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -142,10 +142,15 @@ public class DDVanillaIntegration {
         ResourceManagerHelper.registerBuiltinResourcePack(DyeDepot.modLoc("dye_override"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED);
     }
 
+    @SuppressWarnings("unchecked")
+    private static <E extends BlockEntity> void registerRenderer(BlockEntityType<? extends E> type, BlockEntityRendererProvider<E> renderer) {
+        BlockEntityRendererRegistry.register((BlockEntityType<E>) type, renderer);
+    }
+
     private static void registerModelLayers() {
-        BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
-        BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
-        BlockEntityRendererRegistry.register((BlockEntityType<BannerBlockEntity>) (Object) DDBlockEntityType.BANNER, BannerRenderer::new);
+        registerRenderer(DDBlockEntityType.SHULKER_BOX, ShulkerBoxRenderer::new);
+        registerRenderer(DDBlockEntityType.BED, BedRenderer::new);
+        registerRenderer(DDBlockEntityType.BANNER, BannerRenderer::new);
     }
 
     private static void registerParticles() {

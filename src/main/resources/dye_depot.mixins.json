@@ -12,6 +12,7 @@
     "data.PathPackResourcesMixin"
   ],
   "client": [
+    "client.BedRendererMixin",
     "client.BlockEntityWithoutLevelRendererMixin",
     "client.LlamaDecorLayerMixin",
     "client.MapRendererMixin",
