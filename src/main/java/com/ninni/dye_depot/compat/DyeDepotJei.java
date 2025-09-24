@@ -2,7 +2,11 @@ package com.ninni.dye_depot.compat;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDDyes;
+
 import java.util.Arrays;
+import java.util.stream.Stream;
+
+import com.ninni.dye_depot.registry.DyedHolders;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -31,8 +35,7 @@ public class DyeDepotJei implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        var shulkerColoring = Arrays.stream(DDDyes.values())
-                .map(DDDyes::get)
+        var shulkerColoring = DyedHolders.modColors()
                 .map(this::createShulkerColoring)
                 .toList();
 
