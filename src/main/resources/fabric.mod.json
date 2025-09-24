@@ -22,7 +22,7 @@
       "com.ninni.dye_depot.DyeDepot"
     ],
     "client": [
-      "com.ninni.dye_depot.DyeDepotClient"
+      "com.ninni.dye_depot.client.DyeDepotClient"
     ],
     "fabric-datagen": [
       "com.ninni.dye_depot.data.DyeDepotDatagen"
