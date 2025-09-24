@@ -1,4 +1,4 @@
-package com.ninni.dye_depot.mixin.client;
+package com.ninni.dye_depot.mixin;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

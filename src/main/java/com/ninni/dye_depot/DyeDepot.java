@@ -16,11 +16,12 @@ public class DyeDepot implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        DDMigration.addAliases();
+
         DDVanillaIntegration.commonInit();
         Reflection.initialize(
                 DDItems.class,
                 DDBlocks.class,
-                DDBlockEntityType.class,
                 DDParticles.class,
                 DDSoundEvents.class,
                 DDCreativeModeTabs.class,

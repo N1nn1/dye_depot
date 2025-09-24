@@ -7,8 +7,7 @@
     "DyeColorMixin",
     "MapBannerMixin",
     "SheepMixin",
-    "ShulkerBoxBlockMixin",
-    "client.DispenseItemBehaviourMixin"
+    "ShulkerBoxBlockMixin", "DispenseItemBehaviourMixin"
   ],
   "client": [
     "client.BedRendererMixin",

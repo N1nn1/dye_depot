@@ -12,6 +12,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -85,11 +86,11 @@ public class DDBlocks {
     );
 
     public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", new DDBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_BANNER)))
+            register(dye + "_banner", banner(dye))
     );
 
     public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_wall_banner", new DDWallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye))))
+            register(dye + "_wall_banner", wallBanner(dye))
     );
 
     public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->
@@ -100,18 +101,54 @@ public class DDBlocks {
             registerWithItem(dye + "_dye_basket", new DyeBasketBlock(dye, Properties.of().strength(0.8f).sound(SoundType.WOOL).ignitedByLava().mapColor(dye)))
     );
 
-    private static DDBedBlock bed(DyeColor dyeColor) {
-        return new DDBedBlock(dyeColor, Properties.of().mapColor((blockState) -> blockState.getValue(DDBedBlock.PART) == BedPart.FOOT ? dyeColor.getMapColor() : MapColor.WOOL).sound(SoundType.WOOD).strength(0.2F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY));
+    private static BannerBlock banner(DyeColor dye) {
+        var block = new BannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_BANNER));
+        BlockEntityType.BANNER.addSupportedBlock(block);
+        return block;
     }
 
-    private static DDShulkerBoxBlock shulkerBox(DyeColor dyeColor, Properties properties) {
+    private static WallBannerBlock wallBanner(DyeColor dye) {
+        var block = new WallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye)));
+        BlockEntityType.BANNER.addSupportedBlock(block);
+        return block;
+    }
+
+    private static BedBlock bed(DyeColor color) {
+        var block = new BedBlock(color, Properties.of()
+                .mapColor(state -> state.getValue(BedBlock.PART) == BedPart.FOOT ? color.getMapColor() : MapColor.WOOL)
+                .sound(SoundType.WOOD)
+                .strength(0.2F)
+                .noOcclusion()
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY)
+        );
+
+        BlockEntityType.BED.addSupportedBlock(block);
+
+        return block;
+    }
+
+    private static ShulkerBoxBlock shulkerBox(DyeColor color, Properties properties) {
         BlockBehaviour.StatePredicate statePredicate = (blockState, blockGetter, blockPos) -> {
             BlockEntity blockEntity = blockGetter.getBlockEntity(blockPos);
             if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity)
                 return shulkerBoxBlockEntity.isClosed();
             else return true;
         };
-        return new DDShulkerBoxBlock(dyeColor, properties.forceSolidOn().strength(2.0F).dynamicShape().noOcclusion().isSuffocating(statePredicate).isViewBlocking(statePredicate).pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::always));
+        var block = new ShulkerBoxBlock(color, properties
+                .forceSolidOn()
+                .strength(2.0F)
+                .dynamicShape()
+                .noOcclusion()
+                .isSuffocating(statePredicate)
+                .isViewBlocking(statePredicate)
+                .pushReaction(PushReaction.DESTROY)
+                .isRedstoneConductor(Blocks::always)
+        );
+
+        BlockEntityType.SHULKER_BOX.addSupportedBlock(block);
+
+        return block;
     }
 
     @SuppressWarnings("unchecked")

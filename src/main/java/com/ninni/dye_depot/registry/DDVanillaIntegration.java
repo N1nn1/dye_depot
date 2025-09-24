@@ -2,13 +2,10 @@ package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import com.ninni.dye_depot.client.renderer.DDBedRenderer;
-import com.ninni.dye_depot.client.renderer.DDShulkerBoxRenderer;
 import java.util.Optional;
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -16,15 +13,12 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BannerBlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 
@@ -133,7 +127,6 @@ public class DDVanillaIntegration {
     }
 
     public static void clientInit() {
-        registerModelLayers();
         registerBlockRenderLayers();
         registerParticles();
     }
@@ -141,12 +134,6 @@ public class DDVanillaIntegration {
     public static void addResourcePacks() {
         ModContainer modContainer = FabricLoader.getInstance().getModContainer(DyeDepot.MOD_ID).orElseThrow(() -> new IllegalStateException("Dye Depot's ModContainer couldn't be found!"));
         ResourceManagerHelper.registerBuiltinResourcePack(DyeDepot.modLoc("dye_override"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED);
-    }
-
-    private static void registerModelLayers() {
-        BlockEntityRendererRegistry.register(DDBlockEntityType.SHULKER_BOX, DDShulkerBoxRenderer::new);
-        BlockEntityRendererRegistry.register(DDBlockEntityType.BED, DDBedRenderer::new);
-        BlockEntityRendererRegistry.register((BlockEntityType<BannerBlockEntity>) (Object) DDBlockEntityType.BANNER, BannerRenderer::new);
     }
 
     private static void registerParticles() {

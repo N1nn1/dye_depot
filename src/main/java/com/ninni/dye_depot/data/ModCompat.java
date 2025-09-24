@@ -1,20 +1,15 @@
 package com.ninni.dye_depot.data;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.List;
 import java.util.stream.Stream;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.AndResourceCondition;
 import net.mehvahdjukaar.moonlight.api.resources.recipe.fabric.OptionalRecipeCondition;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-import org.jetbrains.annotations.Nullable;
 
 public class ModCompat {
 
