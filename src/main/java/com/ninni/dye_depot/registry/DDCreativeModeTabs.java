@@ -15,7 +15,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber(modid = DyeDepot.MOD_ID)
+@EventBusSubscriber(modid = DyeDepot.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DDCreativeModeTabs {
 
     interface Entries {
