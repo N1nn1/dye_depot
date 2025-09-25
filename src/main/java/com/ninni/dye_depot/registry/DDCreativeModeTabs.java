@@ -120,8 +120,6 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {
-        entries.addBefore(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.MAROON.get()), values.getOrThrow(DDDyes.ROSE.get()));
-        entries.addAfter(reference.getOrThrow(DyeColor.RED), values.getOrThrow(DDDyes.CORAL.get()));
         entries.addBefore(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.GINGER.get()));
         entries.addAfter(reference.getOrThrow(DyeColor.ORANGE), values.getOrThrow(DDDyes.TAN.get()));
         entries.addBefore(reference.getOrThrow(DyeColor.YELLOW), values.getOrThrow(DDDyes.BEIGE.get()));
