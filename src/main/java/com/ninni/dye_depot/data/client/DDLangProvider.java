@@ -156,6 +156,12 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
         builder.add(tag, translation);
     }
 
+    @Override
+    public void add(TagKey<?> tag, String translation) {
+        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey().replace('/', '.'));
+        add(key, translation);
+    }
+
     private void add(TranslationBuilder builder, ItemLike item, String translation) {
         if (item instanceof Block block) builder.add(block, translation);
         else builder.add(item.asItem(), translation);
@@ -168,7 +174,7 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
     }
 
     private <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
-        return TagKey.create(registry, ResourceLocation.fromNamespaceAndPath("c", path));
+        return TagKey.create(registry, new ResourceLocation("forge", path));
     }
 
 }

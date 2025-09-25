@@ -126,5 +126,11 @@
   "item.minecraft.light_blue_dye": "Sky Dye",
   "item.minecraft.light_gray_dye": "Ash Dye",
   "item.minecraft.shield.light_blue": "Sky Shield",
-  "item.minecraft.shield.light_gray": "Ash Shield"
+  "item.minecraft.shield.light_gray": "Ash Shield",
+  "tag.block.forge.dyed.light_blue": "Sky Dyed Blocks",
+  "tag.block.forge.dyed.light_gray": "Ash Dyed Blocks",
+  "tag.item.forge.dyed.light_blue": "Sky Dyed Items",
+  "tag.item.forge.dyed.light_gray": "Ash Dyed Items",
+  "tag.item.forge.dyes.light_blue": "Sky Dyes",
+  "tag.item.forge.dyes.light_gray": "Ash Dyes"
 }
