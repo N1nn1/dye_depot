@@ -5,14 +5,11 @@ import com.mojang.serialization.JsonOps;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.stream.Stream;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
-import net.neoforged.neoforge.common.crafting.CraftingHelper;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class ModCompat {

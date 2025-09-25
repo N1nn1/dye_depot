@@ -1,47 +1,20 @@
 package com.ninni.dye_depot.registry;
 
-import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.block.DDBannerBlockEntity;
-import com.ninni.dye_depot.block.DDBedBlockEntity;
-import com.ninni.dye_depot.block.DDShulkerBoxBlockEntity;
-import java.util.stream.Stream;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 
 public class DDBlockEntityType {
 
-    private static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, DyeDepot.MOD_ID);
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DDShulkerBoxBlockEntity>> SHULKER_BOX = REGISTRY.register(
-            "shulker_box",
-            () -> BlockEntityType.Builder.of(DDShulkerBoxBlockEntity::new,
-                    DDBlocks.SHULKER_BOXES.values().toArray(Block[]::new)
-            ).build(null)
-    );
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DDBedBlockEntity>> BED = REGISTRY.register(
-            "bed",
-            () -> BlockEntityType.Builder.of(DDBedBlockEntity::new,
-                    DDBlocks.BEDS.values().toArray(Block[]::new)
-            ).build(null)
-    );
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DDBannerBlockEntity>> BANNER = REGISTRY.register(
-            "banner",
-            () -> BlockEntityType.Builder.of(DDBannerBlockEntity::new,
-                    Stream.concat(
-                            DDBlocks.BANNERS.values(),
-                            DDBlocks.WALL_BANNERS.values()
-                    ).toArray(Block[]::new)
-            ).build(null)
-    );
-
     public static void register(IEventBus modBus) {
-        REGISTRY.register(modBus);
+        modBus.addListener(DDBlockEntityType::extendBlockTypes);
+    }
+
+    private static void extendBlockTypes(BlockEntityTypeAddBlocksEvent event) {
+        DDBlocks.SHULKER_BOXES.values().forEach(it -> event.modify(BlockEntityType.SHULKER_BOX, it));
+        DDBlocks.BEDS.values().forEach(it -> event.modify(BlockEntityType.BED, it));
+        DDBlocks.BANNERS.values().forEach(it -> event.modify(BlockEntityType.BANNER, it));
+        DDBlocks.WALL_BANNERS.values().forEach(it -> event.modify(BlockEntityType.BANNER, it));
     }
 
 }

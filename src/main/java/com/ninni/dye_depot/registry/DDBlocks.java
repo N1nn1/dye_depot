@@ -105,15 +105,15 @@ public class DDBlocks {
     );
 
     private static BannerBlock banner(DyeColor dye) {
-        return new DDBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_BANNER));
+        return new BannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_BANNER));
     }
 
     private static WallBannerBlock wallBanner(DyeColor dye) {
-        return new DDWallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye)));
+        return new WallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye)));
     }
 
     private static BedBlock bed(DyeColor color) {
-        return new DDBedBlock(color, Properties.of()
+        return new BedBlock(color, Properties.of()
                 .mapColor(state -> state.getValue(BedBlock.PART) == BedPart.FOOT ? color.getMapColor() : MapColor.WOOL)
                 .sound(SoundType.WOOD)
                 .strength(0.2F)
@@ -130,7 +130,7 @@ public class DDBlocks {
                 return shulkerBoxBlockEntity.isClosed();
             else return true;
         };
-        return new DDShulkerBoxBlock(color, properties
+        return new ShulkerBoxBlock(color, properties
                 .forceSolidOn()
                 .strength(2.0F)
                 .dynamicShape()

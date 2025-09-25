@@ -2,6 +2,7 @@ package com.ninni.dye_depot.compat;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DyedHolders;
+import java.util.stream.Stream;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -18,8 +19,6 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
-
-import java.util.stream.Stream;
 
 @JeiPlugin
 public class DyeDepotJei implements IModPlugin {
