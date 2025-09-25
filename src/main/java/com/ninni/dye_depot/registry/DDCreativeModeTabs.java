@@ -37,7 +37,7 @@ public class DDCreativeModeTabs {
             @Override
             public void addAfter(ItemLike reference, ItemLike... values) {
                 for (ItemLike value : values) {
-                    event.getEntries().putBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
+                    event.getEntries().putAfter(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
                 }
             }
         };
