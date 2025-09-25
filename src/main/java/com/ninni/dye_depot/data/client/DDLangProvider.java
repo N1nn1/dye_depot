@@ -40,9 +40,9 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
 
         colors("tags").forEach(color -> {
             var translation = translate(color);
-            builder.add(loaderTag(Registries.BLOCK, "dyed/" + color), translation + " Dyed Blocks");
-            builder.add(loaderTag(Registries.ITEM, "dyed/" + color), translation + " Dyed Items");
-            builder.add(loaderTag(Registries.ITEM, "dyes/" + color), translation + " Dyes");
+            tag(builder, loaderTag(Registries.BLOCK, "dyed/" + color), translation + " Dyed Blocks");
+            tag(builder, loaderTag(Registries.ITEM, "dyed/" + color), translation + " Dyed Items");
+            tag(builder, loaderTag(Registries.ITEM, "dyes/" + color), translation + " Dyes");
         });
 
         dyedBannerPattern(builder, "base", color -> "Fully " + color + " Field");
@@ -144,6 +144,10 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         dyed.forEach((color, item) ->
                 add(builder, item.value(), translation.apply(translate(color)))
         );
+    }
+
+    protected void tag(TranslationBuilder builder, TagKey<?> tag, String translation) {
+        builder.add(tag, translation);
     }
 
     private void add(TranslationBuilder builder, ItemLike item, String translation) {
