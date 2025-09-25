@@ -1,44 +1,25 @@
 package com.ninni.dye_depot.registry;
 
-import net.minecraft.world.level.saveddata.maps.MapDecoration;
+import com.ninni.dye_depot.DyeDepot;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.saveddata.maps.MapDecorationType;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-public enum DDMapDecorationType {
-    BANNER_MAROON(true, true),
-    BANNER_ROSE(true, true),
-    BANNER_CORAL(true, true),
-    BANNER_INDIGO(true, true),
-    BANNER_NAVY(true, true),
-    BANNER_SLATE(true, true),
-    BANNER_OLIVE(true, true),
-    BANNER_AMBER(true, true),
-    BANNER_BEIGE(true, true),
-    BANNER_TEAL(true, true),
-    BANNER_MINT(true, true),
-    BANNER_AQUA(true, true),
-    BANNER_VERDANT(true, true),
-    BANNER_FOREST(true, true),
-    BANNER_GINGER(true, true),
-    BANNER_TAN(true, true);
+public class DDMapDecorationType {
 
-    private final byte icon;
-    private final boolean renderedOnFrame;
-    private final boolean trackCount;
+    private static final DeferredRegister<MapDecorationType> REGISTRY = DeferredRegister.create(Registries.MAP_DECORATION_TYPE, DyeDepot.MOD_ID);
 
-    DDMapDecorationType(boolean bl, boolean bl2) {
-        this.trackCount = bl2;
-        this.icon = (byte)this.ordinal();
-        this.renderedOnFrame = bl;
+    public static final DyedHolders<MapDecorationType, MapDecorationType> BANNERS = DyedHolders.createModded(color -> {
+        var id = DyeDepot.modLoc(color + "_banner");
+        return REGISTRY.register(
+                id.getPath(),
+                () -> new MapDecorationType(id, true, -1, true, false)
+        );
+    });
+
+    public static void register(IEventBus modBus) {
+        REGISTRY.register(modBus);
     }
 
-    public MapDecoration.Type get() {
-        return MapDecoration.Type.valueOf(this.name());
-    }
-
-    public boolean isRenderedOnFrame() {
-        return this.renderedOnFrame;
-    }
-
-    public boolean shouldTrackCount() {
-        return this.trackCount;
-    }
 }

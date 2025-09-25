@@ -1,5 +1,7 @@
 package com.ninni.dye_depot.block;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.ninni.dye_depot.registry.DDParticles;
 import com.ninni.dye_depot.registry.DDSoundEvents;
 import net.minecraft.core.BlockPos;
@@ -27,6 +29,13 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DyeBasketBlock extends HorizontalDirectionalBlock {
+
+    public static final MapCodec<DyeBasketBlock> CODEC = RecordCodecBuilder.mapCodec(builder ->
+            builder.group(
+                    DyeColor.CODEC.fieldOf("color").forGetter(DyeBasketBlock::getDyeColor), propertiesCodec()
+            ).apply(builder, DyeBasketBlock::new)
+    );
+
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 15.0, 16.0);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     private DyeColor dyeColor;
@@ -35,6 +44,11 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
         super(properties);
         this.dyeColor = dyeColor;
         this.registerDefaultState(((this.stateDefinition.any()).setValue(FACING, Direction.NORTH)));
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return CODEC;
     }
 
     @Override

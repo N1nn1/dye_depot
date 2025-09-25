@@ -1,22 +1,23 @@
 package com.ninni.dye_depot.loot;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.common.loot.LootModifier;
-import net.minecraftforge.common.loot.LootTableIdCondition;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
+import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 public class ReplaceDropsModifier extends LootModifier {
 
 
-    public static Codec<ReplaceDropsModifier> CODEC = RecordCodecBuilder.create(builder ->
+    public static MapCodec<ReplaceDropsModifier> CODEC = RecordCodecBuilder.mapCodec(builder ->
             codecStart(builder)
                     .and(SimpleWeightedRandomList.wrappedCodec(ItemStack.CODEC).fieldOf("items").forGetter(it -> it.items))
                     .apply(builder, ReplaceDropsModifier::new)
@@ -29,10 +30,10 @@ public class ReplaceDropsModifier extends LootModifier {
         this.items = items;
     }
 
-    public static ReplaceDropsModifier forTable(ResourceLocation id, float chance, SimpleWeightedRandomList<ItemStack> items) {
+    public static ReplaceDropsModifier forTable(ResourceKey<LootTable> id, float chance, SimpleWeightedRandomList<ItemStack> items) {
         return new ReplaceDropsModifier(new LootItemCondition[]{
                 LootItemRandomChanceCondition.randomChance(chance).build(),
-                LootTableIdCondition.builder(id).build()
+                LootTableIdCondition.builder(id.location()).build()
         }, items);
     }
 
@@ -47,7 +48,7 @@ public class ReplaceDropsModifier extends LootModifier {
     }
 
     @Override
-    public Codec<? extends IGlobalLootModifier> codec() {
+    public MapCodec<? extends IGlobalLootModifier> codec() {
         return CODEC;
     }
 }

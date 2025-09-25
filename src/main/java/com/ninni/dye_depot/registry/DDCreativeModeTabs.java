@@ -11,9 +11,9 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @EventBusSubscriber(modid = DyeDepot.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DDCreativeModeTabs {
@@ -30,14 +30,14 @@ public class DDCreativeModeTabs {
             @Override
             public void addBefore(ItemLike reference, ItemLike... values) {
                 for (ItemLike value : values) {
-                    event.getEntries().putBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
+                    event.insertBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
                 }
             }
 
             @Override
             public void addAfter(ItemLike reference, ItemLike... values) {
                 for (ItemLike value : values) {
-                    event.getEntries().putBefore(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
+                    event.insertAfter(new ItemStack(reference), new ItemStack(value), TabVisibility.PARENT_AND_SEARCH_TABS);
                 }
             }
         };
@@ -116,7 +116,7 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
-        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), new ResourceLocation(baseName)));
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), ResourceLocation.withDefaultNamespace(baseName)));
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {

@@ -6,14 +6,14 @@
       "condition": "minecraft:random_chance"
     },
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:archaeology/ocean_ruin_cold"
     }
   ],
   "items": [
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:verdant_dye"
       },
       "weight": 1

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bed",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "item": "dye_depot:teal_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dye_depot:teal_bed"
+  }
+}

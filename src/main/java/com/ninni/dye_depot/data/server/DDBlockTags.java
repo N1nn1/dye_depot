@@ -12,8 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class DDBlockTags extends BlockTagsProvider {
 
@@ -72,11 +72,11 @@ public class DDBlockTags extends BlockTagsProvider {
     }
 
     private TagKey<Block> loaderTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation("forge", path));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Block> supplementariesTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

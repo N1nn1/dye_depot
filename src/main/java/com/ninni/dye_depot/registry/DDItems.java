@@ -5,8 +5,8 @@ import java.util.function.Supplier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DDItems {
 
@@ -30,7 +30,7 @@ public class DDItems {
 
     @SuppressWarnings("unchecked")
     private static <T extends Item> Holder<T> register(String id, Supplier<T> item) {
-        return DeferredHolder.from(REGISTRY.register(id, item));
+        return (Holder<T>) REGISTRY.register(id, item);
     }
 
     public static void register(IEventBus modBus) {

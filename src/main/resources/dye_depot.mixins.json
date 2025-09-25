@@ -6,15 +6,14 @@
     "BannerBlockMixin",
     "DyeColorMixin",
     "MapBannerMixin",
-    "MapDecorationTypeMixin",
     "SheepMixin",
-    "ShulkerBoxBlockMixin"
+    "ShulkerBoxBlockMixin",
+    "DispenseItemBehaviourMixin"
   ],
   "client": [
     "client.BedRendererMixin",
     "client.BlockEntityWithoutLevelRendererMixin",
     "client.LlamaDecorLayerMixin",
-    "client.MapRendererMixin",
     "client.ShulkerBoxRendererMixin"
   ],
   "injectors": {

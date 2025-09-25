@@ -5,8 +5,8 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -17,23 +17,17 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
-import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
-import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
 
 public class DDBlockLoot extends BlockLootSubProvider {
 
-    private final CompletableFuture<HolderLookup.Provider> lookup;
-
-    public DDBlockLoot(CompletableFuture<HolderLookup.Provider> lookup) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
-        this.lookup = lookup;
+    public DDBlockLoot(HolderLookup.Provider lookup) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), lookup);
     }
 
     @Override
     public void generate() {
-        var lookup = this.lookup.join();
-        var blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
+        var blockLookup = registries.lookupOrThrow(Registries.BLOCK);
 
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
@@ -89,9 +83,11 @@ public class DDBlockLoot extends BlockLootSubProvider {
 
     private LootTable.Builder createFlagDrops(Block block) {
         var entry = LootItem.lootTableItem(block)
-                .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
-                .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
-                        .copy("Patterns", "BlockEntityTag.Patterns")
+                .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+                        .include(DataComponents.CUSTOM_NAME)
+                        .include(DataComponents.ITEM_NAME)
+                        .include(DataComponents.HIDE_ADDITIONAL_TOOLTIP)
+                        .include(DataComponents.BANNER_PATTERNS)
                 );
 
         return createTable(block, entry);

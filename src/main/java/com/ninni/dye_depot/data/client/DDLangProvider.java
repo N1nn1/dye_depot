@@ -14,7 +14,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public abstract class DDLangProvider extends LanguageProvider implements TranslationBuilder {
 

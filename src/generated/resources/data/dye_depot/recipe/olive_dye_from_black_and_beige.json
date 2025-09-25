@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "olive_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:beige_dye"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:olive_dye"
+  }
+}

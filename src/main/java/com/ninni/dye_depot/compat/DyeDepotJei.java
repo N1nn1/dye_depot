@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
@@ -37,14 +38,14 @@ public class DyeDepotJei implements IModPlugin {
         registration.addRecipes(RecipeTypes.CRAFTING, shulkerColoring);
     }
 
-    private CraftingRecipe createShulkerColoring(DyeColor color) {
+    private RecipeHolder<CraftingRecipe> createShulkerColoring(DyeColor color) {
         var baseShulkerStack = new ItemStack(Blocks.SHULKER_BOX);
         var baseShulkerIngredient = Ingredient.of(baseShulkerStack);
         var colorIngredient = Ingredient.of(DyeItem.byColor(color));
         var inputs = NonNullList.of(Ingredient.EMPTY, baseShulkerIngredient, colorIngredient);
         var output = ShulkerBoxBlock.getColoredItemStack(color);
-        var id = new ResourceLocation("jei.shulker.color" + "." + output.getDescriptionId());
-        return new ShapelessRecipe(id, "jei.shulker.color", CraftingBookCategory.MISC, output, inputs);
+        var id = ResourceLocation.withDefaultNamespace("jei.shulker.color" + "." + output.getDescriptionId());
+        return new RecipeHolder<>(id, new ShapelessRecipe("jei.shulker.color", CraftingBookCategory.MISC, output, inputs));
     }
 
 }

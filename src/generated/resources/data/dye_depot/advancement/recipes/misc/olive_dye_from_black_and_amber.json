@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amber_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:amber_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_black_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:black_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:olive_dye_from_black_and_amber"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_amber_dye",
+      "has_black_dye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:olive_dye_from_black_and_amber"
+    ]
+  }
+}

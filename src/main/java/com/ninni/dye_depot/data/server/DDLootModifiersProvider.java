@@ -5,16 +5,18 @@ import com.ninni.dye_depot.loot.ReplaceDropsModifier;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
+import java.util.concurrent.CompletableFuture;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraftforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 public class DDLootModifiersProvider extends GlobalLootModifierProvider {
 
-    public DDLootModifiersProvider(PackOutput output) {
-        super(output, DyeDepot.MOD_ID);
+    public DDLootModifiersProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup, DyeDepot.MOD_ID);
     }
 
     @Override

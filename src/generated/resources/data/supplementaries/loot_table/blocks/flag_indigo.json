@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:custom_name",
+                "minecraft:item_name",
+                "minecraft:hide_additional_tooltip",
+                "minecraft:banner_patterns"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "supplementaries:flag_indigo"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "supplementaries:blocks/flag_indigo"
+}

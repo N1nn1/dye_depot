@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "flag"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "supplementaries:flag_navy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:navy_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "supplementaries:flag_navy"
+    ]
+  }
+}

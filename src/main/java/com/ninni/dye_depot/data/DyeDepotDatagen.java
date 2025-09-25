@@ -13,9 +13,9 @@ import com.ninni.dye_depot.data.server.DDRecipes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 @EventBusSubscriber(modid = DyeDepot.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DyeDepotDatagen {
@@ -36,7 +36,7 @@ public class DyeDepotDatagen {
         generator.addProvider(server, new DDItemTags(output, lookup, blockTags.contentsGetter()));
         generator.addProvider(server, new DDLoot(output, lookup));
         generator.addProvider(server, new DDRecipes(output, lookup));
-        generator.addProvider(server, new DDLootModifiersProvider(output));
+        generator.addProvider(server, new DDLootModifiersProvider(output, lookup));
 
         generator.addProvider(client, new DDBlockModels(output, lookup, fileHelper));
         generator.addProvider(client, new DDItemModels(output, lookup, fileHelper));

@@ -56,7 +56,7 @@ public abstract class SheepMixin {
     }
 
     @ModifyConstant(method = {
-            "getColor",
+            "getColor()Lnet/minecraft/world/item/DyeColor;",
             "setColor",
             "isSheared",
     }, constant = {

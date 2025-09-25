@@ -6,119 +6,119 @@
       "condition": "minecraft:random_chance"
     },
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:gameplay/hero_of_the_village/shepherd_gift"
     }
   ],
   "items": [
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:maroon_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:rose_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:coral_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:indigo_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:navy_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:slate_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:olive_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:amber_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:beige_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:teal_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:mint_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:aqua_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:verdant_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:forest_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:ginger_wool"
       },
       "weight": 1
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "dye_depot:tan_wool"
       },
       "weight": 1

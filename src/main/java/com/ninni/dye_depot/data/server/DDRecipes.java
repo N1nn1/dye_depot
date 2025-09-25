@@ -7,19 +7,17 @@ import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -35,8 +33,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.crafting.conditions.FalseCondition;
-import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.FalseCondition;
+import net.neoforged.neoforge.common.conditions.ICondition;
 
 public class DDRecipes extends RecipeProvider {
 
@@ -45,7 +43,7 @@ public class DDRecipes extends RecipeProvider {
     private final HolderLookup.RegistryLookup<Item> itemLookup;
 
     public DDRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupFuture) {
-        super(output);
+        super(output, lookupFuture);
         var lookup = lookupFuture.join();
         this.dyes = DDItems.DYES.mergeVanilla(lookup.lookupOrThrow(Registries.ITEM));
         this.blockLookup = lookup.lookupOrThrow(Registries.BLOCK);
@@ -53,7 +51,7 @@ public class DDRecipes extends RecipeProvider {
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> output) {
+    public void buildRecipes(RecipeOutput output) {
         var namespace = DyeDepot.MOD_ID + ":";
 
         DDBlocks.BANNERS.forEach((dye, block) ->
@@ -167,14 +165,14 @@ public class DDRecipes extends RecipeProvider {
         dyeMixing(output, DyeColor.MAGENTA, DDDyes.INDIGO.get(), DyeColor.LIGHT_BLUE);
 
         // Disabled vanilla recipes
-        disable(output, new ResourceLocation("gray_dye"));
-        disable(output, new ResourceLocation("light_gray_dye_from_oxeye_daisy"));
-        disable(output, new ResourceLocation("magenta_dye_from_blue_red_pink"));
-        disable(output, new ResourceLocation("magenta_dye_from_blue_red_white_dye"));
-        disable(output, new ResourceLocation("magenta_dye_from_purple_and_pink"));
-        disable(output, new ResourceLocation("pink_dye_from_red_white_dye"));
-        disable(output, new ResourceLocation("purple_dye"));
-        disable(output, new ResourceLocation("red_dye_from_rose_bush"));
+        disable(output, ResourceLocation.withDefaultNamespace("gray_dye"));
+        disable(output, ResourceLocation.withDefaultNamespace("light_gray_dye_from_oxeye_daisy"));
+        disable(output, ResourceLocation.withDefaultNamespace("magenta_dye_from_blue_red_pink"));
+        disable(output, ResourceLocation.withDefaultNamespace("magenta_dye_from_blue_red_white_dye"));
+        disable(output, ResourceLocation.withDefaultNamespace("magenta_dye_from_purple_and_pink"));
+        disable(output, ResourceLocation.withDefaultNamespace("pink_dye_from_red_white_dye"));
+        disable(output, ResourceLocation.withDefaultNamespace("purple_dye"));
+        disable(output, ResourceLocation.withDefaultNamespace("red_dye_from_rose_bush"));
 
         // Supplementaries compat
         ModCompat.supplementariesHolders(itemLookup, "candle_holder").forEach((dye, block) -> {
@@ -215,7 +213,7 @@ public class DDRecipes extends RecipeProvider {
         });
     }
 
-    private void dyeConversion(Consumer<FinishedRecipe> output, DyeColor dye, ItemLike from, int amount) {
+    private void dyeConversion(RecipeOutput output, DyeColor dye, ItemLike from, int amount) {
         var to = dyes.getOrThrow(dye);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, to, amount)
                 .requires(from)
@@ -224,40 +222,40 @@ public class DDRecipes extends RecipeProvider {
                 .save(output, DyeDepot.modLoc(getConversionRecipeName(to, from)));
     }
 
-    private void dyeSmelting(Consumer<FinishedRecipe> output, DyeColor dye, TagKey<Item> ingredient) {
+    private void dyeSmelting(RecipeOutput output, DyeColor dye, TagKey<Item> ingredient) {
         dyeSmelting(output, dye, Ingredient.of(ingredient), it -> it.unlockedBy(getHasName(ingredient), has(ingredient)));
     }
 
-    private void dyeSmelting(Consumer<FinishedRecipe> output, DyeColor dye, ItemLike ingredient) {
+    private void dyeSmelting(RecipeOutput output, DyeColor dye, ItemLike ingredient) {
         dyeSmelting(output, dye, Ingredient.of(ingredient), it -> it.unlockedBy(getHasName(ingredient), has(ingredient)));
     }
 
-    private void dyeSmelting(Consumer<FinishedRecipe> output, DyeColor dye, Ingredient ingredient, UnaryOperator<SimpleCookingRecipeBuilder> factory) {
+    private void dyeSmelting(RecipeOutput output, DyeColor dye, Ingredient ingredient, UnaryOperator<SimpleCookingRecipeBuilder> factory) {
         factory.apply(SimpleCookingRecipeBuilder.smelting(ingredient, RecipeCategory.MISC, dyes.getOrThrow(dye), 0.1F, 200))
                 .group(dye + "_dye")
                 .save(output, DyeDepot.modLoc(dye + "_dye_from_smelting"));
     }
 
-    private void disable(Consumer<FinishedRecipe> output, ResourceLocation id) {
+    private void disable(RecipeOutput output, ResourceLocation id) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK)
                 .requires(Items.DEBUG_STICK)
                 .unlockedBy("never", has(Items.DEBUG_STICK))
                 .save(withConditions(output, FalseCondition.INSTANCE), id);
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
+    private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
         dyeing(output, category, dyed, Ingredient.of(dyed.values().map(ItemStack::new)), builder -> builder
                 .unlockedBy("has_base", inventoryTrigger(ItemPredicate.Builder.item().of(dyed.values().toArray(ItemLike[]::new)).build()))
         );
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, TagKey<Item> from) {
+    private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, TagKey<Item> from) {
         dyeing(output, category, dyed, Ingredient.of(from), builder -> builder
                 .unlockedBy(getHasName(from), has(from))
         );
     }
 
-    private void dyeing(Consumer<FinishedRecipe> output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, Ingredient from, UnaryOperator<ShapelessRecipeBuilder> factory) {
+    private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, Ingredient from, UnaryOperator<ShapelessRecipeBuilder> factory) {
         var group = dyed.detectBaseName();
         dyed.forEach((color, item) -> {
             var id = item.unwrapKey().orElseThrow().location();
@@ -271,14 +269,14 @@ public class DDRecipes extends RecipeProvider {
         });
     }
 
-    private void dyeColorSpectrum(Consumer<FinishedRecipe> output, DyeColor light, DyeColor base, DyeColor aspect, DyeColor tinted, DyeColor dark) {
+    private void dyeColorSpectrum(RecipeOutput output, DyeColor light, DyeColor base, DyeColor aspect, DyeColor tinted, DyeColor dark) {
         lightBaseDark(output, light, base, dark);
         dyeHue(output, base, aspect, tinted);
         dyeMixing(output, light, tinted, DyeColor.WHITE);
         dyeMixing(output, dark, tinted, DyeColor.BLACK);
     }
 
-    private void lightBaseDark(Consumer<FinishedRecipe> output, DyeColor light, DyeColor base, DyeColor dark) {
+    private void lightBaseDark(RecipeOutput output, DyeColor light, DyeColor base, DyeColor dark) {
         lightenAndDarken(output, light, base);
         lightenAndDarken(output, base, dark);
         dyeMixing(output, light, dark, DyeColor.WHITE, DyeColor.WHITE);
@@ -286,18 +284,18 @@ public class DDRecipes extends RecipeProvider {
         dyeMixing(output, base, dark, light);
     }
 
-    private void lightenAndDarken(Consumer<FinishedRecipe> output, DyeColor light, DyeColor dark) {
+    private void lightenAndDarken(RecipeOutput output, DyeColor light, DyeColor dark) {
         dyeMixing(output, light, dark, DyeColor.WHITE);
         dyeMixing(output, dark, light, DyeColor.BLACK);
     }
 
-    private void dyeHue(Consumer<FinishedRecipe> output, DyeColor base, DyeColor aspect, DyeColor result) {
+    private void dyeHue(RecipeOutput output, DyeColor base, DyeColor aspect, DyeColor result) {
         dyeMixing(output, result, base, aspect);
         dyeMixing(output, base, result, DyeColor.GRAY);
         dyeMixing(output, base, result, DyeColor.LIGHT_GRAY);
     }
 
-    private void dyeMixing(Consumer<FinishedRecipe> output, DyeColor to, DyeColor... from) {
+    private void dyeMixing(RecipeOutput output, DyeColor to, DyeColor... from) {
         var result = dyes.getOrThrow(to);
         var builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, from.length)
                 .group(to + "_dye");
@@ -322,8 +320,8 @@ public class DDRecipes extends RecipeProvider {
         return "has_" + tag.location().getPath();
     }
 
-    public static Consumer<FinishedRecipe> withConditions(Consumer<FinishedRecipe> output, ICondition... conditions) {
-        return it -> output.accept(new ConditionalRecipe(it, Arrays.asList(conditions)));
+    public static RecipeOutput withConditions(RecipeOutput output, ICondition... conditions) {
+        return output.withConditions(conditions);
     }
 
 }

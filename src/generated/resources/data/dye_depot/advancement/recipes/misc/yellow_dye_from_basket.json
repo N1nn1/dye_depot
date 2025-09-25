@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:yellow_dye_from_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_dye_basket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:yellow_dye_basket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yellow_dye_basket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:yellow_dye_from_basket"
+    ]
+  }
+}

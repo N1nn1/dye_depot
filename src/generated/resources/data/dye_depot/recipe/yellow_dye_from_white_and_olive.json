@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "yellow_dye",
+  "ingredients": [
+    {
+      "item": "dye_depot:olive_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:yellow_dye"
+  }
+}

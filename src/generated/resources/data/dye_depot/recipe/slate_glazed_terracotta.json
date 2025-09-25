@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dye_depot:slate_terracotta"
+  },
+  "result": {
+    "count": 1,
+    "id": "dye_depot:slate_glazed_terracotta"
+  }
+}

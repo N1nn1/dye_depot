@@ -13,8 +13,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class DDItemModels extends ItemModelProvider {
 
@@ -89,20 +89,20 @@ public class DDItemModels extends ItemModelProvider {
 
     private void candleHolder(DyeColor color, Holder<? extends ItemLike> item) {
         var namespace = key(item).getNamespace();
-        basicItem(item, new ResourceLocation(namespace, "item/candle_holders/" + color));
+        basicItem(item, ResourceLocation.fromNamespaceAndPath(namespace, "item/candle_holders/" + color));
     }
 
     private void flag(Holder<? extends ItemLike> item) {
-        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
+        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
     }
 
     private void present(DyeColor color, Holder<? extends ItemLike> item) {
         var type = name(item).replace("_" + color, "");
-        withExistingParent(key(item).toString(), new ResourceLocation(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
+        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
     }
 
     private ResourceLocation vanillaResource(String name) {
-        return new ResourceLocation("item/" + name);
+        return ResourceLocation.withDefaultNamespace("item/" + name);
     }
 
     private String name(Holder<? extends ItemLike> item) {

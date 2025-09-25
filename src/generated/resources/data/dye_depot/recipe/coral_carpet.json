@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carpet",
+  "key": {
+    "#": {
+      "item": "dye_depot:coral_wool"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "dye_depot:coral_carpet"
+  }
+}

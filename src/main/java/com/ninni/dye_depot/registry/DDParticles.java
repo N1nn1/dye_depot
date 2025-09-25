@@ -1,13 +1,15 @@
 package com.ninni.dye_depot.registry;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.ninni.dye_depot.DyeDepot;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DDParticles {
 
@@ -15,16 +17,21 @@ public class DDParticles {
 
     private static class PoofParticleType extends ParticleType<BlockParticleOption> {
         public PoofParticleType() {
-            super(false, BlockParticleOption.DESERIALIZER);
+            super(false);
         }
 
         @Override
-        public Codec<BlockParticleOption> codec() {
+        public MapCodec<BlockParticleOption> codec() {
             return BlockParticleOption.codec(this);
+        }
+
+        @Override
+        public StreamCodec<? super RegistryFriendlyByteBuf, BlockParticleOption> streamCodec() {
+            return BlockParticleOption.streamCodec(this);
         }
     }
 
-    public static final RegistryObject<ParticleType<BlockParticleOption>> DYE_POOF = REGISTRY.register("dye_poof", PoofParticleType::new);
+    public static final DeferredHolder<ParticleType<?>, ParticleType<BlockParticleOption>> DYE_POOF = REGISTRY.register("dye_poof", PoofParticleType::new);
 
 
     public static void register(IEventBus modBus) {

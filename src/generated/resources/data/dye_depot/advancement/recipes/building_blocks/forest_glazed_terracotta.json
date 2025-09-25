@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_forest_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dye_depot:forest_terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dye_depot:forest_glazed_terracotta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_forest_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dye_depot:forest_glazed_terracotta"
+    ]
+  }
+}

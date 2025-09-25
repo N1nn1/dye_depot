@@ -1,19 +1,16 @@
 plugins {
-    id("net.minecraftforge.gradle") version "[6.0,6.2)"
-    id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
+    id("net.neoforged.gradle.userdev") version "7.0.184"
     id("com.diffplug.spotless") version "7.0.4"
     `maven-publish`
 }
 
 val minecraft_version: String by extra
-val forge_version: String by extra
+val neoforge_version: String by extra
 val mod_id: String by extra
 val mod_name: String by extra
 val mod_version: String by extra
 val maven_group: String by extra
 val repository: String by extra
-val mixin_version: String by extra
-val mixin_extras_version: String by extra
 
 base {
     archivesName = mod_id
@@ -41,57 +38,45 @@ sourceSets.main {
 }
 
 minecraft {
-    mappings("official", minecraft_version)
-
-    accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
-
-    runs {
-        create("client")
-        create("server") {
-            workingDirectory("run/server")
-        }
-        create("data") {
-            val existingMods = listOf("supplementaries", "suppsquared")
-            args(
-                listOf(
-                    "--mod",
-                    mod_id,
-                    "--all",
-                    "--output",
-                    datagenOutput,
-                    "--existing",
-                    file("src/main/resources/"),
-                ) + existingMods.flatMap {
-                    listOf("--existing-mod", it)
-                })
-        }
+    accessTransformers {
+        file("src/main/resources/META-INF/accesstransformer.cfg")
     }
 }
 
-mixin {
-    config("${mod_id}.mixins.json")
+runs {
+    create("client")
+    create("server") {
+        workingDirectory("run/server")
+    }
+    create("data") {
+        val existingMods = listOf("supplementaries", "suppsquared")
+
+        arguments(
+            listOf(
+                "--mod",
+                mod_id,
+                "--all",
+                "--output",
+                file("src/generated/resources/").path,
+                "--existing",
+                file("src/main/resources/").path,
+            ) + existingMods.flatMap {
+                listOf("--existing-mod", it)
+            })
+    }
 }
 
-fun DependencyHandler.modImplementation(notation: String) = implementation(fg.deobf(notation))
-fun DependencyHandler.modCompileOnly(notation: String) = compileOnly(fg.deobf(notation))
-fun DependencyHandler.modRuntimeOnly(notation: String) = runtimeOnly(fg.deobf(notation))
+fun DependencyHandler.modImplementation(notation: String) = implementation(notation)
+fun DependencyHandler.modCompileOnly(notation: String) = compileOnly(notation)
+fun DependencyHandler.modRuntimeOnly(notation: String) = runtimeOnly(notation)
 
 dependencies {
-    minecraft("net.minecraftforge:forge:$minecraft_version-$forge_version")
-    annotationProcessor("org.spongepowered:mixin:$mixin_version:processor")
-
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:$mixin_extras_version")!!)
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:$mixin_extras_version") {
-        version {
-            strictly("[$mixin_extras_version,)")
-            prefer(mixin_extras_version)
-        }
-    })
+    implementation("net.neoforged:neoforge:$neoforge_version")
 
     val jei_version: String by project.extra
     modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version")
-    modCompileOnly("mezz.jei:jei-$minecraft_version-forge-api:$jei_version")
-    modRuntimeOnly("mezz.jei:jei-$minecraft_version-forge:$jei_version")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version")
+    modRuntimeOnly("mezz.jei:jei-$minecraft_version-neoforge:$jei_version")
 
     val moonlight_lib_version: String by project.extra
     val supplementaries_version: String by project.extra
@@ -105,7 +90,7 @@ tasks.withType<ProcessResources> {
     inputs.property("version", mod_version)
     filesMatching(
         listOf(
-            "META-INF/mods.toml",
+            "META-INF/neoforge.mods.toml",
             "${mod_id}*.mixins.json",
         )
     ) {
@@ -121,7 +106,7 @@ tasks.withType<ProcessResources> {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
     withSourcesJar()
 }
 

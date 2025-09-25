@@ -154,7 +154,7 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 
     public DyedHolders<TImplementation, RRegistry> mergeVanilla(HolderLookup.RegistryLookup<RRegistry> registry) {
         var base = detectBaseName();
-        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), new ResourceLocation(base));
+        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), ResourceLocation.withDefaultNamespace(base));
         return merge(vanillaVariants, this);
     }
 

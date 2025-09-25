@@ -6,8 +6,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -32,9 +32,9 @@ public class DDShulkerBoxBlock extends ShulkerBoxBlock {
         return createTickerHelper(blockEntityType, DDBlockEntityType.SHULKER_BOX.get(), ShulkerBoxBlockEntity::tick);
     }
 
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
+    public ItemStack getCloneItemStack(LevelReader blockGetter, BlockPos blockPos, BlockState blockState) {
         ItemStack itemStack = super.getCloneItemStack(blockGetter, blockPos, blockState);
-        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX.get()).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack));
+        blockGetter.getBlockEntity(blockPos, DDBlockEntityType.SHULKER_BOX.get()).ifPresent((shulkerBoxBlockEntity) -> shulkerBoxBlockEntity.saveToItem(itemStack, blockGetter.registryAccess()));
         return itemStack;
     }
 

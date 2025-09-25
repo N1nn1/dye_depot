@@ -1,0 +1,48 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "CC0-1.0"
+issueTrackerURL = "https://github.com/${repository}/issues/"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+logoFile = "${mod_id}/icon.png"
+authors = "Yapetto, Ninni"
+description = '''Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks'''
+updateJSONURL = "https://api.modrinth.com/updates/dye_depot/forge_updates.json"
+itemIcon = "dye_depot:teal_dye"
+configBackground = "dye_depot:textures/block/teal_glazed_terracotta.png"
+enumExtensions = "META-INF/enumextensions.json"
+
+[[dependencies.${mod_id}]]
+modId="neoforge"
+versionRange="[21,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+versionRange = "[1.21,1.21.1)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "supplementaries"
+type = "optional"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "suppsquared"
+type = "optional"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"
+
+[[mixins]]
+config="${mod_id}.mixins.json"

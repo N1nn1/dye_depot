@@ -12,18 +12,17 @@ import net.minecraft.client.renderer.blockentity.BannerRenderer;
 import net.minecraft.client.renderer.blockentity.BedRenderer;
 import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.resource.PathPackResources;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 
 @EventBusSubscriber(modid = DyeDepot.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class DyeDepotClient {
@@ -35,20 +34,14 @@ public class DyeDepotClient {
 
     @SubscribeEvent
     public static void addResourcePacks(AddPackFindersEvent event) {
-        if (event.getPackType() != PackType.CLIENT_RESOURCES) return;
-        var modFile = ModList.get().getModFileById(DyeDepot.MOD_ID).getFile();
-        var path = modFile.findResource("resourcepacks/dye_override");
-        try (var pack = new PathPackResources(modFile.getFileName() + ":" + path, true, path)) {
-            event.addRepositorySource(consumer -> consumer.accept(Pack.readMetaAndCreate(
-                    "builtin/" + DyeDepot.MOD_ID,
-                    Component.literal("Dye Overrides"),
-                    false,
-                    ignored -> pack,
-                    PackType.CLIENT_RESOURCES,
-                    Pack.Position.BOTTOM,
-                    PackSource.BUILT_IN))
-            );
-        }
+        event.addPackFinders(
+                ResourceLocation.fromNamespaceAndPath(DyeDepot.MOD_ID, "resourcepacks/dye_override"),
+                PackType.CLIENT_RESOURCES,
+                Component.literal("Dye Overrides"),
+                PackSource.BUILT_IN,
+                false,
+                Pack.Position.BOTTOM
+        );
     }
 
     @SubscribeEvent

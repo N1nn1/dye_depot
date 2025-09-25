@@ -1,0 +1,8 @@
+{
+  "entries": [
+    "dye_depot:modify_shepherd_gift",
+    "dye_depot:modify_desert_pyramid",
+    "dye_depot:modify_ocean_ruin_cold"
+  ],
+  "replace": false
+}

@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "flag"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "flag",
+  "key": {
+    "#": {
+      "item": "dye_depot:teal_wool"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "|  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "supplementaries:flag_teal"
+  }
+}

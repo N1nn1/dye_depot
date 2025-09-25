@@ -1,14 +1,19 @@
 package com.ninni.dye_depot.data;
 
 import com.google.gson.JsonObject;
+import com.mojang.serialization.JsonOps;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.stream.Stream;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.RegistryOps;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.crafting.conditions.ICondition;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.common.crafting.CraftingHelper;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class ModCompat {
 
@@ -20,7 +25,7 @@ public class ModCompat {
     }
 
     public static <T> DyedHolders<T, T> supplementariesHolders(HolderLookup.RegistryLookup<T> registry, String name, Stream<DyeColor> colors) {
-        return DyedHolders.fromRegistry(registry, colors, color -> new ResourceLocation(SUPPLEMENTARIES, name + "_" + color));
+        return DyedHolders.fromRegistry(registry, colors, color -> ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES, name + "_" + color));
     }
 
     public static <T> DyedHolders<T, T> supplementariesSquaredHolders(HolderLookup.RegistryLookup<T> registry, String name) {
@@ -28,16 +33,20 @@ public class ModCompat {
     }
 
     public static <T> DyedHolders<T, T> supplementariesSquaredHolders(HolderLookup.RegistryLookup<T> registry, String name, Stream<DyeColor> colors) {
-        return DyedHolders.fromRegistry(registry, colors, color -> new ResourceLocation(SUPPLEMENTARIES_SQUARED, name + "_" + color));
+        return DyedHolders.fromRegistry(registry, colors, color -> ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES_SQUARED, name + "_" + color));
     }
 
     public static ICondition[] supplementariesFlag(String flag) {
+        var serializerId = ResourceKey.create(NeoForgeRegistries.Keys.CONDITION_CODECS, ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES, "flag"));
+        var serializer = NeoForgeRegistries.CONDITION_SERIALIZERS.getOrThrow(serializerId);
+
         var supplementariesJson = new JsonObject();
-        supplementariesJson.addProperty("type", SUPPLEMENTARIES + ":flag");
+        supplementariesJson.addProperty("type", serializerId.location().toString());
         supplementariesJson.addProperty("flag", flag);
+
         return new ICondition[]{
                 new ModLoadedCondition(SUPPLEMENTARIES),
-                CraftingHelper.getCondition(supplementariesJson)
+                serializer.codec().parse(JsonOps.INSTANCE, supplementariesJson).getOrThrow()
         };
     }
 

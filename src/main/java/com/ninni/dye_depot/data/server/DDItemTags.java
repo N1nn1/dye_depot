@@ -97,11 +97,11 @@ public class DDItemTags extends ItemTagsProvider {
     }
 
     private TagKey<Item> loaderTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("forge", path));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Item> supplementariesTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }
