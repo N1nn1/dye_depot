@@ -2,14 +2,13 @@ package com.ninni.dye_depot.data.server;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import java.util.Collection;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Collection;
 
 public record ConditionalRecipe(FinishedRecipe delegate, Collection<ICondition> conditions) implements FinishedRecipe {
 

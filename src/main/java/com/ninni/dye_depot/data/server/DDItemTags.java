@@ -6,9 +6,7 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
-
 import java.util.concurrent.CompletableFuture;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
