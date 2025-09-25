@@ -1,6 +1,7 @@
 package com.ninni.dye_depot.mixin;
 
 import com.ninni.dye_depot.registry.DDMapDecorationType;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.saveddata.maps.MapBanner;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
@@ -16,7 +17,7 @@ public class MapBannerMixin {
     @Shadow @Final private DyeColor color;
 
     @Inject(method = "getDecoration", at = @At(value = "HEAD"), cancellable = true)
-    private void DD$addCustomDecoration(CallbackInfoReturnable<MapDecorationType> cir) {
-        DDMapDecorationType.BANNERS.get(color).ifPresent(cir::setReturnValue);
+    private void DD$addCustomDecoration(CallbackInfoReturnable<Holder<MapDecorationType>> cir) {
+        DDMapDecorationType.BANNERS.holder(color).ifPresent(cir::setReturnValue);
     }
 }
