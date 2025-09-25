@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.data.client;
 
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -10,5 +11,7 @@ public interface TranslationBuilder {
     void add(Block block, String translation);
 
     void add(String key, String translation);
+
+    void add(TagKey<?> tag, String translation);
 
 }
