@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
@@ -44,9 +45,9 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
 
         colors("tags").forEach(color -> {
             var translation = translate(color);
-            builder.add(loaderTag(Registries.BLOCK, "dyed/" + color), translation + " Dyed Blocks");
-            builder.add(loaderTag(Registries.ITEM, "dyed/" + color), translation + " Dyed Items");
-            builder.add(loaderTag(Registries.ITEM, "dyes/" + color), translation + " Dyes");
+            tag(builder, loaderTag(Registries.BLOCK, "dyed/" + color), translation + " Dyed Blocks");
+            tag(builder, loaderTag(Registries.ITEM, "dyed/" + color), translation + " Dyed Items");
+            tag(builder, loaderTag(Registries.ITEM, "dyes/" + color), translation + " Dyes");
         });
 
         dyedBannerPattern(builder, "base", color -> "Fully " + color + " Field");
@@ -150,6 +151,11 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         );
     }
 
+    protected void tag(TranslationBuilder builder, TagKey<?> tag, String translation) {
+        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey().replace('/', '.'));
+        builder.add(key, translation);
+    }
+
     private void add(TranslationBuilder builder, ItemLike item, String translation) {
         if (item instanceof Block block) builder.add(block, translation);
         else builder.add(item.asItem(), translation);
@@ -162,7 +168,7 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
     }
 
     private <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
-        return TagKey.create(registry, ResourceLocation.fromNamespaceAndPath("c", path));
+        return TagKey.create(registry, new ResourceLocation("c", path));
     }
 
 }

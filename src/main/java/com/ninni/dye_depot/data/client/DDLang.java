@@ -20,7 +20,7 @@ public class DDLang extends DDLangProvider {
     @Override
     protected void translateAdditional(TranslationBuilder builder) {
         builder.add("subtitles.block.dye_depot.dye_basket.poof", "Dye poofs");
-        builder.add(DDTags.SMELTS_INTO_CORAL_DYE, "Corals");
+        tag(builder, DDTags.SMELTS_INTO_CORAL_DYE, "Corals");
     }
 
     @Override
