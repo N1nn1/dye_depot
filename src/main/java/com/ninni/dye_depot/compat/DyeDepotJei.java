@@ -19,6 +19,8 @@ import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 
+import java.util.stream.Stream;
+
 @JeiPlugin
 public class DyeDepotJei implements IModPlugin {
 
@@ -31,7 +33,7 @@ public class DyeDepotJei implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        var shulkerColoring = DyedHolders.modColors()
+        var shulkerColoring = Stream.concat(DyedHolders.modColors(), DyedHolders.vanillaColors())
                 .map(this::createShulkerColoring)
                 .toList();
 
