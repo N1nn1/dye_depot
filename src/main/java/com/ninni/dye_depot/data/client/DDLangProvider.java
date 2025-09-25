@@ -4,13 +4,19 @@ import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -30,6 +36,13 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
             builder.add("color.minecraft." + color, translate(color));
             builder.add("item.minecraft.firework_star." + color, translate(color));
             builder.add("item.minecraft.shield." + color, translate(color) + " Shield");
+        });
+
+        colors("tags").forEach(color -> {
+            var translation = translate(color);
+            builder.add(loaderTag(Registries.BLOCK, "dyed/" + color), translation + " Dyed Blocks");
+            builder.add(loaderTag(Registries.ITEM, "dyed/" + color), translation + " Dyed Items");
+            builder.add(loaderTag(Registries.ITEM, "dyes/" + color), translation + " Dyes");
         });
 
         dyedBannerPattern(builder, "base", color -> "Fully " + color + " Field");
@@ -142,6 +155,10 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         colors("banner_patterns").forEach(color ->
                 builder.add("block.minecraft.banner." + id + "." + color, translation.apply(translate(color)))
         );
+    }
+
+    private <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
+        return TagKey.create(registry, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
 }
