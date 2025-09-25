@@ -1,5 +1,6 @@
 package com.ninni.dye_depot.data.client;
 
+import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.Arrays;
 import java.util.Locale;
@@ -19,6 +20,7 @@ public class DDLang extends DDLangProvider {
     @Override
     protected void translateAdditional(TranslationBuilder builder) {
         builder.add("subtitles.block.dye_depot.dye_basket.poof", "Dye poofs");
+        builder.add(DDTags.SMELTS_INTO_CORAL_DYE, "Corals");
     }
 
     @Override
