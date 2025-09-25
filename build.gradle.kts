@@ -143,6 +143,13 @@ publishing {
             version = "${minecraft_version}-${mod_version}"
 
             from(components["java"])
+
+            // forge does not handle transitive dependencies well
+            pom.withXml {
+                val node = asNode()
+                val list = node.get("dependencies") as groovy.util.NodeList
+                list.forEach { node.remove(it as groovy.util.Node) }
+            }
         }
     }
 
