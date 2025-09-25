@@ -1,10 +1,14 @@
 package com.ninni.dye_depot.data;
 
+import com.google.gson.JsonObject;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.stream.Stream;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
@@ -30,11 +34,14 @@ public class ModCompat {
         return DyedHolders.fromRegistry(registry, colors, color -> new ResourceLocation(SUPPLEMENTARIES_SQUARED, name + "_" + color));
     }
 
-    public static ICondition supplementariesFlag(String flag) {
-        return new AndCondition(
-                new ModLoadedCondition(SUPPLEMENTARIES)//,
-               // new SuppFlag
-        );
+    public static ICondition[] supplementariesFlag(String flag) {
+        var supplementariesJson = new JsonObject();
+        supplementariesJson.addProperty("type", SUPPLEMENTARIES + ":flag");
+        supplementariesJson.addProperty("flag", flag);
+        return new ICondition[]{
+                new ModLoadedCondition(SUPPLEMENTARIES),
+                CraftingHelper.getCondition(supplementariesJson)
+        };
     }
 
 }

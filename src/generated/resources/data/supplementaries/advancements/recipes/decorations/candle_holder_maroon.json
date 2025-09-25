@@ -1,5 +1,15 @@
 {
   "parent": "minecraft:recipes/root",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "candle_holder"
+    }
+  ],
   "criteria": {
     "has_candle": {
       "conditions": {

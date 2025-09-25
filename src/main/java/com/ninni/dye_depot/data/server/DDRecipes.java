@@ -8,6 +8,7 @@ import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.concurrent.CompletableFuture;
@@ -324,8 +325,7 @@ public class DDRecipes extends RecipeProvider {
     }
 
     public static Consumer<FinishedRecipe> withConditions(Consumer<FinishedRecipe> output, ICondition... conditions) {
-        // TODO
-        return output;
+        return it -> output.accept(new ConditionalRecipe(it, Arrays.asList(conditions)));
     }
 
 }
