@@ -72,7 +72,7 @@ public class DDBlockTags extends BlockTagsProvider {
     }
 
     private TagKey<Block> loaderTag(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation("c", path));
+        return TagKey.create(Registries.BLOCK, new ResourceLocation("forge", path));
     }
 
     private TagKey<Block> supplementariesTag(String path) {

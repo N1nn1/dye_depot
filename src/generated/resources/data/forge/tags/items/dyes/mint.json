@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:mint_dye",
+      "required": false
+    }
+  ]
+}

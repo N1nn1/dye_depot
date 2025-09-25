@@ -6,7 +6,9 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.concurrent.CompletableFuture;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -34,7 +36,7 @@ public class DDItemTags extends ItemTagsProvider {
         var lookup = this.lookup.join();
         var itemLookup = lookup.lookupOrThrow(Registries.ITEM);
 
-        tag(DDItems.DYES, loaderTag("dyes"));
+        tagDyed(DDItems.DYES, "dyes");
 
         tagDyed(DDBlocks.SHULKER_BOXES, loaderTag("skulker_boxes"));
         tagDyed(DDBlocks.BANNERS, ItemTags.BANNERS);
@@ -80,10 +82,15 @@ public class DDItemTags extends ItemTagsProvider {
 
     @SafeVarargs
     private void tagDyed(DyedHolders<?, ? extends ItemLike> values, TagKey<Item>... additionalTags) {
+        tagDyed(values, "dyed", additionalTags);
+    }
+
+    @SafeVarargs
+    private void tagDyed(DyedHolders<?, ? extends ItemLike> values, String base, TagKey<Item>... additionalTags) {
         values.forEach((dye, item) -> {
             var id = item.unwrapKey().orElseThrow().location();
-            tag(loaderTag("dyed")).addOptional(id);
-            tag(loaderTag("dyed/" + dye)).addOptional(id);
+            tag(loaderTag(base)).addOptional(id);
+            tag(loaderTag(base + "/" + dye)).addOptional(id);
         });
 
         for (var tag : additionalTags) {
@@ -92,7 +99,7 @@ public class DDItemTags extends ItemTagsProvider {
     }
 
     private TagKey<Item> loaderTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", path));
+        return TagKey.create(Registries.ITEM, new ResourceLocation("forge", path));
     }
 
     private TagKey<Item> supplementariesTag(String path) {
