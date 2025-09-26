@@ -1,67 +1,131 @@
 {
   "values": [
     {
-      "id": "dye_depot:maroon_dye",
+      "id": "#forge:dyes/white",
       "required": false
     },
     {
-      "id": "dye_depot:rose_dye",
+      "id": "#forge:dyes/orange",
       "required": false
     },
     {
-      "id": "dye_depot:coral_dye",
+      "id": "#forge:dyes/magenta",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_dye",
+      "id": "#forge:dyes/light_blue",
       "required": false
     },
     {
-      "id": "dye_depot:navy_dye",
+      "id": "#forge:dyes/yellow",
       "required": false
     },
     {
-      "id": "dye_depot:slate_dye",
+      "id": "#forge:dyes/lime",
       "required": false
     },
     {
-      "id": "dye_depot:olive_dye",
+      "id": "#forge:dyes/pink",
       "required": false
     },
     {
-      "id": "dye_depot:amber_dye",
+      "id": "#forge:dyes/gray",
       "required": false
     },
     {
-      "id": "dye_depot:beige_dye",
+      "id": "#forge:dyes/light_gray",
       "required": false
     },
     {
-      "id": "dye_depot:teal_dye",
+      "id": "#forge:dyes/cyan",
       "required": false
     },
     {
-      "id": "dye_depot:mint_dye",
+      "id": "#forge:dyes/purple",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_dye",
+      "id": "#forge:dyes/blue",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_dye",
+      "id": "#forge:dyes/brown",
       "required": false
     },
     {
-      "id": "dye_depot:forest_dye",
+      "id": "#forge:dyes/green",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_dye",
+      "id": "#forge:dyes/red",
       "required": false
     },
     {
-      "id": "dye_depot:tan_dye",
+      "id": "#forge:dyes/black",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/maroon",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/rose",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/coral",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/indigo",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/navy",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/slate",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/olive",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/amber",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/beige",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/teal",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/mint",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/aqua",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/verdant",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/forest",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/ginger",
+      "required": false
+    },
+    {
+      "id": "#forge:dyes/tan",
       "required": false
     }
   ]
