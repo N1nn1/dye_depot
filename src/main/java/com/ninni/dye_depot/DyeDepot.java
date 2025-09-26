@@ -19,6 +19,8 @@ public class DyeDepot {
     public DyeDepot() {
         var modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        DDMigration.migrateBlockEntities();
+
         DDItems.register(modBus);
         DDBlocks.register(modBus);
         DDBlockEntityType.register(modBus);

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BannerBlockMixin",
+    "BlockEntityTypeAccessor",
     "DyeColorMixin",
     "MapBannerMixin",
     "MapDecorationTypeMixin",

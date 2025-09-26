@@ -2,21 +2,16 @@ package com.ninni.dye_depot.client;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import com.ninni.dye_depot.registry.DDBlockEntityType;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDParticles;
 import java.util.stream.Stream;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BannerRenderer;
-import net.minecraft.client.renderer.blockentity.BedRenderer;
-import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -49,13 +44,6 @@ public class DyeDepotClient {
                     PackSource.BUILT_IN))
             );
         }
-    }
-
-    @SubscribeEvent
-    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(DDBlockEntityType.SHULKER_BOX.get(), ShulkerBoxRenderer::new);
-        event.registerBlockEntityRenderer(DDBlockEntityType.BED.get(), BedRenderer::new);
-        event.registerBlockEntityRenderer(DDBlockEntityType.BANNER.get(), BannerRenderer::new);
     }
 
     @SubscribeEvent
