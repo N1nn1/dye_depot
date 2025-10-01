@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:teal_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:teal_stained_glass",
       "required": false
     },

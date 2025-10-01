@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:tan_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:tan_stained_glass",
       "required": false
     },

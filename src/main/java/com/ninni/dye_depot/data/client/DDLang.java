@@ -2,13 +2,16 @@ package com.ninni.dye_depot.data.client;
 
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.DyeColor;
 
 public class DDLang extends DDLangProvider {
@@ -21,11 +24,15 @@ public class DDLang extends DDLangProvider {
     protected void translateAdditional(TranslationBuilder builder) {
         builder.add("subtitles.block.dye_depot.dye_basket.poof", "Dye poofs");
         tag(builder, DDTags.SMELTS_INTO_CORAL_DYE, "Corals");
+        tag(builder, loaderTag(Registries.ITEM, "dyes"), "Dyes");
+        tag(builder, loaderTag(Registries.ITEM, "dyed"), "Dyed Items");
+        tag(builder, loaderTag(Registries.BLOCK, "dyed"), "Dyed Blocks");
     }
 
     @Override
     protected Stream<DyeColor> colors(String group) {
-        if(group.equals("dye_basket")) return Stream.concat(DyedHolders.vanillaColors(), DyedHolders.modColors());
+        if (group.equals("dye_basket") || group.equals("tags"))
+            return Stream.concat(DyedHolders.vanillaColors(), DyedHolders.modColors());
         return DyedHolders.modColors();
     }
 

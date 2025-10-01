@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:coral_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:coral_stained_glass",
       "required": false
     },

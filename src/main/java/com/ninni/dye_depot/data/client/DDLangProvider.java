@@ -4,9 +4,11 @@ import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -149,7 +151,7 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
     }
 
     protected void tag(TranslationBuilder builder, TagKey<?> tag, String translation) {
-        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey().replace('/', '.'));
+        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey());
         builder.add(key, translation);
     }
 
@@ -164,7 +166,7 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         );
     }
 
-    private <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
+    protected <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
         return TagKey.create(registry, new ResourceLocation("c", path));
     }
 

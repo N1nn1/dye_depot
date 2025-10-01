@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:navy_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:navy_stained_glass",
       "required": false
     },

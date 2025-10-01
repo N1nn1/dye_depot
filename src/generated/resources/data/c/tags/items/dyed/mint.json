@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:mint_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:mint_stained_glass",
       "required": false
     },

@@ -13,6 +13,7 @@ import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -45,6 +46,9 @@ public class DDItemTags extends FabricTagProvider.ItemTagProvider {
         tagDyed(DDBlocks.BEDS, ItemTags.BEDS);
         tagDyed(DDBlocks.WOOL, ItemTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, ItemTags.TERRACOTTA);
+        tagDyed(DDBlocks.GLAZED_TERRACOTTA);
+        tagDyed(DDBlocks.CONCRETE);
+        tagDyed(DDBlocks.CONCRETE_POWDER, supplementariesTag("concrete_powders"));
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"));
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS, ModTags.SOAP_BLACKLIST_ITEM);

@@ -34,6 +34,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:rose_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:rose_stained_glass",
       "required": false
     },
