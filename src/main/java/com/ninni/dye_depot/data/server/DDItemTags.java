@@ -49,7 +49,7 @@ public class DDItemTags extends ItemTagsProvider {
         tagDyed(DDBlocks.WOOL, ItemTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, ItemTags.TERRACOTTA);
         tagDyed(DDBlocks.GLAZED_TERRACOTTA);
-        tagDyed(DDBlocks.CONCRETE, loaderTag("concretes"));
+        tagDyed(DDBlocks.CONCRETE, loaderTag("concrete"));
         tagDyed(DDBlocks.CONCRETE_POWDER, loaderTag("concrete_powders"));
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"));
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));

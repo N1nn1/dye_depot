@@ -157,7 +157,7 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
 
     @Override
     public void add(TagKey<?> tag, String translation) {
-        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey().replace('/', '.'));
+        var key = String.format("tag.%s.%s", tag.registry().location().toShortLanguageKey(), tag.location().toLanguageKey());
         add(key, translation);
     }
 
@@ -172,7 +172,7 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
         );
     }
 
-    private <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
+    protected  <T> TagKey<T> loaderTag(ResourceKey<Registry<T>> registry, String path) {
         return TagKey.create(registry, new ResourceLocation("forge", path));
     }
 

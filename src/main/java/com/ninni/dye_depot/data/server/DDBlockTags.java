@@ -43,7 +43,7 @@ public class DDBlockTags extends BlockTagsProvider {
         tagDyed(DDBlocks.WOOL, BlockTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, BlockTags.TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE);
         tagDyed(DDBlocks.GLAZED_TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE);
-        tagDyed(DDBlocks.CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE, loaderTag("concretes"));
+        tagDyed(DDBlocks.CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE, loaderTag("concrete"));
         tagDyed(DDBlocks.CONCRETE_POWDER, BlockTags.MINEABLE_WITH_SHOVEL);
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
