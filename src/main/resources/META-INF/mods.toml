@@ -18,14 +18,14 @@ configBackground = "dye_depot:textures/block/teal_glazed_terracotta.png"
 modId = "forge"
 mandatory = true
 versionRange = "[47,)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.20,1.21)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
