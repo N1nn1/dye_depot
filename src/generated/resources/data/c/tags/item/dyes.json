@@ -1,6 +1,134 @@
 {
   "values": [
     {
+      "id": "#c:dyes/white",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/orange",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/magenta",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/light_blue",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/yellow",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/lime",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/pink",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/gray",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/light_gray",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/cyan",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/purple",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/blue",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/brown",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/green",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/red",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/black",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/maroon",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/rose",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/coral",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/indigo",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/navy",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/slate",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/olive",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/amber",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/beige",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/teal",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/mint",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/aqua",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/verdant",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/forest",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/ginger",
+      "required": false
+    },
+    {
+      "id": "#c:dyes/tan",
+      "required": false
+    },
+    {
       "id": "dye_depot:maroon_dye",
       "required": false
     },

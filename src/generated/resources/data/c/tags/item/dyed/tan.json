@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:tan_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:tan_shulker_box",
       "required": false
     },

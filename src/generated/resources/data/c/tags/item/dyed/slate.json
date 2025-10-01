@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:slate_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:slate_shulker_box",
       "required": false
     },

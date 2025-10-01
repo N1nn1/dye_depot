@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:aqua_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:aqua_shulker_box",
       "required": false
     },

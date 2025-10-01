@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:ginger_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:ginger_shulker_box",
       "required": false
     },

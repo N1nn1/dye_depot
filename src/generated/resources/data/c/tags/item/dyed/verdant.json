@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:verdant_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:verdant_shulker_box",
       "required": false
     },

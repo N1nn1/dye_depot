@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:beige_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:beige_shulker_box",
       "required": false
     },

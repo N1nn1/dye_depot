@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:rose_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:rose_shulker_box",
       "required": false
     },

@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "dye_depot:mint_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:mint_shulker_box",
       "required": false
     },
