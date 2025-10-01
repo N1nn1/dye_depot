@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     {
+      "id": "dye_depot:olive_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:olive_shulker_box",
       "required": false
     },

@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     {
+      "id": "dye_depot:amber_dye",
+      "required": false
+    },
+    {
       "id": "dye_depot:amber_shulker_box",
       "required": false
     },
