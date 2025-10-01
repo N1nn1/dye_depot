@@ -1,1027 +1,131 @@
 {
   "values": [
     {
-      "id": "dye_depot:maroon_shulker_box",
+      "id": "#c:dyed/white",
       "required": false
     },
     {
-      "id": "dye_depot:rose_shulker_box",
+      "id": "#c:dyed/orange",
       "required": false
     },
     {
-      "id": "dye_depot:coral_shulker_box",
+      "id": "#c:dyed/magenta",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_shulker_box",
+      "id": "#c:dyed/light_blue",
       "required": false
     },
     {
-      "id": "dye_depot:navy_shulker_box",
+      "id": "#c:dyed/yellow",
       "required": false
     },
     {
-      "id": "dye_depot:slate_shulker_box",
+      "id": "#c:dyed/lime",
       "required": false
     },
     {
-      "id": "dye_depot:olive_shulker_box",
+      "id": "#c:dyed/pink",
       "required": false
     },
     {
-      "id": "dye_depot:amber_shulker_box",
+      "id": "#c:dyed/gray",
       "required": false
     },
     {
-      "id": "dye_depot:beige_shulker_box",
+      "id": "#c:dyed/light_gray",
       "required": false
     },
     {
-      "id": "dye_depot:teal_shulker_box",
+      "id": "#c:dyed/cyan",
       "required": false
     },
     {
-      "id": "dye_depot:mint_shulker_box",
+      "id": "#c:dyed/purple",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_shulker_box",
+      "id": "#c:dyed/blue",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_shulker_box",
+      "id": "#c:dyed/brown",
       "required": false
     },
     {
-      "id": "dye_depot:forest_shulker_box",
+      "id": "#c:dyed/green",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_shulker_box",
+      "id": "#c:dyed/red",
       "required": false
     },
     {
-      "id": "dye_depot:tan_shulker_box",
+      "id": "#c:dyed/black",
       "required": false
     },
     {
-      "id": "dye_depot:maroon_banner",
+      "id": "#c:dyed/maroon",
       "required": false
     },
     {
-      "id": "dye_depot:rose_banner",
+      "id": "#c:dyed/rose",
       "required": false
     },
     {
-      "id": "dye_depot:coral_banner",
+      "id": "#c:dyed/coral",
       "required": false
     },
     {
-      "id": "dye_depot:indigo_banner",
+      "id": "#c:dyed/indigo",
       "required": false
     },
     {
-      "id": "dye_depot:navy_banner",
+      "id": "#c:dyed/navy",
       "required": false
     },
     {
-      "id": "dye_depot:slate_banner",
+      "id": "#c:dyed/slate",
       "required": false
     },
     {
-      "id": "dye_depot:olive_banner",
+      "id": "#c:dyed/olive",
       "required": false
     },
     {
-      "id": "dye_depot:amber_banner",
+      "id": "#c:dyed/amber",
       "required": false
     },
     {
-      "id": "dye_depot:beige_banner",
+      "id": "#c:dyed/beige",
       "required": false
     },
     {
-      "id": "dye_depot:teal_banner",
+      "id": "#c:dyed/teal",
       "required": false
     },
     {
-      "id": "dye_depot:mint_banner",
+      "id": "#c:dyed/mint",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_banner",
+      "id": "#c:dyed/aqua",
       "required": false
     },
     {
-      "id": "dye_depot:verdant_banner",
+      "id": "#c:dyed/verdant",
       "required": false
     },
     {
-      "id": "dye_depot:forest_banner",
+      "id": "#c:dyed/forest",
       "required": false
     },
     {
-      "id": "dye_depot:ginger_banner",
+      "id": "#c:dyed/ginger",
       "required": false
     },
     {
-      "id": "dye_depot:tan_banner",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_carpet",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_candle",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_bed",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_terracotta",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_stained_glass",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_stained_glass_pane",
-      "required": false
-    },
-    {
-      "id": "dye_depot:white_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:orange_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:magenta_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:light_blue_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:yellow_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:lime_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:pink_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:gray_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:light_gray_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:cyan_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:purple_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:blue_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:brown_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:green_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:red_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:black_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:maroon_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:coral_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:indigo_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:navy_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:olive_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:amber_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:teal_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:mint_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:aqua_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:forest_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:ginger_dye_basket",
-      "required": false
-    },
-    {
-      "id": "dye_depot:tan_dye_basket",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_maroon",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_coral",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_navy",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_slate",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_beige",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_teal",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_verdant",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_forest",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_ginger",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_tan",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_maroon",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_rose",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_coral",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_indigo",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_navy",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_slate",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_olive",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_amber",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_beige",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_teal",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_mint",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_aqua",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_verdant",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_forest",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_ginger",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_tan",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_maroon",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_coral",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_navy",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_slate",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_beige",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_teal",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_verdant",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_forest",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_ginger",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_tan",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_maroon",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_coral",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_navy",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_slate",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_beige",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_teal",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_verdant",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_forest",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_ginger",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_tan",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_maroon",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_coral",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_indigo",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_navy",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_slate",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_olive",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_amber",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_beige",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_teal",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_mint",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_aqua",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_verdant",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_forest",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_ginger",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_tan",
+      "id": "#c:dyed/tan",
       "required": false
     }
   ]

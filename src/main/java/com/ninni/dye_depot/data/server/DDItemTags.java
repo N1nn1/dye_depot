@@ -6,10 +6,8 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
-
 import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -50,6 +48,9 @@ public class DDItemTags extends ItemTagsProvider {
         tagDyed(DDBlocks.BEDS, ItemTags.BEDS);
         tagDyed(DDBlocks.WOOL, ItemTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, ItemTags.TERRACOTTA);
+        tagDyed(DDBlocks.GLAZED_TERRACOTTA);
+        tagDyed(DDBlocks.CONCRETE, loaderTag("concrete"));
+        tagDyed(DDBlocks.CONCRETE_POWDER, loaderTag("concrete_powders"));
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"));
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS, ModTags.SOAP_BLACKLIST_ITEM);
