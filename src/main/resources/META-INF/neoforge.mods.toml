@@ -18,13 +18,13 @@ enumExtensions = "META-INF/enumextensions.json"
 [[dependencies.${mod_id}]]
 modId="neoforge"
 versionRange="[21,)"
-ordering="NONE"
+ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
 versionRange = "[1.21,1.21.1)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
