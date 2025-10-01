@@ -48,6 +48,9 @@ public class DDItemTags extends ItemTagsProvider {
         tagDyed(DDBlocks.BEDS, ItemTags.BEDS);
         tagDyed(DDBlocks.WOOL, ItemTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, ItemTags.TERRACOTTA);
+        tagDyed(DDBlocks.GLAZED_TERRACOTTA);
+        tagDyed(DDBlocks.CONCRETE, loaderTag("concretes"));
+        tagDyed(DDBlocks.CONCRETE_POWDER, loaderTag("concrete_powders"));
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"));
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
         tagDyed(DDBlocks.DYE_BASKETS, ModTags.SOAP_BLACKLIST_ITEM);

@@ -29,6 +29,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:aqua_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:aqua_stained_glass",
       "required": false
     },

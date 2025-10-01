@@ -29,6 +29,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:maroon_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:maroon_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:maroon_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:maroon_stained_glass",
       "required": false
     },
