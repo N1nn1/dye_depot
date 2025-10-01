@@ -33,6 +33,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:slate_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:slate_stained_glass",
       "required": false
     },

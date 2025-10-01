@@ -41,8 +41,8 @@ public class DDBlockTags extends FabricTagProvider.BlockTagProvider {
         tagDyed(DDBlocks.WOOL, BlockTags.WOOL);
         tagDyed(DDBlocks.TERRACOTTA, BlockTags.TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE);
         tagDyed(DDBlocks.GLAZED_TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE);
-        tagDyed(DDBlocks.CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE);
-        tagDyed(DDBlocks.CONCRETE_POWDER, BlockTags.MINEABLE_WITH_SHOVEL);
+        tagDyed(DDBlocks.CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE, loaderTag("concretes"));
+        tagDyed(DDBlocks.CONCRETE_POWDER, BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.CONCRETE_POWDER, BlockTags.CAMEL_SAND_STEP_SOUND_BLOCKS);
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE, ModTags.SOAP_BLACKLIST_BLOCK);

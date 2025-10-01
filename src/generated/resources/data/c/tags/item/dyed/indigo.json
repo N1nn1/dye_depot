@@ -33,6 +33,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:indigo_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:indigo_stained_glass",
       "required": false
     },

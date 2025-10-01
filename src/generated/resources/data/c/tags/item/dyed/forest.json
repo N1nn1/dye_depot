@@ -33,6 +33,18 @@
       "required": false
     },
     {
+      "id": "dye_depot:forest_glazed_terracotta",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_concrete_powder",
+      "required": false
+    },
+    {
       "id": "dye_depot:forest_stained_glass",
       "required": false
     },

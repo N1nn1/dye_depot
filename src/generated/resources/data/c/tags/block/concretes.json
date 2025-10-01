@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "dye_depot:maroon_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:coral_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:indigo_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:navy_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:olive_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:amber_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:teal_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:mint_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:forest_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:ginger_concrete",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_concrete",
+      "required": false
+    }
+  ]
+}
