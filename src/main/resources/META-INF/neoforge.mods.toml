@@ -13,7 +13,6 @@ description = '''Enhances your Minecraft experience with 16 vibrant new dyes and
 updateJSONURL = "https://api.modrinth.com/updates/dye-depot/forge_updates.json"
 itemIcon = "dye_depot:teal_dye"
 configBackground = "dye_depot:textures/block/teal_glazed_terracotta.png"
-enumExtensions = "META-INF/enumextensions.json"
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
