@@ -1,6 +1,10 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 plugins {
     id("fabric-loom") version "1.11-SNAPSHOT"
     id("com.diffplug.spotless") version "7.0.4"
+    id("com.modrinth.minotaur") version "2.+"
+    id("net.darkhax.curseforgegradle") version "1.1.15"
     `maven-publish`
 }
 
@@ -14,7 +18,7 @@ val maven_group: String by extra
 val repository: String by extra
 
 base {
-    archivesName = mod_id
+    archivesName = "$mod_id-$mod_version"
 }
 
 repositories {
@@ -132,6 +136,48 @@ publishing {
 
     repositories {
         mavenLocal()
+
+        val nexusToken = System.getenv("NEXUS_TOKEN")
+        val nexusUser = System.getenv("NEXUS_USER")
+        if (nexusToken != null && nexusUser != null) {
+            maven {
+                url = uri("https://registry.somethingcatchy.net/repository/maven-releases/")
+                credentials {
+                    username = nexusUser
+                    password = nexusToken
+                }
+            }
+        }
+    }
+}
+
+val upload = tasks.jar.get().archiveFile.get()
+val release_type = "release"
+
+val modrinth_project_id: String by extra
+val modrinthToken = System.getenv("MODRINTH_TOKEN")
+modrinth {
+    token = modrinthToken
+    projectId = modrinth_project_id
+    versionNumber = mod_version
+    versionName = "$mod_name $mod_version"
+    versionType = release_type
+    uploadFile = upload
+    gameVersions = listOf(minecraft_version)
+    changelog = System.getenv("CHANGELOG")
+}
+
+val curseforge_project_id: String by extra
+val curseforgeToken = System.getenv("CURSEFORGE_TOKEN")
+val curseforgeTask = tasks.register<TaskPublishCurseForge>("curseforge") {
+    dependsOn(tasks.jar)
+    apiToken = curseforgeToken
+    upload(curseforge_project_id, upload) {
+        changelogType = "markdown"
+        changelog = System.getenv("CHANGELOG")
+        releaseType = release_type
+        displayName = "$mod_name $mod_version"
+        addGameVersion(minecraft_version)
     }
 }
 
