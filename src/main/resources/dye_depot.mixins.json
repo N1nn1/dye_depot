@@ -9,7 +9,9 @@
     "MapBannerMixin",
     "MapDecorationTypeMixin",
     "SheepMixin",
-    "ShulkerBoxBlockMixin"
+    "ShulkerBoxBlockMixin",
+    "VillagerGoalPackagesMixin",
+    "client.NearestBedSensorMixin"
   ],
   "client": [
     "client.BedRendererMixin",
