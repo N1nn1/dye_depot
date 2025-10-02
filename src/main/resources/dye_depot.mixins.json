@@ -8,7 +8,10 @@
     "MapBannerMixin",
     "SheepMixin",
     "ShulkerBoxBlockMixin",
-    "DispenseItemBehaviourMixin"
+    "DispenseItemBehaviourMixin",
+    "ShulkerBoxBlockMixin",
+    "VillagerGoalPackagesMixin",
+    "client.NearestBedSensorMixin"
   ],
   "client": [
     "client.BedRendererMixin",

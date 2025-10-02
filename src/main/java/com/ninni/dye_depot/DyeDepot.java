@@ -25,7 +25,8 @@ public class DyeDepot implements ModInitializer {
                 DDParticles.class,
                 DDSoundEvents.class,
                 DDCreativeModeTabs.class,
-                DDMapDecorationType.class
+                DDMapDecorationType.class,
+                DDPoiTypes.class
         );
 
         DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->

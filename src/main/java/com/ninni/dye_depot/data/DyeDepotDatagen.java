@@ -9,6 +9,7 @@ import com.ninni.dye_depot.data.server.DDBlockLoot;
 import com.ninni.dye_depot.data.server.DDBlockTags;
 import com.ninni.dye_depot.data.server.DDEntityLoot;
 import com.ninni.dye_depot.data.server.DDItemTags;
+import com.ninni.dye_depot.data.server.DDPoiTags;
 import com.ninni.dye_depot.data.server.DDRecipes;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -26,6 +27,7 @@ public class DyeDepotDatagen implements DataGeneratorEntrypoint {
 
         var blockTags = pack.addProvider(DDBlockTags::new);
         pack.addProvider((output, lookup) -> new DDItemTags(output, lookup, blockTags));
+        pack.addProvider(DDPoiTags::new);
         pack.addProvider(DDBlockLoot::new);
         pack.addProvider(DDEntityLoot::new);
         pack.addProvider(DDRecipes::new);
