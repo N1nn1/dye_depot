@@ -9,6 +9,7 @@ import com.ninni.dye_depot.data.server.DDBlockTags;
 import com.ninni.dye_depot.data.server.DDItemTags;
 import com.ninni.dye_depot.data.server.DDLoot;
 import com.ninni.dye_depot.data.server.DDLootModifiersProvider;
+import com.ninni.dye_depot.data.server.DDPoiTags;
 import com.ninni.dye_depot.data.server.DDRecipes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.data.PackOutput;
@@ -34,6 +35,7 @@ public class DyeDepotDatagen {
 
         var blockTags = generator.addProvider(server, new DDBlockTags(output, lookup, fileHelper));
         generator.addProvider(server, new DDItemTags(output, lookup, blockTags.contentsGetter()));
+        generator.addProvider(server, new DDPoiTags(output, lookup, fileHelper));
         generator.addProvider(server, new DDLoot(output, lookup));
         generator.addProvider(server, new DDRecipes(output, lookup));
         generator.addProvider(server, new DDLootModifiersProvider(output, lookup));

@@ -26,6 +26,7 @@ public class DyeDepot {
         DDSoundEvents.register(modBus);
         DDMapDecorationType.register(modBus);
         DDLootModifiers.register(modBus);
+        DDPoiTypes.register(modBus);
 
         modBus.addListener(this::setup);
     }
