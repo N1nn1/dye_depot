@@ -1,7 +1,11 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 plugins {
     id("net.minecraftforge.gradle") version "[6.0,6.2)"
     id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
     id("com.diffplug.spotless") version "7.0.4"
+    id("com.modrinth.minotaur") version "2.+"
+    id("net.darkhax.curseforgegradle") version "1.1.15"
     `maven-publish`
 }
 
@@ -16,7 +20,7 @@ val mixin_version: String by extra
 val mixin_extras_version: String by extra
 
 base {
-    archivesName = mod_id
+    archivesName = "$mod_id-$mod_version"
 }
 
 repositories {
@@ -135,6 +139,15 @@ tasks.withType<GenerateModuleMetadata> {
     enabled = false
 }
 
+tasks.jar {
+    archiveClassifier.set("slim")
+}
+
+jarJar.enable()
+tasks.jarJar {
+    archiveClassifier.set("")
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -142,7 +155,9 @@ publishing {
             artifactId = mod_id
             version = "${minecraft_version}-${mod_version}"
 
-            from(components["java"])
+            artifact(tasks.getByName("sourcesJar"))
+            artifact(tasks.jar)
+            artifact(tasks.jarJar)
 
             // forge does not handle transitive dependencies well
             pom.withXml {
@@ -155,6 +170,48 @@ publishing {
 
     repositories {
         mavenLocal()
+
+        val nexusToken = System.getenv("NEXUS_TOKEN")
+        val nexusUser = System.getenv("NEXUS_USER")
+        if (nexusToken != null && nexusUser != null) {
+            maven {
+                url = uri("https://registry.somethingcatchy.net/repository/maven-releases/")
+                credentials {
+                    username = nexusUser
+                    password = nexusToken
+                }
+            }
+        }
+    }
+}
+
+val upload = tasks.jarJar.get().archiveFile.get()
+val release_type = "release"
+
+val modrinth_project_id: String by extra
+val modrinthToken = System.getenv("MODRINTH_TOKEN")
+modrinth {
+    token = modrinthToken
+    projectId = modrinth_project_id
+    versionNumber = mod_version
+    versionName = "$mod_name $mod_version"
+    versionType = release_type
+    uploadFile = upload
+    gameVersions = listOf(minecraft_version)
+    changelog = System.getenv("CHANGELOG")
+}
+
+val curseforge_project_id: String by extra
+val curseforgeToken = System.getenv("CURSEFORGE_TOKEN")
+val curseforgeTask = tasks.register<TaskPublishCurseForge>("curseforge") {
+    dependsOn(tasks.jarJar)
+    apiToken = curseforgeToken
+    upload(curseforge_project_id, upload) {
+        changelogType = "markdown"
+        changelog = System.getenv("CHANGELOG")
+        releaseType = release_type
+        displayName = "$mod_name $mod_version"
+        addGameVersion(minecraft_version)
     }
 }
 
