@@ -3,3 +3,4 @@ accessWidener v2 named
 accessible class net/minecraft/world/item/CreativeModeTab$ItemDisplayBuilder
 accessible class net/minecraft/client/gui/MapRenderer$MapInstance
 accessible method net/minecraft/data/loot/EntityLootSubProvider createSheepTable (Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;
+accessible method net/minecraft/world/level/block/FireBlock setFlammable (Lnet/minecraft/world/level/block/Block;II)V

@@ -17,6 +17,8 @@ public class DyeDepot implements ModInitializer {
     @Override
     public void onInitialize() {
         DDVanillaIntegration.commonInit();
+        DDFlammables.register();
+
         Reflection.initialize(
                 DDItems.class,
                 DDBlocks.class,
