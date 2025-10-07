@@ -5,14 +5,19 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+
 import java.util.function.Function;
+
 import net.minecraft.Util;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,7 +29,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Sheep.class)
 public abstract class SheepMixin {
     @Unique
-    private static final Function<DyeColor, ResourceLocation> LOOT_TABLES = Util.memoize(color -> DyeDepot.modLoc("entities/sheep/" + color));
+    private static final Function<DyeColor, ResourceKey<LootTable>> LOOT_TABLES = Util.memoize(color ->
+            ResourceKey.create(Registries.LOOT_TABLE, DyeDepot.modLoc("entities/sheep/" + color))
+    );
 
     @Inject(method = "getRandomSheepColor", at = @At(value = "RETURN"), cancellable = true)
     private static void DD$getRandomSheepColor(RandomSource randomSource, CallbackInfoReturnable<DyeColor> cir) {
@@ -47,7 +54,7 @@ public abstract class SheepMixin {
     }
 
     @Inject(method = "getDefaultLootTable", at = @At(value = "HEAD"), cancellable = true)
-    private void DD$getDefaultLootTable(CallbackInfoReturnable<ResourceLocation> cir) {
+    private void DD$getDefaultLootTable(CallbackInfoReturnable<ResourceKey<LootTable>> cir) {
         Sheep $this = (Sheep) (Object) this;
 
         if (!$this.isSheared() && DDDyes.isModDye($this.getColor())) {
