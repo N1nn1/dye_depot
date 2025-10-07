@@ -33,6 +33,7 @@ public class DyeDepot {
 
     private void setup(FMLCommonSetupEvent event) {
         DDVanillaIntegration.commonInit();
+        DDFlammables.register();
         DDBlocks.SHULKER_BOXES.forEach((dye, shulkerBox) ->
                 DispenserBlock.registerBehavior(shulkerBox.value(), new ShulkerBoxDispenseBehavior())
         );
