@@ -151,7 +151,7 @@ publishing {
     }
 }
 
-val upload = tasks.jar.get().archiveFile.get()
+val upload = tasks.remapJar.get().archiveFile.get()
 val release_type = "release"
 
 val modrinth_project_id: String by extra
