@@ -5,13 +5,10 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
-
 import java.util.function.Function;
-
 import net.minecraft.Util;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
