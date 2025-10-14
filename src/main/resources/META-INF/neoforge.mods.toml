@@ -16,7 +16,7 @@ configBackground = "dye_depot:textures/block/teal_glazed_terracotta.png"
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
-versionRange="[21,)"
+versionRange="[21.1.209,)"
 ordering="AFTER"
 side="BOTH"
 
