@@ -39,6 +39,11 @@ repositories {
     }
 }
 
+mixin {
+    add(sourceSets.main.get(), "${mod_id}.refmap.json")
+    config("${mod_id}.mixins.json")
+}
+
 val datagenOutput = file("src/generated/resources").absolutePath
 sourceSets.main {
     resources.srcDir(datagenOutput)
@@ -70,10 +75,6 @@ minecraft {
                 })
         }
     }
-}
-
-mixin {
-    config("${mod_id}.mixins.json")
 }
 
 fun DependencyHandler.modImplementation(notation: String) = implementation(fg.deobf(notation))
