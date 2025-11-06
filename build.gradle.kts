@@ -5,6 +5,7 @@ plugins {
     id("com.diffplug.spotless") version "7.0.4"
     id("com.modrinth.minotaur") version "2.+"
     id("net.darkhax.curseforgegradle") version "1.1.15"
+    id("com.possible-triangle.publishing") version "1.2.+"
     `maven-publish`
 }
 
