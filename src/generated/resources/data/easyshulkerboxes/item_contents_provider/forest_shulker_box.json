@@ -1,0 +1,11 @@
+{
+  "type": "iteminteractions:container",
+  "background_color": "forest",
+  "disallowed_item_contents": [],
+  "equipment_slots": "any",
+  "filter_container_items": true,
+  "interaction_permissions": "always",
+  "inventory_height": 3,
+  "inventory_width": 9,
+  "supported_items": "dye_depot:forest_shulker_box"
+}
