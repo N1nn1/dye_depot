@@ -59,9 +59,11 @@ public abstract class DDLangProvider extends FabricLanguageProvider {
         dyedBannerPattern(builder, "diagonal_up_left", color -> color + " Per Bend Inverted");
         dyedBannerPattern(builder, "diagonal_up_right", color -> color + " Per Bend Sinister Inverted");
         dyedBannerPattern(builder, "flower", color -> color + " Flower Charge");
+        dyedBannerPattern(builder, "flow", color -> color + " Flow");
         dyedBannerPattern(builder, "globe", color -> color + " Globe");
         dyedBannerPattern(builder, "gradient_up", color -> color + " Base Gradient");
         dyedBannerPattern(builder, "gradient", color -> color + " Gradient");
+        dyedBannerPattern(builder, "guster", color -> color + " Guster");
         dyedBannerPattern(builder, "half_horizontal_bottom", color -> color + " Per Fess Inverted");
         dyedBannerPattern(builder, "half_horizontal", color -> color + " Per Fess");
         dyedBannerPattern(builder, "half_vertical_right", color -> color + " Per Pale Inverted");
