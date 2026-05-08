@@ -1,0 +1,63 @@
+# <meta>
+#    <source>@pssbletrngle/github-meta-generator</source>
+#    <version>0.0.0-dev</version>
+#    <timestamp>2026-05-08T10:03:11.402Z</timestamp>
+#    <hash>df89e10a35a99cde</hash>
+# </meta>
+
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: "Upload Artifact"
+        default: false
+        required: true
+        type: boolean
+
+  pull_request:
+    types: [opened, synchronize]
+
+  push:
+    branches:
+      - "main"
+      - "main/**"
+
+env:
+  CI: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: ${{ github.event_name != 'push' }}
+          dependency-graph: generate-and-submit
+
+      - name: Test
+        run: ./gradlew build check
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.upload }}
+        with:
+          name: build
+          path: "**/build/libs/*.jar"
