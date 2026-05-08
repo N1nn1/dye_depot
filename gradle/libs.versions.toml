@@ -1,0 +1,9 @@
+[versions]
+jei = "15.20.0.130"
+porting-lib = "2.3.9+1.20.1"
+
+[libraries]
+jei-common-api = { group = "mezz.jei", name = "jei-1.20.1-common-api", version.ref = "jei" }
+jei = { group = "mezz.jei", name = "jei-1.20.1-fabric", version.ref = "jei" }
+
+porting-lib-models = { group = "io.github.fabricators_of_create.Porting-Lib", name = "models", version.ref = "porting-lib" }
