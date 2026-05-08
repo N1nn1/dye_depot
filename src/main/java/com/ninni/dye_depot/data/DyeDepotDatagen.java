@@ -22,14 +22,10 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public class DyeDepotDatagen {
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent.Client event) {
         var generator = event.getGenerator();
         var output = generator.getPackOutput();
         var lookup = event.getLookupProvider();
-        var fileHelper = event.getExistingFileHelper();
-
-        var client = event.includeClient();
-        var server = event.includeServer();
 
         generator.addProvider(true, new DDPackMetadata(output, Component.literal(DyeDepot.MOD_ID + " resources")));
 

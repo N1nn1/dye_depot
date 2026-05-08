@@ -8,6 +8,7 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,9 +21,9 @@ public class PoofParticleProvider implements ParticleProvider<BlockParticleOptio
         this.sprite = spriteSet;
     }
 
-    @Nullable
     @Override
-    public Particle createParticle(BlockParticleOption particleOptions, ClientLevel clientLevel, double d, double e, double f, double g, double h, double i) {
+    @Nullable
+    public Particle createParticle(BlockParticleOption particleOptions, ClientLevel clientLevel, double d, double e, double f, double g, double h, double i, RandomSource random) {
         BlockState blockState = particleOptions.getState();
         if (!blockState.isAir() && blockState.getRenderShape() == RenderShape.INVISIBLE) return null;
         BlockPos blockPos = BlockPos.containing(d, e, f);

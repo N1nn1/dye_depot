@@ -9,7 +9,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -56,7 +56,7 @@ public class DDItemModels extends ItemModelProvider {
         basicItem(item.value().asItem());
     }
 
-    private void basicItem(Holder<? extends ItemLike> item, ResourceLocation texture) {
+    private void basicItem(Holder<? extends ItemLike> item, Identifier texture) {
         withExistingParent(key(item).toString(), vanillaResource("generated"))
                 .texture("layer0", texture);
     }
@@ -65,7 +65,7 @@ public class DDItemModels extends ItemModelProvider {
         basicItem(item, blockTexture(DDBlocks.STAINED_GLASS.holderOrThrow(color)));
     }
 
-    private ResourceLocation blockTexture(Holder<? extends Block> block) {
+    private Identifier blockTexture(Holder<? extends Block> block) {
         return block.unwrapKey().orElseThrow().location().withPrefix("block/");
     }
 
@@ -89,27 +89,27 @@ public class DDItemModels extends ItemModelProvider {
 
     private void candleHolder(DyeColor color, Holder<? extends ItemLike> item) {
         var namespace = key(item).getNamespace();
-        basicItem(item, ResourceLocation.fromNamespaceAndPath(namespace, "item/candle_holders/" + color));
+        basicItem(item, Identifier.fromNamespaceAndPath(namespace, "item/candle_holders/" + color));
     }
 
     private void flag(Holder<? extends ItemLike> item) {
-        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
+        withExistingParent(key(item).toString(), Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
     }
 
     private void present(DyeColor color, Holder<? extends ItemLike> item) {
         var type = name(item).replace("_" + color, "");
-        withExistingParent(key(item).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
+        withExistingParent(key(item).toString(), Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
     }
 
-    private ResourceLocation vanillaResource(String name) {
-        return ResourceLocation.withDefaultNamespace("item/" + name);
+    private Identifier vanillaResource(String name) {
+        return Identifier.withDefaultNamespace("item/" + name);
     }
 
     private String name(Holder<? extends ItemLike> item) {
         return key(item).getPath();
     }
 
-    private ResourceLocation key(Holder<? extends ItemLike> item) {
+    private Identifier key(Holder<? extends ItemLike> item) {
         return item.unwrapKey().orElseThrow().location();
     }
 

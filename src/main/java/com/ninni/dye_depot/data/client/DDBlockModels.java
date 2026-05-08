@@ -10,7 +10,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CandleBlock;
@@ -142,7 +142,7 @@ public class DDBlockModels extends BlockStateProvider {
             var suffix = face.getSerializedName() + "_" + candles;
             var litSuffix = lit ? "_lit" : "";
             var namespace = key(block).getNamespace();
-            var parent = ResourceLocation.fromNamespaceAndPath(namespace, "block/candle_holders/" + suffix);
+            var parent = Identifier.fromNamespaceAndPath(namespace, "block/candle_holders/" + suffix);
             var model = models()
                     .withExistingParent(namespace + ":block/candle_holders/" + color + "_" + suffix + litSuffix, parent)
                     .texture("all", blockTexture(DDBlocks.CANDLES.getOrNull(color)) + litSuffix);
@@ -155,7 +155,7 @@ public class DDBlockModels extends BlockStateProvider {
     }
 
     private void flag(Holder<? extends Block> block) {
-        simpleBlock(block.value(), models().getExistingFile(ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/flag")));
+        simpleBlock(block.value(), models().getExistingFile(Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/flag")));
     }
 
     private void present(DyeColor color, Holder<? extends Block> block) {
@@ -166,11 +166,11 @@ public class DDBlockModels extends BlockStateProvider {
 
             var suffix = packed ? "_closed" : "_opened";
 
-            var parent = ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/present" + suffix + "_template");
-            var sideTexture = ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/side_" + color);
+            var parent = Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/present" + suffix + "_template");
+            var sideTexture = Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/side_" + color);
             var model = models().withExistingParent(ModCompat.SUPPLEMENTARIES + ":block/" + type + "s/" + color + suffix, parent)
-                    .texture("bottom", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/bottom_" + color))
-                    .texture("top", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/top_" + color))
+                    .texture("bottom", Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/bottom_" + color))
+                    .texture("top", Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/top_" + color))
                     .texture("side", sideTexture)
                     .texture("particle", sideTexture);
 
@@ -180,11 +180,11 @@ public class DDBlockModels extends BlockStateProvider {
         }, BlockStateProperties.WATERLOGGED);
     }
 
-    private ResourceLocation vanillaResource(String name) {
-        return ResourceLocation.withDefaultNamespace("block/" + name);
+    private Identifier vanillaResource(String name) {
+        return Identifier.withDefaultNamespace("block/" + name);
     }
 
-    private ResourceLocation key(Holder<? extends Block> block) {
+    private Identifier key(Holder<? extends Block> block) {
         return block.unwrapKey().orElseThrow().location();
     }
 
@@ -192,7 +192,7 @@ public class DDBlockModels extends BlockStateProvider {
         return key(block).getPath();
     }
 
-    private ResourceLocation blockTexture(Holder<? extends Block> block) {
+    private Identifier blockTexture(Holder<? extends Block> block) {
         return block.unwrapKey().orElseThrow().location().withPrefix("block/");
     }
 

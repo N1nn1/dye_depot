@@ -18,6 +18,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
 public class DDBlockLoot extends BlockLootSubProvider {
 
@@ -83,7 +84,7 @@ public class DDBlockLoot extends BlockLootSubProvider {
 
     private LootTable.Builder createFlagDrops(Block block) {
         var entry = LootItem.lootTableItem(block)
-                .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+                .apply(CopyComponentsFunction.copyComponentsFromBlockEntity(LootContextParams.BLOCK_ENTITY)
                         .include(DataComponents.CUSTOM_NAME)
                         .include(DataComponents.ITEM_NAME)
                         .include(DataComponents.HIDE_ADDITIONAL_TOOLTIP)

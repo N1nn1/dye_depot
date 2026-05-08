@@ -4,12 +4,12 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.util.Mth;
 
-public class PoofParticle extends TextureSheetParticle {
+public class PoofParticle extends SingleQuadParticle {
     private final float rotSpeed;
     private final SpriteSet sprites;
 
     PoofParticle(ClientLevel clientLevel, double d, double e, double f, float g, float h, float i, SpriteSet spriteSet) {
-        super(clientLevel, d, e, f);
+        super(clientLevel, d, e, f, spriteSet.first());
         this.sprites = spriteSet;
         this.rCol = g;
         this.gCol = h;
@@ -24,8 +24,8 @@ public class PoofParticle extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    protected Layer getLayer() {
+        return Layer.OPAQUE;
     }
 
     @Override

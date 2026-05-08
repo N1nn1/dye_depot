@@ -5,7 +5,7 @@ import static net.minecraft.world.item.Items.*;
 
 import com.ninni.dye_depot.DyeDepot;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
@@ -116,7 +116,7 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
-        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), ResourceLocation.withDefaultNamespace(baseName)));
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), Identifier.withDefaultNamespace(baseName)));
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {

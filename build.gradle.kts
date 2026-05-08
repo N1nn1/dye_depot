@@ -25,9 +25,9 @@ dependencies {
     modCompileOnly(libs.jei.api)
     modRuntimeOnly(libs.jei)
 
-    modImplementation(pack.modrinth.moonlight)
-    modImplementation(pack.modrinth.supplementaries)
-    modImplementation(pack.modrinth.supplementaries.squared)
+    // modImplementation(pack.modrinth.moonlight)
+    // modImplementation(pack.modrinth.supplementaries)
+    // modImplementation(pack.modrinth.supplementaries.squared)
 }
 
 upload.maven.nexus()

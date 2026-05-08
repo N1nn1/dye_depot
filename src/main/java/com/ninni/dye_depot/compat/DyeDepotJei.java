@@ -2,39 +2,39 @@ package com.ninni.dye_depot.compat;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DyedHolders;
+
 import java.util.stream.Stream;
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.CraftingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 
 @JeiPlugin
 public class DyeDepotJei implements IModPlugin {
 
-    private static final ResourceLocation ID = DyeDepot.modLoc("jei");
+    private static final Identifier ID = DyeDepot.modLoc("jei");
 
     @Override
-    public ResourceLocation getPluginUid() {
+    public Identifier getPluginUid() {
         return ID;
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         var shulkerColoring = Stream.concat(DyedHolders.modColors(), DyedHolders.vanillaColors())
-                .map(this::createShulkerColoring)
-                .toList();
+            .map(this::createShulkerColoring)
+            .toList();
 
         registration.addRecipes(RecipeTypes.CRAFTING, shulkerColoring);
     }
@@ -42,11 +42,15 @@ public class DyeDepotJei implements IModPlugin {
     private RecipeHolder<CraftingRecipe> createShulkerColoring(DyeColor color) {
         var baseShulkerStack = new ItemStack(Blocks.SHULKER_BOX);
         var baseShulkerIngredient = Ingredient.of(baseShulkerStack);
-        var colorIngredient = Ingredient.of(DyeItem.byColor(color));
+        var colorIngredient = Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(color.getTag()));
         var inputs = NonNullList.of(Ingredient.EMPTY, baseShulkerIngredient, colorIngredient);
         var output = ShulkerBoxBlock.getColoredItemStack(color);
-        var id = ResourceLocation.withDefaultNamespace("jei.shulker.color" + "." + output.getDescriptionId());
-        return new RecipeHolder<>(id, new ShapelessRecipe("jei.shulker.color", CraftingBookCategory.MISC, output, inputs));
+        var id = Identifier.withDefaultNamespace("jei.shulker.color" + "." + output.getDescriptionId());
+        return new RecipeHolder<>(id, new ShapelessRecipe(
+            new Recipe.CommonInfo(false),
+            new CraftingRecipe.CraftingBookInfo(CraftingBookCategory.MISC, "jei.shulker.color"),
+            new ItemStackTemplate(output), inputs
+        ));
     }
 
 }

@@ -19,7 +19,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import org.jetbrains.annotations.Nullable;
 
@@ -70,12 +70,12 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
         );
     }
 
-    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, ResourceLocation baseName) {
+    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, Identifier baseName) {
         return fromRegistry(registry, colors, color -> baseName.withPrefix(color + "_"));
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, Function<DyeColor, ResourceLocation> idMapper) {
+    public static <T extends R, R> DyedHolders<T, R> fromRegistry(HolderLookup.RegistryLookup<R> registry, Stream<DyeColor> colors, Function<DyeColor, Identifier> idMapper) {
         var registryKey = (ResourceKey<Registry<R>>) registry.key();
         Function<DyeColor, ResourceKey<R>> keyMapper = idMapper.andThen(id -> ResourceKey.create(registryKey, id));
         return fromLookup(registry, colors, keyMapper);
@@ -146,7 +146,7 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 
     public String detectBaseName() {
         var entry = entries.entrySet().stream().findFirst().orElseThrow(() -> new NoSuchElementException("DyedHolders is empty"));
-        var id = entry.getValue().unwrapKey().orElseThrow().location();
+        var id = entry.getValue().unwrapKey().orElseThrow().identifier();
         return Pattern.compile("_?" + entry.getKey() + "_?")
                 .matcher(id.getPath())
                 .replaceFirst("");
@@ -154,7 +154,7 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
 
     public DyedHolders<TImplementation, RRegistry> mergeVanilla(HolderLookup.RegistryLookup<RRegistry> registry) {
         var base = detectBaseName();
-        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), ResourceLocation.withDefaultNamespace(base));
+        var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), Identifier.withDefaultNamespace(base));
         return merge(vanillaVariants, this);
     }
 

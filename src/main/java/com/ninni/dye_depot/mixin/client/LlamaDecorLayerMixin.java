@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.layers.LlamaDecorLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.item.DyeColor;
 import org.spongepowered.asm.mixin.Final;
@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class LlamaDecorLayerMixin {
     @Shadow @Final private LlamaModel<Llama> model;
     @Unique
-    private static final ResourceLocation[] TEXTURE_LOCATION = new ResourceLocation[]{
+    private static final Identifier[] TEXTURE_LOCATION = new Identifier[]{
             DyeDepot.modLoc("textures/entity/llama/decor/maroon.png"),
             DyeDepot.modLoc("textures/entity/llama/decor/rose.png"),
             DyeDepot.modLoc("textures/entity/llama/decor/coral.png"),
@@ -51,7 +51,7 @@ public class LlamaDecorLayerMixin {
             ci.cancel();
             LlamaDecorLayer that = LlamaDecorLayer.class.cast(this);
 
-            ResourceLocation resourceLocation = TEXTURE_LOCATION[dyeColor.getId() - 16];
+            Identifier resourceLocation = TEXTURE_LOCATION[dyeColor.getId() - 16];
 
             that.getParentModel().copyPropertiesTo(this.model);
             this.model.setupAnim(llama, f, g, j, k, l);

@@ -10,19 +10,18 @@ import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class DDBlockTags extends BlockTagsProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
-    public DDBlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, ExistingFileHelper fileHelper) {
-        super(output, lookup, DyeDepot.MOD_ID, fileHelper);
+    public DDBlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup, DyeDepot.MOD_ID);
         this.lookup = lookup;
     }
 
@@ -58,7 +57,7 @@ public class DDBlockTags extends BlockTagsProvider {
 
     private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {
         values.holders()
-                .map(it -> it.unwrapKey().orElseThrow().location())
+                .map(it -> it.unwrapKey().orElseThrow().identifier())
                 .forEach(it -> tag(tag).addOptional(it));
     }
 
@@ -71,9 +70,8 @@ public class DDBlockTags extends BlockTagsProvider {
     @SafeVarargs
     private void tagDyed(DyedHolders<?, Block> values, TagKey<Block>... additionalTags) {
         values.forEach((dye, block) -> {
-            var id = block.unwrapKey().orElseThrow().location();
             var tag = loaderTag("dyed/" + dye);
-            tag(tag).addOptional(id);
+            tag(tag).addOptional(block.value());
         });
 
         for (var tag : additionalTags) {
@@ -82,11 +80,11 @@ public class DDBlockTags extends BlockTagsProvider {
     }
 
     private TagKey<Block> loaderTag(String path) {
-        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", path));
+        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Block> supplementariesTag(String path) {
-        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

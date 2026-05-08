@@ -10,6 +10,7 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -37,7 +38,7 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     );
 
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 15.0, 16.0);
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     private DyeColor dyeColor;
 
     public DyeBasketBlock(DyeColor dyeColor, Properties properties) {
@@ -52,9 +53,8 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
-        super.entityInside(blockState, level, blockPos, entity);
-        if (level instanceof ServerLevel serverLevel && serverLevel.random.nextInt(15) == 0) {
+    protected void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise) {
+        if (level instanceof ServerLevel serverLevel && serverLevel.getRandom().nextInt(15) == 0) {
             serverLevel.sendParticles(new BlockParticleOption(DDParticles.DYE_POOF.get(), blockState), entity.getX(),entity.getY() + 0.2,entity.getZ(), 1, 0.2, 0.2, 0.2, 1.0);
         }
     }
@@ -68,7 +68,7 @@ public class DyeBasketBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    public void fallOn(Level level, BlockState blockState, BlockPos blockPos, Entity entity, float f) {
+    public void fallOn(Level level, BlockState blockState, BlockPos blockPos, Entity entity, double f) {
         super.fallOn(level, blockState, blockPos, entity, f);
         this.spawnParticles(level, blockPos, blockState);
     }

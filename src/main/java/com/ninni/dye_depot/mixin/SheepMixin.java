@@ -5,15 +5,21 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+
 import java.util.function.Function;
-import net.minecraft.Util;
+
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.util.Util;
+import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -27,11 +33,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class SheepMixin {
     @Unique
     private static final Function<DyeColor, ResourceKey<LootTable>> LOOT_TABLES = Util.memoize(color ->
-            ResourceKey.create(Registries.LOOT_TABLE, DyeDepot.modLoc("entities/sheep/" + color))
+        ResourceKey.create(Registries.LOOT_TABLE, DyeDepot.modLoc("entities/sheep/" + color))
     );
 
     @Inject(method = "getRandomSheepColor", at = @At(value = "RETURN"), cancellable = true)
-    private static void DD$getRandomSheepColor(RandomSource randomSource, CallbackInfoReturnable<DyeColor> cir) {
+    private static void DD$getRandomSheepColor(ServerLevelAccessor level, BlockPos pos, CallbackInfoReturnable<DyeColor> cir) {
+        var randomSource = level.getRandom();
         int i = randomSource.nextInt(100);
         if (i < 23) {
             cir.setReturnValue(DDDyes.BEIGE.get());
@@ -41,13 +48,13 @@ public abstract class SheepMixin {
         }
     }
 
-    @WrapOperation(method = "shear", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Sheep;spawnAtLocation(Lnet/minecraft/world/level/ItemLike;I)Lnet/minecraft/world/entity/item/ItemEntity;"))
-    private ItemEntity DD$shear(Sheep $this, ItemLike item, int count, Operation<ItemEntity> original) {
+    @WrapOperation(method = "lambda$shear$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/sheep/Sheep;spawnAtLocation(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;F)Lnet/minecraft/world/entity/item/ItemEntity;"))
+    private ItemEntity DD$shear(Sheep $this, ServerLevel serverLevel, ItemStack stack, float v, Operation<ItemEntity> original) {
         if (DDDyes.isModDye($this.getColor())) {
-            return original.call($this, DDBlocks.WOOL.getOrThrow($this.getColor()), count);
+            return original.call($this, serverLevel, new ItemStack(DDBlocks.WOOL.getOrThrow($this.getColor()), stack.count()), v);
         }
 
-        return original.call($this, item, count);
+        return original.call($this, serverLevel, stack, v);
     }
 
     @Inject(method = "getDefaultLootTable", at = @At(value = "HEAD"), cancellable = true)
@@ -60,11 +67,11 @@ public abstract class SheepMixin {
     }
 
     @ModifyConstant(method = {
-            "getColor()Lnet/minecraft/world/item/DyeColor;",
-            "setColor",
-            "isSheared",
+        "getColor()Lnet/minecraft/world/item/DyeColor;",
+        "setColor",
+        "isSheared",
     }, constant = {
-            @Constant(intValue = 15),
+        @Constant(intValue = 15),
     })
     private int DD$modifyColorCount(int constant) {
         return constant + 16;
@@ -76,15 +83,15 @@ public abstract class SheepMixin {
     }
 
     @ModifyConstant(method = {
-            "isSheared",
-            "setSheared"
+        "isSheared",
+        "setSheared"
     }, constant = @Constant(intValue = 16))
     private int DD$modifyColorCount3(int constant) {
         return constant + 16;
     }
 
     @ModifyConstant(method = {
-            "setSheared"
+        "setSheared"
     }, constant = @Constant(intValue = -17))
     private int DD$modifyColorCount4(int constant) {
         return constant - 16;

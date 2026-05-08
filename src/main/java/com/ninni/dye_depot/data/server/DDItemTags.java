@@ -9,25 +9,26 @@ import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 import net.mehvahdjukaar.supplementaries.reg.ModTags;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 public class DDItemTags extends ItemTagsProvider {
 
     private final CompletableFuture<HolderLookup.Provider> lookup;
 
     public DDItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, CompletableFuture<TagsProvider.TagLookup<Block>> blockTags) {
-        super(output, lookup, blockTags, DyeDepot.MOD_ID, null);
+        super(output, lookup, DyeDepot.MOD_ID);
         this.lookup = lookup;
     }
 
@@ -82,7 +83,7 @@ public class DDItemTags extends ItemTagsProvider {
 
     private void tag(DyedHolders<?, ? extends ItemLike> values, TagKey<Item> tag) {
         values.holders()
-                .map(it -> it.unwrapKey().orElseThrow().location())
+                .map(it -> it.value().asItem())
                 .forEach(it -> tag(tag).addOptional(it));
     }
 
@@ -100,9 +101,8 @@ public class DDItemTags extends ItemTagsProvider {
     @SafeVarargs
     private void tagDyed(DyedHolders<?, ? extends ItemLike> values, String base, TagKey<Item>... additionalTags) {
         values.forEach((dye, item) -> {
-            var id = item.unwrapKey().orElseThrow().location();
             var tag = loaderTag(base + "/" + dye);
-            tag(tag).addOptional(id);
+            tag(tag).addOptional(item.value().asItem());
         });
 
         for (var tag : additionalTags) {
@@ -111,11 +111,11 @@ public class DDItemTags extends ItemTagsProvider {
     }
 
     private TagKey<Item> loaderTag(String path) {
-        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", path));
+        return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path));
     }
 
     private TagKey<Item> supplementariesTag(String path) {
-        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
+        return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, path));
     }
 
 }

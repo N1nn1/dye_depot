@@ -8,7 +8,7 @@ import com.ninni.dye_depot.registry.DDItems;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
@@ -30,18 +30,18 @@ public class DDLootModifiersProvider extends GlobalLootModifierProvider {
         add("modify_desert_pyramid", ReplaceDropsModifier.forTable(
                 BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY,
                 0.1F,
-                SimpleWeightedRandomList.single(new ItemStack(DDItems.DYES.getOrThrow(DDDyes.BEIGE.get())))
+                WeightedList.of(new ItemStack(DDItems.DYES.getOrThrow(DDDyes.BEIGE.get())))
         ));
 
         add("modify_ocean_ruin_cold", ReplaceDropsModifier.forTable(
                 BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY,
                 0.1F,
-                SimpleWeightedRandomList.single(new ItemStack(DDItems.DYES.getOrThrow(DDDyes.VERDANT.get())))
+            WeightedList.of(new ItemStack(DDItems.DYES.getOrThrow(DDDyes.VERDANT.get())))
         ));
     }
 
-    private SimpleWeightedRandomList<ItemStack> createWoolList() {
-        var builder = SimpleWeightedRandomList.<ItemStack>builder();
+    private WeightedList<ItemStack> createWoolList() {
+        var builder = WeightedList.<ItemStack>builder();
         DDBlocks.WOOL.values()
                 .map(ItemStack::new)
                 .forEach(it -> builder.add(it, 1));

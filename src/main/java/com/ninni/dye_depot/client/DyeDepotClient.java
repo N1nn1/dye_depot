@@ -5,10 +5,10 @@ import com.ninni.dye_depot.client.particles.PoofParticleProvider;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDParticles;
 import java.util.stream.Stream;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
+
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
@@ -30,7 +30,7 @@ public class DyeDepotClient {
     @SubscribeEvent
     public static void addResourcePacks(AddPackFindersEvent event) {
         event.addPackFinders(
-                ResourceLocation.fromNamespaceAndPath(DyeDepot.MOD_ID, "resourcepacks/dye_override"),
+            Identifier.fromNamespaceAndPath(DyeDepot.MOD_ID, "resourcepacks/dye_override"),
                 PackType.CLIENT_RESOURCES,
                 Component.literal("Dye Overrides"),
                 PackSource.BUILT_IN,
@@ -54,7 +54,8 @@ public class DyeDepotClient {
                 DDBlocks.STAINED_GLASS.values(),
                 DDBlocks.STAINED_GLASS_PANES.values()
         ).forEach(it ->
-                ItemBlockRenderTypes.setRenderLayer(it, RenderType.translucent())
+                // TODO 26.1.2 check
+                ItemBlockRenderTypes.setRenderLayer(it, RenderTypes.translucentMovingBlock())
         );
     }
 
