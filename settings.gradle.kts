@@ -1,9 +1,11 @@
 pluginManagement {
     repositories {
-        mavenCentral()
         gradlePluginPortal()
-        maven {
-            url = uri("https://maven.fabricmc.net/")
-        }
+        mavenLocal()
     }
+}
+
+plugins {
+    id("com.possible-triangle.helper") version ("1.4")
+    id("com.possible-triangle.packwiz") version ("1.4.+")
 }

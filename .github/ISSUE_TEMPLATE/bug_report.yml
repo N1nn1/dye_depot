@@ -1,3 +1,10 @@
+# <meta>
+#    <source>@pssbletrngle/github-meta-generator</source>
+#    <version>0.0.0-dev</version>
+#    <timestamp>2026-05-08T11:14:25.727Z</timestamp>
+#    <hash>e2bb65bbce487921</hash>
+# </meta>
+
 name: Bug Report
 description: File a bug report
 labels: ["bug"]
@@ -9,6 +16,18 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Loader
+      multiple: false
+      options:
+        - "fabric"
+        - "forge"
+        - "neoforge"
     validations:
       required: true
 
