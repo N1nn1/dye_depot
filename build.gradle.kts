@@ -30,4 +30,6 @@ dependencies {
     modImplementation(pack.modrinth.supplementaries.squared)
 }
 
+upload.maven.nexus()
+
 enableSpotless()
