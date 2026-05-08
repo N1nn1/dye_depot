@@ -9,10 +9,10 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 logoFile = "${mod_id}/icon.png"
 authors = "Yapetto, Ninni"
-description = '''Enhances your Minecraft experience with 16 vibrant new dyes and various other tweaks'''
+description = "${mod_description}"
 updateJSONURL = "https://api.modrinth.com/updates/dye-depot/forge_updates.json"
-itemIcon = "dye_depot:teal_dye"
-configBackground = "dye_depot:textures/block/teal_glazed_terracotta.png"
+itemIcon = "${mod_id}:teal_dye"
+configBackground = "${mod_id}:textures/block/teal_glazed_terracotta.png"
 
 [[dependencies.${mod_id}]]
 modId = "forge"

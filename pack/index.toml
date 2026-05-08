@@ -1,0 +1,16 @@
+hash-format = "sha256"
+
+[[files]]
+file = "mods/moonlight.pw.toml"
+hash = "69e705c40401aeeda2983a47be0b08ab8fbbe559ec03c17d7a565bae8ac526bb"
+metafile = true
+
+[[files]]
+file = "mods/supplementaries-squared.pw.toml"
+hash = "a83de63387c9fd0afedb93c8a1da851c6fb6dc72e4fb09c24b145b23fc1bb549"
+metafile = true
+
+[[files]]
+file = "mods/supplementaries.pw.toml"
+hash = "168b3ee3fa2fe18f712c593d9d90e8b3a8a6a10564376af98bcc6f9719506641"
+metafile = true
