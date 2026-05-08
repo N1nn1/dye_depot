@@ -1,0 +1,7 @@
+[versions]
+jei = "19.27.0.340"
+
+[libraries]
+jei-common-api = { group = "mezz.jei", name = "jei-1.21.1-common-api", version.ref = "jei" }
+jei-api = { group = "mezz.jei", name = "jei-1.21.1-api-neoforge", version.ref = "jei" }
+jei = { group = "mezz.jei", name = "jei-1.21.1-neoforge", version.ref = "jei" }
