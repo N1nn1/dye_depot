@@ -172,7 +172,7 @@ public class DDBlocks {
 
     private static <T extends Block> Holder<T> registerWithItem(String id, Function<Block.Properties, T> block, Supplier<Properties> blockProperties, UnaryOperator<Item.Properties> itemProperties) {
         var supplier = register(id, block, blockProperties);
-        DDItems.REGISTRY.registerItem(id, (props) -> new BlockItem(supplier.value(), props), itemProperties);
+        DDItems.REGISTRY.registerItem(id, (props) -> new BlockItem(supplier.value(), props), it -> itemProperties.apply(it).useBlockDescriptionPrefix());
         return supplier;
     }
 

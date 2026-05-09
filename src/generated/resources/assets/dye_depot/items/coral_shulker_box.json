@@ -4,7 +4,7 @@
     "base": "dye_depot:item/coral_shulker_box",
     "model": {
       "type": "minecraft:shulker_box",
-      "texture": "minecraft:shulker_coral"
+      "texture": "dye_depot:shulker_coral"
     },
     "transformation": {
       "left_rotation": [

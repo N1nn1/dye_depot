@@ -8,7 +8,7 @@
         "model": {
           "type": "minecraft:bed",
           "part": "head",
-          "texture": "minecraft:olive"
+          "texture": "dye_depot:olive"
         },
         "transformation": {
           "left_rotation": [
@@ -41,7 +41,7 @@
         "model": {
           "type": "minecraft:bed",
           "part": "foot",
-          "texture": "minecraft:olive"
+          "texture": "dye_depot:olive"
         },
         "transformation": {
           "left_rotation": [

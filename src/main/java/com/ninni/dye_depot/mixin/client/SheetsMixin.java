@@ -1,9 +1,12 @@
 package com.ninni.dye_depot.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.ninni.dye_depot.DyeDepot;
+import com.ninni.dye_depot.registry.DDDyes;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.resources.model.sprite.SpriteId;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -11,21 +14,21 @@ import org.spongepowered.asm.mixin.injection.At;
 public class SheetsMixin {
 
     @ModifyReturnValue(
-        method = "createShulkerSprite",
+        method = "colorToShulkerSprite",
         at = @At("RETURN")
     )
-    private static SpriteId overwriteShulkerTexture(SpriteId original) {
-        var texture = DyeDepot.modLoc(original.texture().getPath());
-        return new SpriteId(original.atlasLocation(), texture);
+    private static Identifier overwriteShulkerTexture(Identifier original, @Local DyeColor color) {
+        if (DDDyes.isModDye(color)) return DyeDepot.modLoc(original.getPath());
+        return original;
     }
 
     @ModifyReturnValue(
-        method = "createBedSprite",
+        method = "colorToResourceSprite",
         at = @At("RETURN")
     )
-    private static SpriteId overwriteBedTexture(SpriteId original) {
-        var texture = DyeDepot.modLoc(original.texture().getPath());
-        return new SpriteId(original.atlasLocation(), texture);
+    private static Identifier overwriteBedTexture(Identifier original, @Local DyeColor color) {
+        if (DDDyes.isModDye(color)) return DyeDepot.modLoc(original.getPath());
+        return original;
     }
 
 }

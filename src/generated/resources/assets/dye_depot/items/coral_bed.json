@@ -8,7 +8,7 @@
         "model": {
           "type": "minecraft:bed",
           "part": "head",
-          "texture": "minecraft:coral"
+          "texture": "dye_depot:coral"
         },
         "transformation": {
           "left_rotation": [
@@ -41,7 +41,7 @@
         "model": {
           "type": "minecraft:bed",
           "part": "foot",
-          "texture": "minecraft:coral"
+          "texture": "dye_depot:coral"
         },
         "transformation": {
           "left_rotation": [

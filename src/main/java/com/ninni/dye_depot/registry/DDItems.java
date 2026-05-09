@@ -17,15 +17,15 @@ public class DDItems {
     );
 
     public static final DyedHolders<Item, Item> SHULKER_BOXES = DyedHolders.createModded(dye ->
-            register(dye + "_shulker_box", props -> new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), props.stacksTo(1)))
+            register(dye + "_shulker_box", props -> new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), props.stacksTo(1).useBlockDescriptionPrefix()))
     );
 
     public static final DyedHolders<Item, Item> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", props -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), props))
+            register(dye + "_banner", props -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), props.useBlockDescriptionPrefix()))
     );
 
     public static final DyedHolders<Item, Item> BEDS = DyedHolders.createModded(dye ->
-            register(dye + "_bed", props -> new BedItem(DDBlocks.BEDS.getOrThrow(dye), props.stacksTo(1)))
+            register(dye + "_bed", props -> new BedItem(DDBlocks.BEDS.getOrThrow(dye), props.stacksTo(1).useBlockDescriptionPrefix()))
     );
 
     @SuppressWarnings("unchecked")

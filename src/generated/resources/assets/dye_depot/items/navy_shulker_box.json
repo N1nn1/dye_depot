@@ -4,7 +4,7 @@
     "base": "dye_depot:item/navy_shulker_box",
     "model": {
       "type": "minecraft:shulker_box",
-      "texture": "minecraft:shulker_navy"
+      "texture": "dye_depot:shulker_navy"
     },
     "transformation": {
       "left_rotation": [
