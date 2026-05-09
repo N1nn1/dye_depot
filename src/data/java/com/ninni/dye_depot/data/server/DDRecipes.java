@@ -7,15 +7,15 @@ import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
-
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
-
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -27,7 +27,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -60,7 +59,7 @@ public class DDRecipes extends RecipeProvider {
 
         dyeing(output, RecipeCategory.DECORATIONS, DDBlocks.BEDS.mergeVanilla(blockLookup), ItemTags.BEDS);
         DDBlocks.BEDS.forEach((dye, block) ->
-            bedFromPlanksAndWool(output, block.value(), DDBlocks.WOOL.getOrThrow(dye))
+            bedFromPlanksAndWool(block.value(), DDBlocks.WOOL.getOrThrow(dye))
         );
 
         DDBlocks.CANDLES.forEach((dye, block) ->
@@ -232,7 +231,7 @@ public class DDRecipes extends RecipeProvider {
     private void dyeSmelting(RecipeOutput output, DyeColor dye, Ingredient ingredient, UnaryOperator<SimpleCookingRecipeBuilder> factory) {
         factory.apply(SimpleCookingRecipeBuilder.smelting(ingredient, RecipeCategory.MISC, CookingBookCategory.MISC, dyes.getOrThrow(dye), 0.1F, 200))
             .group(dye + "_dye")
-            .save(output, DyeDepot.key(Registries.RECIPE, (dye + "_dye_from_smelting"));
+            .save(output, DyeDepot.key(Registries.RECIPE, (dye + "_dye_from_smelting")));
     }
 
     private void disable(RecipeOutput output, Identifier id) {
@@ -243,13 +242,13 @@ public class DDRecipes extends RecipeProvider {
     }
 
     private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
-        dyeing(output, category, dyed, Ingredient.of(dyed.values().map(ItemStack::new)), builder -> builder
+        dyeing(output, category, dyed, Ingredient.of(dyed.values().map(ItemLike::asItem)), builder -> builder
             .unlockedBy("has_base", inventoryTrigger(ItemPredicate.Builder.item().of(items, dyed.values().toArray(ItemLike[]::new)).build()))
         );
     }
 
     private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed, TagKey<Item> from) {
-        dyeing(output, category, dyed, Ingredient.of(from), builder -> builder
+        dyeing(output, category, dyed, Ingredient.of(items.getOrThrow(from)), builder -> builder
             .unlockedBy(getHasName(from), has(from))
         );
     }
@@ -321,6 +320,23 @@ public class DDRecipes extends RecipeProvider {
 
     public static RecipeOutput withConditions(RecipeOutput output, ICondition... conditions) {
         return output.withConditions(conditions);
+    }
+
+    public static class Runner extends RecipeProvider.Runner {
+
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
+            super(packOutput, registries);
+        }
+
+        @Override
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
+            return new DDRecipes(provider, output);
+        }
+
+        @Override
+        public String getName() {
+            return "Recipes - " + DyeDepot.MOD_ID;
+        }
     }
 
 }

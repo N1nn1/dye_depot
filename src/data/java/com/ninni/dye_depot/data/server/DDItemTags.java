@@ -9,7 +9,6 @@ import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 import net.mehvahdjukaar.supplementaries.reg.ModTags;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;

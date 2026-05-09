@@ -5,8 +5,8 @@ import com.mojang.serialization.JsonOps;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.stream.Stream;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
@@ -38,12 +38,12 @@ public class ModCompat {
         var serializer = NeoForgeRegistries.CONDITION_SERIALIZERS.getOrThrow(serializerId);
 
         var supplementariesJson = new JsonObject();
-        supplementariesJson.addProperty("type", serializerId.location().toString());
+        supplementariesJson.addProperty("type", serializerId.identifier().toString());
         supplementariesJson.addProperty("flag", flag);
 
         return new ICondition[]{
                 new ModLoadedCondition(SUPPLEMENTARIES),
-                serializer.codec().parse(JsonOps.INSTANCE, supplementariesJson).getOrThrow()
+                serializer.value().parse(JsonOps.INSTANCE, supplementariesJson).getOrThrow()
         };
     }
 

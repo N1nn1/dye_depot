@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.At;
 public class VillagerGoalPackagesMixin {
 
     @WrapOperation(
-            method = {
-                    "lambda$getRestPackage$2(Lnet/minecraft/core/Holder;)Z",
-                    "lambda$getCorePackage$0(Lnet/minecraft/core/Holder;)Z",
-            },
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/core/Holder;is(Lnet/minecraft/resources/ResourceKey;)Z")
+        method = {
+            "lambda$getRestPackage$0",
+            "lambda$getCorePackage$2"
+        },
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/core/Holder;is(Lnet/minecraft/resources/ResourceKey;)Z")
     )
     private static boolean isHomePoi(Holder<PoiType> instance, ResourceKey<PoiType> key, Operation<Boolean> original) {
         return instance.is(DDTags.BEDS) || original.call(instance, key);

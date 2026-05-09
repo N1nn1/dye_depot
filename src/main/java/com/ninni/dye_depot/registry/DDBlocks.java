@@ -5,11 +5,14 @@ import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.block.*;
 import java.util.Map;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
@@ -30,7 +33,7 @@ public class DDBlocks {
     );
 
     public static final DyedHolders<Block, Block> CARPETS = DyedHolders.createModded(dye ->
-            registerWithItem(dye + "_carpet", () -> new WoolCarpetBlock(dye, Properties.ofFullCopy(Blocks.WHITE_CARPET).mapColor(dye)))
+            registerWithItem(dye + "_carpet", () -> new WoolCarpetBlock(dye, Properties.ofFullCopy(Blocks.WHITE_CARPET).mapColor(dye)), it -> it.component(DataComponents.EQUIPPABLE, Equippable.llamaSwag(dye)))
     );
 
     public static final DyedHolders<Block, Block> TERRACOTTA = DyedHolders.createModded(dye ->
@@ -76,27 +79,27 @@ public class DDBlocks {
             registerWithItem(dye + "_stained_glass_pane", () -> new StainedGlassPaneBlock(dye, Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
-    public static final DyedHolders<Block, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<ShulkerBoxBlock, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
             register(dye + "_shulker_box", () -> shulkerBox(dye, Properties.of().mapColor(dye)))
     );
 
-    public static final DyedHolders<Block, Block> CANDLES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<CandleBlock, Block> CANDLES = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_candle", () -> new CandleBlock(Properties.ofFullCopy(Blocks.WHITE_CANDLE).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<CandleCakeBlock, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
             register(dye + "_candle_cake", () -> new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.ofFullCopy(Blocks.WHITE_CANDLE_CAKE)))
     );
 
-    public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<BannerBlock, Block> BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_banner", () -> banner(dye))
     );
 
-    public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<WallBannerBlock, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_wall_banner", () -> wallBanner(dye))
     );
 
-    public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<BedBlock, Block> BEDS = DyedHolders.createModded(dye ->
             register(dye + "_bed", () -> bed(dye))
     );
 
@@ -109,7 +112,7 @@ public class DDBlocks {
     }
 
     private static WallBannerBlock wallBanner(DyeColor dye) {
-        return new WallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).dropsLike(BANNERS.getOrThrow(dye)));
+        return new WallBannerBlock(dye, Properties.ofFullCopy(Blocks.WHITE_WALL_BANNER).overrideLootTable(BANNERS.getOrThrow(dye).getLootTable()));
     }
 
     private static BedBlock bed(DyeColor color) {
@@ -148,6 +151,10 @@ public class DDBlocks {
     }
 
     private static <T extends Block> Holder<T> registerWithItem(String id, Supplier<T> block) {
+        return registerWithItem(id, block, UnaryOperator.identity());
+    }
+
+    private static <T extends Block> Holder<T> registerWithItem(String id, Supplier<T> block, UnaryOperator<Item.Properties> itemProperties) {
         var supplier = register(id, block);
         DDItems.REGISTRY.register(id, () -> new BlockItem(supplier.value(), new Item.Properties()));
         return supplier;

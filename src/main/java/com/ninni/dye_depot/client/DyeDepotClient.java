@@ -2,11 +2,7 @@ package com.ninni.dye_depot.client;
 
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.client.particles.PoofParticleProvider;
-import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDParticles;
-import java.util.stream.Stream;
-
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
@@ -24,7 +20,6 @@ public class DyeDepotClient {
 
     @SubscribeEvent
     public static void init(FMLClientSetupEvent event) {
-        registerModelLayers();
     }
 
     @SubscribeEvent
@@ -47,16 +42,6 @@ public class DyeDepotClient {
     @SubscribeEvent
     public static void registerBlockRenderLayers(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(DDParticles.DYE_POOF.get(), PoofParticleProvider::new);
-    }
-
-    private static void registerModelLayers() {
-        Stream.concat(
-                DDBlocks.STAINED_GLASS.values(),
-                DDBlocks.STAINED_GLASS_PANES.values()
-        ).forEach(it ->
-                // TODO 26.1.2 check
-                ItemBlockRenderTypes.setRenderLayer(it, RenderTypes.translucentMovingBlock())
-        );
     }
 
 }

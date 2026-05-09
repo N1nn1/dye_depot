@@ -116,7 +116,7 @@ public class DDCreativeModeTabs {
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, String baseName) {
-        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM.asLookup(), DyedHolders.vanillaColors(), Identifier.withDefaultNamespace(baseName)));
+        addDyed(entries, values, DyedHolders.fromRegistry(BuiltInRegistries.ITEM, DyedHolders.vanillaColors(), Identifier.withDefaultNamespace(baseName)));
     }
 
     private static void addDyed(Entries entries, DyedHolders<?, ? extends ItemLike> values, DyedHolders<?, ? extends ItemLike> reference) {

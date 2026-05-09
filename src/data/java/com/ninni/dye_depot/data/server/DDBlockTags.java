@@ -57,7 +57,7 @@ public class DDBlockTags extends BlockTagsProvider {
 
     private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {
         values.holders()
-                .map(it -> it.unwrapKey().orElseThrow().identifier())
+                .map(Holder::value)
                 .forEach(it -> tag(tag).addOptional(it));
     }
 

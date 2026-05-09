@@ -18,8 +18,8 @@ import java.util.stream.Stream;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.DyeColor;
 import org.jetbrains.annotations.Nullable;
 
@@ -156,6 +156,13 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
         var base = detectBaseName();
         var vanillaVariants = DyedHolders.<TImplementation, RRegistry>fromRegistry(registry, DyedHolders.vanillaColors(), Identifier.withDefaultNamespace(base));
         return merge(vanillaVariants, this);
+    }
+
+    public <SImplementation extends SRegistry, SRegistry> void forEachWith(DyedHolders<SImplementation, SRegistry> others, BiConsumer<Holder<TImplementation>, Holder<SImplementation>> consumer) {
+        forEach((color, first) -> {
+            var second = others.holderOrThrow(color);
+            consumer.accept(first, second);
+        });
     }
 
 }

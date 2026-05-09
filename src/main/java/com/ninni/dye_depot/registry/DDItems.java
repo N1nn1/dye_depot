@@ -3,7 +3,6 @@ package com.ninni.dye_depot.registry;
 import com.ninni.dye_depot.DyeDepot;
 import java.util.function.Supplier;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;

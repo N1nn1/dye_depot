@@ -87,7 +87,8 @@ public class DDBlockLoot extends BlockLootSubProvider {
                 .apply(CopyComponentsFunction.copyComponentsFromBlockEntity(LootContextParams.BLOCK_ENTITY)
                         .include(DataComponents.CUSTOM_NAME)
                         .include(DataComponents.ITEM_NAME)
-                        .include(DataComponents.HIDE_ADDITIONAL_TOOLTIP)
+                        .include(DataComponents.TOOLTIP_DISPLAY)
+                        .include(DataComponents.RARITY)
                         .include(DataComponents.BANNER_PATTERNS)
                 );
 
