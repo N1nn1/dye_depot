@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "carpet",
   "ingredients": [
-    {
-      "tag": "minecraft:wool_carpets"
-    },
-    {
-      "item": "dye_depot:aqua_dye"
-    }
+    "#minecraft:wool_carpets",
+    "dye_depot:aqua_dye"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:aqua_carpet"
   }
 }

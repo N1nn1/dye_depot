@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "stained_glass_pane",
   "key": {
-    "#": {
-      "item": "dye_depot:maroon_stained_glass"
-    }
+    "#": "dye_depot:maroon_stained_glass"
   },
   "pattern": [
     "###",

@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "yellow_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:beige_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "dye_depot:beige_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 2,

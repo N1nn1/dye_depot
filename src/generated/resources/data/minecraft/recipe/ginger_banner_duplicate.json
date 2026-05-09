@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_special_bannerduplicate",
+  "banner": "dye_depot:ginger_banner",
+  "result": {
+    "id": "dye_depot:ginger_banner"
+  }
+}

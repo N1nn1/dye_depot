@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "edge": "dye_depot:block/indigo_stained_glass_pane_top",
-    "pane": "dye_depot:block/indigo_stained_glass"
+    "edge": {
+      "force_translucent": true,
+      "sprite": "dye_depot:block/indigo_stained_glass_pane_top"
+    },
+    "pane": {
+      "force_translucent": true,
+      "sprite": "dye_depot:block/indigo_stained_glass"
+    }
   }
 }

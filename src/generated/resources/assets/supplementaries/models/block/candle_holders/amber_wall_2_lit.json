@@ -1,6 +1,0 @@
-{
-  "parent": "supplementaries:block/candle_holders/wall_2",
-  "textures": {
-    "all": "dye_depot:block/amber_candle_lit"
-  }
-}

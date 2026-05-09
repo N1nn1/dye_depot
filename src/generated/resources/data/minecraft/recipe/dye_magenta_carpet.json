@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "carpet",
   "ingredients": [
-    {
-      "tag": "minecraft:wool_carpets"
-    },
-    {
-      "item": "minecraft:magenta_dye"
-    }
+    "#minecraft:wool_carpets",
+    "minecraft:magenta_dye"
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:magenta_carpet"
   }
 }

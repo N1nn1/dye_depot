@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_special_bannerduplicate",
+  "banner": "dye_depot:maroon_banner",
+  "result": {
+    "id": "dye_depot:maroon_banner"
+  }
+}

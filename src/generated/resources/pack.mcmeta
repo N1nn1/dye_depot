@@ -1,6 +1,10 @@
 {
   "pack": {
     "description": "dye_depot resources",
-    "pack_format": 34
+    "max_format": [
+      84,
+      0
+    ],
+    "min_format": 84
   }
 }

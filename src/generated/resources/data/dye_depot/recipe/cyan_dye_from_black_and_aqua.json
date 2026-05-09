@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "cyan_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:aqua_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "dye_depot:aqua_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 2,

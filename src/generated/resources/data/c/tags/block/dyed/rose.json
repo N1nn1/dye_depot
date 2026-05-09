@@ -55,30 +55,6 @@
     {
       "id": "dye_depot:rose_stained_glass_pane",
       "required": false
-    },
-    {
-      "id": "dye_depot:rose_dye_basket",
-      "required": false
-    },
-    {
-      "id": "supplementaries:candle_holder_rose",
-      "required": false
-    },
-    {
-      "id": "suppsquared:gold_candle_holder_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:flag_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:present_rose",
-      "required": false
-    },
-    {
-      "id": "supplementaries:trapped_present_rose",
-      "required": false
     }
   ]
 }

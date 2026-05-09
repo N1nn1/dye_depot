@@ -3,12 +3,9 @@
   "category": "misc",
   "group": "olive_dye",
   "ingredients": [
-    {
-      "item": "minecraft:poisonous_potato"
-    }
+    "minecraft:poisonous_potato"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:olive_dye"
   }
 }

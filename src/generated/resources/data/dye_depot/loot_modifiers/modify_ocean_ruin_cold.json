@@ -13,10 +13,10 @@
   "items": [
     {
       "data": {
-        "count": 1,
         "id": "dye_depot:verdant_dye"
       },
       "weight": 1
     }
-  ]
+  ],
+  "priority": 0
 }

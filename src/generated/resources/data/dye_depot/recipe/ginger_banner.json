@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "banner",
   "key": {
-    "#": {
-      "item": "dye_depot:ginger_wool"
-    },
-    "|": {
-      "item": "minecraft:stick"
-    }
+    "#": "dye_depot:ginger_wool",
+    "|": "minecraft:stick"
   },
   "pattern": [
     "###",
@@ -16,7 +12,6 @@
     " | "
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:ginger_banner"
   }
 }

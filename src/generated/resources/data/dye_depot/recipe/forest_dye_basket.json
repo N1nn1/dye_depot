@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "dye_depot:forest_dye"
-    }
+    "#": "dye_depot:forest_dye"
   },
   "pattern": [
     "###",
@@ -12,7 +10,6 @@
     "###"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:forest_dye_basket"
   }
 }

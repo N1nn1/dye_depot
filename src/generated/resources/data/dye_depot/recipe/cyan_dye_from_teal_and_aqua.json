@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "cyan_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:teal_dye"
-    },
-    {
-      "item": "dye_depot:aqua_dye"
-    }
+    "dye_depot:teal_dye",
+    "dye_depot:aqua_dye"
   ],
   "result": {
     "count": 2,

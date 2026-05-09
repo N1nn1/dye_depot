@@ -3,12 +3,8 @@
   "category": "building",
   "group": "stained_terracotta",
   "key": {
-    "#": {
-      "item": "minecraft:terracotta"
-    },
-    "X": {
-      "item": "dye_depot:coral_dye"
-    }
+    "#": "minecraft:terracotta",
+    "X": "dye_depot:coral_dye"
   },
   "pattern": [
     "###",

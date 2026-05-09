@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "yellow_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:olive_dye"
-    },
-    {
-      "item": "dye_depot:beige_dye"
-    }
+    "dye_depot:olive_dye",
+    "dye_depot:beige_dye"
   ],
   "result": {
     "count": 2,

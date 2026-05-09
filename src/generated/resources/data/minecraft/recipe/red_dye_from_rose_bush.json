@@ -1,18 +1,15 @@
 {
   "neoforge:conditions": [
     {
-      "type": "neoforge:false"
+      "type": "neoforge:never"
     }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:debug_stick"
-    }
+    "minecraft:debug_stick"
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:debug_stick"
   }
 }

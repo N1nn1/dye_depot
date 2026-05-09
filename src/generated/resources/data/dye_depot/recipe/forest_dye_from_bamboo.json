@@ -3,12 +3,9 @@
   "category": "misc",
   "group": "forest_dye",
   "ingredients": [
-    {
-      "item": "minecraft:bamboo"
-    }
+    "minecraft:bamboo"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:forest_dye"
   }
 }

@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "bed",
   "ingredients": [
-    {
-      "tag": "minecraft:beds"
-    },
-    {
-      "item": "dye_depot:olive_dye"
-    }
+    "#minecraft:beds",
+    "dye_depot:olive_dye"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:olive_bed"
   }
 }

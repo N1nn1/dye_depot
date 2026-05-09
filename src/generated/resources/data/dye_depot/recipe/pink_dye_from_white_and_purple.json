@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "pink_dye",
   "ingredients": [
-    {
-      "item": "minecraft:purple_dye"
-    },
-    {
-      "item": "minecraft:white_dye"
-    }
+    "minecraft:purple_dye",
+    "minecraft:white_dye"
   ],
   "result": {
     "count": 2,

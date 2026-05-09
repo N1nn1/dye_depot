@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "bed",
   "ingredients": [
-    {
-      "tag": "minecraft:beds"
-    },
-    {
-      "item": "minecraft:blue_dye"
-    }
+    "#minecraft:beds",
+    "minecraft:blue_dye"
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:blue_bed"
   }
 }

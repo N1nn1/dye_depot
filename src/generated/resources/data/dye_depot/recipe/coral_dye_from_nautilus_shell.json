@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "coral_dye",
   "ingredients": [
-    {
-      "item": "minecraft:nautilus_shell"
-    }
+    "minecraft:nautilus_shell"
   ],
   "result": {
     "count": 2,

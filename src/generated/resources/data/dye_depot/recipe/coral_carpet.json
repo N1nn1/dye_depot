@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "carpet",
   "key": {
-    "#": {
-      "item": "dye_depot:coral_wool"
-    }
+    "#": "dye_depot:coral_wool"
   },
   "pattern": [
     "##"

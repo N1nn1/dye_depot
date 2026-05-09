@@ -1,6 +1,0 @@
-{
-  "parent": "supplementaries:block/candle_holders/floor_2",
-  "textures": {
-    "all": "dye_depot:block/tan_candle"
-  }
-}

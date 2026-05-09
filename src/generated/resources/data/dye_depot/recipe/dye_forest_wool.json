@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "wool",
   "ingredients": [
-    {
-      "tag": "minecraft:wool"
-    },
-    {
-      "item": "dye_depot:forest_dye"
-    }
+    "#minecraft:wool",
+    "dye_depot:forest_dye"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:forest_wool"
   }
 }

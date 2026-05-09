@@ -4,11 +4,8 @@
   "cookingtime": 200,
   "experience": 0.1,
   "group": "coral_dye",
-  "ingredient": {
-    "tag": "dye_depot:smelts_into_coral_dye"
-  },
+  "ingredient": "#dye_depot:smelts_into_coral_dye",
   "result": {
-    "count": 1,
     "id": "dye_depot:coral_dye"
   }
 }

@@ -3,15 +3,10 @@
   "category": "misc",
   "group": "dyed_candle",
   "ingredients": [
-    {
-      "item": "minecraft:candle"
-    },
-    {
-      "item": "dye_depot:forest_dye"
-    }
+    "minecraft:candle",
+    "dye_depot:forest_dye"
   ],
   "result": {
-    "count": 1,
     "id": "dye_depot:forest_candle"
   }
 }

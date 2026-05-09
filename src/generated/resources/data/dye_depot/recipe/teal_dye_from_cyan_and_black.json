@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "teal_dye",
   "ingredients": [
-    {
-      "item": "minecraft:cyan_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "minecraft:cyan_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 2,

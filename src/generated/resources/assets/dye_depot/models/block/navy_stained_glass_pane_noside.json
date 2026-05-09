@@ -1,6 +1,9 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "dye_depot:block/navy_stained_glass"
+    "pane": {
+      "force_translucent": true,
+      "sprite": "dye_depot:block/navy_stained_glass"
+    }
   }
 }

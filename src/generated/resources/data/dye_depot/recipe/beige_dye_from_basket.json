@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "beige_dye",
   "ingredients": [
-    {
-      "item": "dye_depot:beige_dye_basket"
-    }
+    "dye_depot:beige_dye_basket"
   ],
   "result": {
     "count": 9,

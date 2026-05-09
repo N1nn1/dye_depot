@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "gray_dye",
   "ingredients": [
-    {
-      "item": "minecraft:white_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    },
-    {
-      "item": "minecraft:black_dye"
-    }
+    "minecraft:white_dye",
+    "minecraft:black_dye",
+    "minecraft:black_dye"
   ],
   "result": {
     "count": 3,
