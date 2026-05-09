@@ -54,7 +54,7 @@ public class DDItemTags extends ItemTagsProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"));
 
         // TODO waiting for supplementaries
-        // tagDyed(DDBlocks.DYE_BASKETS, ModTags.SOAP_BLACKLIST_ITEM);
+        tagDyed(DDBlocks.DYE_BASKETS /*, ModTags.SOAP_BLACKLIST_ITEM */);
 
         // tagDyed(ModCompat.supplementariesHolders(itemLookup, "candle_holder"), supplementariesTag("candle_holders"));
         // tagDyed(ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);

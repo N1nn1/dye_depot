@@ -48,7 +48,7 @@ public class DDBlockTags extends BlockTagsProvider {
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
 
         // TODO waiting for supplementaries
-        // tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE, ModTags.SOAP_BLACKLIST_BLOCK);
+        tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE /* , ModTags.SOAP_BLACKLIST_BLOCK */);
 
         // tagDyed(ModCompat.supplementariesHolders(blockLookup, "candle_holder"), supplementariesTag("candle_holders"));
         // tagDyed(ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
