@@ -3,9 +3,7 @@ package com.ninni.dye_depot.data.client;
 import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 
-import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
-import net.mehvahdjukaar.supplementaries.common.block.blocks.PresentBlock;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.TexturedModel;
@@ -40,11 +38,12 @@ public class DDBlockModels {
         DDBlocks.BEDS.forEachWith(DDBlocks.WOOL, this::bed);
         DDBlocks.DYE_BASKETS.holders().forEach(this::basket);
 
-        ModCompat.supplementariesHolders(blockLookup, "flag").holders().forEach(this::flag);
-        ModCompat.supplementariesHolders(blockLookup, "present").forEach(this::present);
-        ModCompat.supplementariesHolders(blockLookup, "trapped_present").forEach(this::present);
-        ModCompat.supplementariesHolders(blockLookup, "candle_holder").forEach(this::candleHolder);
-        ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").forEach(this::candleHolder);
+        // TODO waiting for supplementaries
+        // ModCompat.supplementariesHolders(blockLookup, "flag").holders().forEach(this::flag);
+        // ModCompat.supplementariesHolders(blockLookup, "present").forEach(this::present);
+        // ModCompat.supplementariesHolders(blockLookup, "trapped_present").forEach(this::present);
+        // ModCompat.supplementariesHolders(blockLookup, "candle_holder").forEach(this::candleHolder);
+        // ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").forEach(this::candleHolder);
     }
 
     private void simpleBlock(Block block) {
@@ -90,6 +89,7 @@ public class DDBlockModels {
         generator.createHorizontallyRotatedBlock(block.value(), TexturedModel.ORIENTABLE);
     }
 
+    /*
     private void candleHolder(DyeColor color, Holder<? extends Block> block) {
         var variant = MultiVariantGenerator.dispatch(block.value())
             .with(SupplementariesTexturedModels.candleDispatch((count, lit) ->
@@ -114,5 +114,6 @@ public class DDBlockModels {
 
         generator.blockStateOutput.accept(variant);
     }
+    */
 
 }

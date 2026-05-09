@@ -6,7 +6,7 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DyedHolders;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
-import net.mehvahdjukaar.supplementaries.reg.ModTags;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -46,7 +46,9 @@ public class DDBlockTags extends BlockTagsProvider {
         tagDyed(DDBlocks.CONCRETE_POWDER, BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.CONCRETE_POWDER);
         tagDyed(DDBlocks.STAINED_GLASS, loaderTag("glass_blocks"), BlockTags.IMPERMEABLE);
         tagDyed(DDBlocks.STAINED_GLASS_PANES, loaderTag("glass_panes"), BlockTags.IMPERMEABLE);
-        tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE, ModTags.SOAP_BLACKLIST_BLOCK);
+
+        // TODO waiting for supplementaries
+        // tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE, ModTags.SOAP_BLACKLIST_BLOCK);
 
         tagDyed(ModCompat.supplementariesHolders(blockLookup, "candle_holder"), supplementariesTag("candle_holders"));
         tagDyed(ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);

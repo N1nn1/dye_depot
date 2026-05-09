@@ -1,7 +1,6 @@
 package com.ninni.dye_depot.data.server;
 
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
@@ -173,6 +172,8 @@ public class DDRecipes extends RecipeProvider {
         disable(output, Identifier.withDefaultNamespace("red_dye_from_rose_bush"));
 
         // Supplementaries compat
+        // TODO waiting for supplementaries
+        /*
         ModCompat.supplementariesHolders(itemLookup, "candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
             shaped(RecipeCategory.DECORATIONS, block.value())
@@ -209,6 +210,7 @@ public class DDRecipes extends RecipeProvider {
                 .unlockedBy("has_wool", has(wool))
                 .save(withConditions(output, ModCompat.supplementariesFlag("flag")));
         });
+         */
     }
 
     private void dyeConversion(RecipeOutput output, DyeColor dye, ItemLike from, int amount) {
