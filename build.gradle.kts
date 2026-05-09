@@ -7,9 +7,6 @@ neoforge {
 
     dataGen {
         splitSourceSet()
-
-        existing("supplementaries")
-        existing("suppsquared")
     }
 }
 
