@@ -1,20 +1,14 @@
 package com.ninni.dye_depot.mixin;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.ninni.dye_depot.DyeDepot;
-import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import java.util.function.Function;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Util;
 import net.minecraft.world.entity.animal.sheep.Sheep;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -44,6 +38,7 @@ public abstract class SheepMixin {
         }
     }
 
+    /* TODO 26.1.2 use dye depot loot tables instead, or add loot modifiers instead?
     @WrapOperation(method = "lambda$shear$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/sheep/Sheep;spawnAtLocation(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;F)Lnet/minecraft/world/entity/item/ItemEntity;"))
     private ItemEntity DD$shear(Sheep $this, ServerLevel serverLevel, ItemStack stack, float v, Operation<ItemEntity> original) {
         if (DDDyes.isModDye($this.getColor())) {
@@ -61,6 +56,7 @@ public abstract class SheepMixin {
             cir.setReturnValue(LOOT_TABLES.apply($this.getColor()));
         }
     }
+    */
 
     @ModifyConstant(method = {
         "getColor()Lnet/minecraft/world/item/DyeColor;",
