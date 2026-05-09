@@ -1,11 +1,9 @@
 package com.ninni.dye_depot.data.server;
 
-import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
