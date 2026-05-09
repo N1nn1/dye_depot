@@ -50,11 +50,11 @@ public class DDBlockTags extends BlockTagsProvider {
         // TODO waiting for supplementaries
         // tagDyed(DDBlocks.DYE_BASKETS, BlockTags.MINEABLE_WITH_HOE, ModTags.SOAP_BLACKLIST_BLOCK);
 
-        tagDyed(ModCompat.supplementariesHolders(blockLookup, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
-        tagDyed(ModCompat.supplementariesHolders(blockLookup, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(blockLookup, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(blockLookup, "trapped_present"), supplementariesTag("trapped_presents"));
+        // tagDyed(ModCompat.supplementariesHolders(blockLookup, "candle_holder"), supplementariesTag("candle_holders"));
+        // tagDyed(ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), BlockTags.GUARDED_BY_PIGLINS);
+        // tagDyed(ModCompat.supplementariesHolders(blockLookup, "flag"), supplementariesTag("flags"));
+        // tagDyed(ModCompat.supplementariesHolders(blockLookup, "present"), supplementariesTag("presents"));
+        // tagDyed(ModCompat.supplementariesHolders(blockLookup, "trapped_present"), supplementariesTag("trapped_presents"));
     }
 
     private void tag(DyedHolders<?, Block> values, TagKey<Block> tag) {

@@ -108,11 +108,12 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
         dyed(builder, filterAndMerge(DDBlocks.WOOL, blockLookup), "Wool");
         dyed(builder, filter(DDBlocks.DYE_BASKETS), "Dye Basket");
 
-        dyed(builder, supplementariesHolders(blockLookup, "present"), "Present");
-        dyed(builder, supplementariesHolders(blockLookup, "trapped_present"), "Trapped Present");
-        dyed(builder, supplementariesHolders(blockLookup, "flag"), "Flag");
-        dyed(builder, supplementariesHolders(blockLookup, "candle_holder"), "Candle Holder");
-        dyed(builder, supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
+        // TODO waiting for supplementaries
+        //dyed(builder, supplementariesHolders(blockLookup, "present"), "Present");
+        //dyed(builder, supplementariesHolders(blockLookup, "trapped_present"), "Trapped Present");
+        //dyed(builder, supplementariesHolders(blockLookup, "flag"), "Flag");
+        //dyed(builder, supplementariesHolders(blockLookup, "candle_holder"), "Candle Holder");
+        //dyed(builder, supplementariesSquaredHolders(blockLookup, "gold_candle_holder"), it -> "Gold " + it + " Candle Holder");
 
         translateAdditional(builder);
     }

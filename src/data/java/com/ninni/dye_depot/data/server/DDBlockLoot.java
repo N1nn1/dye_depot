@@ -5,6 +5,8 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -33,7 +35,7 @@ public class DDBlockLoot extends BlockLootSubProvider {
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
-        DDBlocks.CANDLE_CAKES.values().forEach(this::dropCandleCake);
+        DDBlocks.CANDLE_CAKES.forEachWith(DDBlocks.CANDLES, this::dropCandleCake);
         DDBlocks.CARPETS.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE_POWDER.values().forEach(this::dropSelf);
@@ -45,15 +47,15 @@ public class DDBlockLoot extends BlockLootSubProvider {
         DDBlocks.TERRACOTTA.values().forEach(this::dropSelf);
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
-        // TODO this is not possible in forge, use forge-fix?
+        // TODO waiting for supplementaries
         // var supplementariesLoot = withConditions(DefaultResourceConditions.allModsLoaded(ModCompat.SUPPLEMENTARIES));
-        var supplementariesLoot = this;
-        ModCompat.supplementariesHolders(blockLookup, "flag").values()
-                .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
-        ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
-                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
-        ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").values()
-                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
+        // var supplementariesLoot = this;
+        // ModCompat.supplementariesHolders(blockLookup, "flag").values()
+        //         .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
+        // ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
+        //         .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
+        // ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").values()
+        //         .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
     }
 
     private void dropBanner(Block block) {
@@ -68,8 +70,8 @@ public class DDBlockLoot extends BlockLootSubProvider {
         add(block, createCandleDrops(block));
     }
 
-    private void dropCandleCake(Block block) {
-        add(block, createCandleCakeDrops(block));
+    private void dropCandleCake(Holder<? extends Block> block, Holder<? extends Block> candle) {
+        add(block.value(), createCandleCakeDrops(candle.value()));
     }
 
     private void dropShulkerBox(Block block) {

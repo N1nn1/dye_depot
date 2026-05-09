@@ -56,11 +56,11 @@ public class DDItemTags extends ItemTagsProvider {
         // TODO waiting for supplementaries
         // tagDyed(DDBlocks.DYE_BASKETS, ModTags.SOAP_BLACKLIST_ITEM);
 
-        tagDyed(ModCompat.supplementariesHolders(itemLookup, "candle_holder"), supplementariesTag("candle_holders"));
-        tagDyed(ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
-        tagDyed(ModCompat.supplementariesHolders(itemLookup, "flag"), supplementariesTag("flags"));
-        tagDyed(ModCompat.supplementariesHolders(itemLookup, "present"), supplementariesTag("presents"));
-        tagDyed(ModCompat.supplementariesHolders(itemLookup, "trapped_present"), supplementariesTag("trapped_presents"));
+        // tagDyed(ModCompat.supplementariesHolders(itemLookup, "candle_holder"), supplementariesTag("candle_holders"));
+        // tagDyed(ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder"), supplementariesTag("candle_holders"), ItemTags.PIGLIN_LOVED);
+        // tagDyed(ModCompat.supplementariesHolders(itemLookup, "flag"), supplementariesTag("flags"));
+        // tagDyed(ModCompat.supplementariesHolders(itemLookup, "present"), supplementariesTag("presents"));
+        // tagDyed(ModCompat.supplementariesHolders(itemLookup, "trapped_present"), supplementariesTag("trapped_presents"));
 
         tag(DDTags.SMELTS_INTO_CORAL_DYE).add(
                 Items.TUBE_CORAL,

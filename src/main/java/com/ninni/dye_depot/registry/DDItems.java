@@ -1,6 +1,8 @@
 package com.ninni.dye_depot.registry;
 
 import com.ninni.dye_depot.DyeDepot;
+
+import java.util.function.Function;
 import java.util.function.Supplier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -11,27 +13,27 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DDItems {
 
-    static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(Registries.ITEM, DyeDepot.MOD_ID);
+    static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(DyeDepot.MOD_ID);
 
     public static final DyedHolders<Item, Item> DYES = DyedHolders.createModded(dye ->
-            register(dye + "_dye", () -> new DyeItem(new Item.Properties().component(DataComponents.DYE, dye)))
+            register(dye + "_dye", props -> new DyeItem(props.component(DataComponents.DYE, dye)))
     );
 
     public static final DyedHolders<Item, Item> SHULKER_BOXES = DyedHolders.createModded(dye ->
-            register(dye + "_shulker_box", () -> new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), new Item.Properties().stacksTo(1)))
+            register(dye + "_shulker_box", props -> new BlockItem(DDBlocks.SHULKER_BOXES.getOrThrow(dye), props.stacksTo(1)))
     );
 
     public static final DyedHolders<Item, Item> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", () -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), new Item.Properties()))
+            register(dye + "_banner", props -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), props))
     );
 
     public static final DyedHolders<Item, Item> BEDS = DyedHolders.createModded(dye ->
-            register(dye + "_bed", () -> new BedItem(DDBlocks.BEDS.getOrThrow(dye), new Item.Properties().stacksTo(1)))
+            register(dye + "_bed", props -> new BedItem(DDBlocks.BEDS.getOrThrow(dye), props.stacksTo(1)))
     );
 
     @SuppressWarnings("unchecked")
-    private static <T extends Item> Holder<T> register(String id, Supplier<T> item) {
-        return (Holder<T>) REGISTRY.register(id, item);
+    private static <T extends Item> Holder<T> register(String id, Function<Item.Properties, T> item) {
+        return (Holder<T>) REGISTRY.registerItem(id, item);
     }
 
     public static void register(IEventBus modBus) {
