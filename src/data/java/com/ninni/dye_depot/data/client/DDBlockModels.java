@@ -67,7 +67,7 @@ public class DDBlockModels extends BlockStateProvider {
     private void glazedTerracotta(Holder<? extends Block> block) {
         var model = models().withExistingParent(name(block), withDefaultNamespace("template_glazed_terracotta"))
             .texture("pattern", blockTexture(block));
-        horizontalBlock(block.value(), model);
+        horizontalBlock(block.value(), model, 0);
         simpleBlockItem(block.value(), model);
     }
 
