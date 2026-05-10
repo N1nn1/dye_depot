@@ -91,6 +91,8 @@ public abstract class DDLangProvider extends LanguageProvider implements Transla
         dyedBannerPattern(builder, "triangle_top", color -> color + " Inverted Chevron");
         dyedBannerPattern(builder, "triangles_bottom", color -> color + " Base Indented");
         dyedBannerPattern(builder, "triangles_top", color -> color + " Chief Indented");
+        dyedBannerPattern(builder, "flow", color -> color + " Flow");
+        dyedBannerPattern(builder, "guster", color -> color + " Guster");
 
         dyed(builder, filterAndMerge(DDItems.DYES, itemLookup), "Dye");
         dyed(builder, filterAndMerge(DDBlocks.BANNERS, blockLookup), "Banner");
