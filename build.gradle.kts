@@ -5,6 +5,8 @@ plugins {
 fabric {
     accessWidener()
     dataGen {
+        splitSourceSet()
+
         existing("supplementaries")
         existing("suppsquared")
     }

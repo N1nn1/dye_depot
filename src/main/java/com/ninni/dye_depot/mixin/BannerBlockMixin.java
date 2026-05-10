@@ -17,7 +17,7 @@ public class BannerBlockMixin {
             at = @At("RETURN")
     )
     private static Block byColor(Block original, @Local DyeColor color) {
-        return DDBlocks.BANNERS.get(color).orElse(original);
+        return DDBlocks.BANNERS.get(color).orElse((BannerBlock) original);
     }
 
 }

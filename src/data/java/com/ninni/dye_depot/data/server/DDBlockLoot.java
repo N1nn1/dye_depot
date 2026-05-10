@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -36,7 +37,7 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
-        DDBlocks.CANDLE_CAKES.values().forEach(this::dropCandleCake);
+        DDBlocks.CANDLE_CAKES.forEachWith(DDBlocks.CANDLES, this::dropCandleCake);
         DDBlocks.CARPETS.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE_POWDER.values().forEach(this::dropSelf);
@@ -69,8 +70,8 @@ public class DDBlockLoot extends FabricBlockLootTableProvider {
         add(block, createCandleDrops(block));
     }
 
-    private void dropCandleCake(Block block) {
-        add(block, createCandleCakeDrops(block));
+    private void dropCandleCake(Holder<? extends Block> block, Holder<? extends Block> candle) {
+        add(block.value(), createCandleCakeDrops(candle.value()));
     }
 
     private void dropShulkerBox(Block block) {

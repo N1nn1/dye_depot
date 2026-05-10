@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
 import net.fabricmc.fabric.impl.resource.conditions.conditions.AndResourceCondition;
-import net.mehvahdjukaar.moonlight.api.resources.recipe.fabric.OptionalRecipeCondition;
+import net.mehvahdjukaar.moonlight.api.resources.recipe.platform.OptionalRecipeCondition;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
