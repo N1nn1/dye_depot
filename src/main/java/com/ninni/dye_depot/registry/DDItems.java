@@ -4,8 +4,10 @@ import com.ninni.dye_depot.DyeDepot;
 import java.util.function.Supplier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 public class DDItems {
 
@@ -18,7 +20,10 @@ public class DDItems {
     );
 
     public static final DyedHolders<Item, Item> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", () -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), new Item.Properties()))
+            register(dye + "_banner", () -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), new Item.Properties()
+                .stacksTo(16)
+                .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+            ))
     );
 
     public static final DyedHolders<Item, Item> BEDS = DyedHolders.createModded(dye ->
