@@ -4,7 +4,7 @@
   "group": "rose_dye",
   "ingredients": [
     "minecraft:red_dye",
-    "minecraft:purple_dye"
+    "minecraft:magenta_dye"
   ],
   "result": {
     "count": 2,
