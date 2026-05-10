@@ -2,6 +2,7 @@ package com.ninni.dye_depot.registry;
 
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -14,6 +15,7 @@ public class DDVanillaIntegration {
     public static void commonInit() {
         registerLootTableAdditions();
         registerVillagerTrades();
+        registerCauldronInteractions();
     }
 
     private static void registerLootTableAdditions() {
@@ -111,4 +113,12 @@ public class DDVanillaIntegration {
                 )
         );
     }
+
+    private static void registerCauldronInteractions() {
+        var interactions = CauldronInteraction.WATER;
+
+        DDItems.SHULKER_BOXES.values().forEach(it -> interactions.put(it, CauldronInteraction.SHULKER_BOX));
+        DDItems.BANNERS.values().forEach(it -> interactions.put(it, CauldronInteraction.BANNER));
+    }
+
 }
