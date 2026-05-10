@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_purple_dye": {
+    "has_magenta_dye": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:purple_dye"
+              "minecraft:magenta_dye"
             ]
           }
         ]
@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dye_depot:rose_dye_from_purple_and_red"
+        "recipe": "dye_depot:rose_dye_from_magenta_and_red"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -35,13 +35,13 @@
   "requirements": [
     [
       "has_red_dye",
-      "has_purple_dye",
+      "has_magenta_dye",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "dye_depot:rose_dye_from_purple_and_red"
+      "dye_depot:rose_dye_from_magenta_and_red"
     ]
   },
   "sends_telemetry_event": false
