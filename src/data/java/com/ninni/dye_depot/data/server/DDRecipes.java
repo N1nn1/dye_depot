@@ -152,7 +152,7 @@ public class DDRecipes extends FabricRecipeProvider {
         dyeMixing(output, DyeColor.WHITE, DyeColor.LIGHT_GRAY, DyeColor.WHITE);
 
         // Light, Dark, Tinted variants
-        dyeColorSpectrum(output, DDDyes.CORAL.get(), DyeColor.RED, DyeColor.PURPLE, DDDyes.ROSE.get(), DDDyes.MAROON.get());
+        dyeColorSpectrum(output, DDDyes.CORAL.get(), DyeColor.RED, DyeColor.MAGENTA, DDDyes.ROSE.get(), DDDyes.MAROON.get());
         dyeColorSpectrum(output, DDDyes.AQUA.get(), DyeColor.CYAN, DyeColor.GREEN, DDDyes.MINT.get(), DDDyes.TEAL.get());
         dyeColorSpectrum(output, DyeColor.LIME, DyeColor.GREEN, DyeColor.YELLOW, DDDyes.FOREST.get(), DDDyes.VERDANT.get());
         dyeColorSpectrum(output, DyeColor.PINK, DyeColor.MAGENTA, DyeColor.BLUE, DyeColor.PURPLE, DDDyes.INDIGO.get());
@@ -166,6 +166,8 @@ public class DDRecipes extends FabricRecipeProvider {
 
         // Disabled vanilla recipes
         disable(output, new ResourceLocation("gray_dye"));
+        disable(output, new ResourceLocation("lime_dye"));
+        disable(output, new ResourceLocation("light_blue_dye_from_blue_white_dye"));
         disable(output, new ResourceLocation("light_gray_dye_from_oxeye_daisy"));
         disable(output, new ResourceLocation("magenta_dye_from_blue_red_pink"));
         disable(output, new ResourceLocation("magenta_dye_from_blue_red_white_dye"));
