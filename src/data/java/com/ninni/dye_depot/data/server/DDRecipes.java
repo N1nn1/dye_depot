@@ -107,7 +107,7 @@ public class DDRecipes extends RecipeProvider {
             );
         });
 
-        dyeing(output, RecipeCategory.MISC, DDBlocks.WOOL, ItemTags.WOOL);
+        dyeing(output, RecipeCategory.MISC, DDBlocks.WOOL.mergeVanilla(blockLookup), ItemTags.WOOL);
 
         dyeConversion(output, DDDyes.AMBER.get(), Items.GLOW_BERRIES, 1);
         dyeConversion(output, DDDyes.AMBER.get(), Items.HONEYCOMB, 2);
