@@ -73,27 +73,27 @@ public class DDBlocks {
             registerWithItem(dye + "_stained_glass_pane", () -> new StainedGlassPaneBlock(dye, Properties.copy(Blocks.WHITE_STAINED_GLASS_PANE)))
     );
 
-    public static final DyedHolders<Block, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<ShulkerBoxBlock, Block> SHULKER_BOXES = DyedHolders.createModded(dye ->
             register(dye + "_shulker_box", () -> shulkerBox(dye, Properties.of().mapColor(dye)))
     );
 
-    public static final DyedHolders<Block, Block> CANDLES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<CandleBlock, Block> CANDLES = DyedHolders.createModded(dye ->
             registerWithItem(dye + "_candle", () -> new CandleBlock(Properties.copy(Blocks.WHITE_CANDLE).mapColor(dye)))
     );
 
-    public static final DyedHolders<Block, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
+    public static final DyedHolders<CandleCakeBlock, Block> CANDLE_CAKES = DyedHolders.createModded(dye ->
             register(dye + "_candle_cake", () -> new CandleCakeBlock(CANDLES.getOrThrow(dye), Properties.copy(Blocks.WHITE_CANDLE_CAKE)))
     );
 
-    public static final DyedHolders<Block, Block> BANNERS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<BannerBlock, Block> BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_banner", () -> banner(dye))
     );
 
-    public static final DyedHolders<Block, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<WallBannerBlock, Block> WALL_BANNERS = DyedHolders.createModded(dye ->
             register(dye + "_wall_banner", () -> wallBanner(dye))
     );
 
-    public static final DyedHolders<Block, Block> BEDS = DyedHolders.createModded(dye ->
+    public static final DyedHolders<BedBlock, Block> BEDS = DyedHolders.createModded(dye ->
             register(dye + "_bed", () -> bed(dye))
     );
 

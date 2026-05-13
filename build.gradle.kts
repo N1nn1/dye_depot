@@ -5,6 +5,8 @@ plugins {
 fabric {
     accessWidener()
     dataGen {
+        splitSourceSet()
+
         existing("supplementaries")
         existing("suppsquared")
     }
@@ -18,8 +20,7 @@ repositories {
         }
     }
 
-    maven {
-        url = uri("https://mvn.devos.one/releases/")
+    nexus("snapshots") {
         content {
             includeGroup("io.github.fabricators_of_create.Porting-Lib")
         }
