@@ -142,7 +142,6 @@ public class DDBlocks {
         );
     }
 
-    @SuppressWarnings("unchecked")
     private static <T extends Block> Holder<T> register(String id, Supplier<T> block) {
         return DeferredHolder.from(REGISTRY.register(id, block));
     }

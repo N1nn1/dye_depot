@@ -2,6 +2,7 @@ package com.ninni.dye_depot.mixin;
 
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
+import com.ninni.dye_depot.registry.DeferredHolder;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
@@ -20,8 +21,12 @@ public class ShulkerBoxBlockMixin {
     )
     private static void injectModShulkers(DyeColor dye, CallbackInfoReturnable<Block> cir) {
         if (dye == null || !DDDyes.isModDye(dye)) return;
-        var box = DDBlocks.SHULKER_BOXES.getOrThrow(dye);
-        cir.setReturnValue(box);
+        var box = (DeferredHolder<ShulkerBoxBlock>) DDBlocks.SHULKER_BOXES.holderOrThrow(dye);
+        // this check is necessary on forge because it is still using mixin 0.8.5
+        // which does not support mixin into public static interface methods yet,
+        // making DispenseItemBehaviourMixin useless
+        if (!box.isRegistered()) return;
+        cir.setReturnValue(box.value());
     }
 
 }

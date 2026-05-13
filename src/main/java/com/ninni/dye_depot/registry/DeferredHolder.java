@@ -3,7 +3,6 @@ package com.ninni.dye_depot.registry;
 import com.mojang.datafixers.util.Either;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderOwner;
@@ -15,13 +14,13 @@ import net.minecraftforge.registries.RegistryObject;
 public class DeferredHolder<T> implements Holder<T> {
 
     private final ResourceKey<T> key;
-    private final Supplier<T> value;
+    private final RegistryObject<T> value;
 
     public static <T> DeferredHolder<T> from(RegistryObject<T> object) {
         return new DeferredHolder<>(object.getKey(), object);
     }
 
-    private DeferredHolder(ResourceKey<T> key, Supplier<T> value) {
+    private DeferredHolder(ResourceKey<T> key, RegistryObject<T> value) {
         this.key = key;
         this.value = value;
     }
@@ -80,4 +79,9 @@ public class DeferredHolder<T> implements Holder<T> {
     public boolean canSerializeIn(HolderOwner<T> holderOwner) {
         return false;
     }
+
+    public boolean isRegistered() {
+        return value.isPresent();
+    }
+
 }
