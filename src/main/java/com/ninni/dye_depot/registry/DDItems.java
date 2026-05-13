@@ -21,14 +21,15 @@ public class DDItems {
     );
 
     public static final DyedHolders<Item, Item> BANNERS = DyedHolders.createModded(dye ->
-            register(dye + "_banner", () -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), new Item.Properties()))
+            register(dye + "_banner", () -> new BannerItem(DDBlocks.BANNERS.getOrThrow(dye), DDBlocks.WALL_BANNERS.getOrThrow(dye), new Item.Properties()
+                .stacksTo(16)
+            ))
     );
 
     public static final DyedHolders<Item, Item> BEDS = DyedHolders.createModded(dye ->
             register(dye + "_bed", () -> new BedItem(DDBlocks.BEDS.getOrThrow(dye), new Item.Properties().stacksTo(1)))
     );
 
-    @SuppressWarnings("unchecked")
     private static <T extends Item> Holder<T> register(String id, Supplier<T> item) {
         return DeferredHolder.from(REGISTRY.register(id, item));
     }
