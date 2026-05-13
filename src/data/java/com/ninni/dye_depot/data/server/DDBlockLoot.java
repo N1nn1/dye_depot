@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -38,7 +39,7 @@ public class DDBlockLoot extends BlockLootSubProvider {
         DDBlocks.BANNERS.values().forEach(this::dropBanner);
         DDBlocks.BEDS.values().forEach(this::dropBed);
         DDBlocks.CANDLES.values().forEach(this::dropCandle);
-        DDBlocks.CANDLE_CAKES.values().forEach(this::dropCandleCake);
+        DDBlocks.CANDLE_CAKES.forEachWith(DDBlocks.CANDLES, this::dropCandleCake);
         DDBlocks.CARPETS.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE.values().forEach(this::dropSelf);
         DDBlocks.CONCRETE_POWDER.values().forEach(this::dropSelf);
@@ -73,8 +74,8 @@ public class DDBlockLoot extends BlockLootSubProvider {
         add(block, createCandleDrops(block));
     }
 
-    private void dropCandleCake(Block block) {
-        add(block, createCandleCakeDrops(block));
+    private void dropCandleCake(Holder<? extends Block> block, Holder<? extends Block> candle) {
+        add(block.value(), createCandleCakeDrops(candle.value()));
     }
 
     private void dropShulkerBox(Block block) {

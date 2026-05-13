@@ -7,6 +7,8 @@ forge {
     enableMixins()
 
     dataGen {
+        splitSourceSet()
+
         existing("supplementaries")
         existing("suppsquared")
     }

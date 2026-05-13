@@ -158,4 +158,11 @@ public final class DyedHolders<TImplementation extends RRegistry, RRegistry> {
         return merge(vanillaVariants, this);
     }
 
+    public <SImplementation extends SRegistry, SRegistry> void forEachWith(DyedHolders<SImplementation, SRegistry> others, BiConsumer<Holder<TImplementation>, Holder<SImplementation>> consumer) {
+        forEach((color, first) -> {
+            var second = others.holderOrThrow(color);
+            consumer.accept(first, second);
+        });
+    }
+
 }
