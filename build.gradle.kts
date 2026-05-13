@@ -39,6 +39,15 @@ dependencies {
     modImplementation(libs.porting.lib.models)
 }
 
-upload.maven.nexus()
+val (version, type) = mod.version.get().split("-")
+
+mod.version = version
+
+upload.maven {
+    name = "${mod.id.get()}-$type"
+    artifactVersion = "${mod.minecraftVersion.get()}-${mod.version.get()}"
+
+    nexus()
+}
 
 enableSpotless()
