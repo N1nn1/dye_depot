@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>0.0.0-dev</version>
-#    <timestamp>2026-05-08T10:03:11.402Z</timestamp>
-#    <hash>7f3ef2f2389f6e15</hash>
+#    <version>1.0.60</version>
+#    <timestamp>2026-05-13T14:03:50.781Z</timestamp>
+#    <hash>d1e9f9e741782d1e</hash>
 # </meta>
 
 name: "Issue Labeler"
