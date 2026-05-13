@@ -1,5 +1,7 @@
 package com.ninni.dye_depot.data.client;
 
+import static net.minecraft.resources.ResourceLocation.withDefaultNamespace;
+
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
@@ -12,14 +14,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CandleBlock;
-import net.minecraft.world.level.block.CandleCakeBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.StainedGlassPaneBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class DDBlockModels extends BlockStateProvider {
@@ -42,14 +41,11 @@ public class DDBlockModels extends BlockStateProvider {
         DDBlocks.CONCRETE.values().forEach(this::simpleBlock);
         DDBlocks.CONCRETE_POWDER.values().forEach(this::simpleBlock);
         DDBlocks.GLAZED_TERRACOTTA.holders().forEach(this::glazedTerracotta);
-        DDBlocks.STAINED_GLASS.values().forEach(this::simpleBlock);
-        DDBlocks.STAINED_GLASS_PANES.forEach(this::stainedGlassPane);
-        DDBlocks.SHULKER_BOXES.holders().forEach(this::particleOnly);
-        DDBlocks.CANDLES.holders().forEach(this::candle);
-        DDBlocks.CANDLE_CAKES.forEach(this::candleCake);
-        DDBlocks.BANNERS.holders().forEach(this::banner);
-        DDBlocks.WALL_BANNERS.holders().forEach(this::banner);
-        DDBlocks.BEDS.holders().forEach(this::bed);
+        DDBlocks.STAINED_GLASS_PANES.forEachWith(DDBlocks.STAINED_GLASS, this::stainedGlassPane);
+        DDBlocks.SHULKER_BOXES.holders().forEach(this::shulkerBox);
+        DDBlocks.CANDLES.forEachWith(DDBlocks.CANDLE_CAKES, this::candleAndCake);
+        DDBlocks.BANNERS.forEachWith(DDBlocks.WALL_BANNERS, this::banners);
+        DDBlocks.BEDS.forEachWith(DDBlocks.WOOL, this::bed);
         DDBlocks.DYE_BASKETS.holders().forEach(this::basket);
 
         ModCompat.supplementariesHolders(blockLookup, "flag").holders().forEach(this::flag);
@@ -59,24 +55,41 @@ public class DDBlockModels extends BlockStateProvider {
         ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").forEach(this::candleHolder);
     }
 
+    @Override
+    public void simpleBlock(Block block, ModelFile model) {
+        super.simpleBlock(block, model);
+        super.simpleBlockItem(block, model);
+    }
+
     private void carpet(DyeColor color, Holder<? extends Block> block) {
         var wool = DDBlocks.WOOL.holderOrThrow(color);
         simpleBlock(block.value(), models().carpet(name(block), blockTexture(wool)));
     }
 
     private void glazedTerracotta(Holder<? extends Block> block) {
-        var model = models().withExistingParent(name(block), vanillaResource("template_glazed_terracotta"))
-                .texture("pattern", blockTexture(block));
+        var model = models().withExistingParent(name(block), withDefaultNamespace("template_glazed_terracotta"))
+            .texture("pattern", blockTexture(block));
         horizontalBlock(block.value(), model);
+        simpleBlockItem(block.value(), model);
     }
 
-    private void stainedGlassPane(DyeColor color, Holder<? extends StainedGlassPaneBlock> block) {
-        paneBlock(block.value(), blockTexture(DDBlocks.STAINED_GLASS.getOrNull(color)), blockTexture(block).withSuffix("_top"));
+    private void stainedGlassPane(Holder<? extends StainedGlassPaneBlock> pane, Holder<? extends Block> full) {
+        simpleBlock(full.value());
+        paneBlock(pane.value(), blockTexture(full.value()), blockTexture(pane).withSuffix("_top"));
+        basicItem(pane, blockTexture(full));
     }
 
-    private void particleOnly(Holder<? extends Block> block) {
+    private void shulkerBox(Holder<? extends ShulkerBoxBlock> block) {
         var texture = blockTexture(block);
         simpleBlock(block.value(), models().getBuilder(name(block)).texture("particle", texture));
+        itemModels()
+            .withExistingParent(name(block), withDefaultNamespace("template_shulker_box"))
+            .texture("particle", blockTexture(block));
+    }
+
+    private void candleAndCake(Holder<CandleBlock> candle, Holder<CandleCakeBlock> cake) {
+        candle(candle);
+        candleCake(cake, candle);
     }
 
     private void candle(Holder<? extends Block> block) {
@@ -86,50 +99,62 @@ public class DDBlockModels extends BlockStateProvider {
             var litSuffix = lit ? "_lit" : "";
             var countSuffix = List.of("_candle", "_two_candles", "_three_candles", "_four_candles").get(count - 1);
 
-            var model = models().withExistingParent(name(block) + "_" + count + litSuffix, vanillaResource("template" + countSuffix))
-                    .texture("all", blockTexture(block) + litSuffix)
-                    .texture("particle", blockTexture(block) + litSuffix);
+            var model = models().withExistingParent(name(block) + "_" + count + litSuffix, withDefaultNamespace("template" + countSuffix))
+                .texture("all", blockTexture(block) + litSuffix)
+                .texture("particle", blockTexture(block) + litSuffix);
 
             return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .build();
+                .modelFile(model)
+                .build();
         }, BlockStateProperties.WATERLOGGED);
+
+        itemModels().basicItem(block.value().asItem());
     }
 
-    private void candleCake(DyeColor color, Holder<? extends Block> block) {
+    private void candleCake(Holder<? extends Block> block, Holder<? extends Block> candle) {
         getVariantBuilder(block.value()).forAllStates(state -> {
             var lit = state.getValue(CandleCakeBlock.LIT);
             var suffix = lit ? "_lit" : "";
-            var model = models().withExistingParent(name(block) + suffix, vanillaResource("template_cake_with_candle"))
-                    .texture("candle", blockTexture(DDBlocks.CANDLES.getOrThrow(color)).withSuffix(suffix))
-                    .texture("bottom", vanillaResource("cake_bottom"))
-                    .texture("top", vanillaResource("cake_top"))
-                    .texture("side", vanillaResource("cake_side"))
-                    .texture("particle", vanillaResource("cake_side"));
+            var model = models().withExistingParent(name(block) + suffix, withDefaultNamespace("template_cake_with_candle"))
+                .texture("candle", blockTexture(candle.value()).withSuffix(suffix))
+                .texture("bottom", withDefaultNamespace("block/cake_bottom"))
+                .texture("top", withDefaultNamespace("block/cake_top"))
+                .texture("side", withDefaultNamespace("block/cake_side"))
+                .texture("particle", withDefaultNamespace("block/cake_side"));
             return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .build();
+                .modelFile(model)
+                .build();
         });
     }
 
-    private void banner(Holder<? extends Block> block) {
-        simpleBlock(block.value(), models().getExistingFile(vanillaResource("banner")));
+    private void banners(Holder<BannerBlock> standing, Holder<WallBannerBlock> wall) {
+        banner(standing);
+        banner(wall);
+        itemModels().withExistingParent(name(standing), withDefaultNamespace("template_banner"));
     }
 
-    private void bed(Holder<? extends Block> block) {
-        simpleBlock(block.value(), models().getExistingFile(vanillaResource("bed")));
+    private void banner(Holder<? extends Block> block) {
+        simpleBlock(block.value(), models().getExistingFile(withDefaultNamespace("banner")));
+    }
+
+    private void bed(Holder<? extends Block> block, Holder<? extends Block> wool) {
+        simpleBlock(block.value(), models().getExistingFile(withDefaultNamespace("bed")));
+        itemModels()
+            .withExistingParent(name(block), withDefaultNamespace("template_bed"))
+            .texture("particle", blockTexture(wool));
     }
 
     private void basket(Holder<? extends Block> block) {
         var texture = blockTexture(block);
         var model = models().orientableWithBottom(
-                name(block),
-                texture.withSuffix("_side"),
-                texture.withSuffix("_front"),
-                texture.withSuffix("_bottom"),
-                texture.withSuffix("_top")
+            name(block),
+            texture.withSuffix("_side"),
+            texture.withSuffix("_front"),
+            texture.withSuffix("_bottom"),
+            texture.withSuffix("_top")
         );
         horizontalBlock(block.value(), model);
+        simpleBlockItem(block.value(), model);
     }
 
     private void candleHolder(DyeColor color, Holder<? extends Block> block) {
@@ -144,18 +169,22 @@ public class DDBlockModels extends BlockStateProvider {
             var namespace = key(block).getNamespace();
             var parent = ResourceLocation.fromNamespaceAndPath(namespace, "block/candle_holders/" + suffix);
             var model = models()
-                    .withExistingParent(namespace + ":block/candle_holders/" + color + "_" + suffix + litSuffix, parent)
-                    .texture("all", blockTexture(DDBlocks.CANDLES.getOrNull(color)) + litSuffix);
+                .withExistingParent(namespace + ":block/candle_holders/" + color + "_" + suffix + litSuffix, parent)
+                .texture("all", blockTexture(DDBlocks.CANDLES.getOrNull(color)) + litSuffix);
 
             return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .rotationY((int) facing.toYRot() + 180)
-                    .build();
+                .modelFile(model)
+                .rotationY((int) facing.toYRot() + 180)
+                .build();
         }, BlockStateProperties.WATERLOGGED);
+
+        basicItem(block, key(block).withPath("item/candle_holders/" + color));
     }
 
     private void flag(Holder<? extends Block> block) {
         simpleBlock(block.value(), models().getExistingFile(ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/flag")));
+        itemModels()
+            .withExistingParent(key(block).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "item/flag_black"));
     }
 
     private void present(DyeColor color, Holder<? extends Block> block) {
@@ -169,19 +198,19 @@ public class DDBlockModels extends BlockStateProvider {
             var parent = ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/present" + suffix + "_template");
             var sideTexture = ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/side_" + color);
             var model = models().withExistingParent(ModCompat.SUPPLEMENTARIES + ":block/" + type + "s/" + color + suffix, parent)
-                    .texture("bottom", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/bottom_" + color))
-                    .texture("top", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/top_" + color))
-                    .texture("side", sideTexture)
-                    .texture("particle", sideTexture);
+                .texture("bottom", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/bottom_" + color))
+                .texture("top", ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/presents/top_" + color))
+                .texture("side", sideTexture)
+                .texture("particle", sideTexture);
 
             return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .build();
+                .modelFile(model)
+                .build();
         }, BlockStateProperties.WATERLOGGED);
-    }
 
-    private ResourceLocation vanillaResource(String name) {
-        return ResourceLocation.withDefaultNamespace("block/" + name);
+
+        itemModels()
+            .withExistingParent(key(block).toString(), ResourceLocation.fromNamespaceAndPath(ModCompat.SUPPLEMENTARIES, "block/" + type + "s/" + color + "_closed"));
     }
 
     private ResourceLocation key(Holder<? extends Block> block) {
@@ -194,6 +223,11 @@ public class DDBlockModels extends BlockStateProvider {
 
     private ResourceLocation blockTexture(Holder<? extends Block> block) {
         return block.unwrapKey().orElseThrow().location().withPrefix("block/");
+    }
+
+    private void basicItem(Holder<? extends Block> block, ResourceLocation texture) {
+        itemModels().withExistingParent(key(block).toString(), withDefaultNamespace("generated"))
+            .texture("layer0", texture);
     }
 
 }

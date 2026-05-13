@@ -6,6 +6,8 @@ neoforge {
     accessTransformer()
 
     dataGen {
+        splitSourceSet()
+
         existing("supplementaries")
         existing("suppsquared")
     }

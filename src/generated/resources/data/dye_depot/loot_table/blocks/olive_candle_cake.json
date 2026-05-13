@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "dye_depot:olive_candle"
         }
       ],
       "rolls": 1.0
