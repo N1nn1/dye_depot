@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>0.0.0-dev</version>
-#    <timestamp>2026-05-08T11:14:25.727Z</timestamp>
-#    <hash>e2bb65bbce487921</hash>
+#    <version>1.0.60</version>
+#    <timestamp>2026-05-13T14:02:15.742Z</timestamp>
+#    <hash>6c0665a7c11fa2c5</hash>
 # </meta>
 
 name: Bug Report
@@ -27,7 +27,6 @@ body:
       options:
         - "fabric"
         - "forge"
-        - "neoforge"
     validations:
       required: true
 
