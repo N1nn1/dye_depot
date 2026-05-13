@@ -2,8 +2,59 @@
 
 ## License
 
-This project's code is licensed under [ARR](LICENSE). 
+This project's code is licensed under [ARR](LICENSE).
 You can use it in your Modpack,
-but if you would like clarification or more explicit permission join the [discord server](https://discord.gg/tvqjhCxkwg).
+but if you would like clarification or more explicit permission join
+the [discord server](https://discord.gg/tvqjhCxkwg).
 
 ![Divider](https://cdn.modrinth.com/data/cached_images/1ccd731a59f2b97cc9189ceb9b073d0b61476424.png)
+
+## Depending on Dye Depot
+
+Artifacts are published in a maven repository for all versions
+
+```kotlin
+repositories {
+    maven {
+        url = uri("https://registry.somethingcatchy.net/repository/maven-releases/")
+        content {
+            includeGroup("com.ninni.dye_depot")
+        }
+    }
+}
+```
+
+<details>
+
+<summary>Using Fabric Loom</summary>
+
+```kotlin
+dependencies {
+    modImplementation("com.ninni.dye_depot:dye_depot-fabric:$minecraft_version-$dye_depot_version")
+}
+```
+
+</details>
+
+<details>
+
+<summary>Using NeoForge ModDevGradle</summary>
+
+```kotlin
+dependencies {
+    implementation("com.ninni.dye_depot:dye_depot-neoforge:$minecraft_version-$dye_depot_version")
+}
+```
+
+</details>
+
+<details>
+<summary>Using ForgeGradle</summary>
+
+```kotlin
+dependencies {
+    implementation(fg.deobf("com.ninni.dye_depot:dye_depot-forge:$minecraft_version-$dye_depot_version"))
+}
+```
+
+</details>
