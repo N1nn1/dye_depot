@@ -9,6 +9,7 @@
     "MapDecorationTypeMixin",
     "SheepMixin",
     "ShulkerBoxBlockMixin",
+    "DispenseItemBehaviourMixin",
     "VillagerGoalPackagesMixin",
     "client.NearestBedSensorMixin"
   ],
