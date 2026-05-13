@@ -3,9 +3,5 @@
   "$schema": "https://workflows.somethingcatchy.net/schema/config.json",
   "type": "minecraft",
   "license": false,
-  "upload": {
-    "modrinth": true,
-    "curseforge": true,
-    "nexus": true
-  }
+  "upload": { "modrinth": true, "curseforge": true, "nexus": true }
 }
