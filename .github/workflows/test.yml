@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>1.0.61</version>
-#    <timestamp>2026-05-13T14:38:02.300Z</timestamp>
-#    <hash>b9cc56fa6b67dc63</hash>
+#    <version>1.0.76</version>
+#    <timestamp>2026-05-26T14:27:31.216Z</timestamp>
+#    <hash>bbe387df50836675</hash>
 # </meta>
 
 name: Test
@@ -45,7 +45,7 @@ jobs:
 
       - uses: actions/setup-java@v4
         with:
-          java-version: 21
+          java-version: 26
           distribution: temurin
 
       - uses: gradle/actions/setup-gradle@v4
@@ -54,7 +54,7 @@ jobs:
           dependency-graph: generate-and-submit
 
       - name: Test
-        run: ./gradlew build check
+        run: ./gradlew build check --stacktrace
 
       - uses: actions/upload-artifact@v4
         if: ${{ inputs.upload }}
