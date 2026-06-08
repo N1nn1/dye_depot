@@ -1,20 +1,14 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>1.0.76</version>
-#    <timestamp>2026-05-26T14:27:31.216Z</timestamp>
-#    <hash>bbe387df50836675</hash>
+#    <version>1.0.83</version>
+#    <timestamp>2026-06-08T09:30:42.255Z</timestamp>
+#    <hash>6d4ad4fcdd6f6ddf</hash>
 # </meta>
 
 name: Test
 
 on:
   workflow_dispatch:
-    inputs:
-      upload:
-        description: "Upload Artifact"
-        default: false
-        required: true
-        type: boolean
 
   pull_request:
     types: [opened, synchronize]
@@ -53,11 +47,24 @@ jobs:
           cache-read-only: ${{ github.event_name != 'push' }}
           dependency-graph: generate-and-submit
 
+      - uses: PssbleTrngle/find-release@v1
+        if: ${{ github.event_name != 'pull_request' }}
+        id: action
+        with:
+          type: draft
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Test
         run: ./gradlew build check --stacktrace
+        env:
+          RELEASE_VERSION: ${{ steps.action.outputs.tag }}
 
-      - uses: actions/upload-artifact@v4
-        if: ${{ inputs.upload }}
-        with:
-          name: build
-          path: "**/build/libs/*.jar"
+      - name: Publish -SNAPSHOT version
+        if: ${{ steps.action.outputs.matched }}
+        run: ./gradlew publish
+        continue-on-error: true
+        env:
+          NEXUS_USER: ${{ secrets.NEXUS_USER }}
+          NEXUS_TOKEN: ${{ secrets.NEXUS_TOKEN }}
+          RELEASE_VERSION: ${{ steps.action.outputs.tag }}
+          SNAPSHOT: true
