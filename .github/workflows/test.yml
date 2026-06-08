@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>1.0.83</version>
-#    <timestamp>2026-06-08T09:30:48.061Z</timestamp>
-#    <hash>6d4ad4fcdd6f6ddf</hash>
+#    <version>1.0.84</version>
+#    <timestamp>2026-06-08T09:57:56.719Z</timestamp>
+#    <hash>ed7c13a096b9c9d8</hash>
 # </meta>
 
 name: Test
@@ -60,7 +60,7 @@ jobs:
           RELEASE_VERSION: ${{ steps.action.outputs.tag }}
 
       - name: Publish -SNAPSHOT version
-        if: ${{ steps.action.outputs.matched }}
+        if: ${{ fromJSON(steps.action.outputs.matched) }}
         run: ./gradlew publish
         continue-on-error: true
         env:
