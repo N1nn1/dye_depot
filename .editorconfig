@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>0.0.0-dev</version>
-#    <timestamp>2026-05-08T10:03:11.402Z</timestamp>
-#    <hash>8a524060bd3ca37</hash>
+#    <version>1.0.95</version>
+#    <timestamp>2026-06-21T19:15:14.558Z</timestamp>
+#    <hash>8bfc07888d843d40</hash>
 # </meta>
 
 root = true
@@ -13,6 +13,7 @@ root = true
 # Change these settings to your own preference
 indent_style = space
 indent_size = 4
+ij_continuation_indent_size = 8
 
 # We recommend you to keep these unchanged
 end_of_line = lf

@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>0.0.0-dev</version>
-#    <timestamp>2026-05-08T10:03:11.402Z</timestamp>
-#    <hash>50bdd3d142fbd99f</hash>
+#    <version>1.0.95</version>
+#    <timestamp>2026-06-21T19:15:14.558Z</timestamp>
+#    <hash>9d521ee415ea61ee</hash>
 # </meta>
 
 blank_issues_enabled: false
