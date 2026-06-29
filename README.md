@@ -2,7 +2,7 @@
 
 ## License
 
-This project's code is licensed under [ARR](LICENSE).
+This project's code is licensed under [ARR](LICENSE.md).
 You can use it in your Modpack,
 but if you would like clarification or more explicit permission join
 the [discord server](https://discord.gg/tvqjhCxkwg).
