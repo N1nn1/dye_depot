@@ -1,20 +1,20 @@
 {
   "values": [
-    "dye_depot:wandering_trader/sell_dye_slate",
-    "dye_depot:wandering_trader/sell_dye_beige",
-    "dye_depot:wandering_trader/sell_dye_ginger",
-    "dye_depot:wandering_trader/sell_dye_tan",
-    "dye_depot:wandering_trader/sell_dye_aqua",
-    "dye_depot:wandering_trader/sell_dye_maroon",
-    "dye_depot:wandering_trader/sell_dye_teal",
-    "dye_depot:wandering_trader/sell_dye_olive",
-    "dye_depot:wandering_trader/sell_dye_indigo",
-    "dye_depot:wandering_trader/sell_dye_forest",
     "dye_depot:wandering_trader/sell_dye_amber",
-    "dye_depot:wandering_trader/sell_dye_mint",
-    "dye_depot:wandering_trader/sell_dye_verdant",
-    "dye_depot:wandering_trader/sell_dye_rose",
+    "dye_depot:wandering_trader/sell_dye_aqua",
+    "dye_depot:wandering_trader/sell_dye_beige",
     "dye_depot:wandering_trader/sell_dye_coral",
-    "dye_depot:wandering_trader/sell_dye_navy"
+    "dye_depot:wandering_trader/sell_dye_forest",
+    "dye_depot:wandering_trader/sell_dye_ginger",
+    "dye_depot:wandering_trader/sell_dye_indigo",
+    "dye_depot:wandering_trader/sell_dye_maroon",
+    "dye_depot:wandering_trader/sell_dye_mint",
+    "dye_depot:wandering_trader/sell_dye_navy",
+    "dye_depot:wandering_trader/sell_dye_olive",
+    "dye_depot:wandering_trader/sell_dye_rose",
+    "dye_depot:wandering_trader/sell_dye_slate",
+    "dye_depot:wandering_trader/sell_dye_tan",
+    "dye_depot:wandering_trader/sell_dye_teal",
+    "dye_depot:wandering_trader/sell_dye_verdant"
   ]
 }

@@ -7,6 +7,7 @@ import com.ninni.dye_depot.registry.DDBlocks;
 import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -223,7 +224,9 @@ public class DDTrades extends DatapackBuiltinEntriesProvider {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            supplier.forEach((tag, key) -> tag(tag).add(key));
+            supplier.entries().stream()
+                .sorted(Comparator.comparing(it -> it.getValue().identifier().toString()))
+                .forEach((entry) -> tag(entry.getKey()).add(entry.getValue()));
         }
 
     }
