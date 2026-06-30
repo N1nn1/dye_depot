@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>1.0.105</version>
-#    <timestamp>2026-06-30T07:43:53.574Z</timestamp>
-#    <hash>9e4124820d655abc</hash>
+#    <version>1.0.106</version>
+#    <timestamp>2026-06-30T08:06:56.318Z</timestamp>
+#    <hash>4876740be5b86801</hash>
 # </meta>
 
 name: Test
@@ -48,6 +48,7 @@ jobs:
           dependency-graph: generate-and-submit
 
       - uses: PssbleTrngle/find-release@v1
+        if: ${{ github.event_name != 'pull_request' }}
         id: draft
         with:
           type: draft
