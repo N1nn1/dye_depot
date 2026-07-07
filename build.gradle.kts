@@ -20,6 +20,12 @@ repositories {
             includeGroup("mezz.jei")
         }
     }
+
+    nexus {
+        content {
+            includeGroup("com.possible-triangle")
+        }
+    }
 }
 
 dependencies {
@@ -30,6 +36,8 @@ dependencies {
     modImplementation(pack.modrinth.moonlight)
     modImplementation(pack.modrinth.supplementaries)
     modImplementation(pack.modrinth.supplementaries.squared)
+
+    modImplementation(libs.multikulti.datagen)
 }
 
 val (version, type) = mod.version.get().split("-")

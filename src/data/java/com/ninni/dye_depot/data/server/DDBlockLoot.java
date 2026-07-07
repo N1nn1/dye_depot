@@ -1,5 +1,7 @@
 package com.ninni.dye_depot.data.server;
 
+import static com.ninni.dye_depot.data.ModCompat.withSupplementariesFlag;
+
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
 import java.util.Collection;
@@ -45,15 +47,12 @@ public class DDBlockLoot extends BlockLootSubProvider {
         DDBlocks.TERRACOTTA.values().forEach(this::dropSelf);
         DDBlocks.WOOL.values().forEach(this::dropSelf);
 
-        // TODO use multikulti for this?
-        //var supplementariesLoot = withConditions(new ModLoadedCondition(ModCompat.SUPPLEMENTARIES));
-        var supplementariesLoot = this;
         ModCompat.supplementariesHolders(blockLookup, "flag").values()
-                .forEach(it -> supplementariesLoot.add(it, createFlagDrops(it)));
+                .forEach(it -> add(it, createFlagDrops(it)));
         ModCompat.supplementariesHolders(blockLookup, "candle_holder").values()
-                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
+                .forEach(it -> add(it, withSupplementariesFlag(createCandleDrops(it), ModCompat.SUPPLEMENTARIES, "candle_holder")));
         ModCompat.supplementariesSquaredHolders(blockLookup, "gold_candle_holder").values()
-                .forEach(it -> supplementariesLoot.add(it, createCandleDrops(it)));
+                .forEach(it -> add(it, withSupplementariesFlag(createCandleDrops(it), ModCompat.SUPPLEMENTARIES_SQUARED, "candle_holder")));
     }
 
     private void dropBanner(Block block) {
@@ -91,7 +90,7 @@ public class DDBlockLoot extends BlockLootSubProvider {
                         .include(DataComponents.BANNER_PATTERNS)
                 );
 
-        return createTable(block, entry);
+        return withSupplementariesFlag(createTable(block, entry), ModCompat.SUPPLEMENTARIES, "flag");
     }
 
     private final Collection<Block> knownBlocks = new HashSet<>();
