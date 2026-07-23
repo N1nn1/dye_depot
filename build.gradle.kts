@@ -23,6 +23,7 @@ repositories {
     nexus {
         content {
             includeGroup("io.github.fabricators_of_create.Porting-Lib")
+            includeGroup("com.possible-triangle")
         }
     }
 }
@@ -37,6 +38,7 @@ dependencies {
 
     // for data generation
     modImplementation(libs.porting.lib.models)
+    modImplementation(libs.multikulti.datagen)
 }
 
 val (version, type) = mod.version.get().split("-")

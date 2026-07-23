@@ -1,20 +1,14 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:not",
-      "value": {
-        "condition": "fabric:any_mods_loaded",
-        "values": [
-          "dye_depot"
-        ]
-      }
-    }
-  ],
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
     {
       "item": "minecraft:debug_stick"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:false"
     }
   ],
   "result": {

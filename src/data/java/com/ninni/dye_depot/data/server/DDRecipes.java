@@ -1,5 +1,7 @@
 package com.ninni.dye_depot.data.server;
 
+import static com.ninni.dye_depot.data.ModCompat.withSupplementariesFlag;
+
 import com.ninni.dye_depot.DyeDepot;
 import com.ninni.dye_depot.data.ModCompat;
 import com.ninni.dye_depot.registry.DDBlocks;
@@ -7,16 +9,15 @@ import com.ninni.dye_depot.registry.DDDyes;
 import com.ninni.dye_depot.registry.DDItems;
 import com.ninni.dye_depot.registry.DDTags;
 import com.ninni.dye_depot.registry.DyedHolders;
+import com.possible_triangle.multikulti.datagen.conditions.Conditional;
+import com.possible_triangle.multikulti.datagen.conditions.False;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.impl.resource.conditions.conditions.AnyModsLoadedResourceCondition;
-import net.fabricmc.fabric.impl.resource.conditions.conditions.NotResourceCondition;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -180,31 +181,31 @@ public class DDRecipes extends FabricRecipeProvider {
         // Supplementaries compat
         ModCompat.supplementariesHolders(itemLookup, "candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
+            withSupplementariesFlag(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value()), ModCompat.SUPPLEMENTARIES, "candle_holder")
                     .pattern("NCN")
                     .pattern(" N ")
                     .define('C', candle)
                     .define('N', Items.IRON_INGOT)
                     .group("candle_holder")
                     .unlockedBy("has_candle", has(candle))
-                    .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
+                    .save(output);
         });
 
         ModCompat.supplementariesSquaredHolders(itemLookup, "gold_candle_holder").forEach((dye, block) -> {
             var candle = DDBlocks.CANDLES.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
+            withSupplementariesFlag(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value()), ModCompat.SUPPLEMENTARIES_SQUARED, "candle_holder")
                     .pattern("C")
                     .pattern("N")
                     .define('C', candle)
                     .define('N', Items.GOLD_INGOT)
                     .group("gold_candle_holder")
                     .unlockedBy("has_candle", has(candle))
-                    .save(withConditions(output, ModCompat.supplementariesFlag("candle_holder")));
+                    .save(output);
         });
 
         ModCompat.supplementariesHolders(itemLookup, "flag").forEach((dye, block) -> {
             var wool = DDBlocks.WOOL.getOrThrow(dye);
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value())
+            withSupplementariesFlag(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.value()), ModCompat.SUPPLEMENTARIES, "flag")
                     .pattern("###")
                     .pattern("###")
                     .pattern("|  ")
@@ -212,7 +213,7 @@ public class DDRecipes extends FabricRecipeProvider {
                     .define('|', Items.STICK)
                     .group("flag")
                     .unlockedBy("has_wool", has(wool))
-                    .save(withConditions(output, ModCompat.supplementariesFlag("flag")));
+                    .save(output);
         });
     }
 
@@ -240,10 +241,10 @@ public class DDRecipes extends FabricRecipeProvider {
     }
 
     private void disable(RecipeOutput output, ResourceLocation id) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK)
+        Conditional.with(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEBUG_STICK), False.INSTANCE)
                 .requires(Items.DEBUG_STICK)
                 .unlockedBy("never", has(Items.DEBUG_STICK))
-                .save(withConditions(output, new NotResourceCondition(new AnyModsLoadedResourceCondition(List.of(DyeDepot.MOD_ID)))), id);
+                .save(output, id);
     }
 
     private void dyeing(RecipeOutput output, RecipeCategory category, DyedHolders<?, ? extends ItemLike> dyed) {
