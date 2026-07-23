@@ -1,4 +1,16 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "supplementaries:flag",
+      "flag": "flag"
+    },
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "supplementaries"
+      ]
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "group": "flag",
@@ -10,16 +22,6 @@
       "item": "minecraft:stick"
     }
   },
-  "neoforge:conditions": [
-    {
-      "type": "supplementaries:flag",
-      "flag": "flag"
-    },
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "supplementaries"
-    }
-  ],
   "pattern": [
     "###",
     "###",

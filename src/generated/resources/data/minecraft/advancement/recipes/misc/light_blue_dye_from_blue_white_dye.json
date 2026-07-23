@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:true"
+      }
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_the_recipe": {
@@ -18,11 +26,6 @@
       "trigger": "minecraft:inventory_changed"
     }
   },
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:false"
-    }
-  ],
   "requirements": [
     [
       "has_the_recipe",
