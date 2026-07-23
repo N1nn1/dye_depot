@@ -1,12 +1,11 @@
 package com.ninni.dye_depot.data;
 
+import com.google.gson.JsonObject;
 import com.ninni.dye_depot.registry.DyedHolders;
-import java.util.List;
+import com.possible_triangle.multikulti.datagen.conditions.Condition;
+import com.possible_triangle.multikulti.datagen.conditions.Conditional;
+import com.possible_triangle.multikulti.datagen.conditions.ModLoaded;
 import java.util.stream.Stream;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
-import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
-import net.fabricmc.fabric.impl.resource.conditions.conditions.AndResourceCondition;
-import net.mehvahdjukaar.moonlight.api.resources.recipe.platform.OptionalRecipeCondition;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
@@ -32,15 +31,30 @@ public class ModCompat {
         return DyedHolders.fromRegistry(registry, colors, color -> ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES_SQUARED, name + "_" + color));
     }
 
-    public static ResourceCondition supplementariesFlag(String flag) {
-        return new AndResourceCondition(List.of(
-                new AllModsLoadedResourceCondition(List.of(SUPPLEMENTARIES)),
-                new OptionalRecipeCondition(
-                        ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES, "flag"),
-                        $ -> true,
-                        flag
-                )
-        ));
+    public static <T> T withSupplementariesFlag(T value, String modId, String flag) {
+        return Conditional.with(value, supplementariesFlag(modId, flag));
+    }
+
+    public static Condition[] supplementariesFlag(String modId, String flag) {
+        return new Condition[]{
+                new ModLoaded(modId),
+                new SupplementariesFlag(flag)
+        };
+    }
+
+    private record SupplementariesFlag(String flag) implements Condition {
+        private static final ResourceLocation TYPE = ResourceLocation.fromNamespaceAndPath(SUPPLEMENTARIES, "flag");
+
+        @Override
+        public void toForge(JsonObject json) {
+            throw new RuntimeException("not implemented to forge");
+        }
+
+        @Override
+        public void toFabric(JsonObject json) {
+            json.addProperty("condition", TYPE.toString());
+            json.addProperty("flag", flag);
+        }
     }
 
 }

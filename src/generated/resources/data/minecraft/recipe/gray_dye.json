@@ -3,10 +3,7 @@
     {
       "condition": "fabric:not",
       "value": {
-        "condition": "fabric:any_mods_loaded",
-        "values": [
-          "dye_depot"
-        ]
+        "condition": "fabric:true"
       }
     }
   ],
