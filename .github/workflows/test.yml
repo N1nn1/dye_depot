@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
-#    <version>1.0.106</version>
-#    <timestamp>2026-06-30T08:06:50.418Z</timestamp>
-#    <hash>4876740be5b86801</hash>
+#    <version>1.0.107</version>
+#    <timestamp>2026-07-24T11:27:06.081Z</timestamp>
+#    <hash>116160f10049c807</hash>
 # </meta>
 
 name: Test
@@ -17,6 +17,11 @@ on:
     branches:
       - "main"
       - "main/**"
+    paths:
+      - "**.java"
+      - "**.kt"
+      - "gradle.properties"
+      - "gradle/**"
 
 env:
   CI: true
@@ -33,7 +38,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
